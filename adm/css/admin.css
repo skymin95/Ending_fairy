@@ -10,7 +10,7 @@ header {
 /* 로고 */
 header > h1 {
   width: 280px;
-  height: 180px;
+  height: 150px;
   display: flex;
   justify-content: center; align-items: center;
 }
@@ -53,7 +53,7 @@ header > ul > li .fa-bell .count {
 
 /* 좌측 nav 메뉴 */
 header > nav {
-  width: 280px; height: calc(100vh - 180px);
+  width: 280px; height: calc(100vh - 150px);
   padding-top: 100px;
   background-color: #38373C;
   border-radius: 0 80px 0 0;
