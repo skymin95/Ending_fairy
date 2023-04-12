@@ -35,7 +35,7 @@ if(!$num_match){
     exit;
   }else{
     session_start();
-    $_SESSION['mb_id'] = $row['id'];
+    $_SESSION['mb_id'] = $row['mb_id'];
     echo("
       <script>
         location.href='../../index.php';

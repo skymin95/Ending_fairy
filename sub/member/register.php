@@ -37,9 +37,9 @@ include_once('../../db/db_con.php');
           },
           success:function(data){
             if(data.check){
-              $('#id_check_msg').html('사용 가능한 아이디 입니다.').css('color','#00f').attr('data-check','1');
+              $('#id_check_msg').html('사용 가능한 아이디 입니다.').css('display','block').css('color','#0059de').attr('data-check','1');
             }else{
-              $('#id_check_msg').html('중복된 아이디 입니다.').css('color','#f00').attr('data-check','0');
+              $('#id_check_msg').html('중복된 아이디 입니다.').css('display','block').css('color','#DE0010').attr('data-check','0');
             }
           }
         });
@@ -93,11 +93,11 @@ include_once('../../db/db_con.php');
           return false;
         }
 
-        if(!$('#mb_sns').val()){
-          alert('메일 수신 여부를 선택하지 않았습니다.');
-          $('#mb_sns').focus();
-          return false;
-        }
+        // if(!$('#mb_sns').val()){
+        //   alert('메일 수신 여부를 선택하지 않았습니다.');
+        //   $('#mb_sns').focus();
+        //   return false;
+        // }
 
         // 위 입력양식을 검사를 통과하면 아래 폼내용 전송
         $('#member_form').submit();

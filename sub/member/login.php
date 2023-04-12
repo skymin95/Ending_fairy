@@ -30,7 +30,7 @@ include_once('../../db/db_con.php');
           <input type="text" name="id">
           <label>비밀번호</label>
           <input type="password" name="pw">
-          <span>
+          <span class="id_save">
             <input type="checkbox" id="log_save">
             <label for="log_save">아이디저장</label>
           </span>

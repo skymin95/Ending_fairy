@@ -40,13 +40,13 @@ body{
 }
 #id_check_msg{
   display: none;
-  font-size: 12px;
+  font-size: var(--f-size01);
   text-indent: 5px;
   color: var(--main-color);
   transform: translateY(-10px);
 }
 #member_form small{
-  font-size: 12px;
+  font-size: var(--f-size01);
   color: #8b8b8b;
 }
 .mail_check label{
