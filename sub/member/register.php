@@ -21,7 +21,7 @@ include_once('../../db/db_con.php');
     $(document).ready(function(){
       $('#mb_id').blur(function(){ // 아이디박스에 초점이 없어질 때 아래 내용실행
         if($(this).val()==''){
-          $('#id_check_msg').html('아이디를 입력해주세요.').css('display','block').attr('data-check','0');
+          $('#id_check_msg').html('아이디를 입력해주세요.').css('display','block').css('color','#DE0010').attr('data-check','0');
         }else{
           checkIdAjax();
         }
@@ -93,12 +93,6 @@ include_once('../../db/db_con.php');
           return false;
         }
 
-        // if(!$('#mb_sns').val()){
-        //   alert('메일 수신 여부를 선택하지 않았습니다.');
-        //   $('#mb_sns').focus();
-        //   return false;
-        // }
-
         // 위 입력양식을 검사를 통과하면 아래 폼내용 전송
         $('#member_form').submit();
 
@@ -147,7 +141,7 @@ include_once('../../db/db_con.php');
               <span>수신</span>
             </label>
             <label for="mail02">
-              <input type="radio" name="mb_sns" id="mail02" value="1" class="mail">
+              <input type="radio" name="mb_sns" id="mail02" value="1" class="mail" checked>
               <span>거부</span>
             </label>
           </div>
