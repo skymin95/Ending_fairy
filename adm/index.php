@@ -1,7 +1,7 @@
 <?php
 include_once('./common.php');
 ?>
-<main>
+<main class="home">
   
 </main>
 <?php
