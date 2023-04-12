@@ -28,7 +28,7 @@
       </i>
     </li>
     <li>
-      mb_id
+      <?=$_SESSION['mb_id']?>
     </li>
     <li>
       <!-- A or T -->
@@ -40,23 +40,23 @@
   </ul>
   <nav>
     <ul>
-      <li>
+      <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>index.php">HOME</a>
       </li>
-      <li>
-        <a href="<?=$base_admin_URL?>adm_academy_list.php" title="강의 관리"><img src="<?=$base_URL?>images/icon_academy.svg" alt="강의 관리"> 강의 관리</a>
+      <li <?=explode(" > ", $title)[0] == "강의 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_academy_list.php" title="강의 관리"><img src="<?=$base_URL?>images/icon_academy<?=explode(" > ", $title)[0] == "강의 관리" ? "_active" : ""?>.svg" alt="강의 관리"> 강의 관리</a>
       </li>
-      <li>
-        <a href="<?=$base_admin_URL?>adm_member_list.php" title="회원 관리"><img src="<?=$base_URL?>images/icon_member.svg" alt="회원 관리"> 회원 관리</a>
+      <li <?=explode(" > ", $title)[0] == "회원 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_member_list.php" title="회원 관리"><img src="<?=$base_URL?>images/icon_member<?=explode(" > ", $title)[0] == "회원 관리" ? "_active" : ""?>.svg" alt="회원 관리"> 회원 관리</a>
       </li>
       <li <?=explode(" > ", $title)[0] == "게시판 관리" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>adm_board_list.php" title="게시판 관리"><img src="<?=$base_URL?>images/icon_board<?=explode(" > ", $title)[0] == "게시판 관리" ? "_active" : ""?>.svg" alt="게시판 관리"> 게시판 관리</a>
       </li>
-      <li>
-        <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
+      <li <?=explode(" > ", $title)[0] == "1:1문의 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer<?=explode(" > ", $title)[0] == "1:1문의 관리" ? "_active" : ""?>.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
       </li>
-      <li>
-        <a href="<?=$base_admin_URL?>adm_coupon_list.php" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
+      <li <?=explode(" > ", $title)[0] == "쿠폰 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_coupon_list.php" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
       </li>
     </ul>
   </nav>
