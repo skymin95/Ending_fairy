@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_admin_URL?>css/admin.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
   <?php
+    if(basename($_SERVER['PHP_SELF']) == 'index.php'){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/main.css' type='text/css'>";
+      echo "<script src='./script/main.js' defer></script>";
+    }
     if($title == "게시판 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
       echo "<script src='./script/board.js' defer></script>";
