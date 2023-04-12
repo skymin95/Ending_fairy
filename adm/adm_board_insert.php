@@ -1,4 +1,5 @@
 <?php
+$title = "게시판 관리 > 관리자 글쓰기"; // 타이틀
 include_once('./common.php');
 ?>
 <main class="board_insert">

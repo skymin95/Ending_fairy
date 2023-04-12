@@ -2,7 +2,7 @@
 .board_h{
   display: flex;
   justify-content: space-between;
-  width: 1347px;
+  width: 100%;
   margin: 0px auto 80.5px auto;
 }
 .board_insert h2{
@@ -23,7 +23,7 @@ background-color: #fff;
 /* 내용 */
 .board_wrap dl{
   margin: 0px auto;
-  width: 1347px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -41,13 +41,13 @@ background-color: #fff;
   padding-left: 30px;
 }
 .board_wrap dd{
-  width: 77%;
+  width: 80%;
   background: #fff;
   border-top: 1px solid #D1D1D1;
   text-indent: 30px;
 }
 .board_wrap dd:nth-of-type(3){
-  width: 75%;
+  width: 80%;
   background: #fff;
   border-top: 1px solid #D1D1D1;
   text-indent: 30px;
@@ -81,7 +81,7 @@ textarea {
 
 /* 삭제-board_b*/
 .board_b{
-  width: 1347px;
+  width: 100%;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
