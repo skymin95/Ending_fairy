@@ -1,0 +1,87 @@
+@charset "utf-8";
+body{
+  background: var(--sub-color01);
+}
+.member h1{
+  margin: 100px 0;
+  text-align: center;
+}
+.register{
+  width: 100%;
+  padding: 100px 0;
+  background: var(--bg-color01);
+  border-radius: 100px 0 0 0 ;
+  text-align: center;
+}
+.register h2{
+  font-size: var(--f-size04);
+  margin-bottom: 50px;
+  font-weight: normal;
+}
+#member_form{
+  width: 300px;
+  margin: 0 auto;
+  text-align: left;
+}
+#member_form label{
+  display: inline-block;
+  width: 300px;
+}
+#member_form input:not(.mail){
+  width: 300px;
+  height: 45px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid var(--bg-color03);
+}
+#member_form input:focus{
+  outline: none;
+  border-bottom: 1px solid var(--main-color);
+}
+#id_check_msg{
+  display: inline-block;
+  font-size: 12px;
+  text-indent: 5px;
+  color: var(--main-color);
+  transform: translateY(-15px);
+}
+#member_form small{
+  font-size: 12px;
+  color: #8b8b8b;
+}
+.mail_check label{
+  display: inline !important;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.mail_check span{
+  font-size: 14px;
+}
+#member_form input[type="radio"]{
+  margin: 10px 0;
+  vertical-align: middle;
+  appearance: none;
+  background: #eee;
+  border: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+#member_form input[type="radio"]:checked{
+  background: var(--bg-color01);
+  border: 4px solid var(--main-color);
+}
+.m_btn{
+  width: 300px;
+  height: 50px;
+  margin: 10px 0;
+  border-radius: 50px;
+  border: none;
+  background: #D1D1D1;
+  color: var(--bg-color01);
+  cursor: pointer;
+}
+#save_frm{
+  margin-top: 50px;
+  background: var(--main-color);
+}

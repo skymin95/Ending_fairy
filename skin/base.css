@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 :root{
-  --main-color: #ED1C24; /*한미레드*/
-  --ppt-color: #AD1515; /*ppt레드*/
+  --main-color: #DE0010; /*캐논레드*/
+  --sub-color01: #38373C; /*차콜*/
 
   --f-color01: #fff;
   --f-color02: #000;
