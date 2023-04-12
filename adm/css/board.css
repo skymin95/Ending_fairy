@@ -1,18 +1,67 @@
 /* 탭 기본*/
+.tab_menu ul{
+  margin-bottom: 50px;
+}
 .tab_menu ul li {
   display: inline-block;
   margin-right: 10px;
+  font-size: 24px;
+}
+.tab_menu ul li:last-of-type{
+  width: 68%;
+  /* border: 1px solid #000; */
+}
+.board_wp {
+  display: inline-block;
+  width: 130px;
+  height: 35px;
+  border-radius: 35px;
+  border: 2px solid #5A5A5C;
+  background-color: #fff;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 .tab_menu ul li.active a {
   font-weight: bold;
   color: #DE0010;
 }
+
 .tab_content {
   display: none;
 }
 .tab_content.active {
   display: block;
 }
-/*텝 서식 */
+/*텝 테이블 */
+table{
+  width: 1200px;
+  /* border: 1px solid #000; */
+}
+table th{
+  font-size: 18px;
+  line-height: 60px;
+  border-bottom: 1px solid #000;
+}
+table th::after{
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 14px;
+  margin-top: 5px;
+  margin-left: 11px;
+  background-color: #000
+}
+
+table th:last-child{
+  border-right: none;
+}
+table td{
+  height: 76px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px  solid #000;
+  line-height: 76px;
+}
 
