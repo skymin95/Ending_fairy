@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+:root{
+  --main-color: #ED1C24; /*한미레드*/
+  --ppt-color: #AD1515; /*ppt레드*/
+
+  --f-color01: #fff;
+  --f-color02: #000;
+  --f-color03: #333;
+
+  --f-size01: 0.75rem; /*12px*/
+  --f-size02: 1rem; /*16px*/
+  --f-size03: 1.5rem; /*24px*/
+  --f-size04: 2rem; /*32px*/
+  --f-size05: 3rem; /*48px*/
+  --f-size06: 4rem; /*64px*/
+
+  --bg-color01: #fff;
+  --bg-color02: #000;
+  --bg-color03: #333;
+}
