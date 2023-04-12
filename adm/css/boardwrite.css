@@ -12,12 +12,18 @@ font-weight: bold;
 display: inline-block;
 border-bottom:4px solid #DE0010;
 }
-.board_h button{
+.board_h li a {
 width: 154px;
 height: 35px;
 border-radius: 35px;
 border: 2px solid #5A5A5C;
 background-color: #fff;
+}
+.board_h a {
+display: block;
+width: 100%;
+text-align: center;
+line-height: 30px;
 }
 
 /* 내용 */

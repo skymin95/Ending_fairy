@@ -5,7 +5,7 @@ include_once('./common.php');
 <main class="board_insert">
     <ul class="board_h">
       <li><h2>공지사항</h2></li>
-      <li><button>목록으로 이동</button></li>
+      <li><a href="adm_board_list.php">목록으로 이동</a></li>
     </ul>
 
     <form name="write" method="post" action="noticewrite2.php">
