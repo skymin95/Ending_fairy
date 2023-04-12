@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="<?=$base_URL?>skin/reset.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_admin_URL?>css/admin.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <?php
+    if($title == "게시판 관리"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
+      echo "<script src='./script/board.js' defer></script>";
+    }
     if($title == "게시판 관리 > 관리자 글쓰기"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
     }

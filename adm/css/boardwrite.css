@@ -7,7 +7,7 @@
 }
 .board_insert h2{
 color: #DE0010;
-font-size: 36px;
+font-size: 24px;
 font-weight: bold;
 display: inline-block;
 border-bottom:4px solid #DE0010;
@@ -86,10 +86,10 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
-.board_b > li {
+/* .board_b > li {
   width: 136px;
   height: 30px;
-}
+} */
 .board_b > li > a{
   width: 107px; height: 30px;
   font-size: 16px;
