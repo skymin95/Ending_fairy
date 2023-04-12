@@ -1,0 +1,18 @@
+/* 탭 기본*/
+.tab_menu ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.tab_menu ul li.active a {
+  font-weight: bold;
+  color: #DE0010;
+}
+.tab_content {
+  display: none;
+}
+.tab_content.active {
+  display: block;
+}
+/*텝 서식 */
+

@@ -1,0 +1,117 @@
+/* 공지사항 타이틀 */
+.board_h{
+  display: flex;
+  justify-content: space-between;
+  width: 1347px;
+  margin: 0px auto 80.5px auto;
+}
+.board_insert h2{
+color: #DE0010;
+font-size: 36px;
+font-weight: bold;
+display: inline-block;
+border-bottom:4px solid #DE0010;
+}
+.board_h button{
+width: 154px;
+height: 35px;
+border-radius: 35px;
+border: 2px solid #5A5A5C;
+background-color: #fff;
+}
+
+/* 내용 */
+.board_wrap dl{
+  margin: 0px auto;
+  width: 1347px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.board_wrap dt{
+  width: 20%;
+  background: #EBEBEB;
+  border-top: 1px solid #D1D1D1;
+  text-align: center;
+  line-height: 70px;
+  font-weight: bold;
+}
+.asd{
+  display: flex;
+  border: none;
+  padding-left: 30px;
+}
+.board_wrap dd{
+  width: 77%;
+  background: #fff;
+  border-top: 1px solid #D1D1D1;
+  text-indent: 30px;
+}
+.board_wrap dd:nth-of-type(3){
+  width: 75%;
+  background: #fff;
+  border-top: 1px solid #D1D1D1;
+  text-indent: 30px;
+}
+
+input[type=text]{
+  width: 400px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+.board_file{
+  width: 154px;
+  height: 35px;
+  border: 1px solid #9F9F9F;
+  border-radius: 35px;
+  background-color: #9F9F9F;
+  color: #fff;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+textarea {
+  display: block;
+  word-wrap: break-word;
+  width: 100%;
+  height: 320px;
+  resize: none;
+  text-align: left;
+}
+
+/* 삭제-board_b*/
+.board_b{
+  width: 1347px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.board_b > li {
+  width: 136px;
+  height: 30px;
+}
+.board_b > li > a{
+  width: 107px; height: 30px;
+  font-size: 16px;
+  text-align: center;
+  font-weight:500;
+  background: #5A5A5C;
+  border-radius: 35px;
+  color: #fff;
+  display: block;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.board_b input[type=submit]{
+  width:107px;height:30px;
+  background:#DE0010;
+  border-radius: 35px;
+  color:#fff;
+  border:none;
+  font-size:16px;
+  font-weight:500;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+}
