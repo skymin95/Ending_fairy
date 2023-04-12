@@ -21,7 +21,7 @@ include_once('../../db/db_con.php');
     $(document).ready(function(){
       $('#mb_id').blur(function(){ // 아이디박스에 초점이 없어질 때 아래 내용실행
         if($(this).val()==''){
-          $('#id_check_msg').html('아이디를 입력해주세요.').attr('data-check','0');
+          $('#id_check_msg').html('아이디를 입력해주세요.').css('display','block').attr('data-check','0');
         }else{
           checkIdAjax();
         }

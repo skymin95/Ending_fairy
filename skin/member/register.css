@@ -39,11 +39,11 @@ body{
   border-bottom: 1px solid var(--main-color);
 }
 #id_check_msg{
-  display: inline-block;
+  display: none;
   font-size: 12px;
   text-indent: 5px;
   color: var(--main-color);
-  transform: translateY(-15px);
+  transform: translateY(-10px);
 }
 #member_form small{
   font-size: 12px;
