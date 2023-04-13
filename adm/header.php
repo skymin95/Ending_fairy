@@ -16,11 +16,25 @@
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/main.css' type='text/css'>";
       echo "<script src='./script/main.js' defer></script>";
     }
+    if($title == "회원 관리"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
+      echo "<script src='./script/board.js' defer></script>";
+    }
+    if($title == "회원 관리 > 회원 수정"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+    }
     if($title == "게시판 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
       echo "<script src='./script/board.js' defer></script>";
     }
     if($title == "게시판 관리 > 관리자 글쓰기"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+    }
+    if($title == "1:1문의 관리"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
+      echo "<script src='./script/board.js' defer></script>";
+    }
+    if($title == "1:1문의 관리 > 1:1문의 답변"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
     }
   ?>
