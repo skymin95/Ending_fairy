@@ -8,5 +8,6 @@ $base_admin_URL = $base_URL.'adm/';  // href, src 등등 경로 전용 (admin)
 empty($title)&&($title = "관리자 페이지"); // 타이틀 없는경우 임시 할당
 
 //$_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/' : include시 사용할 path (admin)
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/db/db_con.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/adm/header.php');
 ?>

@@ -1,38 +1,48 @@
 @charset "utf-8";
 
+:root {
+  --side-width: 280px;
+  --side-height: 150px;
+}
+
 /* 메인 위치잡아주기용 공통서식 */
 main {
   position: relative;
-  left:440px;top:150px;
+  left:calc(var(--side-width) + 100px);top:var(--side-height);
   width: 1440px;
 }
 main:not(.home) {
-  left:440px;
+  left:calc(var(--side-width) + 160px);
   width: 1200px;
 }
-
 header {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   position: fixed;
   left: 0; top: 0;
   width: 100%;
 }
+
 /* 로고 */
 header > h1 {
-  width: 280px;
-  height: 150px;
+  width: var(--side-width);
+  height: var(--side-height);
   display: flex;
   justify-content: center; align-items: center;
 }
 
 /* 우상단 메뉴 */
 header > ul {
-  width: calc(100% - 280px);
+  width: calc(100% - var(--side-width)); height: var(--side-height);
   display: flex;
   justify-content: right; align-items: center;
   padding-right: 60px;
   gap: 16px;
+  background-color: #fff;;
+  position: fixed;
+  top:0; right: 0;
+  z-index: 1;
 }
 header > ul > li, header > ul > li > a {
   color: #5B5B5B;
@@ -64,7 +74,7 @@ header > ul > li .fa-bell .count {
 
 /* 좌측 nav 메뉴 */
 header > nav {
-  width: 280px; height: calc(100vh - 150px);
+  width: var(--side-width); height: calc(100vh - var(--side-height));
   padding-top: 100px;
   background-color: #38373C;
   border-radius: 0 80px 0 0;
