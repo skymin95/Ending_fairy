@@ -1,6 +1,7 @@
 <?php
 $title = "회원 관리"; // 타이틀
 include_once('./common.php');
+$mb_id = $_SESSION['mb_id']; // 회원명
 ?>
 <main>
 <div class="tab_menu">
@@ -22,31 +23,28 @@ include_once('./common.php');
             <th>전화번호</th>
             <th>관리</th>
           </tr>
-        <?php
-          $query = 'select * from member order by mb_id desc'; //가장 최근 회원을 위로 올라오게 조회하여 데이터에 저장
-          $result = mysqli_query($con, $query);
-          while($data = mysqli_fetch_array($result)){
-            $sql_member = "SELECT mb_no, mb_name, mb_id, mb_email, mb_level, mb_tel FROM member WHERE mb_no = '".$data['mb_no']."'";
-            $result_member = mysqli_query($con, $sql_member);
-            $row_member = mysqli_fetch_array($result_member);
+          <?php
+            $query = 'select * from member order by mb_id desc'; //가장 최신 회원을 위로 올라오게 조회하여 데이터에 저장
+            $result = mysqli_query($con, $query);
+            while($data = mysqli_fetch_array($result)){
           ?>
-        <tr>
-        <td><?=$data['mb_no']?></td>
-        <td><?=$data['mb_name']?></td>
-        <td><?=$data['mb_id']?></td>
-        <td><?=$data['mb_email']?></td>
-        <td><?=$data['mb_level']?></td>
-        <td><?=$data['mb_tel']?></td>
-        <td>
-          <button class="edit_btn"><a href="" title="수정">수정</a></button>
-          <button class="del_btn"><a href="" title="삭제">삭제</a></button>
-        </td>
-      </tr>
-        <?php } ?>
-      </table>
+          <tr>
+            <td><?=$data['mb_no']?></td>
+            <td><?=$data['mb_name']?></td>
+            <td><?=$data['mb_id']?></td>
+            <td><?=$data['mb_email']?></td>
+            <td><?=$data['mb_level']?></td>
+            <td><?=$data['mb_tel']?></td>
+            <td>
+              <button class="edit_btn"><a href="" title="수정">수정</a></button>
+              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+            </td>
+          </tr>
+          <?php } ?>
+        </table>
 
-      <!-- 검색 -->
-      <div class="s_wrap">
+        <!-- 검색 -->
+        <div class="s_wrap">
           <label for="b_search">검색옵션</label>
           <select name="b_search" id="b_search">
             <option vlaue="검색옵션">검색옵션</option>

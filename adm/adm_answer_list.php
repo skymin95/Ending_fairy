@@ -1,6 +1,7 @@
 <?php
 $title = "1:1문의 관리"; // 타이틀
 include_once('./common.php');
+$mb_id = $_SESSION['mb_id']; // 회원명
 ?>
 <main>
 <div class="tab_menu">
@@ -21,30 +22,34 @@ include_once('./common.php');
             <th>상태</th>
             <th>관리</th>
           </tr>
-        <?php
-          $query = 'select * from board_question order by question_id desc'; //가장 최근 질문을 위로 올라오게 조회하여 데이터에 저장
-          $result = mysqli_query($con, $query);
-          while($data = mysqli_fetch_array($result)){
-            $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
-            $result_member = mysqli_query($con, $sql_member);
-            $row_member = mysqli_fetch_array($result_member);
-          ?>
-        <tr>
-        <td><?=$data['question_id']?></td>
-        <td><?=$data['question_title']?></td>
-        <td><?=$row_member['mb_id']?></td>
-        <td><?=$data['question_wdate']?></td>
-        <td><?=$data['']?></td>
-        <td>
-          <button class="edit_btn"><a href="" title="수정">수정</a></button>
-          <button class="del_btn"><a href="" title="삭제">삭제</a></button>
-        </td>
-      </tr>
-        <?php } ?>
-      </table>
+          <?php
+            $query = 'select * from board_question order by question_id desc'; //가장 최근 질문을 위로 올라오게 조회하여 데이터에 저장
+            $result = mysqli_query($con, $query);
+            while($data = mysqli_fetch_array($result)){
+              $sql_member = "SELECT mb_no, mb_name FROM member WHERE mb_no = '".$data['mb_no']."'";
+              $result_member = mysqli_query($con, $sql_member);
+              $row_member = mysqli_fetch_array($result_member);
 
-      <!-- 검색 -->
-      <div class="s_wrap">
+              $sql_faq = "SELECT faq_parent_id FROM board_faq = '".$data['faq_parent_id']."'";
+              $result_faq = mysqli_query($con, $sql_faq);
+              $row_faq = mysqli_fetch_array($result_faq);
+          ?>
+          <tr>
+            <td><?=$data['question_id']?></td>
+            <td><?=$data['question_title']?></td>
+            <td><?=$row_faq['faq_parent_id']?></td>
+            <td><?=$data['question_wdate']?></td>
+            <td><?=$data['']?></td>
+            <td>
+              <button class="answer_btn"><a href="" title="답변">답변</a></button>
+              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+            </td>
+          </tr>
+          <?php } ?>
+        </table>
+
+        <!-- 검색 -->
+        <div class="s_wrap">
           <label for="b_search">검색옵션</label>
           <select name="b_search" id="b_search">
             <option vlaue="검색옵션">검색옵션</option>
