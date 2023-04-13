@@ -98,4 +98,13 @@ function calendarInit() {
       thisMonth = new Date(currentYear, currentMonth + 1, 1);
       renderCalender(thisMonth); 
   });
+
+  
+  //선택한 달로 이동
+  $('.year-month a').each(function(value){
+    $(this).click(function(){
+      thisMonth = new Date(currentYear, $(this).text()-1, 1);
+      renderCalender(thisMonth); 
+    });
+  });
 }
