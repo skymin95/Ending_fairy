@@ -25,17 +25,18 @@
   background-color: #DE0010;
   color: #fff;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 35px;
 }
 
 .tab_menu > ul li.active a {
-  font-weight: bold;
   color: #DE0010;
+  transition: .3s;
 }
 
 .tab_menu > ul li.active::after{
   background: #DE0010;
+  transition: .3s;
 }
 
 .tab_content {
@@ -103,6 +104,11 @@ table button a{
 }
 .del_btn{background: #5A5A5C;}
 .del_btn a{color: #fff;}
+
+/* 검색 */
+.b_search label{
+  display: none;
+}
 
 /* 페이지내이션 */
 .pagination{
