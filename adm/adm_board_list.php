@@ -33,7 +33,7 @@ $result = mysqli_query($con, $query);
   ?>
         <tr>
         <td><?=$data['notice_id']?></td>
-        <td><a href="adm_board_view.php"><?=$data['notice_title']?></a></td>
+        <td><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>"><?=$data['notice_title']?></a></td>
         <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
         <td><?=substr($data['mb_no'],0,10)?></td>
         <td></td>

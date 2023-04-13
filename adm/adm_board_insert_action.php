@@ -24,31 +24,27 @@ include_once('./common.php');
 
   $regdate = date("Y-m-d H:i:s");
 
-  $ip = $_SERVER['REMOTE_ADDR'];
+  $id = (empty($_POST['id']) ? '' : $_POST['id']);
 
   if($id != ''){
-      $query = "SELECT * FROM board_notice WHERE id = '$id'";
-      $result = mysqli_query($con,$query);
-      $data = mysqli_fetch_assoc($result);
-
+    
+    
+        $query = "UPDATE board_notice SET notice_title = '$notice_title', notice_content = '$notice_content', fileID = '$fileID' WHERE notice_id = '$id'";
+        $result = mysqli_query($con,$query);
       
-      if(!$data['id']){
-        echo "<script>alert('비밀번호가 달라 수정 할 수 없습니다. 다시 확인하세요.');</script>";
-        echo "<script>history.back();</script>"; 
-      } 
         echo "
         <script>
-          alert('작성이 완료되었습니다.');
-          location.replace('noticelist.php');
+          alert('입력이 완료되었습니다.');
+          location.replace('adm_board_list.php');
         </script>";
       
     }else {
-      $query = "INSERT INTO board_notice(notice_id, notice_title, notice_content, notice_wdate, mb_no, fileID) VALUES(0, '$notice_title', '$notice_content', sysdate(),'$mb_no',$fileID)";
+      $query = "INSERT INTO board_notice(notice_id, notice_title, notice_content, notice_wdate, mb_no, fileID) VALUES(0, '$notice_title', '$notice_content', sysdate(),'$mb_no','$fileID')";
       mysqli_query($con, $query);
   
       echo "
       <script>
-        alert('입력이 완료되었습니다.');
+        alert('작성이 완료되었습니다.');
         location.replace('adm_board_list.php');
       </script>";
     }

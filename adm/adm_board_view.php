@@ -29,7 +29,7 @@ $row_member = mysqli_fetch_array($result_member);
     </ul>
 
     <form name="write" method="post" action="adm_board_insert_action.php">
-      <!-- <input type="hidden" name="id" value="<?=$id?>"> -->
+      <input type="hidden" name="id" value="<?=$id?>">
     
       <div class="board_wrap">
         <dl>
@@ -41,7 +41,7 @@ $row_member = mysqli_fetch_array($result_member);
             <?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?>  required disabled></dd>
 
             <dt>파일선택</dt>
-            <dd class="asd"><input type="text" name="subject">
+            <dd class="asd"><input type="text" name="fileID">
               <button class="board_file">파일추가</button>
             </dd>
 
@@ -51,7 +51,7 @@ $row_member = mysqli_fetch_array($result_member);
 
           <!-- 삭제/완료 -->
           <ul class="board_b">
-            <li><a href="noticelist.php">삭제</a></li>
+            <li><a href="adm_board_list.php">삭제</a></li>
             <li class="nw_success"><input type="submit" value="완료"></li>
           </ul>
       </div>
