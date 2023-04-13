@@ -72,7 +72,6 @@ table th::after{
 }
 table th:first-child::after{width: 0;}
 table td{
-  /* width: 120px; */
   position: relative;
   text-align: center;
   vertical-align: middle;
@@ -89,14 +88,6 @@ table td::after{
   background-color: #D1D1D1;
 }
 table td:first-child::after{width: 0;}
-/* table td:nth-child(2){
-  width: 800px;
-  text-align: left;
-  text-indent: 50px;
-} */
-table td:last-child{
-  width: 250px;
-}
 table button{
   width: 96px;
   height: 25px;
@@ -112,6 +103,10 @@ table button a{
 }
 .del_btn{background: #5A5A5C;}
 .del_btn a{color: #fff;}
+.board td:nth-child(2){
+  text-align: left;
+  text-indent: 30px;
+}
 
 /* 검색 */
 .s_wrap{
@@ -132,10 +127,6 @@ table button a{
   border: 1px solid #939292;
   color: #333;
 }
-.s_wrap select:focus{
-  border: none;
-  outline: 1px solid #DE0010;
-}
 .s_wrap input{
   width: 410px;
   height: 40px;
@@ -144,8 +135,7 @@ table button a{
   text-indent: 10px;
 }
 .s_wrap input:focus{
-  border: none;
-  outline: 1px solid #DE0010;
+  outline: none;
 }
 .s_wrap .s_btn{
   position: absolute;
