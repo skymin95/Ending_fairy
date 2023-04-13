@@ -106,11 +106,29 @@ table button a{
 .del_btn a{color: #fff;}
 
 /* 검색 */
+.s_wrap{
+  position: relative;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 .s_wrap label{
   display: none;
 }
+.s_wrap select{
+  width: 160px;
+  height: 40px;
+  text-indent: 10px;
+  border-radius: 40px;
+  border: 1px solid #939292;
+  color: #333;
+}
+.s_wrap select:focus{
+  border: none;
+  outline: 1px solid #DE0010;
+}
 .s_wrap input{
-  position: relative;
   width: 410px;
   height: 40px;
   border-radius: 40px;
@@ -118,12 +136,17 @@ table button a{
   text-indent: 10px;
 }
 .s_wrap input:focus{
+  border: none;
   outline: 1px solid #DE0010;
 }
-.s_wrap .fa-magnifying-glass{
+.s_wrap .s_btn{
   position: absolute;
-  top: 0;
-  right: 10px;
+  top: 12px;
+  right: 320px;
+  color: #DE0010;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* 페이지내이션 */
@@ -131,9 +154,6 @@ table button a{
   display: flex;
   justify-content: center;
   gap: 30px;
-}
-.pagination ul{
-  margin: 50px 0;
 }
 .pagination a{
   text-align: center;

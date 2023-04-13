@@ -70,6 +70,19 @@ include_once('./common.php');
             </td>
           </tr>
         </table>
+        <!-- 검색 -->
+        <div class="s_wrap">
+          <label for="b_search">검색옵션</label>
+          <select name="b_search" id="b_search">
+            <option vlaue="검색옵션">검색옵션</option>
+            <option vlaue="제목">제목</option>
+            <option vlaue="내용">내용</option>
+            <option vlaue="글쓴이">글쓴이</option>
+          </select>
+          <input type="text" placeholder="SEARCH">
+          <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <!-- 페이지내이션 -->
         <div class="pagination">
           <ul class="pagination">
             <a class="prev" href="?page=1" title="prev"><i class="fa-solid fa-chevron-left"></i></a>
@@ -81,19 +94,9 @@ include_once('./common.php');
             <a class="next" href="?page=2" title="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
         </div>
-        <div class="s_wrap">
-          <label for="b_search">검색옵션</label>
-          <select name="b_search" id="b_search">
-            <option vlaue="검색옵션">검색옵션</option>
-            <option vlaue="제목">제목</option>
-            <option vlaue="내용">내용</option>
-            <option vlaue="글쓴이">글쓴이</option>
-          </select>
-          <input type="text" placeholder="SEARCH">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
       </form>
     </div>
+
     <div id="tab2" class="tab_content">
       탭 2 
     </div>
