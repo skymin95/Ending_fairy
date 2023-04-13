@@ -68,15 +68,15 @@ function calendarInit() {
       
       // 지난달
       for (let i = prevDate - prevDay; i <= prevDate; i++) {
-          calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
+          calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable" data-date="' + (currentYear + '-' + ((currentMonth-1) < 10 ? '0'+currentMonth : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
       }
       // 이번달
       for (let i = 1; i <= nextDate; i++) {
-          calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
+          calendar.innerHTML = calendar.innerHTML + '<div class="day current" data-date="' + (currentYear + '-' + (currentMonth < 10 ? '0'+currentMonth : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
       }
       // 다음달
       for (let i = 1; i <= (7 - nextDay == 6 ? 0 : 6 - nextDay); i++) {
-          calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
+          calendar.innerHTML = calendar.innerHTML + '<div class="day next disable" data-date="' + (currentYear + '-' + ((currentMonth+1) < 10 ? '0'+currentMonth : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
       }
 
       // 오늘 날짜 표기
@@ -85,26 +85,39 @@ function calendarInit() {
           let currentMonthDate = document.querySelectorAll('.dates .current');
           currentMonthDate[todayDate -1].classList.add('today');
       }
-  }
 
-  // 이전달로 이동
-  $('.go-prev').on('click', function() {
+      let nowCalendarMonth = currentYear + '-' + ((currentMonth+1) < 10 ? '0'+(currentMonth+1) : (currentMonth+1));
+
+      requestAcademy(nowCalendarMonth);
+    }
+    
+    // 이전달로 이동
+    $('.go-prev').on('click', function() {
       thisMonth = new Date(currentYear, currentMonth - 1, 1);
       renderCalender(thisMonth);
-  });
-
-  // 다음달로 이동
-  $('.go-next').on('click', function() {
+    });
+    
+    // 다음달로 이동
+    $('.go-next').on('click', function() {
       thisMonth = new Date(currentYear, currentMonth + 1, 1);
       renderCalender(thisMonth); 
-  });
-
-  
-  //선택한 달로 이동
-  $('.year-month a').each(function(value){
-    $(this).click(function(){
+    });
+    
+    
+    //선택한 달로 이동
+    $('.year-month a').each(function(){
+      $(this).click(function(){
       thisMonth = new Date(currentYear, $(this).text()-1, 1);
       renderCalender(thisMonth); 
     });
   });
+  function requestAcademy(nowCalendarMonth){
+    let request = new XMLHttpRequest();
+    let url = './adm_calendar_data.php?nowCalendarMonth='+nowCalendarMonth;
+
+    request.open('GET', url, true);
+    request.onload = () => {
+      console.log(request.responseText);
+    };
+  }
 }
