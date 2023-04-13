@@ -41,7 +41,7 @@ $row_member = mysqli_fetch_array($result_member);
             <?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?>  required disabled></dd>
 
             <dt>파일선택</dt>
-            <dd class="asd"><input type="text" name="subject">
+            <dd class="asd"><input type="text" name="fileID">
               <button class="board_file">파일추가</button>
             </dd>
 
