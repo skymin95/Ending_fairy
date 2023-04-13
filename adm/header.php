@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?=$title?></title>
   <link rel="stylesheet" href="<?=$base_URL?>skin/reset.css" type="text/css">
+  <link rel="stylesheet" href="<?=$base_URL?>skin/base.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_admin_URL?>css/admin.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
