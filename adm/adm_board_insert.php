@@ -50,7 +50,7 @@ $row_member = mysqli_fetch_array($result_member);
 
       <!-- 삭제/완료 -->
       <ul class="board_b">
-        <li><a href="noticelist.php">삭제</a></li>
+        <li><a href="adm_board_del.php?notice_id=<?=$id?>" title="삭제">삭제</a></li>
         <li class="nw_success"><input type="submit" value="완료"></li>
       </ul>
     </div>

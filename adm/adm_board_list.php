@@ -70,7 +70,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['notice_wdate']?></td>
             <td>
               <button class="edit_btn"><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?notice_id=<?=$data['notice_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -168,12 +168,11 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           ?>
           <tr>
             <td><?=++$number?></td>
-            <td><?=$data['event_id']?></td>
             <td><a href="adm_board_view.php?event_id=<?=$data['event_id']?>"><?=$data['event_title']?></a></td>
             <td><?=$data['event_sdate']?> ~ <?=$data['event_edate']?></td>
             <td>
               <button class="edit_btn"><a href="adm_board_view.php?event_id=<?=$data['event_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?event_id=<?=$data['event_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -281,7 +280,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['community_wdate']?></td>
             <td>
               <button class="edit_btn"><a href="adm_board_view.php?community_id=<?=$data['community_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?community_id=<?=$data['community_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
