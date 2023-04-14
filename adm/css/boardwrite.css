@@ -13,12 +13,13 @@
   width: 100%;
   height: 5px;
   background: #EBEBEB;
-  bottom: -4px;
+  bottom: 2px;
   z-index: -1;
+  border-radius: 0 5px 5px 0;
 }
 .board_insert h2{
   color: #DE0010;
-  font-size: 24px;
+  font-size: 18px;
   text-indent: 22px;
 }
 .board_h li{
@@ -31,6 +32,7 @@
   height: 5px;
   background: #DE0010;
   transform: translateY(10px);
+  border-radius: 5px 0 0 5px;
 }
 .board_h li a {
   height: 35px;

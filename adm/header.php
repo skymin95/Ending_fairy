@@ -16,6 +16,13 @@
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/main.css' type='text/css'>";
       echo "<script src='./script/main.js' defer></script>";
     }
+    if($title == "강의 관리"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
+      echo "<script src='./script/board.js' defer></script>";
+    }
+    if($title == "강의 관리 > 강의 작성"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+    }
     if($title == "회원 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
       echo "<script src='./script/board.js' defer></script>";
