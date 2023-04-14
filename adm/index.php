@@ -2,6 +2,7 @@
 include_once('./common.php');
 ?>
 <main class="home">
+  <input type="checkbox" id="calenderChk" checked>
   <article class="calender">
     <h3>강의 스케줄 관리</h3>
     <ul class="cal_nav">

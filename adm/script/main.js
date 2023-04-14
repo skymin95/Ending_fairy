@@ -1,5 +1,7 @@
+let calLoadVal = '';
 $(document).ready(function() {
   calendarInit();
+  calLoadVal = '-'+($('.today').position().top-70)+'px'; // 캘린더 오늘날짜 위치 초기값 변경
 });
 /*
   달력 렌더링 할 때 필요한 정보 목록 
@@ -72,11 +74,11 @@ function calendarInit() {
       }
       // 이번달
       for (let i = 1; i <= nextDate; i++) {
-          calendar.innerHTML = calendar.innerHTML + '<div class="day current" data-date="' + (currentYear + '-' + (currentMonth < 10 ? '0'+currentMonth : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
+          calendar.innerHTML = calendar.innerHTML + '<div class="day current" data-date="' + (currentYear + '-' + (currentMonth+1 < 10 ? '0'+(currentMonth+1) : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
       }
       // 다음달
       for (let i = 1; i <= (7 - nextDay == 6 ? 0 : 6 - nextDay); i++) {
-          calendar.innerHTML = calendar.innerHTML + '<div class="day next disable" data-date="' + (currentYear + '-' + ((currentMonth+1) < 10 ? '0'+currentMonth : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
+          calendar.innerHTML = calendar.innerHTML + '<div class="day next disable" data-date="' + (currentYear + '-' + ((currentMonth+2) < 10 ? '0'+(currentMonth+2) : currentMonth) + '-' + (i < 10 ? '0'+i : i)) + '">' + i + '</div>'
       }
 
       // 오늘 날짜 표기
@@ -89,6 +91,20 @@ function calendarInit() {
       let nowCalendarMonth = currentYear + '-' + ((currentMonth+1) < 10 ? '0'+(currentMonth+1) : (currentMonth+1));
 
       requestAcademy(nowCalendarMonth);
+
+      //캘린더 크기 변경시 날짜들 위치 변경
+      $(window).on('load', calenderChkChange);
+      $('#calenderChk').on('change', calenderChkChange);
+
+    }
+    
+    //캘린더 크기 변경시 날짜들 위치 변경 함수
+    function calenderChkChange() {
+      if($('#calenderChk').is(':checked')) {
+        $('.dates').css('margin-top', calLoadVal);
+      } else {
+        $('.dates').css('margin-top', '0');
+      }
     }
     
     // 이전달로 이동
@@ -111,13 +127,51 @@ function calendarInit() {
       renderCalender(thisMonth); 
     });
   });
+
+  // 달력에 해당하는 강의 표기
   function requestAcademy(nowCalendarMonth){
     let request = new XMLHttpRequest();
-    let url = './adm_calendar_data.php?nowCalendarMonth='+nowCalendarMonth;
-
-    request.open('GET', url, true);
-    request.onload = () => {
-      console.log(request.responseText);
+    let url = './adm_calendar_data.php';
+    let eduDateArr = [];
+    let i = 0;
+    
+    request.open('POST', url, true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send('nowCalendarMonth='+nowCalendarMonth);
+    
+    request.onreadystatechange = () => {
+      if(request.readyState === request.DONE){       //readyState가 바뀔 때마다 호출 되므로 완료 시에만 동작하도록 한다.
+        if(request.status === 200 || request.status === 201){
+          let parseData = JSON.parse(request.responseText);
+          for(data of parseData){
+            let eduDate = new Date(data.course_edu_sdate);
+            let eduYear = eduDate.getFullYear();
+            let eduMonth = (eduDate.getMonth()+1 < 10 ? '0'+(eduDate.getMonth()+1) : eduDate.getMonth()+1);
+            let eduDay = (eduDate.getDate()+1 < 10 ? '0'+(eduDate.getDate()+1) : eduDate.getDate()+1);
+            let eduDateString = eduYear+'-'+eduMonth+'-'+(eduDay-1);
+    
+            eduDateArr[i] = {
+              'eduDateString':eduDateString,
+              'course_title':data.course_title,
+              'course_cate':data.course_cate
+            };
+            i++;
+          }
+          let days = document.querySelectorAll('.dates > .day');
+          for(day of days){
+            for(eduDate of eduDateArr){
+              if(eduDate.eduDateString == day.dataset.date) {
+                day.innerHTML += '<p class="'+(eduDate.course_cate == '온라인' ? 'online' : 'offline')+'">'+eduDate.course_title+'</p>';
+              }
+            }
+          }
+        }else{
+          console.log('실패');
+        }
+      }
     };
+    
+
+
   }
 }

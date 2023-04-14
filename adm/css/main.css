@@ -25,7 +25,7 @@
 .calender h3 {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .sec_cal {
@@ -128,6 +128,8 @@
 
 .sec_cal .cal_wrap .day {
   display:flex;
+  flex-direction: column;
+  gap: 5px;
   width:100%; height: 200px;
   text-align: left;
   color: #000000;
@@ -144,6 +146,11 @@
   padding-top: 12px;
 }
 
+.sec_cal .cal_wrap .day.disable {
+  color: #ddd;
+  border-color: #D1D1D1;
+}
+
 .sec_cal .cal_wrap :not(.days) .day.current.today {
   background: #F0F0F0;
   border-color: #DE0010;
@@ -156,8 +163,44 @@
   flex-flow: wrap;
   min-height: 400px;
 }
-
-.sec_cal .cal_wrap .day.disable {
-  color: #ddd;
-  border-color: #D1D1D1;
+.sec_cal .cal_wrap .dates > .day > .online, .sec_cal .cal_wrap .dates > .day > .offline {
+  position: relative;
+  padding-left: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
+.sec_cal .cal_wrap .dates > .day > .online::before, .sec_cal .cal_wrap .dates > .day > .offline::before{
+  display: flex;
+  justify-content: center; align-items: center;
+  width: 20px; height: 20px;
+  position: absolute;
+  left: 0;
+  color: #fff;
+}
+.sec_cal .cal_wrap .dates > .day > .online::before {
+  content: '온';
+  background-color: #DE0010;
+}
+.sec_cal .cal_wrap .dates > .day > .offline::before {
+  content: '오';
+  background-color: #38373C;
+}
+
+/* 캘린더 초기 위치 */
+#calenderChk{display: none;}
+#calenderChk:checked ~ .calender {
+  height: 480px;
+  overflow: hidden;
+}
+#calenderChk:checked ~ .calender .cal_nav {
+  height: 0;
+  border: none;
+}
+#calenderChk:checked ~ .calender .sec_cal {
+  height: 270px;
+  overflow: hidden;
+}
+#calenderChk:checked ~ .calender .cal_wrap {
+  padding-top: 0;
+}
+.calender, .cal_nav, .sec_cal, .cal_wrap, .dates {transition: .5s;}
