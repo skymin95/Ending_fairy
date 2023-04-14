@@ -55,8 +55,22 @@
   </h1>
   <ul>
     <li>
+      <?php
+        //답변이 달려있지 않은 질문 조회
+        $sql_answer = "SELECT COUNT(*)
+        FROM board_question AS origin
+        WHERE origin.question_id 
+        NOT IN (SELECT a.question_id 
+                FROM board_question AS a, 
+                  (SELECT question_parent_id 
+                    FROM board_question 
+                    WHERE question_parent_id IS NOT NULL) AS b 
+                WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL";
+        $result_answer = mysqli_query($con, $sql_answer);
+        $row_answer = mysqli_fetch_row($result_answer);
+      ?>
       <i class="fa-regular fa-bell">
-        <span class="count">1</span>
+        <span class="count"><?=$row_answer[0]?></span>
       </i>
     </li>
     <li>

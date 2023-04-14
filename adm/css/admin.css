@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+.hidden {display: none;}
+
 :root {
   --side-width: 250px;
   --side-height: 150px;
@@ -8,12 +10,11 @@
 /* 메인 위치잡아주기용 공통서식 */
 main {
   position: relative;
-  left:calc(var(--side-width) + 100px);top:var(--side-height);
-  width: 1440px;
+  left:calc(var(--side-width) + 160px);top:var(--side-height);
+  width: 1200px;
 }
 main:not(.home) {
   left:calc(var(--side-width) + 160px);
-  width: 1200px;
 }
 header {
   display: flex;
