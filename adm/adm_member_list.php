@@ -8,12 +8,12 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 <main>
 <div class="tab_menu">
     <ul>
-      <li class="a_title "><a href="#tab1">전체</a></li>
+      <li class="a_title <?=(empty($_GET['cate']) ? 'active' : '')?>"><a href="#tab1">전체</a></li>
       <li class="a_title"><a href="#tab2">강사</a></li>
       <li class="a_title"><a href="#tab3">수강생</a></li>
     </ul>
 
-    <div id="tab1" class="tab_content">
+    <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="" method="post" name="">
         <table>
           <colgroup>
@@ -42,7 +42,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             $num = mysqli_num_rows($result);
             $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
             $page_num = 5; /* paging : 한 블럭 당 페이지 수 */
-            $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
+            // $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
             $total_page = ceil($num / $list_num); /* paging : 전체 페이지 수 = 전체 데이터 / 페이지당 데이터 개수, ceil : 올림값 */
             $total_block = ceil($total_page / $page_num); /* paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수 */
             $now_block = ceil($page / $page_num); /* paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수 */
