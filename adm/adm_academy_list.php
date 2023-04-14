@@ -124,8 +124,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+        </div>
       </form>
       <form action="adm_academy_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -139,13 +139,13 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           <colgroup>
             <col style="width: 80px;">
             <col style="width: 200px;">
+            <col style="width: 90px;">
+            <col style="width: 90px;">
+            <col style="width: 90px;">
             <col style="width: 100px;">
-            <col style="width: 100px;">
-            <col style="width: 100px;">
-            <col style="width: 100px;">
-            <col style="width: 100px;">
-            <col style="width: 100px;">
-            <col style="width: 100px;">
+            <col style="width: 110px;">
+            <col style="width: 110px;">
+            <col style="width: 110px;">
             <col style="width: 220px;">
           </colgroup>
           <tr>
@@ -244,8 +244,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+        </div>
       </form>
       <form action="adm_academy_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">

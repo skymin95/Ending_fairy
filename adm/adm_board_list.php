@@ -53,7 +53,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_notice order by notice_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "select * from board_notice order by notice_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -67,7 +67,6 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=++$number?></td>
             <td><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>"><?=$data['notice_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <!-- <td><?=substr($data['mb_no'],0,10)?></td> -->
             <td><?=$data['notice_wdate']?></td>
             <td>
               <button class="edit_btn"><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>" title="수정">수정</a></button>
@@ -114,8 +113,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+        </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -217,8 +216,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+        </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -325,8 +324,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+        </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">

@@ -115,8 +115,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
+          <?php }?>
         </div>
-        <?php }?>
       </form>
       <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -226,8 +226,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+      </div>
       </form>
       <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -337,8 +337,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php } else{ ?>
             <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
           </ul>
-        </div>
         <?php }?>
+      </div>
       </form>
       <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
