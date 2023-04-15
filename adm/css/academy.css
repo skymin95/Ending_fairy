@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.academy table td img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+table td:first-child {
+  padding: 20px;
+}
+table td::after {
+  height: calc(100% - 40px);
+  right: 0.5px;
+}
+table td:first-child::after {
+  width: 1px;
+}
+table td:last-child::after {
+  width: 0;
+}

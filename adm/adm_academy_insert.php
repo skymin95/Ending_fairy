@@ -14,18 +14,16 @@ $data = mysqli_fetch_assoc($result);
     'course_cate' => '',
     'course_edu_time' => '',
     'course_price' => '',
-    'course_edu_time' => '',
     'course_teacher' => '',
     'course_ask_sdate' => '',
     'course_ask_edate' => '',
     'course_edu_sdate' => '',
     'course_edu_edate' => '',
-    'course_edu_time' => '',
     'course_tag' => '',
   );
 }
 
-$sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '$mb_id'";
+$sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '".$_SESSION['mb_id']."'";
 $result_member = mysqli_query($con, $sql_member);
 $row_member = mysqli_fetch_array($result_member);
 
@@ -33,28 +31,97 @@ $row_member = mysqli_fetch_array($result_member);
 <main class="board_insert">
   <ul class="board_h">
     <li><h2 class="a_title">강의추가</h2></li>
-    <li><a href="adm_board_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
+    <li><a href="adm_academy_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
 
-  <form name="write" method="post" action="adm_board_insert_action.php">
+  <form name="write" method="post" action="adm_academy_insert_action.php">
     <!-- <input type="hidden" name="id" value="<?=$id?>"> -->
     <div class="board_wrap">
       <dl>
         <dt>강의명</dt>
-        <dd><input type="text" name="notice_title" value="<?=$data['notice_title']?>"  class="txe" required ></dd>
+        <dd>
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
 
         <dt>강의 분류</dt>
-        <dd><input type="text" name="notice_title" value="<?=$data['notice_title']?>"  class="txe" required ></dd>
+        <dd class="w-30">
+          <select name="course_cate">
+            <option value="온라인">온라인</option>
+            <option value="오프라인">오프라인</option>
+          </select>
+        </dd>
+
+        <dt>교육 시간</dt>
+        <dd class="w-30">
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
 
         <dt>강의 가격</dt>
-        <dd><input type="text" name="notice_title" value="<?=$data['notice_title']?>"  class="txe" required ></dd>
+        <dd class="w-30">
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
 
-        <dt>강의 가격</dt>
-        <dd><input type="text" name="notice_title" value="<?=$data['notice_title']?>"  class="txe" required ></dd>
+        <dt>담당 강사</dt>
+        <dd class="w-30">
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
 
-        <dt>강의 가격</dt>
-        <dd><input type="text" name="notice_title" value="<?=$data['notice_title']?>"  class="txe" required ></dd>
+        <dt>신청 기간</dt>
+        <dd>
+          <input type="date" name="course_title" value="<?=$data['course_title']?>"  class="txe" required > ~ <input type="date" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
 
+        <dt>교육 기간</dt>
+        <dd>
+          <input type="date" name="course_title" value="<?=$data['course_title']?>"  class="txe" required > ~ <input type="date" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
+
+        <dt>강의 태그</dt>
+        <dd>
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
+
+        <dt>미리보기 링크</dt>
+        <dd>
+          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+        </dd>
+
+        <dt>강의 구성</dt>
+        <dd class="course_index">
+          <div>
+            <button class="insert">
+              <i class="fa-solid fa-plus"></i> 챕터 추가
+            </button>
+            <button class="insert">
+              <i class="fa-solid fa-plus"></i> 차시 추가
+            </button>
+            <button class="delete">
+              <i class="fa-solid fa-minus"></i> 삭제
+            </button>
+          </div>
+          <div class="list_lndex">
+            <label class="chapter" for="chapter1">
+              <input type="radio" name="select" id="chapter1">
+              <img src="<?=$base_URL?>images/chapter_img.svg" alt="챕터" data-chapter="1" /> Chapter 1. 챕터에용
+            </label>
+            <label class="class" for="class1">
+              <input type="radio" name="select" id="class1">
+              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="1" /> 1차시 차시에용
+            </label>
+            <label class="chapter" for="chapter2">
+              <input type="radio" name="select" id="chapter2">
+              <img src="<?=$base_URL?>images/chapter_img.svg" alt="챕터" data-chapter="2" /> Chapter 2. 챕터에용용
+            </label>
+            <label class="class" for="class2">
+              <input type="radio" name="select" id="class2">
+              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="2" /> 2차시 차시에용용
+            </label>
+            <label class="class" for="class3">
+              <input type="radio" name="select" id="class3">
+              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="3" /> 3차시 차시에용용용
+            </label>
+          </div>
+        </dd>
       </dl>
 
       <!-- 삭제/완료 -->

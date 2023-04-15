@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+input[type=text] {
+  width: 320px;
+  margin-top: calc((70px - 31px) / 2);
+}
+input[type=date], select {
+  width: 320px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  margin-top: calc((70px - 31px) / 2);;
+  padding: 0 10px;
+}
+
+.course_index {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 10px;
+}
+.course_index > div:first-child {
+  display: flex;
+  gap: 16px;
+}
+
+button.insert, button.delete {
+  width: 160px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #F9F7F7;
+  border: 1px solid #EFEFEF;
+  color: #333;
+  cursor: pointer;
+}
+button.delete {
+  width: 100px;
+  border: 0;
+  background-color: #5A5A5C;
+  color: #FFF;
+}
+
+.board_wrap dd.w-30 {width: 30%;}
+
+.course_index .fa-plus {color: #DE0010;}
+.course_index .fa-minus {color: #FFFFFF;}
+
+.list_lndex {
+  width: 100%; height: 500px;
+  border: 4px double #333;
+  padding: 32px;
+}
+.list_lndex label {
+  display: block;
+}
