@@ -7,7 +7,7 @@
 }
 .tab_menu > ul li {
   height: 35px;
-  font-size: 20px;
+  font-size: 18px;
 }
 .tab_menu > ul li::after{
   content: '';
