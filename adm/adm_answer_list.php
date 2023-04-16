@@ -4,15 +4,31 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+$sql =  'select * from board_question where question_parent_id is null order by question_id desc';
+$result = mysqli_query($con, $sql);
+
+//답변이 달려있지 않은 질문 조회
+$sql_w ='SELECT origin.*
+FROM board_question AS origin 
+WHERE origin.question_id 
+NOT IN (SELECT a.question_id 
+        FROM board_question AS a, 
+          (SELECT question_parent_id 
+           FROM board_question 
+           WHERE question_parent_id IS NOT NULL) AS b 
+        WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL';
+//답변이 달려있는 질문 조회
+$sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id';
 ?>
 <main>
-  <div class="tab_menu">
+  <div class="tab_menu answer">
     <ul>
       <li class="a_title active "><a href="#tab1">전체</a></li>
       <li class="a_title"><a href="#tab2">답변대기중</a></li>
       <li class="a_title"><a href="#tab3">답변완료</a></li>
     </ul>
 
+    <!-- 전체 -->
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="" method="post" name="">
         <table>
@@ -33,9 +49,6 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>
           <?php
-            $sql = "select * from board_question order by question_id desc";
-            $result = mysqli_query($con, $sql);
-
             // 페이지내이션
             $num = mysqli_num_rows($result);
             $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
@@ -54,7 +67,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_question order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -63,16 +76,20 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
               $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
               $result_member = mysqli_query($con, $sql_member);
               $row_member = mysqli_fetch_array($result_member);
+
+              $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = ".$data['question_id']."";
+              $result_parent = mysqli_query($con, $sql_parent);
+              $row_parent = mysqli_num_rows($result_parent);
             ?>
           <tr>
             <td><?=++$number?></td>
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?= $data['question_wdate'] ?></td>
-            <td><?= ($data['question_parent_id'] == '0' ? '답변대기중' : '답변완료')?></td>
+            <td><?= ($row_parent == '0' ? '답변대기중' : '답변완료')?></td>
             <td>
               <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <button class="del_btn"><a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -124,6 +141,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
       </form>
     </div>
 
+    <!-- 답변대기중 -->
     <div id="tab2" class="tab_content">
       <form action="" method="post" name="">
         <table>
@@ -144,9 +162,6 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>
           <?php
-            $sql =  'select * from board_question where question_parent_id is null order by question_id desc';
-            $result = mysqli_query($con, $sql);
-
             // 페이지내이션
             $num = mysqli_num_rows($result);
             $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
@@ -165,7 +180,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_question where question_parent_id is null order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql_w limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -180,7 +195,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?= $data['question_wdate'] ?></td>
-            <td><?= ($data['question_parent_id'] == '0' ? '답변대기중' : '답변완료')?></td>
+            <td>답변대기중</td>
             <td>
               <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
               <button class="del_btn"><a href="" title="삭제">삭제</a></button>
@@ -235,6 +250,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
       </form>
     </div>
 
+    <!-- 답변완료 -->
     <div id="tab3" class="tab_content">
       <form action="" method="post" name="">
         <table>
@@ -255,9 +271,6 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>
           <?php
-            $sql = 'select * from board_question where question_parent_id is not null order by question_id desc';
-            $result = mysqli_query($con, $sql);
-
             // 페이지내이션
             $num = mysqli_num_rows($result);
             $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
@@ -276,7 +289,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_question where question_parent_id is not null order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql_c limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -291,9 +304,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?= $data['question_wdate'] ?></td>
-            <td><?= ($data['question_parent_id'] == '0' ? '답변대기중' : '답변완료')?></td>
+            <td>답변완료</td>
             <td>
-              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
               <button class="del_btn"><a href="" title="삭제">삭제</a></button>
             </td>
           </tr>

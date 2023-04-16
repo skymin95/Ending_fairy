@@ -20,7 +20,7 @@
 .board_insert h2{
   color: #DE0010;
   font-size: 18px;
-  text-indent: 22px;
+  text-align: center;
 }
 .board_h li{
   height: 35px;
@@ -75,6 +75,10 @@
   border-top: 1px solid #D1D1D1;
   text-indent: 10px;
 }
+.answer .board_wrap dd{
+  display: flex;
+  align-items: center;
+}
 .board_wrap dd:nth-of-type(3){
   width: 80%;
   background: #fff;
@@ -82,7 +86,12 @@
 }
 .board_wrap dd:first-of-type{border-top: none;}
 .board_wrap dd:last-of-type{border-bottom: none}
-
+.board_wrap p{
+  margin: 0 20px;
+  font-size: 14px;
+  text-indent: 0;
+  line-height: 20px;
+}
 input[type=text]{
   width: 400px;
   height: 31px;

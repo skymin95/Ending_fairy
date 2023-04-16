@@ -17,7 +17,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
       <form action="" method="post" name="">
         <table>
           <colgroup>
-            <col style="width: 80px;">
+            <col style="width: 120px;">
             <col style="width: 200px;">
             <col style="width: 90px;">
             <col style="width: 90px;">
@@ -41,7 +41,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>          
           <?php
-            $sql = "select * from course order by course_id desc;";
+            $sql = "select * from course where course_cate = '온라인' order by course_id desc;";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -62,23 +62,29 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from course order by course_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "select * from course where course_cate = '온라인' order by course_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
-
+            
             // 데이터 출력
+            function getYoutubeThumb($url) {
+              if($url)  {
+                preg_match_all('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $matchs);
+                return "https://img.youtube.com/vi/" .$matchs[7][0]."/mqdefault.jpg";
+              }
+          }
             while($data = mysqli_fetch_array($result)){
           ?>
           <tr>
-            <td><img src="../images/<?=$data['course_img']?>" alt="<?=$data['course_title']?>"></td>
+            <td><img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>"></td>
             <td><?=$data['course_title']?></td>
             <td><?=$data['course_cate']?></td>
             <td><?=$data['course_edu_time']?></td>
             <td><?=$data['course_teacher']?></td>
-            <td><?=$data['course_price']?></td>
-            <td><?=$data['course_ask_sdate']?> ~ <?=$data['course_ask_edate']?></td>
-            <td><?=$data['course_edu_sdate']?> ~ <?=$data['course_edu_edate']?></td>
-            <td><?=$data['course_tag']?></td>
+            <td><?=number_format($data['course_price'])?></td>
+            <td><?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?></td>
+            <td><?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?></td>
+            <td><ul><li><?=str_replace(",", "</li><li>", $data['course_tag'])?></li></ul></td>
             <td>
               <button class="edit_btn"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
               <button class="del_btn"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
@@ -135,9 +141,10 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
     <div id="tab2" class="tab_content">
       <form action="" method="post" name="">
-        <table>
+        
+      <table>
           <colgroup>
-            <col style="width: 80px;">
+            <col style="width: 120px;">
             <col style="width: 200px;">
             <col style="width: 90px;">
             <col style="width: 90px;">
@@ -161,7 +168,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>          
           <?php
-            $sql = "select * from course order by course_id desc;";
+            $sql = "select * from course where course_cate = '오프라인' order by course_id desc;";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -182,26 +189,25 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from course order by course_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "select * from course where course_cate = '오프라인' order by course_id desc  limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
-
-            // 데이터 출력
+            
             while($data = mysqli_fetch_array($result)){
           ?>
           <tr>
-            <td><img src="../images/<?=$data['course_img']?>" alt="<?=$data['course_title']?>"></td>
+            <td><img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>"></td>
             <td><?=$data['course_title']?></td>
             <td><?=$data['course_cate']?></td>
             <td><?=$data['course_edu_time']?></td>
             <td><?=$data['course_teacher']?></td>
-            <td><?=$data['course_price']?></td>
-            <td><?=$data['course_ask_sdate']?> ~ <?=$data['course_ask_edate']?></td>
-            <td><?=$data['course_edu_sdate']?> ~ <?=$data['course_edu_edate']?></td>
-            <td><?=$data['course_tag']?></td>
+            <td><?=number_format($data['course_price'])?></td>
+            <td><?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?></td>
+            <td><?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?></td>
+            <td><ul><li><?=str_replace(",", "</li><li>", $data['course_tag'])?></li></ul></td>
             <td>
-              <button class="edit_btn"><a href="adm_academy_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_academy_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
+              <button class="del_btn"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
