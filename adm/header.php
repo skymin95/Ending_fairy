@@ -28,7 +28,10 @@
       echo "<script src='./script/board.js' defer></script>";
     }
     if($title == "회원 관리 > 회원 수정"){
-      echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/member_insert.css' type='text/css'>";
+      echo "<script src='./script/board.js' defer></script>";
+      echo "<script src='./script/jQuery-plugin-progressbar.js' defer></script>";
+    
     }
     if($title == "게시판 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";

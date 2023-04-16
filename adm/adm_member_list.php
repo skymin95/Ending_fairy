@@ -196,7 +196,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <option vlaue="검색옵션">검색옵션</option>
             <option vlaue="제목">제목</option>
             <option vlaue="내용">내용</option>
-            <option vlaue="글쓴이">글쓴이</option>
+            <opti vlaue="글쓴이">글쓴이</opti on>
           </select>
           <input type="text" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
