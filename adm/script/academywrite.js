@@ -75,7 +75,7 @@ $(function(){
     e.preventDefault();
     $('input[name=select]:checked ~ label').each(function(index){
       if($(this).hasClass('class')){
-        console.log($(this).);
+        console.log($(this));
       } else if (index != 0) {
         return false;
       }
