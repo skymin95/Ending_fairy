@@ -49,6 +49,7 @@
 
 .tab_content {
   display: none;
+  padding-bottom: 50px;
 }
 .tab_content.active {
   display: block;

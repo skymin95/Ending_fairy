@@ -5,25 +5,27 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 
 $id = $_GET['question_id'];
 
-$query_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '$mb_id'";
-$result_member = mysqli_query($con, $query_member);
-$row_member = mysqli_fetch_array($result_member);
+$query = "SELECT * FROM board_question WHERE question_id = '$id'";
+$result = mysqli_query($con, $query);
+$data = mysqli_fetch_assoc($result);
 
 $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = '$id'";
 $result_parent = mysqli_query($con, $sql_parent);
 $row_parent = mysqli_num_rows($result_parent);
 
 if($row_parent != '0') {
-  $query = "SELECT question_title, question_wdate, question_content FROM board_question WHERE question_id = '$id'";
+  $query = "SELECT * FROM board_question WHERE question_parent_id = '$id'";
   $result = mysqli_query($con, $query);
-  $row = mysqli_fetch_array($result);
-} else {
+  $row = mysqli_fetch_array($result); 
+}else{
+  $query = "SELECT * FROM board_question WHERE question_parent_id = '$id'";
+  $result = mysqli_query($con, $query);
   $row = array('question_content' => '');
 }
 
-$query = "SELECT question_title, question_wdate, question_content FROM board_question WHERE question_id = '$id'";
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_array($result);
+$query_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '$mb_id'";
+$result_member = mysqli_query($con, $query_member);
+$row_member = mysqli_fetch_array($result_member);
 
 ?>
 
@@ -37,16 +39,16 @@ $row = mysqli_fetch_array($result);
     <div class="board_wrap">
       <dl>
         <dt>제목</dt>
-        <dd><p><?=$row['question_title']?></p></dd>
+        <dd><p><?=$data['question_title']?></p></dd>
 
         <dt>작성자</dt>
         <dd><p><?=$row_member['mb_name']?></p></dd>
 
         <dt>작성일</dt>
-        <dd><p><?=$row['question_wdate']?></p></dd>
+        <dd><p><?=$data['question_wdate']?></p></dd>
 
         <dt>내용</dt>
-        <dd><p><?=$row['question_content']?></p></dd>
+        <dd><p><?=$data['question_content']?></p></dd>
 
         <dt>답변</dt>
         <dd><textarea name="question_content" required><?=$row['question_content']?></textarea></dd>
