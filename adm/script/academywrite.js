@@ -72,15 +72,10 @@ $(function(){
 
   //강의 submit
   $('#formAcademy').on('submit', function(e){
-    e.preventDefault();
-    $('input[name=select]:checked ~ label').each(function(index){
-      if($(this).hasClass('class')){
-        console.log($(this));
-      } else if (index != 0) {
-        return false;
-      }
+    $('.list_lndex > label.class').each(function(){
+      let classVal = $(this).find('input[name="class[]"]').val();
+      $(this).find('input[name="class[]"]').val('chapter'+$(this).prevAll('.chapter').eq(0).attr('for').substr(-1)+'^'+classVal);
     });
-    return false;
   });
 
 

@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  $(".del_btn").on('click', function(){
+    return confirm('정말로 삭제하시겠습니까?');
+  });
   $('.tab_menu > ul > li > a').click(function() {
     let tab_id = $(this).attr('href');
 
