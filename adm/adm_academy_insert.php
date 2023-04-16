@@ -34,7 +34,7 @@ $row_member = mysqli_fetch_array($result_member);
     <li><a href="adm_academy_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
 
-  <form name="write" method="post" action="adm_academy_insert_action.php">
+  <form name="write" method="post" action="adm_academy_insert_action.php" id="formAcademy">
     <!-- <input type="hidden" name="id" value="<?=$id?>"> -->
     <div class="board_wrap">
       <dl>
@@ -89,36 +89,25 @@ $row_member = mysqli_fetch_array($result_member);
         <dt>강의 구성</dt>
         <dd class="course_index">
           <div>
-            <button class="insert">
+            <button type="button" class="insert btn_chapter">
               <i class="fa-solid fa-plus"></i> 챕터 추가
             </button>
-            <button class="insert">
+            <button type="button" class="insert btn_class">
               <i class="fa-solid fa-plus"></i> 차시 추가
             </button>
-            <button class="delete">
+            <button type="button" class="delete">
               <i class="fa-solid fa-minus"></i> 삭제
             </button>
           </div>
           <div class="list_lndex">
+            <input type="radio" class="hidden" name="select" id="chapter1">
             <label class="chapter" for="chapter1">
-              <input type="radio" name="select" id="chapter1">
-              <img src="<?=$base_URL?>images/chapter_img.svg" alt="챕터" data-chapter="1" /> Chapter 1. 챕터에용
+              <img src="<?=$base_URL?>images/chapter_img.svg" alt="챕터" /><span class="index">Chapter 1.</span><input type="text" name="chapter[]" value="">
             </label>
+            <input type="radio" class="hidden" name="select" id="class1">
             <label class="class" for="class1">
-              <input type="radio" name="select" id="class1">
-              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="1" /> 1차시 차시에용
-            </label>
-            <label class="chapter" for="chapter2">
-              <input type="radio" name="select" id="chapter2">
-              <img src="<?=$base_URL?>images/chapter_img.svg" alt="챕터" data-chapter="2" /> Chapter 2. 챕터에용용
-            </label>
-            <label class="class" for="class2">
-              <input type="radio" name="select" id="class2">
-              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="2" /> 2차시 차시에용용
-            </label>
-            <label class="class" for="class3">
-              <input type="radio" name="select" id="class3">
-              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" data-class="3" /> 3차시 차시에용용용
+              <img src="<?=$base_URL?>images/class_img.svg" alt="차시" /><span class="index">1차시</span><input type="text" name="class[]" value="">
+              <div>링크주소 <input type="text" name="link[]"></div>
             </label>
           </div>
         </dd>

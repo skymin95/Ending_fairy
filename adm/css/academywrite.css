@@ -27,6 +27,7 @@ input[type=date], select {
 button.insert, button.delete {
   width: 160px;
   height: 35px;
+  font-size: 16px;
   border-radius: 10px;
   background-color: #F9F7F7;
   border: 1px solid #EFEFEF;
@@ -48,8 +49,39 @@ button.delete {
 .list_lndex {
   width: 100%; height: 500px;
   border: 4px double #333;
-  padding: 32px;
+  padding: 0 32px 32px;
+  overflow-y: scroll;
 }
+
 .list_lndex label {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-indent: 0;
+}
+.list_lndex > input[type=radio]:checked + label {
+  background-color: #F9F7F7;
+}
+
+.list_lndex input[type=text] {
+  margin-top: 0;
+}
+.list_lndex .chapter {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 10px 0;
+}
+.list_lndex .class {
+  padding-left: 40px;
+  padding: 10px 0 10px 40px;
+  column-gap: 8px;
+  row-gap: 16px;
+}
+.list_lndex .class > div:last-of-type {
+  width: 100%;
+  padding-left: 20px;
+}
+.list_lndex .class > div:last-of-type::before {
+  
 }

@@ -24,7 +24,7 @@
     if($title == "강의 관리 > 강의 작성"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/academywrite.css' type='text/css'>";
-      echo "<link rel='stylesheet' href='".$base_admin_URL."css/academywrite.js' type='text/css'>";
+      echo "<script src='".$base_admin_URL."script/academywrite.js' defer></script>";
     }
     if($title == "회원 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
