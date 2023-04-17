@@ -124,7 +124,7 @@ switch($cate) {
         <?php }?>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET" id="paging">
+      <form action="adm_board_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -228,7 +228,7 @@ switch($cate) {
         <?php }?>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET" id="paging">
+      <form action="adm_board_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -338,7 +338,7 @@ switch($cate) {
         <?php }?>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET" id="paging">
+      <form action="adm_board_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
