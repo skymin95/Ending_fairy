@@ -2,12 +2,15 @@
 $title = "회원 관리 > 회원 수정"; // 타이틀
 include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
+$mb_no = $_GET['mb_no']; // 회원명
 ?>
 
 <?php
-  $sql = "select * from member order by mb_no desc;";
-  $result = mysqli_query($con, $sql);
+  $query_member = "SELECT * FROM member WHERE mb_no = '$mb_no'";
+  $result_member = mysqli_query($con, $query_member);
+  $row_member = mysqli_fetch_array($result_member);
   ?>
+    
 <main>
 <ul class="board_h">
     <li><h2 class="a_title">회원정보</h2></li>
@@ -19,7 +22,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
      <div class="member_h">
       <dl>
         <dt>아이디</dt>
-        <dd><input type="text"value="<?=$data['mb_id']?>"></dd>
+        <dd><input type="text"value="<?=$row_member['mb_id']?>"></dd>
 
         <dt class="pass_text">비밀번호</dt>
         <dd>
@@ -28,11 +31,11 @@ $mb_id = $_SESSION['mb_id']; // 회원명
         </dd>
 
         <dt>이름</dt>
-        <dd><input type="text" value="<?=$data['mb_name']?>"></dd>
+        <dd><input type="text" value="<?=$row_member['mb_name']?>"></dd>
 
         <dt>닉네임</dt>
         <dd>
-          <input type="text" value="<?=$data['mb_nick']?>">
+          <input type="text" value="<?=$row_member['mb_nick']?>">
           <button class='nick_check'>
            <i class="fa-solid fa-check"></i> 중복확인
           </button>
@@ -40,7 +43,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 
         <dt>이메일</dt>
         <dd class="email_box">
-          <input type="text" value="<?=$data['mb_email']?>">
+          <input type="text" value="<?=$row_member['mb_email']?>">
           <input type="checkbox">
         </dd>
       </dl>
@@ -68,7 +71,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
      </dd>
 
         <dt>생년월일</dt>
-        <dd><input type="date"></dd>
+        <dd><input type="date" value="<?=$row_member['mb_birth']?>"></dd>
 
         <dt>휴대폰 번호</dt>
         <dd class="tel_box">
@@ -82,9 +85,9 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 <!-- 강의 수강률(탭) -->
 <div class="tab_menu">
     <ul>
-      <li class="active"><a href="#tab1">수강중인 강의</a></li>
-      <li><a href="#tab2">신청·대기 강의</a></li>
-      <li><a href="#tab3">수강중인 강의</a></li>
+      <li class="active"><a href="#tab1">수강중인 강의 (6)</a></li>
+      <li><a href="#tab2">신청·대기 강의 (5)</a></li>
+      <li><a href="#tab3">수강중인 강의 (3)</a></li>
     </ul>
 
     <div id="tab1" class="tab_content active">
@@ -134,7 +137,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
                 <div class='class_lr'>
-                  <span>3차시</span>
+                  <span>5차시</span>
                   <span>9차시</span>
                 </div>
               </div>      
@@ -151,7 +154,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
                 <div class='class_lr'>
-                  <span>3차시</span>
+                  <span>5차시</span>
                   <span>9차시</span>
                 </div>
               </div>      
@@ -168,7 +171,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
                 <div class='class_lr'>
-                  <span>3차시</span>
+                  <span>4차시</span>
                   <span>9차시</span>
                 </div>
               </div>      
@@ -185,7 +188,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
                 <div class='class_lr'>
-                  <span>3차시</span>
+                  <span>4차시</span>
                   <span>9차시</span>
                 </div>
               </div>      
@@ -318,7 +321,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 </div>
 
 
-  <button type="button" class="more_btn">더보기</button>
+  <button type="button" class="more_btn">더보기 <i class="fa-solid fa-chevron-down"></i></button>
 
 
 

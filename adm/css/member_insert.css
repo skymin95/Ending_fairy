@@ -168,9 +168,9 @@ input[type=file]{
   display : none;
 }
 label{
-  width: 86px;
-  height: 31px;
-  font-size: 14px;
+  width: 117px;
+  height: 30px;
+  font-size: 16px;
   /* text-align: center; */
   line-height: 31px;
   background: #EFEFEF;
@@ -178,6 +178,7 @@ label{
   border-radius: 10px;
   display: block;
   margin: 10px auto;
+  text-indent: 22px;
   
 }
 label span{
@@ -313,6 +314,9 @@ textarea {
   display: flex;
 }
 /* 탭 기본*/
+.tab_menu{
+  margin-top: 45px;
+}
 .tab_menu > ul{
   margin-bottom: 50px;
   text-align: center;
@@ -491,14 +495,13 @@ toggle {  0% {
 /* 더보기 */
 .more_btn{
   margin: 30px auto;
-  width: 96px; height: 25px;
+  width: 96px;
   font-size: 16px;
   text-align: center;
   font-weight:500;
-  background: #5A5A5C;
+  background: #fff;
   border: none;
-  /* border-radius: 35px; */
-  color: #fff;
+  color: #000;
   display: block;
   line-height: 24px;
 }
@@ -512,7 +515,10 @@ toggle {  0% {
   display: none;
 } */
 
-
+.fa-chevron-down {
+  font-weight: 900;
+  margin-left: 5px;
+}
 
 
 
