@@ -108,9 +108,8 @@ if($category==''){
         <!-- 검색 -->
         <div class="s_wrap">
           <label for="category">검색옵션</label>
-          <input type="hidden" name="cate" value="<?=$cate?>">
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="course_title">강의명</option>
             <option value="course_edu_time">교육시간</option>
             <option value="course_teacher">담당강사</option>
@@ -121,7 +120,7 @@ if($category==''){
             <option value="course_edu_edate">교육기간(종료일)</option>
             <option value="course_tag">강의태그</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</>
+          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -237,9 +236,8 @@ if($category==''){
         <!-- 검색 -->
         <div class="s_wrap">
           <label for="category">검색옵션</label>
-          <input type="hidden" name="cate" value="<?=$cate?>">
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="course_title">강의명</option>
             <option value="course_edu_time">교육시간</option>
             <option value="course_teacher">담당강사</option>

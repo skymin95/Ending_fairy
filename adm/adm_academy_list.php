@@ -97,7 +97,6 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
         <!-- 검색 -->
         <div class="s_wrap">
           <label for="category">검색옵션</label>
-          <input type="hidden" name="cate" value="<?=$cate?>">
           <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="course_title">강의명</option>
@@ -224,9 +223,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
         <!-- 검색 -->
         <div class="s_wrap">
           <label for="category">검색옵션</label>
-          <input type="hidden" name="cate" value="<?=$cate?>">
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="course_title">강의명</option>
             <option value="course_edu_time">교육시간</option>
             <option value="course_teacher">담당강사</option>
