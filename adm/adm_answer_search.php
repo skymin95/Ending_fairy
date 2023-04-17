@@ -31,7 +31,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
     <!-- 전체 -->
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
-      <form action="adm_answer_search.php" method="get" name="">
+      <form action="" method="post" name="">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -101,9 +101,9 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
           <label for="b_search">검색옵션</label>
           <select name="b_search" id="b_search">
             <option vlaue="검색옵션">검색옵션</option>
-            <option vlaue="question_title">제목</option>
-            <option vlaue="question_content">내용</option>
-            <option vlaue="mb_name">글쓴이</option>
+            <option vlaue="제목">제목</option>
+            <option vlaue="내용">내용</option>
+            <option vlaue="글쓴이">글쓴이</option>
           </select>
           <input type="text" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>

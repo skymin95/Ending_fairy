@@ -26,7 +26,6 @@ if($row_parent != '0') {
 $query_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '$mb_id'";
 $result_member = mysqli_query($con, $query_member);
 $row_member = mysqli_fetch_array($result_member);
-
 ?>
 
 <main class="board_insert answer">
@@ -36,6 +35,7 @@ $row_member = mysqli_fetch_array($result_member);
   </ul>
 
   <form name="write" method="post" action="adm_answer_insert_action.php">
+    <input type="hidden" name="question_id" value="<?=$id?>">
     <div class="board_wrap">
       <dl>
         <dt>제목</dt>
