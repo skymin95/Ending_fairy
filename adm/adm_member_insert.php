@@ -11,7 +11,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 <main>
 <ul class="board_h">
     <li><h2 class="a_title">회원정보</h2></li>
-    <li><a href="adm_member_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
+    <li><a href="adm_member_list.php" class="a_title1">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
   <form name="write" method="post" action="">
     <!-- <input type="hidden" name="id" value="<?=$id?>"> -->
@@ -31,7 +31,12 @@ $mb_id = $_SESSION['mb_id']; // 회원명
         <dd><input type="text" value="<?=$data['mb_name']?>"></dd>
 
         <dt>닉네임</dt>
-        <dd><input type="text" value="<?=$data['mb_nick']?>"></dd>
+        <dd>
+          <input type="text" value="<?=$data['mb_nick']?>">
+          <button class='nick_check'>
+           <i class="fa-solid fa-check"></i> 중복확인
+          </button>
+        </dd>
 
         <dt>이메일</dt>
         <dd class="email_box">
@@ -42,16 +47,19 @@ $mb_id = $_SESSION['mb_id']; // 회원명
       <dl>
         <dt class="file_insert">프로필 사진</dt>
         <dd>  
-          <label for="formFileMultiple" class="form-label">파일업로드</label><br/>
-          <input class="form-control" type="file" id="formFileMultiple" name="multipartFile" multiple>   
+          <div class="user_img">
+          <img id="output"/>
+          <label for=""></label>
+        <input type="file" accept="image/*" onchange="loadFile(event)">
+          </div>
         </dd>
 
         <dt>회원레벨</dt>
         <dd>
-          <select>
-          <option value="">1</option>
-          <option value="">8</option>
-          <option value="">10</option>
+          <select class="user_level">
+          <option value>1</option>
+          <option value>8</option>
+          <option value>10</option>
           </select>
      </dd>
 
@@ -60,9 +68,9 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 
         <dt>휴대폰 번호</dt>
         <dd class="tel_box">
-          <input type="tel">
-          <input type="tel">
-          <input type="tel">
+          <input type="tel" maxlength='3'><span>-</span>
+          <input type="tel" maxlength='4'><span>-</span>
+          <input type="tel" maxlength='4'>
         </dd>
       </dl>
      </div>
@@ -83,10 +91,14 @@ $mb_id = $_SESSION['mb_id']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>여행 사진 첫걸음</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>남은 수강 기간<span>24일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>8차시</span>
+                  <span>10차시</span>
+                </div>
               </div>      
             </div>
           </li>
@@ -100,6 +112,10 @@ $mb_id = $_SESSION['mb_id']; // 회원명
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>6차시</span>
+                  <span>9차시</span>
+                </div>
               </div>      
             </div>
           </li>
@@ -113,6 +129,10 @@ $mb_id = $_SESSION['mb_id']; // 회원명
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>3차시</span>
+                  <span>9차시</span>
+                </div>
               </div>      
             </div>
           </li>
@@ -126,6 +146,10 @@ $mb_id = $_SESSION['mb_id']; // 회원명
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>3차시</span>
+                  <span>9차시</span>
+                </div>
               </div>      
             </div>
           </li>  
@@ -139,6 +163,10 @@ $mb_id = $_SESSION['mb_id']; // 회원명
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>3차시</span>
+                  <span>9차시</span>
+                </div>
               </div>      
             </div>
           </li>  
@@ -152,6 +180,10 @@ $mb_id = $_SESSION['mb_id']; // 회원명
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
+                <div class='class_lr'>
+                  <span>3차시</span>
+                  <span>9차시</span>
+                </div>
               </div>      
             </div>
           </li>  

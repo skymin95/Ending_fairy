@@ -1,4 +1,10 @@
 /* 회원정보 타이틀 */
+.a_title{
+  color: #DE0010;
+  font-size: 18px;
+  text-align: center;
+
+}
 .board_h{
   position: relative;
   display: flex;
@@ -92,6 +98,8 @@ input[type=text]{
   margin-top: 16px;
   padding: 0 10px;
 }
+input:focus {outline:none;}
+select:focus {outline:none;}
 input[type=password]{
   display: block;
   width: 200px;
@@ -115,6 +123,18 @@ input[type=email]{
 input[type=checkbox]{
   margin-top: 18px;
   accent-color:#f13845;
+  margin-left: 12px;
+}
+.user_img{
+  margin: 0px auto;
+  height: 144px;
+}
+.user_img img{
+  width: 118px;
+  height: 150px;
+  display: block;
+  text-align: center;
+  margin: 0px auto;
 }
 input[type=checkbox]::after{
   content: '이메일 수신 동의';
@@ -135,11 +155,54 @@ input[type=date]{
   padding: 0 10px;
   margin-left: 10px;
 }
+input[type=file]{
+  width: 76px;
+  font-size: 14px;
+  text-align: center;
+  background: #5A5A5C;
+  border: none;
+  color: #fff;
+  display: block;
+  margin: 6px auto;
+}
 .tel_box{
   display: flex;
 }
-input[type=tel]{
+.class_lr{
+   display: flex;
+   position: relative;
+   right: -167px;
+   top: 22px;
+}
+.class_lr span{
+  font-size: 14px;
+}
+.class_lr span:first-child{
+  color: #DE0010;
+}
+.class_lr span:first-child::after{
+ content: '/';
+ color: #111111;
+  padding: 5px;
+}
+.class_lr span:last-child{
+  color: #333;
+}
+.nick_check{
   position: relative;
+  top: 9px;
+  display: inline-block;
+  width: 86px;
+  height: 31px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-left: 10px;
+  background: none;
+  font-size: 12px;
+}
+input[type=tel]{
+  /* position: relative; */
   display: block;
   width: 72px;
   height: 31px;
@@ -151,14 +214,16 @@ input[type=tel]{
   text-align: center;
 }
 input[type=tel]::after{
-  position: absolute;
   display: block;
   content: "-";
   width: 1px;
   height: 16px;
   background-color: #111111;
   /* transform: translate(0, -16px); */
- 
+}
+.tel_box span{
+  position: relative;
+  top: 23px;
 }
 input[type=tel]:first-child{
   display: block;
@@ -169,7 +234,6 @@ input[type=tel]:first-child{
   margin-top: 16px;
   padding: 0 10px;
   margin-left: 10px;
-  
 }
 .pass_text{
   padding-top: 20px;
@@ -178,16 +242,26 @@ input[type=tel]:first-child{
   height: 181px;
   padding-top: 60px;
 }
-select{
+/* select{
   display: block;
   width: 70px;
-  text-align: center;
   height: 31px;
   border: 1px solid #CCCCCC;
   border-radius: 10px;
   margin-top: 19px;
   padding: 0 10px;
   margin-left: 10px;
+  text-align: center;
+} */
+.user_level{
+  display: block;
+  width: 70px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  margin-top: 19px;
+  margin-left: 10px;
+  text-align: center;
 }
 .board_file{
   width: 130px;
