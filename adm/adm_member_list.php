@@ -73,8 +73,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
+              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -187,8 +187,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
+              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -301,8 +301,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
+              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
