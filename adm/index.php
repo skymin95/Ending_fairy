@@ -112,11 +112,13 @@ include_once('./common.php');
       <h3>답변대기 문의</h3>
       <table>
         <thead>
-          <th>번호</th>
-          <th>제목</th>
-          <th>글쓴이</th>
-          <th>등록일</th>
-          <th>관리</th>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>등록일</th>
+            <th>관리</th>
+          </tr>
         </thead>
         <tbody>
           <?php
