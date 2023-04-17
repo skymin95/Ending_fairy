@@ -87,8 +87,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?></td>
             <td><ul><li><?=str_replace(",", "</li><li>", $data['course_tag'])?></li></ul></td>
             <td>
-              <button class="edit_btn"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn" type="button"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
+              <button class="del_btn" type="button"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -140,7 +140,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
         <?php }?>
         </div>
       </form>
-      <form action="adm_academy_list.php" method="GET" id="paging">
+      <form action="adm_academy_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -213,8 +213,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?></td>
             <td><ul><li><?=str_replace(",", "</li><li>", $data['course_tag'])?></li></ul></td>
             <td>
-              <button class="edit_btn"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn" type="button"><a href="adm_academy_insert.php?course_id=<?=$data['course_id']?>" title="수정">수정</a></button>
+              <button class="del_btn" type="button"><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -266,7 +266,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
         <?php }?>
         </div>
       </form>
-      <form action="adm_academy_list.php" method="GET" id="paging">
+      <form action="adm_academy_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
