@@ -4,6 +4,7 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+
 ?>
 <main>
   <div class="tab_menu">
