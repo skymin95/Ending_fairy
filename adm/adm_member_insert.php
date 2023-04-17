@@ -6,10 +6,45 @@ $mb_no = $_GET['mb_no']; // 회원명
 ?>
 
 <?php
+
+$id = (empty($_GET['mb_no']) ? '' : $_GET['mb_no']);
+$id = mysqli_real_escape_string($con, $id);
+if($id != '') {
+$query_member = "SELECT mb_id, mb_password, mb_name, mb_nick, mb_email, mb_level, mb_birth, mb_tel   FROM member WHERE mb_no = '$mb_no'";
+$result_member = mysqli_query($con, $query_member);
+$data = mysqli_fetch_assoc($result_member);
+} else {
+  $data = array(
+    'mb_id' => '',
+    'mb_password' => '',
+    'mb_name' => '',
+    'mb_nick' => '',
+    'mb_email' => '',
+    'mb_level' => '',
+    'mb_birth' => '',
+    'mb_tel' => ''
+  );
+}
+
   $query_member = "SELECT * FROM member WHERE mb_no = '$mb_no'";
   $result_member = mysqli_query($con, $query_member);
   $row_member = mysqli_fetch_array($result_member);
-  ?>
+
+  // 전화번호 데이터 기입
+  $str = $row_member['mb_tel'];
+  if(strpos($str, '-')){
+    $substr1 = explode('-', $str)[0]; 
+    $substr2 = explode('-', $str)[1];
+    $substr3 = explode('-', $str)[2]; 
+  } else {
+    $substr1 = substr($str, 0, 3); 
+    $substr2 = substr($str, 3, 4);
+    $substr3 = substr($str, 7, 11); 
+  }
+?>
+
+
+
     
 <main>
 <ul class="board_h">
@@ -75,9 +110,9 @@ $mb_no = $_GET['mb_no']; // 회원명
 
         <dt>휴대폰 번호</dt>
         <dd class="tel_box">
-          <input type="tel" maxlength='3'><span>-</span>
-          <input type="tel" maxlength='4'><span>-</span>
-          <input type="tel" maxlength='4'>
+          <input type="tel" maxlength='3'  value="<?= $substr1?>"><span>-</span>
+          <input type="tel" maxlength='4'  value="<?= $substr2?>"><span>-</span>
+          <input type="tel" maxlength='4'  value="<?= $substr3?>">
         </dd>
       </dl>
      </div>
@@ -328,7 +363,7 @@ $mb_no = $_GET['mb_no']; // 회원명
 
       <!-- 삭제/완료 -->
       <ul class="board_b">
-        <li><a href="#" title="삭제">삭제</a></li>
+        <li><a href="" title="삭제">삭제</a></li>
         <li class="nw_success"><input type="submit" value="완료"></li>
       </ul>
     </div>

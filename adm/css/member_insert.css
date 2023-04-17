@@ -136,6 +136,7 @@ input[type=checkbox]{
   text-align: center;
   margin: 0px auto;
   border-radius: 50%;
+  object-fit: cover;
 }
 input[type=checkbox]::after{
   content: '이메일 수신 동의';
