@@ -4,6 +4,17 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+
+$category = $_GET['category']; // 검색옵션
+$search = $_GET['search']; // 검색내용
+
+if($category==''){
+  echo("<script>
+    alert('검색 옵션을 선택해주세요.');
+    history.back();
+  </script>");
+}
+
 ?>
 <main>
   <div class="tab_menu academy">
@@ -42,7 +53,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>          
           <?php
-            $sql = "select * from course where course_cate = '온라인' order by course_id desc;";
+            $sql = "SELECT * FROM course WHERE course_cate = '온라인' AND $category LIKE '%".$search."%' order by course_id desc";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -63,7 +74,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from course where course_cate = '온라인' order by course_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
             
@@ -99,7 +110,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           <label for="category">검색옵션</label>
           <input type="hidden" name="cate" value="<?=$cate?>">
           <select name="category" id="category">
-            <option value="">검색옵션</option>
+            <option value="검색옵션">검색옵션</option>
             <option value="course_title">강의명</option>
             <option value="course_edu_time">교육시간</option>
             <option value="course_teacher">담당강사</option>
@@ -110,7 +121,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <option value="course_edu_edate">교육기간(종료일)</option>
             <option value="course_tag">강의태그</option>
           </select>
-          <input type="text" name="search" placeholder="SEARCH">
+          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</>
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -176,7 +188,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <th>관리</th>
           </tr>          
           <?php
-            $sql = "select * from course where course_cate = '오프라인' order by course_id desc;";
+            $sql = "SELECT * FROM course WHERE course_cate = '오프라인' AND $category LIKE '%".$search."%' order by course_id desc";
+
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -197,7 +210,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from course where course_cate = '오프라인' order by course_id desc  limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
             
@@ -237,7 +250,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <option value="course_edu_edate">교육기간(종료일)</option>
             <option value="course_tag">강의태그</option>
           </select>
-          <input type="text" name="search" placeholder="SEARCH">
+          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 

@@ -45,7 +45,7 @@ $row_member = mysqli_fetch_array($result_member);
         <dd><p><?=$row_member['mb_name']?></p></dd>
 
         <dt>작성일</dt>
-        <dd><p><?=$data['question_wdate']?></p></dd>
+        <dd><p><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></p></dd>
 
         <dt>내용</dt>
         <dd><p><?=$data['question_content']?></p></dd>

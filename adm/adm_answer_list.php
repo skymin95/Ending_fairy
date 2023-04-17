@@ -5,11 +5,11 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
-$sql =  'select * from board_question where question_parent_id is null order by question_id desc';
+$sql = 'select * from board_question where question_parent_id is null order by question_id desc';
 $result = mysqli_query($con, $sql);
 
 //답변이 달려있지 않은 질문 조회
-$sql_w ='SELECT origin.*
+$sql_w = 'SELECT origin.*
 FROM board_question AS origin 
 WHERE origin.question_id 
 NOT IN (SELECT a.question_id 
@@ -19,7 +19,7 @@ NOT IN (SELECT a.question_id
             WHERE question_parent_id IS NOT NULL) AS b 
         WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL';
 //답변이 달려있는 질문 조회
-$sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id';
+$sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id';
 ?>
 <main>
   <div class="tab_menu answer">
@@ -32,6 +32,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
     <!-- 전체 -->
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_answer_search.php" method="get">
+        <input type="hidden" name="cate" value="<?=$cate?>">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -100,7 +101,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="question_title">제목</option>
             <option value="question_content">내용</option>
             <option value="mb_name">글쓴이</option>
@@ -145,6 +146,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
     <!-- 답변대기중 -->
     <div id="tab2" class="tab_content">
       <form action="adm_answer_search.php" method="get">
+        <input type="hidden" name="cate" value="<?=$cate?>">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -209,7 +211,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="question_title">제목</option>
             <option value="question_content">내용</option>
             <option value="mb_name">글쓴이</option>
@@ -254,6 +256,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
     <!-- 답변완료 -->
     <div id="tab3" class="tab_content">
       <form action="adm_answer_search.php" method="get">
+        <input type="hidden" name="cate" value="<?=$cate?>">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -318,7 +321,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="검색옵션">검색옵션</option>
+            <option value="">검색옵션</option>
             <option value="question_title">제목</option>
             <option value="question_content">내용</option>
             <option value="mb_name">글쓴이</option>
