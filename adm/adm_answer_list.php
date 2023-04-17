@@ -31,7 +31,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
     <!-- 전체 -->
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
-      <form action="adm_answer_search.php" method="get" name="">
+      <form action="adm_answer_search.php" method="get">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -98,14 +98,14 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="b_search">검색옵션</label>
-          <select name="b_search" id="b_search">
-            <option vlaue="검색옵션">검색옵션</option>
-            <option vlaue="question_title">제목</option>
-            <option vlaue="question_content">내용</option>
-            <option vlaue="mb_name">글쓴이</option>
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
+            <option value="검색옵션">검색옵션</option>
+            <option value="question_title">제목</option>
+            <option value="question_content">내용</option>
+            <option value="mb_name">글쓴이</option>
           </select>
-          <input type="text" placeholder="SEARCH">
+          <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -144,7 +144,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
     <!-- 답변대기중 -->
     <div id="tab2" class="tab_content">
-      <form action="" method="post" name="">
+      <form action="adm_answer_search.php" method="get">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -207,14 +207,14 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="b_search">검색옵션</label>
-          <select name="b_search" id="b_search">
-            <option vlaue="검색옵션">검색옵션</option>
-            <option vlaue="제목">제목</option>
-            <option vlaue="내용">내용</option>
-            <option vlaue="글쓴이">글쓴이</option>
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
+            <option value="검색옵션">검색옵션</option>
+            <option value="question_title">제목</option>
+            <option value="question_content">내용</option>
+            <option value="mb_name">글쓴이</option>
           </select>
-          <input type="text" placeholder="SEARCH">
+          <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -253,7 +253,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
     <!-- 답변완료 -->
     <div id="tab3" class="tab_content">
-      <form action="" method="post" name="">
+      <form action="adm_answer_search.php" method="get">
         <table>
           <colgroup>
             <col style="width: 80px;">
@@ -316,14 +316,14 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="b_search">검색옵션</label>
-          <select name="b_search" id="b_search">
-            <option vlaue="검색옵션">검색옵션</option>
-            <option vlaue="제목">제목</option>
-            <option vlaue="내용">내용</option>
-            <option vlaue="글쓴이">글쓴이</option>
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
+            <option value="검색옵션">검색옵션</option>
+            <option value="question_title">제목</option>
+            <option value="question_content">내용</option>
+            <option value="mb_name">글쓴이</option>
           </select>
-          <input type="text" placeholder="SEARCH">
+          <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
