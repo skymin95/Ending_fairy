@@ -4,6 +4,14 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+
+switch($cate) {
+  case '1': $cate_name = '공지사항'; $cate_table = 'notice'; break;
+  case '2': $cate_name = '이벤트'; $cate_table = 'event'; break;
+  case '3': $cate_name = '커뮤니티'; $cate_table = 'community'; break;
+  default: $cate_name = '공지사항';  break;
+}
+
 ?>
 <main>
   <div class="tab_menu board">
@@ -11,7 +19,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
       <li class="a_title active "><a href="#tab1">공지사항</a></li>
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
-      <a href="adm_board_insert.php" class="a_title board_wp">글쓰기</a>
+      <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
     </ul>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
@@ -65,12 +73,12 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             ?>
           <tr>
             <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>"><?=$data['notice_title']?></a></td>
+            <td><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>"><?=$data['notice_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?=$data['notice_wdate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?notice_id=<?=$data['notice_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?notice_id=<?=$data['notice_id']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -168,11 +176,11 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           ?>
           <tr>
             <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?event_id=<?=$data['event_id']?>"><?=$data['event_title']?></a></td>
+            <td><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>"><?=$data['event_title']?></a></td>
             <td><?=$data['event_sdate']?> ~ <?=$data['event_edate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?event_id=<?=$data['event_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?event_id=<?=$data['event_id']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
@@ -275,12 +283,12 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             ?>
           <tr>
             <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?community_id=<?=$data['community_id']?>"><?=$data['community_title']?></a></td>
+            <td><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>"><?=$data['community_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?=$data['community_wdate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?community_id=<?=$data['community_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?community_id=<?=$data['community_id']?>" title="삭제">삭제</a></button>
+              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
+              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
             </td>
           </tr>
           <?php } ?>
