@@ -4,6 +4,7 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+
 $sql =  'select * from board_question where question_parent_id is null order by question_id desc';
 $result = mysqli_query($con, $sql);
 
@@ -14,8 +15,8 @@ WHERE origin.question_id
 NOT IN (SELECT a.question_id 
         FROM board_question AS a, 
           (SELECT question_parent_id 
-           FROM board_question 
-           WHERE question_parent_id IS NOT NULL) AS b 
+            FROM board_question 
+            WHERE question_parent_id IS NOT NULL) AS b 
         WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL';
 //답변이 달려있는 질문 조회
 $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id';
@@ -85,7 +86,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?=++$number?></td>
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?= $data['question_wdate'] ?></td>
+            <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td><?= ($row_parent == '0' ? '답변대기중' : '답변완료')?></td>
             <td>
               <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
@@ -194,7 +195,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?=++$number?></td>
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?= $data['question_wdate'] ?></td>
+            <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변대기중</td>
             <td>
               <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
@@ -303,9 +304,10 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?=++$number?></td>
             <td><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?= $data['question_wdate'] ?></td>
+            <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변완료</td>
             <td>
+              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
               <button class="del_btn"><a href="" title="삭제">삭제</a></button>
             </td>
           </tr>

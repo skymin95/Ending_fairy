@@ -2,15 +2,19 @@
 
 input[type=text] {
   width: 320px;
-  margin-top: calc((70px - 31px) / 2);
+  margin-top: 0;
 }
 input[type=date], select {
   width: 320px;
   height: 31px;
   border: 1px solid #CCCCCC;
   border-radius: 10px;
-  margin-top: calc((70px - 31px) / 2);;
+  margin-top: 0;
   padding: 0 10px;
+}
+
+.board_wrap dd:not(:last-of-type) {
+  line-height: 70px;
 }
 
 .course_index {
