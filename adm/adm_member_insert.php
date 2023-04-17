@@ -49,10 +49,14 @@ $mb_id = $_SESSION['mb_id']; // 회원명
         <dd>  
           <div class="user_img">
           <img id="output"/>
-          <label for=""></label>
-        <input type="file" accept="image/*" onchange="loadFile(event)">
+        <input type="file" accept="image/*" onchange="loadFile(event)" id="inputTag"/>
+        <label htmlFor="inputTag" for="inputTag"><span>+</span> 파일추가</label>
           </div>
         </dd>
+
+
+
+
 
         <dt>회원레벨</dt>
         <dd>

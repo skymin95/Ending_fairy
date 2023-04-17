@@ -66,7 +66,7 @@
   border-top: 1px solid #fff;
   text-align: center;
   line-height: 70px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .board_wrap dt:first-child{border-top: none;}
 .board_wrap dt:last-child{border-bottom: none}
@@ -126,15 +126,16 @@ input[type=checkbox]{
   margin-left: 12px;
 }
 .user_img{
-  margin: 0px auto;
+  margin: 8px auto;
   height: 144px;
 }
 .user_img img{
-  width: 118px;
-  height: 150px;
+  width: 122px;
+  height: 122px;
   display: block;
   text-align: center;
   margin: 0px auto;
+  border-radius: 50%;
 }
 input[type=checkbox]::after{
   content: '이메일 수신 동의';
@@ -164,6 +165,24 @@ input[type=file]{
   color: #fff;
   display: block;
   margin: 6px auto;
+  display : none;
+}
+label{
+  width: 86px;
+  height: 31px;
+  font-size: 14px;
+  /* text-align: center; */
+  line-height: 31px;
+  background: #EFEFEF;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  
+}
+label span{
+  display: inline;
+  color: #DE0010;
 }
 .tel_box{
   display: flex;
