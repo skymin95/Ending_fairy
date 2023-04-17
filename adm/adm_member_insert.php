@@ -48,7 +48,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
         <dt class="file_insert">프로필 사진</dt>
         <dd>  
           <div class="user_img">
-          <img id="output"/>
+          <img id="output" src="<?=$base_URL?>images/default_profile.png"/>
         <input type="file" accept="image/*" onchange="loadFile(event)" id="inputTag"/>
         <label htmlFor="inputTag" for="inputTag"><span>+</span> 파일추가</label>
           </div>
