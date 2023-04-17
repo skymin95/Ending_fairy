@@ -148,7 +148,7 @@ include_once('./common.php');
           <?php } ?>
         </tbody>
       </table>
-      <a href="<?=$base_admin_URL?>adm_answer_list.php" class="view_more">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="<?=$base_admin_URL?>adm_answer_list.php?page=1&cate=2" class="view_more">더보기 <i class="fa-solid fa-chevron-right"></i></a>
     </article>
   </section>
 </main>

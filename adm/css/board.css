@@ -101,6 +101,12 @@ table button{
   border-radius: 25px;
   font-size: 12px;
 }
+table button.needanswer{
+  background-color: var(--main-color);
+}
+table button.needanswer a{
+  color:#fff;
+}
 table button a{
   display: block;
   color: #333;

@@ -89,7 +89,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td><?= ($row_parent == '0' ? '답변대기중' : '답변완료')?></td>
             <td>
-              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
+              <button class="answer_btn <?= ($row_parent == '0' ? 'needanswer' : '')?>"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="<?= ($row_parent == '0' ? '답변' : '수정')?>"><?= ($row_parent == '0' ? '답변' : '수정')?></a></button>
               <button class="del_btn"><a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제">삭제</a></button>
             </td>
           </tr>
@@ -198,7 +198,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변대기중</td>
             <td>
-              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
+              <button class="answer_btn needanswer"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
               <button class="del_btn"><a href="" title="삭제">삭제</a></button>
             </td>
           </tr>
@@ -307,7 +307,7 @@ $sql_c ='SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boar
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변완료</td>
             <td>
-              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
+              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="수정">수정</a></button>
               <button class="del_btn"><a href="" title="삭제">삭제</a></button>
             </td>
           </tr>
