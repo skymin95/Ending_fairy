@@ -46,20 +46,20 @@
   overflow: hidden;
 }
 
-.cal_nav li a, .cal_nav li {
+.cal_nav div a, .cal_nav div {
   width: calc(100% - 250px / 12);
 }
-.cal_nav li a, .cal_nav li span{
+.cal_nav div a, .cal_nav div span{
   line-height: 52px;
   font-size: 22px;
 }
-.cal_nav li.now_year {
+.cal_nav div.now_year {
   display: flex;
   justify-content: center; align-items: center;
   width: 170px; line-height: 52px;
   position: relative;
 }
-.cal_nav li.now_year::before {
+.cal_nav div.now_year::before {
   content: '';
   position: absolute;
   right: -1px;
@@ -71,7 +71,7 @@
 .cal_nav .year-month {
   width: calc(100% - 330px);
   display: flex;
-  justify-content: center; align-items: center;
+  justify-content: space-between; align-items: center;
   text-align: center;
   padding: 0 36px;
 }
@@ -81,6 +81,7 @@
   border-radius: 36px;
   font-weight: 500;
   margin:0 auto;
+  font-size: 22px;
 }
 .cal_nav .year-month .current_month {
   background-color: var(--main-color);

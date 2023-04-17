@@ -7,14 +7,14 @@ include_once('./common.php');
     <h3 class="hidden">강의 스케줄 관리 달력</h3>
     <article class="calender">
       <h3>강의 스케줄 관리</h3>
-      <ul class="cal_nav">
+      <div class="cal_nav">
         <a href="#none" class="nav-btn go-prev" title="방향">
           <img src="<?=$base_URL?>images/cal_arrow.svg" alt="arrow">
         </a>
-        <li class="now_year">
+        <div class="now_year">
           <span>2023년</span>
-        </li>
-        <div class="year-month">
+        </div>
+        <ul class="year-month">
           <li>
             <a href="#none" title="1">1</a>
           </li>
@@ -51,11 +51,11 @@ include_once('./common.php');
           <li>
             <a href="#none" title="12">12</a>
           </li>
-        </div>
+        </ul>
         <a href="#none" class="nav-btn go-next" title="방향">
           <img src="<?=$base_URL?>images/cal_arrow.svg" alt="arrow">
         </a>
-      </ul>
+      </div>
       <div class="sec_cal">
         <div class="cal_wrap">
           <div class="days">
