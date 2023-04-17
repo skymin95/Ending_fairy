@@ -22,6 +22,8 @@ $data = mysqli_fetch_assoc($result);
   $data = array(
     $cate_table.'_title' => '',
     $cate_table.'_content' => '',
+    'event_sdate' => '',
+    'event_edate' => '',
     'mb_no' => ''
   );
 }
@@ -37,7 +39,7 @@ $row_member = mysqli_fetch_array($result_member);
     <li><a href="adm_board_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
 
-  <form name="write" method="post" action="adm_board_insert_action.php">
+  <form name="write" method="post" action="adm_board_insert_action.php" enctype="multipart/form-data">
     <input type="hidden" name="cate_table" value="<?=$cate_table?>">
     <div class="board_wrap">
       <dl>
@@ -48,9 +50,18 @@ $row_member = mysqli_fetch_array($result_member);
         <dd><input type="text" name="mb_nick" value=
         <?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?>  required disabled></dd>
 
+        <?php if($cate == '2') {?>
+        <dt>신청 기간</dt>
+        <dd class="event_date">
+          <input type="date" name="event_sdate" value="<?=date_format(date_create($data['event_sdate']), "Y-m-d")?>"  class="txe" required > ~ <input type="date" name="event_edate" value="<?=date_format(date_create($data['event_edate']), "Y-m-d")?>"  class="txe" required >
+        </dd>
+        <?php } ?>
+
         <dt>파일선택</dt>
-        <dd class="asd"><input type="text" name="fileID">
-          <button class="board_file">파일추가</button>
+        <dd class="asd">
+          <input type="text" name="fileID" disabled>
+          <label htmlfor="fileDoc" for="fileDoc" class="file_doc_label"><span>+</span> 파일추가</label>
+          <input type="file" name="fileDoc" id="fileDoc" class="hidden">
         </dd>
 
         <dt>내용</dt>

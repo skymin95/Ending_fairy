@@ -105,7 +105,7 @@ $mb_no = $_GET['mb_no']; // 회원명
     <ul>
       <li class="active"><a href="#tab1">수강중인 강의 (6)</a></li>
       <li><a href="#tab2">신청·대기 강의 (5)</a></li>
-      <li><a href="#tab3">수강중인 강의 (3)</a></li>
+      <li><a href="#tab3">수강완료 강의 (3)</a></li>
     </ul>
 
     <div id="tab1" class="tab_content active">

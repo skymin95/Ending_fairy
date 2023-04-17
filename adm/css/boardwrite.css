@@ -103,6 +103,32 @@ input[type=text]{
   margin-top: 16px;
   padding: 0 10px;
 }
+.event_date {
+  line-height: 71px;
+}
+.event_date input[type=date] {
+  width: 400px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+label.file_doc_label{
+  width: 117px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 31px;
+  background: #EFEFEF;
+  border: 1px solid #EFEFEF;
+  border-radius: 10px;
+  display: block;
+  margin: 16px 20px 0;
+  text-indent: 22px;
+}
+label.file_doc_label span{
+  display: inline;
+  color: #DE0010;
+}
 .board_file{
   width: 130px;
   height: 35px;

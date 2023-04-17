@@ -162,6 +162,8 @@ table button a{
   display: flex;
   justify-content: center;
   gap: 30px;
+  font-family: 'Montserrat', sans-serif, arial;
+  letter-spacing: 1px;
 }
 .pagination a{
   text-align: center;

@@ -43,6 +43,7 @@
     }
     if($title == "게시판 관리 > 관리자 글쓰기"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+      echo "<script src='".$base_admin_URL."script/boardwrite.js' defer></script>";
     }
     if($title == "1:1문의 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
@@ -76,9 +77,11 @@
         $result_answer = mysqli_query($con, $sql_answer);
         $row_answer = mysqli_fetch_row($result_answer);
       ?>
-      <i class="fa-regular fa-bell">
-        <span class="count"><?=$row_answer[0]?></span>
-      </i>
+      <a href="<?=$base_admin_URL?>adm_answer_list.php?page=1&cate=2">
+        <i class="fa-regular fa-bell">
+          <span class="count"><?=$row_answer[0]?></span>
+        </i>
+      </a>
     </li>
     <li>
       <?=$_SESSION['mb_id']?>
