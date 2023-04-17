@@ -55,9 +55,13 @@ include_once('./common.php');
       $result_file = mysqli_query($con, $query_file);
     }
   } else if($id != '') {
-    $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
-    $result_file = mysqli_query($con, $sql_file);
-    $row_file = mysqli_fetch_array($result_file);
+    $sql_board = "SELECT * FROM board_".$cate_table." WHERE  ".$cate_table."_id = '$id'";
+    $result_board = mysqli_query($con, $sql_board);
+    $row_board = mysqli_fetch_assoc($result_board);
+
+    if(!empty($row_board['fileID'])){
+      $file_id = $row_board['fileID'];
+    }
   }
   
   if($id != ''){
