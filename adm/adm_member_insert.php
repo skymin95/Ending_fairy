@@ -7,24 +7,7 @@ $mb_no = $_GET['mb_no']; // 회원명
 
 <?php
 
-$id = (empty($_GET['mb_no']) ? '' : $_GET['mb_no']);
-$id = mysqli_real_escape_string($con, $id);
-if($id != '') {
-$query_member = "SELECT mb_id, mb_password, mb_name, mb_nick, mb_email, mb_level, mb_birth, mb_tel   FROM member WHERE mb_no = '$mb_no'";
-$result_member = mysqli_query($con, $query_member);
-$data = mysqli_fetch_assoc($result_member);
-} else {
-  $data = array(
-    'mb_id' => '',
-    'mb_password' => '',
-    'mb_name' => '',
-    'mb_nick' => '',
-    'mb_email' => '',
-    'mb_level' => '',
-    'mb_birth' => '',
-    'mb_tel' => ''
-  );
-}
+
 
   $query_member = "SELECT * FROM member WHERE mb_no = '$mb_no'";
   $result_member = mysqli_query($con, $query_member);
