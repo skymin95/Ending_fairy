@@ -222,6 +222,11 @@ label span{
   background: none;
   font-size: 12px;
 }
+.nick_check.check {
+  background-color: #333;
+  border: 1px solid #000;
+  color: #fff;
+}
 input[type=tel]{
   /* position: relative; */
   display: block;

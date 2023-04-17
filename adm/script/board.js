@@ -73,6 +73,49 @@ $(document).ready(function() {
       }
       $(class_list + ":lt(" + class_total_cnt + ")").addClass("active");
     }
+
+    $('.nick_check').click(function(e){
+      e.preventDefault();
+      let request = new XMLHttpRequest();
+      let url = '/Ending_fairy/sub/member/member_nick_check.php';
+      
+      request.open('POST', url, true);
+      request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      request.send('mb_nick='+$('.mb_nick').val());
+      
+      request.onload = () => {
+        if(request.status === 200 || request.status === 201){
+          let parseData = request.responseText;
+          if(parseData == '1') { // 중복
+            $('#nickCheckVal').val('0');
+            $('.nick_check').removeClass('check');
+            alert('닉네임이 중복됩니다. 다시 입력해주세요.');
+          } else { // 중복되지 않음
+            $('#nickCheckVal').val('1');
+            $('.nick_check').addClass('check');
+            alert('닉네임이 중복되지 않습니다.');
+          }
+        }else{
+          console.log(request);
+          console.log('실패');
+        }
+      }
+    });
+
+    $('.mb_nick').on('keypress change', function(e){
+      $('#nickCheckVal').val('0');
+      $('.nick_check').removeClass('check');
+    });
+
+    $('#write').on('submit', function(e){
+      if($('#nickCheckVal').val() == '1'){
+        return true;
+      } else {
+        alert('닉네임 중복 여부를 확인해주세요.');
+        return false;
+      }
+    });
+
   });
   
   // 첨부파일

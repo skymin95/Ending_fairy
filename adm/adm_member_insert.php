@@ -34,7 +34,7 @@ $mb_no = $_GET['mb_no']; // 회원명
     <li><h2 class="a_title">회원정보</h2></li>
     <li><a href="adm_member_list.php" class="a_title1">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
-  <form name="write" method="post" action="adm_member_update_action.php" enctype="multipart/form-data">
+  <form name="write" id="write" method="post" action="adm_member_update_action.php" enctype="multipart/form-data">
     <input type="hidden" name="mb_no" value="<?=$mb_no?>">
     <div class="board_wrap">
       <div class="member_h">
@@ -53,8 +53,9 @@ $mb_no = $_GET['mb_no']; // 회원명
 
         <dt>닉네임</dt>
         <dd>
-          <input type="text" value="<?=$row_member['mb_nick']?>" name="mb_nick">
-          <button class='nick_check'>
+          <input type="text" value="<?=$row_member['mb_nick']?>" name="mb_nick" class="mb_nick">
+          <input type="hidden" name="nick_check" value="<?=(empty($row_member['mb_nick']) ? 0 : 1)?>" id="nickCheckVal">
+          <button class='nick_check <?=(empty($row_member['mb_nick']) ? '' : 'check')?>'>
             <i class="fa-solid fa-check"></i> 중복확인
           </button>
         </dd>
