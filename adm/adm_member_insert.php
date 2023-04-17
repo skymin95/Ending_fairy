@@ -34,7 +34,7 @@ $mb_no = $_GET['mb_no']; // 회원명
     <li><h2 class="a_title">회원정보</h2></li>
     <li><a href="adm_member_list.php" class="a_title1">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
-  <form name="write" method="post" action="adm_member_update_action.php">
+  <form name="write" method="post" action="adm_member_update_action.php" enctype="multipart/form-data">
     <input type="hidden" name="mb_no" value="<?=$mb_no?>">
     <div class="board_wrap">
       <div class="member_h">
@@ -69,7 +69,15 @@ $mb_no = $_GET['mb_no']; // 회원명
         <dt class="file_insert">프로필 사진</dt>
         <dd>  
           <div class="user_img">
+            <?php if(empty($row_member['mb_1'])) {?>
             <img id="output" src="<?=$base_URL?>images/default_profile.png" alt="profile"/>
+            <?php } else {
+              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'";
+              $result_file = mysqli_query($con, $sql_file);
+              $row_file = mysqli_fetch_assoc($result_file);
+            ?>
+            <img id="output" src="<?=$base_URL.'upload/'.$row_file['nameSave']?>" alt="profile"/>
+            <?php } ?>
             <input type="file" accept="image/*" onchange="loadFile(event)" id="inputTag" name="fileDoc"/>
             <label htmlFor="inputTag" for="inputTag"><span>+</span> 파일추가</label>
           </div>
@@ -85,7 +93,7 @@ $mb_no = $_GET['mb_no']; // 회원명
         </dd>
 
         <dt>생년월일</dt>
-        <dd><input type="date" value="<?=$row_member['mb_birth']?>" name="mb_birth"></dd>
+        <dd><input type="date" value="<?=date_format(date_create($row_member['mb_birth']), "Y-m-d")?>" name="mb_birth"></dd>
 
         <dt>휴대폰 번호</dt>
         <dd class="tel_box">
