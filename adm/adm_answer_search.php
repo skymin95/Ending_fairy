@@ -13,6 +13,36 @@ if($category==''){
     alert('검색 옵션을 선택해주세요.');
     history.back();
   </script>");
+}else if($category=='mb_name'){
+  $sql = "SELECT member.mb_name, member.mb_nick, member.mb_no, question.* FROM member INNER JOIN (SELECT origin.*
+  FROM board_question AS origin 
+  WHERE origin.question_id 
+  NOT IN (SELECT a.question_id 
+          FROM board_question AS a, 
+            (SELECT question_parent_id 
+              FROM board_question 
+              WHERE question_parent_id IS NULL) AS b 
+          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL) AS question ON member.mb_no = question.mb_no
+      WHERE member.mb_nick LIKE '%".$search."%' OR member.mb_name LIKE '%".$search."%'";
+  $result = mysqli_query($con, $sql);
+
+  //답변이 달려있지 않은 질문 조회
+  $sql_w = "SELECT member.mb_name, member.mb_nick, member.mb_no, question.* FROM member INNER JOIN (SELECT origin.*
+  FROM board_question AS origin 
+  WHERE origin.question_id 
+  NOT IN (SELECT a.question_id 
+          FROM board_question AS a, 
+            (SELECT question_parent_id 
+              FROM board_question 
+              WHERE question_parent_id IS NOT NULL) AS b 
+          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL) AS question ON member.mb_no = question.mb_no
+      WHERE member.mb_nick LIKE '%".$search."%' OR member.mb_name LIKE '%".$search."%'";
+
+  //답변이 달려있는 질문 조회
+  $sql_c = "SELECT * FROM board_question AS a, 
+  (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b,
+  (SELECT mb_name, mb_nick, mb_no FROM member WHERE mb_name LIKE '%".$search."%' OR mb_nick LIKE '%".$search."%') AS member
+  WHERE a.question_id = b.question_parent_id AND a.mb_no = member.mb_no";
 }else{
   $sql = "SELECT * from board_question where question_parent_id is null AND $category like '%".$search."%' order by question_id desc";
   $result = mysqli_query($con, $sql);
@@ -27,6 +57,7 @@ if($category==''){
               FROM board_question 
               WHERE question_parent_id IS NOT NULL) AS b 
           WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL AND $category like '%".$search."%' order by question_id desc";
+
   //답변이 달려있는 질문 조회
   $sql_c = "SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id AND $category like '%".$search."%' order by question_id desc";
 }
@@ -41,7 +72,7 @@ if($category==''){
 
     <!-- 전체 -->
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
-      <form action="adm_answer_search.php?cate=<?$cate?>" method="get">
+      <form action="adm_answer_search.php" method="get">
         <input type="hidden" name="cate" value="<?=$cate?>">
         <table>
           <colgroup>
@@ -117,7 +148,7 @@ if($category==''){
             <option value="mb_name">글쓴이</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
-          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
+          <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -156,7 +187,7 @@ if($category==''){
 
     <!-- 답변대기중 -->
     <div id="tab2" class="tab_content">
-      <form action="adm_answer_search.php?cate=<?$cate?>" method="get">
+      <form action="adm_answer_search.php" method="get">
         <input type="hidden" name="cate" value="<?=$cate?>">
         <table>
           <colgroup>

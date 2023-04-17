@@ -11,6 +11,16 @@ switch($cate) {
   case '3': $cate_name = '커뮤니티'; $cate_table = 'community'; break;
   default: $cate_name = '공지사항';  break;
 }
+
+$category = $_GET['category']; // 검색옵션
+$search = $_GET['search']; // 검색내용
+
+if($category==''){
+  echo("<script>
+    alert('검색 옵션을 선택해주세요.');
+    history.back();
+  </script>");
+}
 ?>
 <main>
   <div class="tab_menu board">
@@ -40,7 +50,7 @@ switch($cate) {
             <th>관리</th>
           </tr>     
           <?php
-            $sql = "select * from board_notice order by notice_id desc;";
+            $sql = "SELECT * FROM board_notice WHERE $category LIKE '%".$search."%' order by notice_id desc";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -61,7 +71,7 @@ switch($cate) {
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_notice order by notice_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -88,12 +98,12 @@ switch($cate) {
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="">검색옵션</option>
-            <option value="notice_title">제목</option>
-            <option value="notice_content">내용</option>
+            <option vlaue="">검색옵션</option>
+            <option vlaue="notice_title">제목</option>
+            <option vlaue="notice_content">내용</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
-          <input type="text" name="search" placeholder="SEARCH">
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -147,7 +157,7 @@ switch($cate) {
             <th>관리</th>
           </tr>       
           <?php
-            $sql = "select * from board_event order by event_id desc;";
+            $sql = "SELECT * FROM board_event WHERE $category LIKE '%".$search."%' order by event_id desc";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -168,7 +178,7 @@ switch($cate) {
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_event order by event_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -191,13 +201,13 @@ switch($cate) {
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="">검색옵션</option>
-            <option value="event_title">제목</option>
-            <option value="event_sdate">시작일</option>
-            <option value="event_edate">종료일</option>
+            <option vlaue="">검색옵션</option>
+            <option vlaue="event_title">제목</option>
+            <option vlaue="event_sdate">시작일</option>
+            <option vlaue="event_edate">종료일</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
-          <input type="text" name="search" placeholder="SEARCH">
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -253,7 +263,11 @@ switch($cate) {
             <th>관리</th>
           </tr>      
           <?php
-            $sql = "select * from board_community order by community_id desc;";
+            if($category=='mb_name'){
+              $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
+              $result = mysqli_query($con, $sql);
+            }
+            $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
             $result = mysqli_query($con, $sql);
 
             // 페이지내이션
@@ -274,7 +288,7 @@ switch($cate) {
             };
             $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-            $sql = "select * from board_community order by community_id desc limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+            $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
             $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
             $number = 0 + ($start);
 
@@ -301,13 +315,13 @@ switch($cate) {
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option value="">검색옵션</option>
-            <option value="notice_title">제목</option>
-            <option value="notice_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option vlaue="">검색옵션</option>
+            <option vlaue="notice_title">제목</option>
+            <option vlaue="notice_content">내용</option>
+            <option vlaue="mb_name">글쓴이</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
-          <input type="text" name="search" placeholder="SEARCH">
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 

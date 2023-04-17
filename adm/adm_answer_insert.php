@@ -42,7 +42,7 @@ $row_member = mysqli_fetch_array($result_member);
         <dd><p><?=$data['question_title']?></p></dd>
 
         <dt>작성자</dt>
-        <dd><p><?=$row_member['mb_name']?></p></dd>
+        <dd><p><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></p></dd>
 
         <dt>작성일</dt>
         <dd><p><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></p></dd>
