@@ -26,9 +26,11 @@ $data = mysqli_fetch_assoc($result);
   );
 }
 
-$sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
-$result_file = mysqli_query($con, $sql_file);
-$row_file = mysqli_fetch_array($result_file);
+if(!empty($data['fileID'])){
+  $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
+  $result_file = mysqli_query($con, $sql_file);
+  $row_file = mysqli_fetch_array($result_file);
+}
 
 $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
 $result_member = mysqli_query($con, $sql_member);
@@ -41,7 +43,7 @@ $row_member = mysqli_fetch_array($result_member);
       <li><a href="adm_board_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
     </ul>
 
-    <form name="write" method="post" action="adm_board_insert_action.php">
+    <form name="write" method="post" action="adm_board_insert_action.php" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<?=$id?>">
       <input type="hidden" name="cate_table" value="<?=$cate_table?>">
     
@@ -63,7 +65,7 @@ $row_member = mysqli_fetch_array($result_member);
 
             <dt>파일선택</dt>
             <dd class="asd">
-              <input type="text" name="fileID" value="<?=$row_file['nameOrigin']?>" disabled>
+              <input type="text" name="fileID" value="<?=$row_file['nameOrigin']??''?>" disabled>
               <label htmlfor="fileDoc" for="fileDoc" class="file_doc_label"><span>+</span> 파일추가</label>
               <input type="file" name="fileDoc" id="fileDoc" class="hidden">
             </dd>
