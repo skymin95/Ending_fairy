@@ -25,11 +25,11 @@ if($category==''){
 <main>
   <div class="tab_menu board">
     <ul>
-      <li class="a_title active "><a href="#tab1">공지사항</a></li>
+      <li class="a_title active"><a href="#tab1">공지사항</a></li>
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
+      <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
     </ul>
-    <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_board_search.php" method="get">
@@ -98,9 +98,9 @@ if($category==''){
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option vlaue="">검색옵션</option>
-            <option vlaue="notice_title">제목</option>
-            <option vlaue="notice_content">내용</option>
+            <option value="">검색옵션</option>
+            <option value="notice_title">제목</option>
+            <option value="notice_content">내용</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
@@ -201,10 +201,10 @@ if($category==''){
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option vlaue="">검색옵션</option>
-            <option vlaue="event_title">제목</option>
-            <option vlaue="event_sdate">시작일</option>
-            <option vlaue="event_edate">종료일</option>
+            <option value="">검색옵션</option>
+            <option value="event_title">제목</option>
+            <option value="event_sdate">시작일</option>
+            <option value="event_edate">종료일</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
@@ -315,10 +315,10 @@ if($category==''){
         <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">
-            <option vlaue="">검색옵션</option>
-            <option vlaue="notice_title">제목</option>
-            <option vlaue="notice_content">내용</option>
-            <option vlaue="mb_name">글쓴이</option>
+            <option value="">검색옵션</option>
+            <option value="notice_title">제목</option>
+            <option value="notice_content">내용</option>
+            <option value="mb_name">글쓴이</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">

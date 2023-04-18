@@ -15,11 +15,11 @@ switch($cate) {
 <main>
   <div class="tab_menu board">
     <ul>
-      <li class="a_title active "><a href="#tab1">공지사항</a></li>
+      <li class="a_title active"><a href="#tab1">공지사항</a></li>
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
+      <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp"  title="글쓰기">글쓰기</a>
     </ul>
-    <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp"  title="글쓰기">글쓰기</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_board_search.php" method="get">
@@ -86,7 +86,8 @@ switch($cate) {
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <select name="category">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="notice_title">제목</option>
             <option value="notice_content">내용</option>
@@ -123,7 +124,7 @@ switch($cate) {
           </ul>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET">
+      <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -188,7 +189,8 @@ switch($cate) {
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <select name="category">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="event_title">제목</option>
             <option value="event_sdate">시작일</option>
@@ -226,7 +228,7 @@ switch($cate) {
           </ul>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET">
+      <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -297,7 +299,8 @@ switch($cate) {
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <select name="category">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="notice_title">제목</option>
             <option value="notice_content">내용</option>
@@ -335,7 +338,7 @@ switch($cate) {
           </ul>
         </div>
       </form>
-      <form action="adm_board_list.php" method="GET">
+      <form action="adm_board_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>

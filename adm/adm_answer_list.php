@@ -136,7 +136,7 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
           </ul>
         </div>
       </form>
-      <form action="adm_answer_list.php" method="GET">
+      <form action="adm_answer_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -245,7 +245,7 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
           </ul>
         </div>
       </form>
-      <form action="adm_answer_list.php" method="GET">
+      <form action="adm_answer_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -354,7 +354,7 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
           </ul>
         </div>
       </form>
-      <form action="adm_answer_list.php" method="GET">
+      <form action="adm_answer_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>

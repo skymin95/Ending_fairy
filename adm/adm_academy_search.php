@@ -21,8 +21,8 @@ if($category==''){
     <ul>
       <li class="a_title <?=(empty($_GET['cate']) ? 'active' : '')?>"><a href="#tab1">온라인 강의</a></li>
       <li class="a_title"><a href="#tab2">오프라인 강의</a></li>
+      <a href="adm_academy_insert.php" class="a_title board_wp">강의추가</a>
     </ul>
-    <a href="adm_academy_insert.php" class="a_title board_wp">강의추가</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_academy_search.php" method="get">
@@ -107,7 +107,6 @@ if($category==''){
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="course_title">강의명</option>
@@ -235,7 +234,6 @@ if($category==''){
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
             <option value="course_title">강의명</option>

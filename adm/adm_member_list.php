@@ -121,7 +121,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           </ul>
         </div>
       </form>
-      <form action="adm_member_list.php" method="GET">
+      <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -234,7 +234,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           </ul>
         </div>
       </form>
-      <form action="adm_member_list.php" method="GET">
+      <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
@@ -347,7 +347,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           </ul>
         </div>
       </form>
-      <form action="adm_member_list.php" method="GET">
+      <form action="adm_member_list.php" method="GET" id="paging">
         <input type="hidden" name="page" value="<?=$page?>">
         <input type="hidden" name="cate" value="1">
       </form>
