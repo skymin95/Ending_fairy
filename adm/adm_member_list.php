@@ -73,8 +73,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -82,8 +82,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="category">검색옵션</label>
-          <select name="category" id="category">
+          <select name="category">
             <option value="">검색옵션</option>
             <option value="mb_name">이름</option>
             <option value="mb_id">아이디</option>
@@ -101,9 +100,9 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -115,11 +114,11 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-          <?php }?>
         </div>
       </form>
       <form action="adm_member_list.php" method="GET">
@@ -187,8 +186,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -196,8 +195,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="category">검색옵션</label>
-          <select name="category" id="category">
+          <select name="category">
             <option value="">검색옵션</option>
             <option value="mb_name">이름</option>
             <option value="mb_id">아이디</option>
@@ -215,9 +213,9 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -229,12 +227,12 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-        <?php }?>
-      </div>
+        </div>
       </form>
       <form action="adm_member_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
@@ -301,8 +299,8 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <td><?=$data['mb_level']?></td>
             <td><?=$data['mb_tel']?></td>
             <td>
-              <button class="edit_btn" type="button"><a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정">수정</a></button>
-              <button class="del_btn" type="button"><a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제">삭제</a></button>
+              <a href="adm_member_insert.php?mb_no=<?=$data['mb_no']?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_member_delete.php?mb_no=<?=$data['mb_no']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -310,8 +308,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
         <!-- 검색 -->
         <div class="s_wrap">
-          <label for="category">검색옵션</label>
-          <select name="category" id="category">
+          <select name="category">
             <option value="">검색옵션</option>
             <option value="mb_name">이름</option>
             <option value="mb_id">아이디</option>
@@ -329,9 +326,9 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -343,12 +340,12 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-        <?php }?>
-      </div>
+        </div>
       </form>
       <form action="adm_member_list.php" method="GET">
         <input type="hidden" name="page" value="<?=$page?>">
