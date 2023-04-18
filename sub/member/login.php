@@ -26,10 +26,10 @@ include_once('../../db/db_con.php');
       <article class="login">
         <h2>로그인</h2>
         <form name="로그인" method="post" action="login_db.php" id="member_form">
-          <label>아이디</label>
-          <input type="text" name="id">
-          <label>비밀번호</label>
-          <input type="password" name="pw">
+          <label for="id">아이디</label>
+          <input type="text" name="id" id="id">
+          <label for="pw">비밀번호</label>
+          <input type="password" name="pw" id="pw">
           <span class="id_save">
             <input type="checkbox" id="log_save">
             <label for="log_save">아이디저장</label>

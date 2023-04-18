@@ -19,7 +19,7 @@ switch($cate) {
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
     </ul>
-    <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
+    <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp"  title="글쓰기">글쓰기</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_board_search.php" method="get">
