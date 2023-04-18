@@ -11,7 +11,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
       <li class="a_title <?=(empty($_GET['cate']) ? 'active' : '')?>"><a href="#tab1">온라인 강의</a></li>
       <li class="a_title"><a href="#tab2">오프라인 강의</a></li>
     </ul>
-    <a href="adm_academy_insert.php" class="a_title board_wp">강의추가</a>
+    <a href="adm_academy_insert.php" class="a_title board_wp" title="강의추가">강의추가</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_academy_search.php" method="get">
