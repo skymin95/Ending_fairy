@@ -90,7 +90,7 @@
         $result_answer = mysqli_query($con, $sql_answer);
         $row_answer = mysqli_fetch_row($result_answer);
       ?>
-        <?php if($member_level == '10') {?>
+        <?php if($member_level == '10' || $member_level == '9') {?>
       <a href="<?=$base_admin_URL?>adm_answer_list.php?page=1&cate=2">
         <i class="fa-regular fa-bell">
           <span class="count"><?=$row_answer[0]?></span>
@@ -103,7 +103,7 @@
     </li>
     <li>
       <!-- A or T -->
-      <?php if($member_level == '10') {?>
+      <?php if($member_level == '10' || $member_level == '9') {?>
       <span class="answer">A</span>
       <?php } else if($member_level == '8') {?>
       <span class="answer teacher">T</span>
@@ -115,7 +115,7 @@
   </ul>
   <nav>
     <ul>
-      <?php if($member_level == '10') {?>
+      <?php if($member_level == '10' || $member_level == '9') {?>
       <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>index.php">HOME</a>
       </li>
