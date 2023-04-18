@@ -41,55 +41,56 @@
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 60,
+		percent: 'D-day',
 		// duration: 10000
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 50,
+		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 45,
+		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 25,
+		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 15,
+		percent: 'D-day',
+
+		},
+		// 수강완료
+		{
+		backgroundColor: '#ccc',
+		progressColor: '#DE0010',
+		percent: 100,
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 05,
+		percent: 100,
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 25,
+		percent: 100,
 
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
-		percent: 15,
-
-		},
-		{
-		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
-		percent: 05,
+		percent: 100,
 		}
 	];	
 		
@@ -104,7 +105,8 @@
 			};
 			// console.log(opts);
 	
-			$target.append('<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span>' + opts.percent + '%</span></div>');
+			$target.append('<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span>' + opts.percent + (typeof opts.percent == 'number' ? '%' : '') + '</span></div>');
+			
 	
 			$target.find('.background').css('background-color', opts.backgroundColor);
 			$target.find('.left').css('background-color', opts.backgroundColor);

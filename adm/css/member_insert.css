@@ -403,7 +403,7 @@ margin-bottom: 30px;
   margin-top: 15px;
   line-height: 30px;
 }
-.mclass-content p:first-child{
+.mclass-content > p:first-child{
   color: #DE0010;
 }
 .mclass-content h3{
@@ -421,7 +421,7 @@ margin-bottom: 30px;
 .mclass-content p span{
   color: #A7A7A7;
   display: inline-block;
-  text-indent: 15px;
+  text-indent: 11px;
 }
 .mclass-content button{
   margin-top: 24px;
@@ -439,7 +439,10 @@ margin-bottom: 30px;
 .member_circle{
   display: flex;
 }
-
+/* 오프라인 */
+.mclass-content p:first-child.offline{
+  color: #5A5A5C;
+}
 /* 프로그래스 바 */
 .position {
   float: left;
@@ -474,6 +477,8 @@ margin-bottom: 30px;
   text-align: center;
   border-radius: 50%;
   background-color: white;
+  font-family: 'Montserrat';
+  text-indent: 5px;
 }
 
 .progress-bar .rotate {
