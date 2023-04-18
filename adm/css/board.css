@@ -1,4 +1,7 @@
 /* 탭 기본*/
+.tab_menu{
+  position: relative;
+}
 .tab_menu > ul{
   margin-bottom: 50px;
   text-align: center;
@@ -24,18 +27,19 @@
   border-radius: 0 5px 5px 0;
 }
 .board_wp {
+  position: absolute;
   display: inline-block;
   width: 175px;
   height: 35px;
-  margin-left: 635px;
   border-radius: 35px;
   background-color: #DE0010;
   color: #fff;
   text-align: center;
   font-size: 16px;
   line-height: 35px;
+  top: 0;
+  right: 0;
 }
-.academy .board_wp {margin-left: 765px;}
 
 .tab_menu > ul li.active a {
   color: #DE0010;
@@ -92,27 +96,26 @@ table td::after{
 }
 table td:first-child::after{width: 0;}
 table img{width: 100%;}
-table button{
+table .b_btn{
   width: 96px;
   height: 25px;
   margin: 10px 0;
+  padding: 6px;
   background: #E6E6E6;
+  color: #333;
   border: none;
   border-radius: 25px;
   font-size: 12px;
+  display: inline-block;
 }
-table button.needanswer{
+table .needanswer{
   background-color: var(--main-color);
-}
-table button.needanswer a{
   color:#fff;
 }
-table button a{
-  display: block;
-  color: #333;
+.del_btn{
+  background: #5A5A5C !important;
+  color: #fff !important;
 }
-.del_btn{background: #5A5A5C;}
-.del_btn a{color: #fff;}
 .board td:nth-child(2){
   text-align: left;
   text-indent: 30px;
@@ -175,7 +178,7 @@ table button a{
   color: #DE0010;
 }
 .pagination ul li a{position: relative;}
-.pagination ul li a::after{
+.pagination ul li a:after{
 	transform: scaleX(0);
 	transform-origin: top right;
 	content: " ";

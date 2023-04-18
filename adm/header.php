@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_admin_URL?>css/admin.css" type="text/css">
+  <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
   <?php
@@ -112,7 +113,7 @@
         <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer<?=explode(" > ", $title)[0] == "1:1문의 관리" ? "_active" : ""?>.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
       </li>
       <li <?=explode(" > ", $title)[0] == "쿠폰 관리" ? "class='active'" : ""?>>
-        <a href="<?=$base_admin_URL?>adm_coupon_list.php" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
+        <a href="<?=$base_admin_URL?>adm_coupon_list.php" onclick="alert('준비중입니다.');return false;" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
       </li>
     </ul>
   </nav>
