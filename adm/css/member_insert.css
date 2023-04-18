@@ -1,3 +1,15 @@
+/* cyrillic-ext */
+@font-face {font-family: 'Montserrat';font-style: normal;font-weight: 500;font-display: swap;src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');unicode-range: U+0030-0039;}
+/* cyrillic */
+@font-face {font-family: 'Montserrat';font-style: normal;font-weight: 500;font-display: swap;src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format('woff2');unicode-range: U+0030-0039;}
+/* vietnamese */
+@font-face {font-family: 'Montserrat';font-style: normal;font-weight: 500;font-display: swap;src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2) format('woff2');unicode-range: U+0030-0039;}
+/* latin-ext */
+@font-face {font-family: 'Montserrat';font-style: normal;font-weight: 500;font-display: swap;src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');unicode-range: U+0030-0039;}
+/* latin */
+@font-face {font-family: 'Montserrat';font-style: normal;font-weight: 500;font-display: swap;src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');unicode-range: U+0030-0039;}
+
+
 /* 회원정보 타이틀 */
 .a_title{
   color: #DE0010;
@@ -200,14 +212,17 @@ label span{
 }
 .class_lr span:first-child{
   color: #DE0010;
+  font-family: 'Montserrat';
 }
 .class_lr span:first-child::after{
  content: '/';
  color: #111111;
   padding: 5px;
+  font-family: 'Montserrat';
 }
 .class_lr span:last-child{
   color: #333;
+  font-family: 'Montserrat';
 }
 .nick_check{
   position: relative;
@@ -421,7 +436,8 @@ margin-bottom: 30px;
 .mclass-content p span{
   color: #A7A7A7;
   display: inline-block;
-  text-indent: 11px;
+  text-indent: 6px;
+  font-family: 'Montserrat';
 }
 .mclass-content button{
   margin-top: 24px;
@@ -468,7 +484,7 @@ margin-bottom: 30px;
   position: absolute;
   font-family: Arial;
   font-size: 20px;
-  line-height: 75px;
+  line-height: 71px;
   color: #DE0010;
   height: 75px;
   width: 75px;
