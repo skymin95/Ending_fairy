@@ -147,7 +147,7 @@
       <li <?=explode(" > ", $title)[0] == "1:1문의 관리" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer<?=explode(" > ", $title)[0] == "1:1문의 관리" ? "_active" : ""?>.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
       </li>
-      <?}?>
+      <?php } ?>
     </ul>
   </nav>
 </header>
