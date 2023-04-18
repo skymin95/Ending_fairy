@@ -14,6 +14,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
   <?php
+
+    $sql_member_level = "SELECT mb_level FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
+    $result_member_level = mysqli_query($con, $sql_member_level);
+    $member_level = mysqli_fetch_row($result_member_level)[0];
+
     if(basename($_SERVER['PHP_SELF']) == 'index.php'){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/main.css' type='text/css'>";
       echo "<script src='./script/main.js' defer></script>";
@@ -78,18 +83,24 @@
         $result_answer = mysqli_query($con, $sql_answer);
         $row_answer = mysqli_fetch_row($result_answer);
       ?>
+        <?php if($member_level == '10') {?>
       <a href="<?=$base_admin_URL?>adm_answer_list.php?page=1&cate=2">
         <i class="fa-regular fa-bell">
           <span class="count"><?=$row_answer[0]?></span>
         </i>
       </a>
+      <?php }?>
     </li>
     <li>
       <?=$_SESSION['mb_id']?>
     </li>
     <li>
       <!-- A or T -->
+      <?php if($member_level == '10') {?>
       <span class="answer">A</span>
+      <?php } else if($member_level == '8') {?>
+      <span class="answer teacher">T</span>
+      <?php }?>
     </li>
     <li>
       <a href="<?=$base_URL?>sub/member/logout.php">로그아웃</a>
@@ -97,6 +108,7 @@
   </ul>
   <nav>
     <ul>
+      <?php if($member_level == '10') {?>
       <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>index.php">HOME</a>
       </li>
@@ -115,6 +127,20 @@
       <li <?=explode(" > ", $title)[0] == "쿠폰 관리" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>adm_coupon_list.php" onclick="alert('준비중입니다.');return false;" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
       </li>
+      <?php } else if($member_level == '8') {?>
+      <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>index.php">HOME</a>
+      </li>
+      <li <?=explode(" > ", $title)[0] == "강의 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_academy_list.php" title="강의 관리"><img src="<?=$base_URL?>images/icon_academy<?=explode(" > ", $title)[0] == "강의 관리" ? "_active" : ""?>.svg" alt="강의 관리"> 강의 관리</a>
+      </li>
+      <li <?=explode(" > ", $title)[0] == "회원 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_member_list.php" title="회원 관리"><img src="<?=$base_URL?>images/icon_member<?=explode(" > ", $title)[0] == "회원 관리" ? "_active" : ""?>.svg" alt="회원 관리"> 회원 관리</a>
+      </li>
+      <li <?=explode(" > ", $title)[0] == "1:1문의 관리" ? "class='active'" : ""?>>
+        <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer<?=explode(" > ", $title)[0] == "1:1문의 관리" ? "_active" : ""?>.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
+      </li>
+      <?}?>
     </ul>
   </nav>
 </header>
