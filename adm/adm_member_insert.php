@@ -121,7 +121,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>왕초보를 위한 프리미어프로</h3>
-              <p>남은 수강 기간<span>24일</span></p>
+              <p>남은 수강 기간<span>50일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -138,7 +138,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>캐논 미니 포토프린터와 함께하는 다이어리 꾸미기</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>60일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -155,7 +155,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>풍경 사진 마스터 -바다열차편-</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>46일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -172,7 +172,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>여행 사진 첫걸음</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>55일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -189,7 +189,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>영상의 기초</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>62일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -206,7 +206,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>인물 사진 첫걸음</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>70일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -229,7 +229,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>왕초보를 위한 프리미어프로</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>50일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -246,7 +246,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>캐논 미니 포토프린터와 함께하는 다이어리 꾸미기</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>32일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -263,7 +263,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>풍경 사진 마스터 -바다열차편-</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>78일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -280,7 +280,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>여행 사진 첫걸음</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>82일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -297,7 +297,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>영상의 기초</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>86일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -323,7 +323,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>왕초보를 위한 프리미어프로</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>90일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -340,7 +340,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>캐논 미니 포토프린터와 함께하는 다이어리 꾸미기</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>82일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
@@ -357,7 +357,7 @@ $mb_no = $_GET['mb_no']; // 회원명
             <div class="mclass-content">
               <p>온라인 강의</p>
               <h3>풍경 사진 첫걸음</h3>
-              <p>수강만료<span>24일</span></p>
+              <p>수강만료<span>84일</span></p>
               <div class="member_circle">
                 <button>삭제</button>
                 <div class="progress-bar position"></div>
