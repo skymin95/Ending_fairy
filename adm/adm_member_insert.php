@@ -88,8 +88,15 @@ $mb_no = $_GET['mb_no']; // 회원명
         <dd>
           <select class="user_level" name="mb_level">
             <option value="1">1</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+              <?php
+              if(!empty($row_member['mb_level'])) {
+                for($i = 9; $i <= 10; $i++) {
+              ?>
+              <option value="<?=$i?>" <?=$i == $row_member['mb_level'] ? 'selected' : ''?>><?=$i?></option>
+            <?php
+                }
+              } 
+            ?>
           </select>
         </dd>
 
