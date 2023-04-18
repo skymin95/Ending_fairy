@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_admin_URL?>css/admin.css" type="text/css">
+  <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
   <?php
