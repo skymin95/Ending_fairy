@@ -131,8 +131,8 @@ if($category==''){
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td><?= ($row_parent == '0' ? '답변대기중' : '답변완료')?></td>
             <td>
-              <button class="answer_btn <?= ($row_parent == '0' ? 'needanswer' : '')?>"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="<?= ($row_parent == '0' ? '답변' : '수정')?>"><?= ($row_parent == '0' ? '답변' : '수정')?></a></button>
-              <button class="del_btn"><a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제">삭제</a></button>
+              <a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="<?= ($row_parent == '0' ? '답변' : '수정')?>" class="b_btn answer_btn <?= ($row_parent == '0' ? 'needanswer' : '')?>"><?= ($row_parent == '0' ? '답변' : '수정')?></a>
+              <a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -158,9 +158,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -172,11 +172,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-          <?php }?>
         </div>
       </form>
       <form action="adm_answer_list.php" method="GET" id="paging">
@@ -242,8 +242,8 @@ if($category==''){
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변대기중</td>
             <td>
-              <button class="answer_btn needanswer"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변">답변</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="답변" class="b_btn answer_btn needanswer">답변</a>
+              <a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -269,9 +269,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -283,11 +283,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-          <?php }?>
         </div>
       </form>
       <form action="adm_answer_list.php" method="GET" id="paging">
@@ -353,8 +353,8 @@ if($category==''){
             <td><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></td>
             <td>답변완료</td>
             <td>
-              <button class="answer_btn"><a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="" title="삭제">삭제</a></button>
+              <a href="adm_answer_insert.php?question_id=<?=$data['question_id']?>" title="수정" class="b_btn answer_btn">수정</a>
+              <a href="adm_answer_delete.php?question_id=<?=$data['question_id']?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -380,9 +380,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -394,11 +394,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-          <?php }?>
         </div>
       </form>
       <form action="adm_answer_list.php" method="GET" id="paging">

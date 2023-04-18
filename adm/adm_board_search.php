@@ -28,8 +28,8 @@ if($category==''){
       <li class="a_title active "><a href="#tab1">공지사항</a></li>
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
-      <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
     </ul>
+    <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
       <form action="adm_board_search.php" method="get">
@@ -87,8 +87,8 @@ if($category==''){
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?=$data['notice_wdate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
+              <a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -113,9 +113,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -127,11 +127,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-        <?php }?>
         </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
@@ -190,8 +190,8 @@ if($category==''){
             <td><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>"><?=$data['event_title']?></a></td>
             <td><?=$data['event_sdate']?> ~ <?=$data['event_edate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
+              <a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -217,9 +217,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -231,11 +231,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-        <?php }?>
         </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
@@ -304,8 +304,8 @@ if($category==''){
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?=$data['community_wdate']?></td>
             <td>
-              <button class="edit_btn"><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="수정">수정</a></button>
-              <button class="del_btn"><a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="삭제">삭제</a></button>
+              <a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
           <?php } ?>
@@ -331,9 +331,9 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
@@ -345,11 +345,11 @@ if($category==''){
             <?php
             if($page >= $total_page){
             ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-            <a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
           </ul>
-        <?php }?>
         </div>
       </form>
       <form action="adm_board_list.php" method="GET" id="paging">
