@@ -19,6 +19,13 @@
     $result_member_level = mysqli_query($con, $sql_member_level);
     $member_level = mysqli_fetch_row($result_member_level)[0];
 
+    if($member_level < 8 || empty($member_level)) {
+      echo "<script>
+      alert('강사등급 이상의 회원만 입장이 가능합니다.');
+      location.href='".$base_URL."';
+      </script>";
+    }
+
     if(basename($_SERVER['PHP_SELF']) == 'index.php'){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/main.css' type='text/css'>";
       echo "<script src='./script/main.js' defer></script>";

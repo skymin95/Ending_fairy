@@ -14,6 +14,7 @@ include_once('../../db/db_con.php');
   <link rel="stylesheet" href="../../skin/base.css" type="text/css">
   <link rel="stylesheet" href="../../skin/common.css" type="text/css">
   <link rel="stylesheet" href="../../skin/member/login.css" type="text/css">
+  <link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon">
 </head>
 <body>
   <main>

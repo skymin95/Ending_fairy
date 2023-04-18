@@ -1,11 +1,11 @@
 <?php
+include_once('../../db/db_con.php'); // db연결하기
 
 // post 값이 있다면 (빈공간이 아니라면)
 !empty($_POST['mb_id'])?$id=$_POST['mb_id']:$id='';
 $ret['check']=false;
 
 if($id!=''){ // 값이 있다면 아래 내용 실행
-  $con = mysqli_connect('localhost','root','','canonacademy');
   $sql = "select mb_id from member where mb_id = '{$id}'";
   $result = mysqli_query($con, $sql);
   $num = mysqli_num_rows($result); // 행의 개수 만약 id가 있어서 1개가 추출되면 1이 되고 1이면 중복

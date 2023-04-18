@@ -14,6 +14,7 @@ include_once('../../db/db_con.php');
   <link rel="stylesheet" href="../../skin/base.css" type="text/css">
   <link rel="stylesheet" href="../../skin/common.css" type="text/css">
   <link rel="stylesheet" href="../../skin/member/register.css" type="text/css">
+  <link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon">
   <!-- 제이쿼리 라이브러리 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script>

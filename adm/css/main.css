@@ -225,7 +225,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 45px;
-  padding-top: 52px;
+  padding-top: 45px;
 }
 .main_data_table_section .main_data_table {
   position: relative;
@@ -238,7 +238,7 @@
   top: 25px; right: 40px;
   padding: 5px 14px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
   background-color: #5E5E5E;
   border-radius: 14px;
