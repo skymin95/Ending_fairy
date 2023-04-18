@@ -103,9 +103,9 @@
     </li>
     <li>
       <!-- A or T -->
-      <?php if($member_level == '10' || $member_level == '9') {?>
+      <?php if($member_level == '10') {?>
       <span class="answer">A</span>
-      <?php } else if($member_level == '8') {?>
+      <?php } else if($member_level == '9') {?>
       <span class="answer teacher">T</span>
       <?php }?>
     </li>
@@ -115,7 +115,7 @@
   </ul>
   <nav>
     <ul>
-      <?php if($member_level == '10' || $member_level == '9') {?>
+      <?php if($member_level == '10') {?>
       <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>index.php">HOME</a>
       </li>
@@ -134,7 +134,7 @@
       <li <?=explode(" > ", $title)[0] == "쿠폰 관리" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>adm_coupon_list.php" onclick="alert('준비중입니다.');return false;" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
       </li>
-      <?php } else if($member_level == '8') {?>
+      <?php } else if($member_level == '9') {?>
       <li <?=basename($_SERVER['PHP_SELF']) == "index.php" ? "class='active'" : ""?>>
         <a href="<?=$base_admin_URL?>index.php">HOME</a>
       </li>

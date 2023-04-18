@@ -88,7 +88,7 @@ $mb_no = $_GET['mb_no']; // 회원명
         <dd>
           <select class="user_level" name="mb_level">
             <option value="1">1</option>
-            <option value="8">8</option>
+            <option value="9">9</option>
             <option value="10">10</option>
           </select>
         </dd>
