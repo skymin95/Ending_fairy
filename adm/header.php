@@ -112,7 +112,7 @@
         <a href="<?=$base_admin_URL?>adm_answer_list.php" title="1:1문의 관리"><img src="<?=$base_URL?>images/icon_answer<?=explode(" > ", $title)[0] == "1:1문의 관리" ? "_active" : ""?>.svg" alt="1:1문의 관리"> 1:1문의 관리</a>
       </li>
       <li <?=explode(" > ", $title)[0] == "쿠폰 관리" ? "class='active'" : ""?>>
-        <a href="<?=$base_admin_URL?>adm_coupon_list.php" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
+        <a href="<?=$base_admin_URL?>adm_coupon_list.php" onclick="alert('준비중입니다.');return false;" title="쿠폰 관리"><img src="<?=$base_URL?>images/icon_coupon<?=explode(" > ", $title)[0] == "쿠폰 관리" ? "_active" : ""?>.svg" alt="쿠폰 관리"> 쿠폰 관리</a>
       </li>
     </ul>
   </nav>
