@@ -47,6 +47,13 @@ $row_member = mysqli_fetch_array($result_member);
         <dt>작성일</dt>
         <dd><p><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></p></dd>
 
+        <dt>파일선택</dt>
+        <dd class="asd">
+          <input type="text" name="fileID" disabled>
+          <label htmlfor="fileDoc" for="fileDoc" class="file_doc_label"><span>+</span> 파일추가</label>
+          <input type="file" name="fileDoc" id="fileDoc" class="hidden">
+        </dd>
+        
         <dt>내용</dt>
         <dd><p><?=$data['question_content']?></p></dd>
 

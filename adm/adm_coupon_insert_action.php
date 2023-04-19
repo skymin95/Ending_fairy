@@ -25,7 +25,7 @@
         coupon_edate = '$coupon_edate', 
         coupon_cdate = '$coupon_cdate', 
         coupon_count = '$coupon_count', 
-        coupon_sale = '$coupon_sale', 
+        coupon_sale = '$coupon_sale'
     WHERE coupon_no = '$id' ";
     $result_coupon = mysqli_query($con, $sql_coupon);
   }
