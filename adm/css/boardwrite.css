@@ -63,7 +63,6 @@
   border-top: 1px solid #fff;
   text-align: center;
   line-height: 70px;
-  font-weight: bold;
 }
 .board_wrap dt:first-child{border-top: none;}
 .board_wrap dt:last-child{border-bottom: none}
@@ -87,7 +86,9 @@
   background: #fff;
   border-top: 1px solid #D1D1D1;
 }
-.board_wrap dd:first-of-type{border-top: none;}
+.board_wrap dd:first-of-type{
+  border-top: none;
+}
 .board_wrap dd:last-of-type{border-bottom: none}
 .board_wrap p{
   margin: 0 20px;
@@ -166,7 +167,7 @@ textarea {
   height: 30px;
 } */
 .board_b > li > a{
-  width: 100px; height: 30px;
+  width: 140px; height: 35px;
   font-size: 16px;
   text-align: center;
   background: #5A5A5C;
@@ -177,7 +178,7 @@ textarea {
 }
 
 .board_b input[type=submit]{
-  width:100px;height:30px;
+  width: 140px; height: 35px;
   background:#DE0010;
   border-radius: 35px;
   color:#fff;

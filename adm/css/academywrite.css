@@ -16,7 +16,7 @@ input[type=date], select {
 .board_wrap dd:not(:last-of-type) {
   line-height: 70px;
 }
-
+.board_wrap dt:nth-of-type(3){border-top: 1px solid #D1D1D1;}
 .course_index {
   display: flex;
   flex-direction: column;
@@ -27,7 +27,6 @@ input[type=date], select {
   display: flex;
   gap: 16px;
 }
-
 button.insert, button.delete {
   width: 160px;
   height: 35px;

@@ -264,8 +264,10 @@ if($category==''){
           </tr>      
           <?php
             if($category=='mb_name'){
-              $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
-              $result = mysqli_query($con, $sql);
+              $sql = "SELECT * FROM board_community AS a, 
+                (SELECT * FROM board_community order by community_id desc) AS b,
+                (SELECT mb_name, mb_nick, mb_no FROM member WHERE mb_name LIKE '%".$search."%' OR mb_nick LIKE '%".$search."%') AS member
+                WHERE a.mb_no = member.mb_no";
             }
             $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
             $result = mysqli_query($con, $sql);

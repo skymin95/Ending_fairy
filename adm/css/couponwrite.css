@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+input[type=text] {
+  width: 320px;
+  margin-top: 0;
+}
+input[type=date], select {
+  width: 320px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  margin-top: 0;
+  padding: 0 10px;
+}
+.board_wrap dd{
+  line-height: 70px;
+}
+.board_wrap dt:nth-of-type(6){border-top: 1px solid #D1D1D1;}
+.board_wrap dd.w-30 {width: 30%;}
+
+.ran_btn{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #5A5A5C;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-left: 10px;
+  background: none;
+  font-size: 12px;
+  cursor: pointer;
+}
