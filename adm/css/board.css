@@ -20,10 +20,10 @@
   background: #5A5A5C;
   transform: translateY(10px);
 }
-.tab_menu > ul li:first-child::after{
+.tab_menu > ul li:first-of-type:after{
   border-radius: 5px 0 0 5px;
 }
-.tab_menu > ul li:nth-child(3)::after{
+.tab_menu > ul li:last-of-type:after{
   border-radius: 0 5px 5px 0;
 }
 .board_wp {
@@ -105,7 +105,7 @@ table .b_btn{
   color: #333;
   border: none;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 13px;
   display: inline-block;
 }
 table .needanswer{

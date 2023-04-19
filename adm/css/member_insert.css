@@ -192,7 +192,7 @@ label{
   display: block;
   margin: 10px auto;
   text-indent: 22px;
-  
+  cursor: pointer;
 }
 label span{
   display: inline;
@@ -236,6 +236,7 @@ label span{
   margin-left: 10px;
   background: none;
   font-size: 12px;
+  cursor: pointer;
 }
 .nick_check.check {
   background-color: #333;
@@ -451,6 +452,7 @@ margin-bottom: 30px;
   color: #fff;
   display: block;
   line-height: 24px;
+  cursor: pointer;
 }
 .member_circle{
   display: flex;
@@ -536,6 +538,7 @@ toggle {  0% {
   color: #000;
   display: block;
   line-height: 24px;
+  cursor: pointer;
 }
 .class-load {
   display: none;
@@ -562,16 +565,16 @@ toggle {  0% {
   justify-content: space-between;
   border-top: 1px solid #EBEBEB;
   padding-top: 40px;
+  padding-bottom: 50px;
 }
 /* .board_b > li {
   width: 136px;
   height: 30px;
 } */
 .board_b > li > a{
-  width: 100px; height: 30px;
+  width: 140px; height: 35px;
   font-size: 16px;
   text-align: center;
-  font-weight:500;
   background: #5A5A5C;
   border-radius: 35px;
   color: #fff;
@@ -580,7 +583,7 @@ toggle {  0% {
 }
 
 .board_b input[type=submit]{
-  width:100px;height:30px;
+  width: 140px; height: 35px;
   background:#DE0010;
   border-radius: 35px;
   color:#fff;
@@ -588,6 +591,5 @@ toggle {  0% {
   font-size:16px;
   font-weight:500;
   cursor: pointer;
-  margin-top: 10px;
   text-align: center;
 }
