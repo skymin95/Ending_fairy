@@ -77,8 +77,8 @@ $result_coupon = mysqli_query($con, $sql_coupon);
                   </td>
                   <td><?=$row_coupon['coupon_count'] == '0' ? '무제한' : '0'.'/'.$row_coupon['coupon_count']?></td>
                   <td>
-                    <a href="adm_coupon_insert.php?mb_no=90" title="수정" class="b_btn edit_btn">수정</a>
-                    <a href="adm_coupon_delete.php?mb_no=90" title="삭제" class="b_btn del_btn">삭제</a>
+                    <a href="adm_coupon_insert.php?coupon_no=<?=$row_coupon['coupon_no']?>" title="수정" class="b_btn edit_btn">수정</a>
+                    <a href="adm_coupon_delete.php?coupon_no=<?=$row_coupon['coupon_no']?>" title="삭제" class="b_btn del_btn">삭제</a>
                   </td>
                 </tr>
                 <?php } ?>
