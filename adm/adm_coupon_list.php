@@ -5,7 +5,7 @@ $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 
-$sql_coupon = "SELECT * FROM coupon_list";
+$sql_coupon = "SELECT * FROM coupon_list order by coupon_no desc";
 $result_coupon = mysqli_query($con, $sql_coupon);
 
 ?>
@@ -18,7 +18,7 @@ $result_coupon = mysqli_query($con, $sql_coupon);
 
     <div id="tab1" class="tab_content active">
       <form action="adm_coupon_search.php" method="get">
-        <input type="hidden" name="cate" value="<?=$cate?>">
+        <input type="hidden" name="coupon_no" value="<?$result_coupon['coupon_no']?>">
           <table>
               <colgroup>
                 <col style="width: 153px;">
