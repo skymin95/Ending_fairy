@@ -6,6 +6,12 @@
   object-fit: cover;
 }
 
+table tr td:not(:first-of-type) {
+  line-height: 18px;
+}
+table tr td:last-of-type {
+  line-height: 1;
+}
 table td:first-child {
   padding: 20px;
 }

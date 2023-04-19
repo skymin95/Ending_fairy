@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+table tr td:nth-of-type(5) {
+  line-height: 18px;
+  padding: 22px 0;
+}
+table tr td:nth-of-type(5) > p:first-of-type {
+  padding-bottom: 6px;
+}
+table td:first-child::after {
+  width: 1px;
+}
+table td::after {
+  height: calc(100% - 40px);
+  right: 0.5px;
+}
+table td .date_s_e {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+table td .date_s_e > span {
+  display: block;
+  padding-top: 6px;
+}
+table td .date_s_e::after {
+  content: '~';
+  position: absolute;
+  top: 24px; left: 75px;
+}
