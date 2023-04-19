@@ -63,7 +63,6 @@
   border-top: 1px solid #fff;
   text-align: center;
   line-height: 70px;
-  font-weight: bold;
 }
 .board_wrap dt:first-child{border-top: none;}
 .board_wrap dt:last-child{border-bottom: none}

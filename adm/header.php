@@ -65,6 +65,10 @@
     if($title == "1:1문의 관리 > 1:1문의 답변"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
     }
+    if($title == "쿠폰 관리 > 쿠폰 추가"){
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+      echo "<link rel='stylesheet' href='".$base_admin_URL."css/couponwrite.css' type='text/css'>";
+    }
   ?>
 </head>
 <body>
