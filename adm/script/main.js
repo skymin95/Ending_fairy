@@ -147,8 +147,8 @@ function calendarInit() {
             let eduDate = new Date(data.course_edu_sdate);
             let eduYear = eduDate.getFullYear();
             let eduMonth = (eduDate.getMonth()+1 < 10 ? '0'+(eduDate.getMonth()+1) : eduDate.getMonth()+1);
-            let eduDay = (eduDate.getDate()+1 < 10 ? '0'+(eduDate.getDate()+1) : eduDate.getDate()+1);
-            let eduDateString = eduYear+'-'+eduMonth+'-'+(eduDay-1);
+            let eduDay = (eduDate.getDate() < 10 ? '0'+(eduDate.getDate()) : eduDate.getDate());
+            let eduDateString = eduYear+'-'+eduMonth+'-'+(eduDay);
     
             eduDateArr[i] = {
               'eduDateString':eduDateString,
