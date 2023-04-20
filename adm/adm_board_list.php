@@ -76,7 +76,7 @@ switch($cate) {
             <td><?=++$number?></td>
             <td><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>"><?=$data['notice_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?=$data['notice_wdate']?></td>
+            <td><?=date_format(date_create($data['notice_wdate']), "Y-m-d")?></td>
             <td>
               <a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
               <a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
@@ -178,7 +178,7 @@ switch($cate) {
           <tr>
             <td><?=++$number?></td>
             <td><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>"><?=$data['event_title']?></a></td>
-            <td><?=$data['event_sdate']?> ~ <?=$data['event_edate']?></td>
+            <td><?=date_format(date_create($data['event_sdate']), "Y-m-d").' ~ '.date_format(date_create($data['event_edate']), "Y-m-d")?></td>
             <td>
               <a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
               <a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
@@ -287,7 +287,7 @@ switch($cate) {
             <td><?=++$number?></td>
             <td><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>"><?=$data['community_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?=$data['community_wdate']?></td>
+            <td><?=date_format(date_create($data['community_wdate']), "Y-m-d H:i")?></td>
             <td>
               <a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
               <a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>

@@ -3,8 +3,17 @@ $title = "쿠폰 관리"; // 타이틀
 include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
+$category = empty($_GET['category']) ? "" : $_GET['category']; // 검색옵션
+$search = empty($_GET['search']) ? "" : $_GET['search']; // 검색내용
 
-$sql_coupon = "SELECT * FROM coupon_list order by coupon_no desc";
+if($category==''){
+  echo("<script>
+    alert('검색 옵션을 선택해주세요.');
+    history.back();
+  </script>");
+}
+
+$sql_coupon = "SELECT * FROM coupon_list WHERE $category LIKE '%".$search."%' order by coupon_no desc";
 $result_coupon = mysqli_query($con, $sql_coupon);
 
 ?>
@@ -85,17 +94,17 @@ $result_coupon = mysqli_query($con, $sql_coupon);
 
         
         <div class="s_wrap">
-          <select name="category">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="coupon_kind">쿠폰종류</option>
-            <option value="coupon_title">쿠폰이름</option>
-            <option value="coupon_sale">쿠폰금액</option>
-            <option value="coupon_code">쿠폰코드</option>
-            <option value="coupon_sdate">사용기간(시작일)</option>
-            <option value="coupon_edate">사용기간(종료일)</option>
+            <option value="coupon_kind" <?=$category=="coupon_kind" ? "selected" : ""?>>쿠폰종류</option>
+            <option value="coupon_title" <?=$category=="coupon_title" ? "selected" : ""?>>쿠폰이름</option>
+            <option value="coupon_sale" <?=$category=="coupon_sale" ? "selected" : ""?>>쿠폰금액</option>
+            <option value="coupon_code" <?=$category=="coupon_code" ? "selected" : ""?>>쿠폰코드</option>
+            <option value="coupon_cdate" <?=$category=="coupon_cdate" ? "selected" : ""?>>사용기간(시작일)</option>
+            <option value="coupon_sdate" <?=$category=="coupon_sdate" ? "selected" : ""?>>사용기간(종료일)</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
-          <input type="text" name="search" placeholder="SEARCH">
+          <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
