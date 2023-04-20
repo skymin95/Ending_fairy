@@ -47,8 +47,8 @@ $row_member = mysqli_fetch_array($result_member);
         <dt>강의 분류</dt>
         <dd class="w-30">
           <select name="course_cate">
-            <option value="온라인">온라인</option>
-            <option value="오프라인">오프라인</option>
+            <option value="온라인" <?=$data['course_cate']=="온라인"?"selected":""?>>온라인</option>
+            <option value="오프라인" <?=$data['course_cate']=="오프라인"?"selected":""?>>오프라인</option>
           </select>
         </dd>
 
@@ -146,7 +146,7 @@ $row_member = mysqli_fetch_array($result_member);
 
       <!-- 삭제/완료 -->
       <ul class="board_b">
-        <li><a href="adm_academy_list.php">삭제</a></li>
+        <li><a href="adm_academy_delete.php?course_id=<?=$data['course_id']?>">삭제</a></li>
         <li class="nw_success"><input type="submit" value="완료"></li>
       </ul>
     </div>
