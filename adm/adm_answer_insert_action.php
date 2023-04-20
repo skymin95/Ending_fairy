@@ -55,7 +55,7 @@ if(isset($_FILES['fileDoc']) && $_FILES['fileDoc']['name'] != "") {
 if($row_parent != '0'){
   $sql = "UPDATE board_question SET question_content = '$content' WHERE question_parent_id = '$id'";
   $result = mysqli_query($con, $sql);
-if{
+} else {
   $sql = "INSERT INTO board_question(question_parent_id, question_content, question_wdate, mb_no) VALUES('$id', '$content', now(), '$mb_no')";
   mysqli_query($con, $sql);
 }

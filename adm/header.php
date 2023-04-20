@@ -64,6 +64,7 @@
     }
     if($title == "1:1문의 관리 > 1:1문의 답변"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/boardwrite.css' type='text/css'>";
+      echo "<script src='".$base_admin_URL."script/boardwrite.js' defer></script>";
     }
     if($title == "쿠폰 관리"){
       echo "<link rel='stylesheet' href='".$base_admin_URL."css/board.css' type='text/css'>";
