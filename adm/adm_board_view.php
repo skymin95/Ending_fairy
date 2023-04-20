@@ -54,7 +54,7 @@ $row_member = mysqli_fetch_array($result_member);
 
             <dt>작성자</dt>
             <dd><input type="text" name="mb_nick" value=
-            <?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?>  required disabled></dd>
+            "<?=($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?>"  required disabled></dd>
             
             <?php if($cate == '2') {?>
             <dt>신청 기간</dt>
