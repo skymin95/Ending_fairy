@@ -8,11 +8,11 @@ $(document).ready(function() {
     $('.tab_menu > ul > li').removeClass('active');
     $(this).parent().addClass('active');
 
-    $('.tab_content').removeClass('active');
-    $(tab_id).addClass('active');
+    // $('.tab_content').removeClass('active');
+    // $(tab_id).addClass('active');
 
     $('#paging > input[name=page]').val('1');
-    $('#paging > input[name=cate]').val($('.tab_content.active').index());
+    $('#paging > input[name=cate]').val($('.tab_menu > ul > li.active').index()+1);
     $('#paging').submit();
 
     return false;

@@ -4,9 +4,8 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
-
-$category = $_GET['category']; // 검색옵션
-$search = $_GET['search']; // 검색내용
+$category = empty($_GET['category']) ? "" : $_GET['category']; // 검색옵션
+$search = empty($_GET['search']) ? "" : $_GET['search']; // 검색내용
 
 if($category==''){
   echo("<script>
@@ -143,11 +142,10 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -158,23 +156,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=1&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page-1); ?>&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo $total_page; ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page+1); ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>
@@ -254,11 +252,10 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -269,23 +266,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=1&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page-1); ?>&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo $total_page; ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page+1); ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>
@@ -365,11 +362,10 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -380,23 +376,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=1&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page-1); ?>&search=<?=$search?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo $total_page; ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&category=<?=$category?>&page=<?php echo ($page+1); ?>&search=<?=$search?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>

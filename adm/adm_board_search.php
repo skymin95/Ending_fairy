@@ -4,6 +4,9 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+$category = empty($_GET['category']) ? "" : $_GET['category']; // 검색옵션
+$search = empty($_GET['search']) ? "" : $_GET['search']; // 검색내용
+
 
 switch($cate) {
   case '1': $cate_name = '공지사항'; $cate_table = 'notice'; break;
@@ -11,9 +14,6 @@ switch($cate) {
   case '3': $cate_name = '커뮤니티'; $cate_table = 'community'; break;
   default: $cate_name = '공지사항';  break;
 }
-
-$category = $_GET['category']; // 검색옵션
-$search = $_GET['search']; // 검색내용
 
 if($category==''){
   echo("<script>
@@ -28,7 +28,7 @@ if($category==''){
       <li class="a_title active"><a href="#tab1">공지사항</a></li>
       <li class="a_title"><a href="#tab2">이벤트</a></li>
       <li class="a_title"><a href="#tab3">커뮤니티</a></li>
-      <a href="adm_board_insert.php?cate=<?=$cate?>" class="a_title board_wp">글쓰기</a>
+      <a href="adm_board_insert.php?cate=<?=$cate?>&search=<?=$search?>" class="a_title board_wp">글쓰기</a>
     </ul>
 
     <div id="tab1" class="tab_content <?=(empty($_GET['cate']) ? 'active' : '')?>">
@@ -50,6 +50,7 @@ if($category==''){
             <th>관리</th>
           </tr>     
           <?php
+          if($cate == 1){
             $sql = "SELECT * FROM board_notice WHERE $category LIKE '%".$search."%' order by notice_id desc";
             $result = mysqli_query($con, $sql);
 
@@ -83,15 +84,18 @@ if($category==''){
             ?>
           <tr>
             <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>"><?=$data['notice_title']?></a></td>
+            <td><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>&search=<?=$search?>"><?=$data['notice_title']?></a></td>
             <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
             <td><?=$data['notice_wdate']?></td>
             <td>
-              <a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
-              <a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
+              <a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_board_del.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
-          <?php } ?>
+          <?php
+            }
+          }
+          ?>
         </table>
 
         <!-- 검색 -->
@@ -99,10 +103,9 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="notice_title">제목</option>
-            <option value="notice_content">내용</option>
+            <option value="notice_title" <?=$category=="notice_title" ? "selected" : ""?>>제목</option>
+            <option value="notice_content" <?=$category=="notice_content" ? "selected" : ""?>>내용</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -113,23 +116,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>
@@ -157,6 +160,7 @@ if($category==''){
             <th>관리</th>
           </tr>       
           <?php
+            if($cate == 2){
             $sql = "SELECT * FROM board_event WHERE $category LIKE '%".$search."%' order by event_id desc";
             $result = mysqli_query($con, $sql);
 
@@ -187,14 +191,17 @@ if($category==''){
           ?>
           <tr>
             <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>"><?=$data['event_title']?></a></td>
+            <td><a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>&search=<?=$search?>"><?=$data['event_title']?></a></td>
             <td><?=$data['event_sdate']?> ~ <?=$data['event_edate']?></td>
             <td>
-              <a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
-              <a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
+              <a href="adm_board_view.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="수정" class="b_btn edit_btn">수정</a>
+              <a href="adm_board_del.php?board_id=<?=$data['event_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="삭제" class="b_btn del_btn">삭제</a>
             </td>
           </tr>
-          <?php } ?>
+          <?php
+            }
+          }
+          ?>
         </table>
 
         <!-- 검색 -->
@@ -202,11 +209,10 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="event_title">제목</option>
-            <option value="event_sdate">시작일</option>
-            <option value="event_edate">종료일</option>
+            <option value="event_title" <?=$category=="event_title" ? "selected" : ""?>>제목</option>
+            <option value="event_sdate" <?=$category=="event_sdate" ? "selected" : ""?>>시작일</option>
+            <option value="event_edate" <?=$category=="event_edate" ? "selected" : ""?>>종료일</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -217,23 +223,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>
@@ -263,54 +269,58 @@ if($category==''){
             <th>관리</th>
           </tr>      
           <?php
-            if($category=='mb_name'){
-              $sql = "SELECT * FROM board_community AS a, 
-                (SELECT * FROM board_community order by community_id desc) AS b,
-                (SELECT mb_name, mb_nick, mb_no FROM member WHERE mb_name LIKE '%".$search."%' OR mb_nick LIKE '%".$search."%') AS member
-                WHERE a.mb_no = member.mb_no";
+            if($cate == 3){
+              if($category=='mb_name'){
+                $sql = "SELECT * FROM board_community AS a, 
+                  (SELECT * FROM board_community order by community_id desc) AS b,
+                  (SELECT mb_name, mb_nick, mb_no FROM member WHERE mb_name LIKE '%".$search."%' OR mb_nick LIKE '%".$search."%') AS member
+                  WHERE a.mb_no = member.mb_no";
+              }
+              $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
+              $result = mysqli_query($con, $sql);
+
+              // 페이지내이션
+              $num = mysqli_num_rows($result);
+              $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
+              $page_num = 5; /* paging : 한 블럭 당 페이지 수 */
+              // $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
+              $total_page = ceil($num / $list_num); /* paging : 전체 페이지 수 = 전체 데이터 / 페이지당 데이터 개수, ceil : 올림값 */
+              $total_block = ceil($total_page / $page_num); /* paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수 */
+              $now_block = ceil($page / $page_num); /* paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수 */
+              $s_pageNum = ($now_block - 1) * $page_num + 1; /* paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭번호 - 1) * 블럭당 페이지 수 + 1 */
+              if($s_pageNum <= 0){ // 데이터가 0개인 경우
+                $s_pageNum = 1;
+              };
+              $e_pageNum = $now_block * $page_num; /* paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수 */
+              if($e_pageNum > $total_page){ // 마지막 번호가 전체 페이지 수를 넘지 않도록
+                $e_pageNum = $total_page;
+              };
+              $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
+
+              $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+              $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
+              $number = 0 + ($start);
+
+              // 데이터 출력
+              while($data = mysqli_fetch_array($result)){
+                $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
+                $result_member = mysqli_query($con, $sql_member);
+                $row_member = mysqli_fetch_array($result_member);
+              ?>
+            <tr>
+              <td><?=++$number?></td>
+              <td><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>&search=<?=$search?>"><?=$data['community_title']?></a></td>
+              <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
+              <td><?=$data['community_wdate']?></td>
+              <td>
+                <a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="수정" class="b_btn edit_btn">수정</a>
+                <a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>&search=<?=$search?>" title="삭제" class="b_btn del_btn">삭제</a>
+              </td>
+            </tr>
+            <?php
+              }
             }
-            $sql = "SELECT * FROM board_community WHERE $category LIKE '%".$search."%' order by community_id desc";
-            $result = mysqli_query($con, $sql);
-
-            // 페이지내이션
-            $num = mysqli_num_rows($result);
-            $list_num = 10; /* paging : 한 페이지 당 데이터 개수 */
-            $page_num = 5; /* paging : 한 블럭 당 페이지 수 */
-            // $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
-            $total_page = ceil($num / $list_num); /* paging : 전체 페이지 수 = 전체 데이터 / 페이지당 데이터 개수, ceil : 올림값 */
-            $total_block = ceil($total_page / $page_num); /* paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수 */
-            $now_block = ceil($page / $page_num); /* paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수 */
-            $s_pageNum = ($now_block - 1) * $page_num + 1; /* paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭번호 - 1) * 블럭당 페이지 수 + 1 */
-            if($s_pageNum <= 0){ // 데이터가 0개인 경우
-              $s_pageNum = 1;
-            };
-            $e_pageNum = $now_block * $page_num; /* paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수 */
-            if($e_pageNum > $total_page){ // 마지막 번호가 전체 페이지 수를 넘지 않도록
-              $e_pageNum = $total_page;
-            };
-            $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
-
-            $sql = "$sql limit $start, $list_num;"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
-            $result = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
-            $number = 0 + ($start);
-
-            // 데이터 출력
-            while($data = mysqli_fetch_array($result)){
-              $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
-              $result_member = mysqli_query($con, $sql_member);
-              $row_member = mysqli_fetch_array($result_member);
             ?>
-          <tr>
-            <td><?=++$number?></td>
-            <td><a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>"><?=$data['community_title']?></a></td>
-            <td><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?></td>
-            <td><?=$data['community_wdate']?></td>
-            <td>
-              <a href="adm_board_view.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="수정" class="b_btn edit_btn">수정</a>
-              <a href="adm_board_del.php?board_id=<?=$data['community_id']?>&cate=<?=$cate?>" title="삭제" class="b_btn del_btn">삭제</a>
-            </td>
-          </tr>
-          <?php } ?>
         </table>
 
         <!-- 검색 -->
@@ -318,11 +328,10 @@ if($category==''){
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="community_title">제목</option>
-            <option value="community_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="community_title" <?=$category=="community_title" ? "selected" : ""?>>제목</option>
+            <option value="community_content" <?=$category=="community_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category=="mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -333,23 +342,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&search=<?=$search?>&category=<?=$category?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php }?>
           </ul>
         </div>

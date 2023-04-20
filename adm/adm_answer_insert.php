@@ -23,7 +23,7 @@ if($row_parent != '0') {
   $row = array('question_content' => '');
 }
 
-$query_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_id = '$mb_id'";
+$query_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
 $result_member = mysqli_query($con, $query_member);
 $row_member = mysqli_fetch_array($result_member);
 ?>

@@ -18,7 +18,6 @@ $result_coupon = mysqli_query($con, $sql_coupon);
 
     <div id="tab1" class="tab_content active">
       <form action="adm_coupon_search.php" method="get">
-        <input type="hidden" name="coupon_no" value="<?$result_coupon['coupon_no']?>">
           <table>
               <colgroup>
                 <col style="width: 153px;">

@@ -4,6 +4,7 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+$category = empty($_GET['category']) ? 1 : $_GET['category']; // 현재 카테고리
 
 switch($cate) {
   case '1': $cate_name = '공지사항'; $cate_table = 'notice'; break;
@@ -89,10 +90,9 @@ switch($cate) {
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="notice_title">제목</option>
-            <option value="notice_content">내용</option>
+            <option value="notice_title" <?=$category=="notice_title" ? "selected" : ""?>>제목</option>
+            <option value="notice_content" <?=$category=="notice_content" ? "selected" : ""?>>내용</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -192,11 +192,10 @@ switch($cate) {
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="event_title">제목</option>
-            <option value="event_sdate">시작일</option>
-            <option value="event_edate">종료일</option>
+            <option value="event_title" <?=$category=="event_title" ? "selected" : ""?>>제목</option>
+            <option value="event_sdate" <?=$category=="event_sdate" ? "selected" : ""?>>시작일</option>
+            <option value="event_edate" <?=$category=="event_edate" ? "selected" : ""?>>종료일</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -302,11 +301,10 @@ switch($cate) {
           <label for="category">검색옵션</label>
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="community_title">제목</option>
-            <option value="community_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="community_title" <?=$category=="community_title" ? "selected" : ""?>>제목</option>
+            <option value="community_content" <?=$category=="community_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category=="mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
-          <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>

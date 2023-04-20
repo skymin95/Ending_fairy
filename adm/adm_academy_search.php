@@ -4,9 +4,9 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+$category = empty($_GET['category']) ? "" : $_GET['category']; // 검색옵션
+$search = empty($_GET['search']) ? "" : $_GET['search']; // 검색내용
 
-$category = $_GET['category']; // 검색옵션
-$search = $_GET['search']; // 검색내용
 
 if($category==''){
   echo("<script>
@@ -109,15 +109,15 @@ if($category==''){
         <div class="s_wrap">
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="course_title">강의명</option>
-            <option value="course_edu_time">교육시간</option>
-            <option value="course_teacher">담당강사</option>
-            <option value="course_price">강의가격</option>
-            <option value="course_ask_sdate">신청기간(시작일)</option>
-            <option value="course_ask_edate">신청기간(종료일)</option>
-            <option value="course_edu_sdate">교육기간(시작일)</option>
-            <option value="course_edu_edate">교육기간(종료일)</option>
-            <option value="course_tag">강의태그</option>
+            <option value="course_title" <?=$category=="course_title" ? "selected" : ""?>>강의명</option>
+            <option value="course_edu_time" <?=$category=="course_edu_time" ? "selected" : ""?>>교육시간</option>
+            <option value="course_teacher" <?=$category=="course_teacher" ? "selected" : ""?>>담당강사</option>
+            <option value="course_price" <?=$category=="course_price" ? "selected" : ""?>>강의가격</option>
+            <option value="course_ask_sdate" <?=$category=="course_ask_sdate" ? "selected" : ""?>>신청기간(시작일)</option>
+            <option value="course_ask_edate" <?=$category=="course_ask_edate" ? "selected" : ""?>>신청기간(종료일)</option>
+            <option value="course_edu_sdate" <?=$category=="course_edu_sdate" ? "selected" : ""?>>교육기간(시작일)</option>
+            <option value="course_edu_edate" <?=$category=="course_edu_edate" ? "selected" : ""?>>교육기간(종료일)</option>
+            <option value="course_tag" <?=$category=="course_tag" ? "selected" : ""?>>강의태그</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
@@ -130,23 +130,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
           <?php }?>
           </ul>
         </div>
@@ -236,15 +236,15 @@ if($category==''){
         <div class="s_wrap">
           <select name="category" id="category">
             <option value="">검색옵션</option>
-            <option value="course_title">강의명</option>
-            <option value="course_edu_time">교육시간</option>
-            <option value="course_teacher">담당강사</option>
-            <option value="course_price">강의가격</option>
-            <option value="course_ask_sdate">신청기간(시작일)</option>
-            <option value="course_ask_edate">신청기간(종료일)</option>
-            <option value="course_edu_sdate">교육기간(시작일)</option>
-            <option value="course_edu_edate">교육기간(종료일)</option>
-            <option value="course_tag">강의태그</option>
+            <option value="course_title" <?=$category=="course_title" ? "selected" : ""?>>강의명</option>
+            <option value="course_edu_time" <?=$category=="course_edu_time" ? "selected" : ""?>>교육시간</option>
+            <option value="course_teacher" <?=$category=="course_teacher" ? "selected" : ""?>>담당강사</option>
+            <option value="course_price" <?=$category=="course_price" ? "selected" : ""?>>강의가격</option>
+            <option value="course_ask_sdate" <?=$category=="course_ask_sdate" ? "selected" : ""?>>신청기간(시작일)</option>
+            <option value="course_ask_edate" <?=$category=="course_ask_edate" ? "selected" : ""?>>신청기간(종료일)</option>
+            <option value="course_edu_sdate" <?=$category=="course_edu_sdate" ? "selected" : ""?>>교육기간(시작일)</option>
+            <option value="course_edu_edate" <?=$category=="course_edu_edate" ? "selected" : ""?>>교육기간(종료일)</option>
+            <option value="course_tag" <?=$category=="course_tag" ? "selected" : ""?>>강의태그</option>
           </select>
           <script>document.getElementById('category').value = "<?=$_GET['category']?>";</script>
           <input type="text" name="search" value="<?=$search?>" placeholder="SEARCH">
@@ -257,23 +257,23 @@ if($category==''){
           <?php
             if($page <= 1){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
             <?php }?>
 
             <?php
             for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
             ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
             <?php }?>
 
             <?php
             if($page >= $total_page){
             ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
             <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+              <li><a href="?cate=<?=$cate?>&category=<?=$category?>&search=<?=$search?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
           <?php }?>
           </ul>
         </div>

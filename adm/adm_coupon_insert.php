@@ -85,7 +85,7 @@ $row_member = mysqli_fetch_array($result_member);
       <!-- 삭제/완료 -->
       <ul class="board_b">
         <li>
-        <?php if($id != '') {?><a href="adm_coupon_del.php?coupon_no=<?=$id?>" title="삭제">삭제</a><?php } ?>
+        <?php if($id != '') {?><a href="adm_coupon_delete.php?coupon_no=<?=$id?>" title="삭제">삭제</a><?php } ?>
         </li>
         <li class="nw_success"><input type="submit" value="완료"></li>
       </ul>

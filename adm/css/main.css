@@ -225,7 +225,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 45px;
-  padding-top: 45px 0 45px 0;
+  padding: 45px 0 45px 0;
 }
 .main_data_table_section .main_data_table {
   position: relative;

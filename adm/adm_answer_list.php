@@ -4,6 +4,7 @@ include_once('./common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
+$category = empty($_GET['category']) ? 1 : $_GET['category']; // 현재 카테고리
 
 $sql = 'select * from board_question where question_parent_id is null order by question_id desc';
 $result = mysqli_query($con, $sql);
@@ -101,9 +102,9 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
         <div class="s_wrap">
           <select name="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -210,9 +211,9 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
         <div class="s_wrap">
           <select name="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -319,9 +320,9 @@ $sql_c = 'SELECT * FROM board_question AS a, (SELECT question_parent_id FROM boa
         <div class="s_wrap">
           <select name="category">
             <option value="">검색옵션</option>
-            <option value="question_title">제목</option>
-            <option value="question_content">내용</option>
-            <option value="mb_name">글쓴이</option>
+            <option value="question_title" <?=$category == "question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category == "question_content" ? "selected" : ""?>>내용</option>
+            <option value="mb_name" <?=$category == "mb_name" ? "selected" : ""?>>글쓴이</option>
           </select>
           <input type="text" name="search" placeholder="SEARCH">
           <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
