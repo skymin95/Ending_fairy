@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+.tab_menu > ul li{
+  color: #DE0010;
+}
+.tab_menu > ul li::after{
+  border-radius: 5px !important;
+}
 table tr td:nth-of-type(5) {
   line-height: 18px;
   padding: 22px 0;

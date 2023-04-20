@@ -10,4 +10,3 @@ empty($title)&&($title = "관리자 페이지"); // 타이틀 없는경우 임�
 //$_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/' : include시 사용할 path (admin)
 include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/db/db_con.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/adm/header.php');
-?>
