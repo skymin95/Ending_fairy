@@ -1,0 +1,33 @@
+
+.hidden {display: none;}
+
+// 헤더
+header {
+  > .top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    padding: 0 14px;
+    > ul {
+      display: flex;
+      justify-content: space-between;
+      > li > h1 {
+        height: 100%;
+      }
+    }
+    h1 img {
+      height: 30px;
+    }
+    .answer img {
+      height: 22px;
+    }
+  }
+  > .bottom {
+    display: flex;
+    background-color: var(--sub-color01);
+    .active {
+
+    }
+  }
+}

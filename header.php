@@ -7,6 +7,7 @@
   <title><?=$title?></title>
   <link rel="stylesheet" href="<?=$base_URL?>skin/reset.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_URL?>skin/base.css" type="text/css">
+  <link rel="stylesheet" href="<?=$base_URL?>skin/common.css" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
   <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
@@ -15,6 +16,8 @@
   <?php
   
   if(basename($_SERVER['PHP_SELF']) == 'index.php'){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."main/main.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."main/main.js'></script>";
   }
   if($title == "로그인"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/login.css' type='text/css'>";
@@ -28,5 +31,57 @@
 </head>
 <body>
 <header>
-
+  <input type="checkbox" id="sideMnu" class="hidden">
+  <nav class="top">
+    <ul>
+      <li>
+        <h1>
+          <a href="<?=$base_URL?>index.php" title="메인으로 돌아가기">
+            <img src="<?=$base_URL?>images/logo.png" alt="logo">
+          </a>
+        </h1>
+      </li>
+      <li>
+        <div class="answer">
+          <img src="<?=$base_URL?>images/header_bell.png" alt="bell">
+        </div>
+        <div class="menu">
+          <label for="sideMnu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <nav class="bottom">
+    <ul>
+      <li>
+        <a href="#search" title="검색하기">
+          <img src="<?=$base_URL?>images/nav_search.png" alt="search">
+        </a>
+      </li>
+      <li>
+        <a href="#academy" title="내 강의실">
+          <img src="<?=$base_URL?>images/nav_academy.png" alt="academy">
+        </a>
+      </li>
+      <li>
+        <a href="<?=$base_URL?>index.php" title="메인으로 돌아가기" class="active">
+          <img src="<?=$base_URL?>images/nav_home_active.png" alt="home">
+        </a>
+      </li>
+      <li>
+        <a href="#cart" title="장바구니">
+          <img src="<?=$base_URL?>images/nav_cart.png" alt="cart">
+        </a>
+      </li>
+      <li>
+        <a href="#mypage" title="마이페이지">
+          <img src="<?=$base_URL?>images/nav_mypage.png" alt="mypage">
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
