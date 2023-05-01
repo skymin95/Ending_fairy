@@ -41,15 +41,15 @@
           </a>
         </h1>
       </li>
-      <li>
-        <div class="answer">
+      <li class="top-right">
+        <div class="answer" data-cnt="4">
           <img src="<?=$base_URL?>images/header_bell.png" alt="bell">
         </div>
         <div class="menu">
           <label for="sideMnu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div></div>
+            <div></div>
+            <div></div>
           </label>
         </div>
       </li>
