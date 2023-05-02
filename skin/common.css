@@ -48,9 +48,14 @@ header > .top .top-right .menu {
   height: 16px;
   position: relative;
 }
+header > .top .top-right .menu label {
+  display: block;
+  height: 100%;
+}
 header > .top .top-right .menu label > span {
   width: 100%;
   height: 3px;
+  border-radius: 3px;
   background-color: var(--sub-color01);
   position: absolute;
   transition: 0.3s;
@@ -84,8 +89,8 @@ header > .bottom {
   width: 100%;
   height: 80px;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
   z-index: 5000;
+  overflow: hidden;
 }
 header > .bottom::before {
   content: "";
@@ -98,6 +103,16 @@ header > .bottom::before {
   height: 80px;
   overflow: hidden;
   background-image: url(../images/header_bottom_background.png);
+}
+header > .bottom::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -45px;
+  width: calc(var(--data-seq) * 20% + 10%);
+  height: 80px;
+  background-color: var(--sub-color01);
 }
 header > .bottom > ul {
   position: absolute;
@@ -113,7 +128,9 @@ header > .bottom > ul > li > a {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 8px;
+  height: 46px;
   color: #fff;
   text-align: center;
 }
@@ -126,13 +143,14 @@ header > .bottom > ul > li > a > span {
   font-size: var(--f-size02);
 }
 header > .bottom > ul > li > a.active > img {
-  position: relative;
-  top: -18px;
+  position: fixed;
+  bottom: 61px;
+  left: calc(var(--data-seq) * 20% + 10% - 11px);
 }
 header > .bottom > ul > li > a.active::before {
   content: "";
   position: fixed;
-  bottom: 46px;
+  bottom: 50px;
   left: calc(var(--data-seq) * 20% + 10% - 22.5px + 0.5px);
   display: block;
   width: 45px;
