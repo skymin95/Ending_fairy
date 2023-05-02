@@ -2,6 +2,7 @@
 $title = "캐논 아카데미"; // 타이틀
 include_once('./common.php');
 empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
+
 ?>
 <main>
   <!-- 상단 슬라이드 -->
@@ -48,18 +49,15 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
   <article id="m_academy">
     <h2>강의탭</h2>
     <ul class="tab01">
-      <li class="on"><a href="" title="온라인 강의">온라인 강의</a></li>
+      <li><a href="" title="온라인 강의">온라인 강의</a></li>
       <li><a href="" title="오프라인 강의">오프라인 강의</a></li>
+      <span class="tab_on"></span>
     </ul>
 
     <!-- 온라인 영역 -->
-    <?php
-    $sql = "select * from course where course_cate = '온라인' order by course_id desc;";
-    $result = mysqli_query($con, $sql);
-    ?>
     <div class="tab_con online">
       <ul class="tab02">
-        <li class="on"><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
+        <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
         <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
       </ul>
 
@@ -67,7 +65,8 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
       <div class="con_list beginner swiper">
         <ul class="swiper-wrapper">
         <?php
-          // 데이터 출력
+          $sql = "select * from course where course_cate = '온라인' and course_tag LIKE '%입문자%' order by course_id desc;";
+          $result = mysqli_query($con, $sql);
           function getYoutubeThumb($url) {
             if($url)  {
               preg_match_all('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $matchs);
@@ -75,16 +74,20 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
             }
           }
           while($data = mysqli_fetch_array($result)){
+            $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
+            $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
+            $date_dif = abs(strtotime($sdate)-strtotime($edate));
+            $eday = ceil($date_dif / (60*60*24));
           ?>
           <li class="swiper-slide">
             <a href="" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
-              <p>40만의 팔로워를 보유한 @misshattan의 여행사진 촬영팁!</p>
+              <p><?=$data['course_content']?></p>
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 : 150일</p>
+              <p>교육기간 : <?=$eday?>일</p>
               <p>교육시간 : <?=$data['course_edu_time']?></p>
               <p>교육비 : <?=number_format($data['course_price'])?>원</p>
             </a>
@@ -93,17 +96,113 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
         </ul>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-      </div>
+      </div><!-- 입문자용 -->
       
-
-
       <!-- 전문가용 -->
-      <div class="con_list expert">
+      <div class="con_list expert swiper">
+        <ul class="swiper-wrapper">
+        <?php
+          $sql_expert = "select * from course where course_cate = '온라인' and course_tag LIKE '%전문가%' order by course_id desc;";
+          $result_expert = mysqli_query($con, $sql_expert);
 
-      </div>
-
+          while($data = mysqli_fetch_array($result_expert)){
+            $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
+            $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
+            $date_dif = abs(strtotime($sdate)-strtotime($edate));
+            $eday = ceil($date_dif / (60*60*24));
+          ?>
+          <li class="swiper-slide">
+            <a href="" title="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <p><?=$data['course_title']?></p>
+              <p><?=$data['course_content']?></p>
+              <div class="tab_tag">
+                <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
+              </div>
+              <p>교육기간 : <?=$eday?>일</p>
+              <p>교육시간 : <?=$data['course_edu_time']?></p>
+              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div><!-- 전문가용 -->
     </div>
     <!-- 온라인 영역 끝 -->
+
+    <!-- 오프라인 영역 -->
+    <div class="tab_con offline">
+      <ul class="tab02">
+        <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
+        <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
+      </ul>
+
+      <!-- 입문자용 -->
+      <div class="con_list beginner swiper">
+        <ul class="swiper-wrapper">
+        <?php
+          $sql = "select * from course where course_cate = '오프라인' and course_tag LIKE '%입문자%' order by course_id desc;";
+          $result = mysqli_query($con, $sql);
+          while($data = mysqli_fetch_array($result)){
+            $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
+            $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
+            $date_dif = abs(strtotime($sdate)-strtotime($edate));
+            $eday = ceil($date_dif / (60*60*24));
+          ?>
+          <li class="swiper-slide">
+            <a href="" title="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <p><?=$data['course_title']?></p>
+              <p><?=$data['course_content']?></p>
+              <div class="tab_tag">
+                <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
+              </div>
+              <p>교육기간 : <?=$eday?>일</p>
+              <p>교육시간 : <?=$data['course_edu_time']?></p>
+              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div><!-- 입문자용 -->
+      
+      <!-- 전문가용 -->
+      <div class="con_list expert swiper">
+        <ul class="swiper-wrapper">
+        <?php
+          $sql_expert = "select * from course where course_cate = '오프라인' and course_tag LIKE '%전문가%' order by course_id desc;";
+          $result_expert = mysqli_query($con, $sql_expert);
+
+          while($data = mysqli_fetch_array($result_expert)){
+            $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
+            $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
+            $date_dif = abs(strtotime($sdate)-strtotime($edate));
+            $eday = ceil($date_dif / (60*60*24));
+          ?>
+          <li class="swiper-slide">
+            <a href="" title="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <p><?=$data['course_title']?></p>
+              <p><?=$data['course_content']?></p>
+              <div class="tab_tag">
+                <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
+              </div>
+              <p>교육기간 : <?=$eday?>일</p>
+              <p>교육시간 : <?=$data['course_edu_time']?></p>
+              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div><!-- 전문가용 -->
+    </div>
+    <!-- 오프라인 영역 끝 -->
   </article>
   <!-- 강의 영역 끝 -->
 
@@ -163,6 +262,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
         <img src="./images/event02.jpg" alt="">
       </a>
     </div>
+    <a href="./sub/evet/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 이벤트 영역 끝 -->
 
@@ -171,11 +271,46 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
   <article id="board">
     <h2>게시판 영역</h2>
     <ul class="tab01">
-      <li class="on"><a href="" title="온라인 강의">온라인 강의</a></li>
-      <li><a href="" title="오프라인 강의">오프라인 강의</a></li>
+      <li><a href="" title="공지사항">공지사항</a></li>
+      <li><a href="" title="자주하는 질문">자주하는 질문</a></li>
     </ul>
+    <span class="tab_on"></span>
+
+    <ul class="board_con">
+      <?php
+      $sql_board = "select * from board_notice order by notice_id desc;";
+      $result_board = mysqli_query($con, $sql_board);
+      // 데이터 출력
+      while($data = mysqli_fetch_array($result_board)){
+        $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
+        $result_member = mysqli_query($con, $sql_member);
+        $row_member = mysqli_fetch_array($result_member);
+      ?>
+      <li>
+        <a href="" title="">
+          <p><?=$data['notice_title']?></p>
+          <span><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?> /</span>
+          <span><?=date_format(date_create($data['notice_wdate']), "Y-m-d")?></span>
+        </a>
+      </li>
+      <?php } ?>
+    </ul>
+    <a href="./sub/evet/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 게시판 영역 끝  -->
+
+  
+  <!-- 사이드 버튼 영역 -->
+  <aside id="side_btn">
+    <a href="" title="">
+      <i class="fas fa-headphones"></i>
+      실시간 상담
+    </a>
+    <button type="button" class="t_btn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </aside>
+  <!-- 사이드 버튼 끝 -->
 </main>
 <?php
 include_once('./footer.php');
