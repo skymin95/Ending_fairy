@@ -46,14 +46,18 @@ header {
         .menu {
         width: 24px; height: 16px;
         position: relative;
-        label > span {
-          width: 100%; height: $labelHeight;
-          background-color: var(--sub-color01);
-          position: absolute;
-          transition: .3s;
-          &:nth-of-type(1) {top: 0;}
-          &:nth-of-type(2) {top: calc(50% - ($labelHeight / 2));right: 0;}
-          &:nth-of-type(3) {bottom: 0;}
+        label{
+          display: block; height: 100%;
+          > span {
+            width: 100%; height: $labelHeight;
+            border-radius: $labelHeight;
+            background-color: var(--sub-color01);
+            position: absolute;
+            transition: .3s;
+            &:nth-of-type(1) {top: 0;}
+            &:nth-of-type(2) {top: calc(50% - ($labelHeight / 2));right: 0;}
+            &:nth-of-type(3) {bottom: 0;}
+          }
         }
       }
     }
@@ -81,8 +85,8 @@ header {
     bottom: 0; left: 0;
     width: 100%; height: 80px;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
     z-index: 5000;
+    overflow: hidden;
     &::before {
       content: '';
       display: block;
@@ -93,6 +97,15 @@ header {
       width:2048px; height: 80px;
       overflow: hidden;
       background-image: url(../images/header_bottom_background.png);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: -45px;
+      width: $left_val; height: 80px;
+      background-color: var(--sub-color01);
     }
     > ul {
       position: absolute;
@@ -106,7 +119,9 @@ header {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
+        justify-content: flex-end;
         gap: 8px;
+        height: 46px;
         color: #fff;
         text-align: center;
         > img {
@@ -118,13 +133,14 @@ header {
         }
         &.active {
           > img {
-            position: relative;
-            top: -18px;
+            position: fixed;
+            bottom: 61px;
+            left: calc($left_val - 11px);
           }
           &::before {
             content: '';
             position: fixed;
-            bottom: 46px;
+            bottom: 50px;
             left: calc($left_val - 45px/2 + 0.5px);
             display: block;
             width: 45px; height: 45px;

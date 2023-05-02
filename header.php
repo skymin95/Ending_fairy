@@ -28,6 +28,10 @@
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/register.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."member/register.js' defer></script>";
   }
+  if($title == "마이페이지"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/mypage.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/mypage.js' defer></script>";
+  }
 
   ?>
 </head>
@@ -59,6 +63,14 @@
   </nav>
   <?php
     $seq = 2; // 0 ~ 4 순서로 검색, 내 강의실, 홈, 장바구니, 마이페이지
+    switch($title) {
+      case "캐논 아카데미":
+        $seq = 2;
+        break;
+      case "마이페이지":
+        $seq = 4;
+        break;
+    }
   ?>
   <nav class="bottom" style="--data-seq:<?=$seq?>;">
     <ul>
@@ -87,7 +99,7 @@
         </a>
       </li>
       <li>
-        <a href="#mypage" title="마이페이지" <?=$seq!=4?:"class=active"?>>
+        <a href="<?=$base_URL?>sub/mypage/mypage.php" title="마이페이지" <?=$seq!=4?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_mypage<?=$seq!=4?"":"_active"?>.png" alt="mypage">
           <span>마이페이지</span>
         </a>
