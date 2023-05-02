@@ -47,39 +47,47 @@
         </div>
         <div class="menu">
           <label for="sideMnu">
-            <div></div>
-            <div></div>
-            <div></div>
+            <span></span>
+            <span></span>
+            <span></span>
           </label>
         </div>
       </li>
     </ul>
   </nav>
-  <nav class="bottom">
+  <?php
+    $seq = 2; // 0 ~ 4 순서로 검색, 내 강의실, 홈, 장바구니, 마이페이지
+  ?>
+  <nav class="bottom" style="--data-seq:<?=$seq?>;">
     <ul>
       <li>
-        <a href="#search" title="검색하기">
-          <img src="<?=$base_URL?>images/nav_search.png" alt="search">
+        <a href="#search" title="검색하기" <?=$seq!=0?:"class=active"?>>
+          <img src="<?=$base_URL?>images/nav_search<?=$seq!=0?"":"_active"?>.png" alt="search">
+          <span>검색</span>
         </a>
       </li>
       <li>
-        <a href="#academy" title="내 강의실">
-          <img src="<?=$base_URL?>images/nav_academy.png" alt="academy">
+        <a href="#academy" title="내 강의실" <?=$seq!=1?:"class=active"?>>
+          <img src="<?=$base_URL?>images/nav_academy<?=$seq!=1?"":"_active"?>.png" alt="academy">
+          <span>내 강의실</span>
         </a>
       </li>
       <li>
-        <a href="<?=$base_URL?>index.php" title="메인으로 돌아가기" class="active">
-          <img src="<?=$base_URL?>images/nav_home_active.png" alt="home">
+        <a href="<?=$base_URL?>index.php" title="메인으로 돌아가기" <?=$seq!=2?:"class=active"?>>
+          <img src="<?=$base_URL?>images/nav_home<?=$seq!=2?"":"_active"?>.png" alt="home">
+          <span>홈</span>
         </a>
       </li>
       <li>
-        <a href="#cart" title="장바구니">
-          <img src="<?=$base_URL?>images/nav_cart.png" alt="cart">
+        <a href="#cart" title="장바구니" <?=$seq!=3?:"class=active"?>>
+          <img src="<?=$base_URL?>images/nav_cart<?=$seq!=3?"":"_active"?>.png" alt="cart">
+          <span>장바구니</span>
         </a>
       </li>
       <li>
-        <a href="#mypage" title="마이페이지">
-          <img src="<?=$base_URL?>images/nav_mypage.png" alt="mypage">
+        <a href="#mypage" title="마이페이지" <?=$seq!=4?:"class=active"?>>
+          <img src="<?=$base_URL?>images/nav_mypage<?=$seq!=4?"":"_active"?>.png" alt="mypage">
+          <span>마이페이지</span>
         </a>
       </li>
     </ul>
