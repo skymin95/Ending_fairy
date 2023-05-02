@@ -17,7 +17,9 @@
   
   if(basename($_SERVER['PHP_SELF']) == 'index.php'){
     echo "<link rel='stylesheet' href='".$base_skin_URL."main/main.css' type='text/css'>";
-    echo "<script src='".$base_skin_URL."main/main.js'></script>";
+    echo "<script src='".$base_skin_URL."main/main.js' defer></script>";
+    echo "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'/>
+    <script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>";
   }
   if($title == "로그인"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/login.css' type='text/css'>";

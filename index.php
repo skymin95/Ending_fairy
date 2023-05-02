@@ -5,28 +5,44 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 ?>
 <main>
   <!-- 상단 슬라이드 -->
-  <article id="m_slide">
+  <article id="m_slide" class="swiper">
     <h2>메인 슬라이드</h2>
-    <ul>
-      <li>
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
         <a href="" title="">
           <span><small>한폭의 그림같은 풍경 담기</small><br>풍경 사진 첫걸음</span>
           <img src="./images/main_banner01.jpg" alt="">
         </a>
       </li>
+      <li class="swiper-slide">
+        <a href="" title="">
+          <span><small>한폭의 그림같은 풍경 담기2</small><br>풍경 사진 첫걸음2</span>
+          <img src="./images/main_banner02.jpg" alt="">
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="" title="">
+          <span><small>한폭의 그림같은 풍경 담기3</small><br>풍경 사진 첫걸음3</span>
+          <img src="./images/main_banner03.jpg" alt="">
+        </a>
+      </li>
     </ul>
+    <div class="swiper-pagination"></div>
+    <i class="fas fa-pause btn_pause"></i>
   </article>
   <!-- 상단 슬라이드 끝 -->
+
 
   <!-- my 영역 -->
   <article id="m_my">
     <h3>지금, 로그인하세요.</h3>
     <div>
-      <a href="" title="">로그인</a>
-      <a href="" title="">아이디/비번 찾기</a>
+      <a href="./sub/member/login.php" title="로그인페이지로 이동">로그인</a>
+      <a href="#none" title="아이디/비번 찾기">아이디/비번 찾기</a>
     </div>
   </article>
   <!-- my 영역 끝 -->
+
 
   <!-- 강의 영역 -->
   <article id="m_academy">
@@ -48,8 +64,8 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
       </ul>
 
       <!-- 입문자용 -->
-      <div class="con_list beginner">
-        <ul>
+      <div class="con_list beginner swiper">
+        <ul class="swiper-wrapper">
         <?php
           // 데이터 출력
           function getYoutubeThumb($url) {
@@ -60,8 +76,8 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
           }
           while($data = mysqli_fetch_array($result)){
           ?>
-          <li>
-            <a href="" title="">
+          <li class="swiper-slide">
+            <a href="" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p>40만의 팔로워를 보유한 @misshattan의 여행사진 촬영팁!</p>
@@ -69,27 +85,97 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
               <p>교육기간 : 150일</p>
-              <p>교육시간 : <?=$data['course_edu_time']?>시간</p>
-              <p>교육비 : 25,000원 </p>
+              <p>교육시간 : <?=$data['course_edu_time']?></p>
+              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>
         </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
+      
 
 
       <!-- 전문가용 -->
       <div class="con_list expert">
-        <ul>
-          <li><a href="" title=""><img src="./images/online01.jpg" alt=""></a></li>
-        </ul>
+
       </div>
 
     </div>
     <!-- 온라인 영역 끝 -->
-
   </article>
   <!-- 강의 영역 끝 -->
+
+
+  <!-- 수걍평 영역 -->
+  <article id="reveiw" class="swiper">
+    <h2>BEST 수강평</h2>
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <a href="" title="">
+          <p>[사진클래스] 이**</p>
+          <div class="star">★★★★★</div>
+          <p>[온라인] 초보 탈출! 사진의 기초</p>
+          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="" title="">
+          <p>[사진클래스] 이**</p>
+          <div>별</div>
+          <p>[온라인] 초보 탈출! 사진의 기초</p>
+          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
+        </a>
+      </li><li class="swiper-slide">
+        <a href="" title="">
+          <p>[사진클래스] 이**</p>
+          <div>별</div>
+          <p>[온라인] 초보 탈출! 사진의 기초</p>
+          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="" title="">
+          <p>[사진클래스] 이**</p>
+          <div>별</div>
+          <p>[온라인] 초보 탈출! 사진의 기초</p>
+          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
+        </a>
+      </li>
+    </ul>
+    <div class="swiper-pagination"></div>
+  </article>
+  <!-- 수걍평 영역 끝 -->
+
+
+  <!-- 이벤트 영역 -->
+  <article id="event">
+    <h2>EVENT</h2>
+    <p>캐논아카데미의 다양한 이벤트를 만나보세요.</p>
+    <div>
+      <a href="" title="">
+        <img src="./images/event01.jpg" alt="">
+      </a>
+    </div>
+    <div>
+      <a href="" title="">
+        <img src="./images/event02.jpg" alt="">
+      </a>
+    </div>
+  </article>
+  <!-- 이벤트 영역 끝 -->
+
+
+  <!-- 게시판 영역  -->
+  <article id="board">
+    <h2>게시판 영역</h2>
+    <ul class="tab01">
+      <li class="on"><a href="" title="온라인 강의">온라인 강의</a></li>
+      <li><a href="" title="오프라인 강의">오프라인 강의</a></li>
+    </ul>
+  </article>
+  <!-- 게시판 영역 끝  -->
 </main>
 <?php
 include_once('./footer.php');
