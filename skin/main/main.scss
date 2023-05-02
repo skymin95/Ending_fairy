@@ -1,21 +1,41 @@
-@mixin box($top, $bg){
+@mixin onemobile{
+  font-family: 'ONE-Mobile-Regular', sans-serif, arial;
+}
+
+@mixin box($top){
   position: relative;
   top: $top;
   width: 100%;
   margin: 0 auto;
   padding: 0 14px;
-  background: $bg;
+  background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
 }
 
+@mixin title($pb){
+  padding-top: 36px;
+  padding-bottom: $pb;
+  color: #38373C;
+  font-size: 18px;
+  text-indent: 10px;
+}
+
+@mixin img{
+  width: 100%;
+  border-radius: 15px;
+}
+
 // 메인 서식
+// 상단 슬라이드 시작
 #m_slide{
   position: relative;
+  width: 100%;
+  max-height: 500px;
   h2{
     display: none;
   }
-  span{
+  .swiper-slide span{
     position: absolute;
     top: 40%;
     right: 10%;
@@ -34,14 +54,43 @@
     border-radius: 15px 15px 0px 0px;
     filter: brightness(0.7);
   }
+  .swiper-pagination{
+    bottom: 40px;
+  }
+  .swiper-pagination-bullet{
+    width: 60px;
+    height: 5px;
+    background: #fff;
+    border-radius: 0;
+    opacity: .6;
+  }
+  .swiper-pagination-bullet-active{
+    background: #DE0010;
+    opacity: 1;
+  }
+  .fas{
+    position: absolute;
+    right: 20%;
+    bottom: 36px;
+    font-size: 16px;
+    z-index: 999;
+    color: #DE0010;
+    cursor: pointer;
+  }
 }
+// 상단 슬라이드 끝
 
+
+// my영역 시작
 #m_my{
-  @include box(-16px, #F4F4F5);
-  height: 131px;
+  @include box(-16px);
+  @include onemobile;
+  background: #F4F4F5;
+  height: 117px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
   h3{
     font-size: 17px;
   }
@@ -51,14 +100,19 @@
     color: #DE0010;
   }
 }
+// my영역 끝
 
+
+// 강의 영역 시작
 #m_academy{
-  @include box(-27px, #fff);
-  padding-top: 36px;
+  @include box(-27px);
+  padding: 36px 14px 24px 14px;
+  z-index: 2;
   h2{
     display: none;
   }
   .tab01{
+    @include onemobile;
     display: flex;
     gap: 20px;
     text-align: center;
@@ -84,6 +138,7 @@
   }
   .tab_con{
     .tab02{
+      @include onemobile;
       display: flex;
       gap: 9px;
       text-align: center;
@@ -91,7 +146,7 @@
       a{
         display: inline-block;
         width: 100%;
-        padding: 10px 15px;
+        padding: 7px 15px;
         background: #EFF1F3;
         color: #5A6265;
         font-size: 14px;
@@ -103,9 +158,46 @@
       }
     }
     .con_list{
+      width: 100%;
+      height: 100%;
+      font-size: 14px;
+      line-height: 22px;
       img{
-        width: 100%;
-        border-radius: 15px;
+        @include img;
+      }
+      p:first-of-type{
+        font-size: 16px;
+        font-weight: bold;
+        text-indent: 10px;
+      }
+      p:nth-of-type(2){
+        line-height: 30px;
+      }
+      .tab_tag{
+        span{
+          display: inline-block;
+          margin: 5px;
+          padding: 0 15px;
+          color: #38373C;
+          border: 1px solid #38373C;
+          border-radius: 20px;
+        }
+        :first-child{
+          color: #DE0010;
+          border: 1px solid #DE0010;
+        }
+      }
+      .swiper-button-prev, .swiper-button-next{
+        width: 35px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        top: 30%;
+      }
+      .swiper-button-prev{left: 0;}
+      .swiper-button-next{right: 0;}
+      .swiper-button-prev::after, .swiper-button-next::after{
+        font-size: 20px;
       }
     }
   }
@@ -120,3 +212,68 @@
   left: 0;
   background: #EFF1F3;
 }
+// 강의 영역 끝
+
+
+// 수강평 영역 시작
+#reveiw{
+  @include box(-26px);
+  padding-bottom: 52px;
+  z-index: 3;
+  h2{
+    @include title(24px);
+  }
+  li{
+    padding: 10px;
+    background: #F4F4F5;
+    border-radius: 15px;
+    font-size: 12px;
+    line-height: 20px;
+    p:nth-of-type(2){
+      font-weight: bold;
+      text-indent: -5px;
+    }
+    .star{
+      color: #DE0010;
+    }
+  }
+  .swiper-pagination{
+    bottom: 20px;
+  }
+  .swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 1px solid #DE0010;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active{
+    background: #DE0010;
+  }
+}
+// 수강평 영역 끝
+
+
+// 이벤트 영역 시작
+#event{
+  @include box(-28px);
+  z-index: 4;
+  h2{
+    @include title(12px);
+  }
+  p{
+    padding-bottom: 12px;
+    text-indent: 10px;
+  }
+  img{
+    @include img;
+  }
+}
+// 이벤트 영역 끝
+
+// 게시판 영역 시작
+#board{
+  @include box(-26px);
+
+}
+// 게시판 영역 끝
