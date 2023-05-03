@@ -7,7 +7,7 @@
   top: $top;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
@@ -155,7 +155,6 @@
 // 강의 영역 시작
 #m_academy{
   @include box(-27px);
-  padding: 36px 14px 24px 14px;
   z-index: 2;
   h2{
     display: none;
@@ -167,7 +166,7 @@
     .tab02{
       @include onemobile;
       display: flex;
-      gap: 9px;
+      gap: 8px;
       text-align: center;
       padding-bottom: 24px;
       a{

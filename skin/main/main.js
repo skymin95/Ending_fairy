@@ -45,7 +45,7 @@ $(function(){
   // 수강평 슬라이드
   const swiper03 = new Swiper('#reveiw.swiper', {
     slidesPerView: 2,
-    spaceBetween: 14,
+    spaceBetween: 20,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,

@@ -66,7 +66,7 @@
   top: -16px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
@@ -93,11 +93,10 @@
   top: -27px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
-  padding: 36px 14px 24px 14px;
   z-index: 2;
 }
 #m_academy h2 {
@@ -120,7 +119,7 @@
 #m_academy .tab_con .tab02 {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   display: flex;
-  gap: 9px;
+  gap: 8px;
   text-align: center;
   padding-bottom: 24px;
 }
@@ -196,7 +195,7 @@
   top: -26px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
@@ -242,7 +241,7 @@
   top: -28px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
@@ -282,7 +281,7 @@
   top: -26px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 14px 24px 14px;
+  padding: 36px 20px 24px 20px;
   background: #fff;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
