@@ -28,7 +28,7 @@
   }
 }
 
-@mixin tab_line{
+@mixin tab_active{
   content: '';
   display: block;
   position: absolute;
@@ -62,12 +62,12 @@
   border-radius: 15px;
 }
 
-.tab_on{
+@mixin tab_on($width){
   position: absolute;
-  width: 108px;
+  width: $width;
   height: 3px;
   top: 64px;
-  left: 14px;
+  left: 20px;
   bottom: 0;
   background: #DE0010;
   border-radius: 5px;
@@ -133,7 +133,7 @@
 #m_my{
   @include box(-16px);
   @include onemobile;
-  padding: 0 14px;
+  padding: 0 20px;
   background: #F4F4F5;
   height: 117px;
   display: flex;
@@ -159,11 +159,14 @@
   h2{
     display: none;
   }
-  .tab01{
+  .line_tab{
     @include tab;
   }
+  .tab_on{
+    @include tab_on(108px);
+  }
   .tab_con{
-    .tab02{
+    .bg_tab{
       @include onemobile;
       display: flex;
       gap: 8px;
@@ -190,16 +193,16 @@
       p:first-of-type{
         font-size: 16px;
         font-weight: bold;
+        line-height: 32px;
         text-indent: 10px;
-      }
-      p:nth-of-type(2){
-        line-height: 30px;
       }
       .tab_tag{
         span{
           display: inline-block;
           margin: 5px;
           padding: 0 15px;
+          font-size: 12px;
+          line-height: 18px;
           color: #38373C;
           border: 1px solid #38373C;
           border-radius: 20px;
@@ -212,7 +215,6 @@
       .swiper-button-prev, .swiper-button-next{
         width: 35px;
         height: 50px;
-        background: rgba(0, 0, 0, 0.55);
         color: #fff;
         top: 30%;
       }
@@ -225,7 +227,7 @@
   }
 }
 #m_academy::before{
-  @include tab_line;
+  @include tab_active;
 }
 // 강의 영역 끝
 
@@ -300,8 +302,11 @@
   h2{
     display: none;
   }
-  .tab01{
+  .line_tab{
     @include tab;
+  }
+  .tab_on{
+    @include tab_on(87px);
   }
   .board_con{
     padding: 39px 11px 13px 11px;
@@ -324,7 +329,7 @@
   }
 }
 #board::before{
-  @include tab_line;
+  @include tab_active;
 }
 // 게시판 영역 끝
 

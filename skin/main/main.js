@@ -61,16 +61,15 @@ $(function(){
 
 
 // 탭메뉴 컨텐츠
-const tab_menu01 = document.querySelectorAll('#m_academy .tab01 > li');
-const tab_menu02 = document.querySelectorAll('#m_academy .tab02 > li');
-const tab_menu03 = document.querySelectorAll('#board .tab01 > li');
-const tab_title01 = document.querySelectorAll('#m_academy .tab01 > li a');
-const tab_title02 = document.querySelectorAll('#m_academy .tab02 > li a');
-const tab_title03 = document.querySelectorAll('#board .tab01 > li a');
+const tab_menu01 = document.querySelectorAll('#m_academy .line_tab > li');
+const tab_menu02 = document.querySelectorAll('#m_academy .bg_tab > li');
+const tab_menu03 = document.querySelectorAll('#board .line_tab > li');
+const tab_title01 = document.querySelectorAll('#m_academy .line_tab > li a');
+const tab_title02 = document.querySelectorAll('#m_academy .bg_tab > li a');
+const tab_title03 = document.querySelectorAll('#board .line_tab > li a');
 const tab_con01 = document.querySelectorAll('#m_academy > .tab_con');
 const tab_con02 = document.querySelectorAll('#m_academy .con_list');
 const tab_on01 = document.querySelector('#m_academy .tab_on');
-
 
 // showContent 함수
 function showContent(num){
@@ -117,18 +116,18 @@ function titleColor03(num){
 titleColor03(0);
 
 // 메뉴 클릭 이벤트
-tab_menu01.forEach(function(item,idx,all){
+tab_menu01.forEach(function(item,idx){
   item.addEventListener('click', function(e){
     e.preventDefault();
     showContent(idx);
-    showContent02(0);
+    showContent02(idx);
     titleColor(idx);
-    titleColor02(0);
+    titleColor02(idx);
     moveHighlight(idx);
   });
 });
 
-tab_menu02.forEach(function(item,idx,all){
+tab_menu02.forEach(function(item,idx){
   item.addEventListener('click', function(e){
     e.preventDefault();
     showContent02(idx);

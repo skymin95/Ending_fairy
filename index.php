@@ -48,15 +48,15 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
   <!-- 강의 영역 -->
   <article id="m_academy">
     <h2>강의탭</h2>
-    <ul class="tab01">
+    <ul class="line_tab">
       <li><a href="" title="온라인 강의">온라인 강의</a></li>
       <li><a href="" title="오프라인 강의">오프라인 강의</a></li>
-      <span class="tab_on"></span>
     </ul>
+    <span class="tab_on"></span>
 
     <!-- 온라인 영역 -->
     <div class="tab_con online">
-      <ul class="tab02">
+      <ul class="bg_tab">
         <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
         <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
       </ul>
@@ -134,7 +134,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <!-- 오프라인 영역 -->
     <div class="tab_con offline">
-      <ul class="tab02">
+      <ul class="bg_tab">
         <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
         <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
       </ul>
@@ -159,9 +159,9 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 : <?=$eday?>일</p>
-              <p>교육시간 : <?=$data['course_edu_time']?></p>
-              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+              <p>교육기간 <?=$eday?>일</p>
+              <p>교육시간 <?=$data['course_edu_time']?></p>
+              <p>교육비 <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>
@@ -211,37 +211,29 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
   <article id="reveiw" class="swiper">
     <h2>BEST 수강평</h2>
     <ul class="swiper-wrapper">
+      <?php
+        $sql = "select * from course_review where review_star = '5'";
+        $result = mysqli_query($con, $sql);
+        while($data = mysqli_fetch_array($result)){
+          $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
+          $result_member = mysqli_query($con, $sql_member);
+          $row_member = mysqli_fetch_array($result_member);
+
+          $sql_course = "SELECT course_title, course_cate FROM course WHERE course_id = '".$data['course_id']."'";
+          $result_course = mysqli_query($con, $sql_course);
+          $row_course = mysqli_fetch_array($result_course);
+
+          $name = preg_replace('/(.{1})(.*?)$/u', '$1**', $row_member['mb_name']);
+        ?>
       <li class="swiper-slide">
-        <a href="" title="">
-          <p>[사진클래스] 이**</p>
-          <div class="star">★★★★★</div>
-          <p>[온라인] 초보 탈출! 사진의 기초</p>
-          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
+        <a href="./sub/academy_view.php?<?=$data['course_id']?>" title="">
+          <p><?=$name?></p>
+          <div class="star"><?=$data['review_star']?></div>
+          <p>[<?=$row_course['course_cate']?>] <?=$row_course['course_title']?></p>
+          <p><?=$data['review_title']?></p>
         </a>
       </li>
-      <li class="swiper-slide">
-        <a href="" title="">
-          <p>[사진클래스] 이**</p>
-          <div>별</div>
-          <p>[온라인] 초보 탈출! 사진의 기초</p>
-          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
-        </a>
-      </li><li class="swiper-slide">
-        <a href="" title="">
-          <p>[사진클래스] 이**</p>
-          <div>별</div>
-          <p>[온라인] 초보 탈출! 사진의 기초</p>
-          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
-        </a>
-      </li>
-      <li class="swiper-slide">
-        <a href="" title="">
-          <p>[사진클래스] 이**</p>
-          <div>별</div>
-          <p>[온라인] 초보 탈출! 사진의 기초</p>
-          <p>선생님 덕분에 사진찍는 법을 제대로 알게됐습니다!</p>
-        </a>
-      </li>
+      <?php } ?>
     </ul>
     <div class="swiper-pagination"></div>
   </article>
@@ -270,9 +262,9 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
   <!-- 게시판 영역  -->
   <article id="board">
     <h2>게시판 영역</h2>
-    <ul class="tab01">
-      <li><a href="" title="공지사항">공지사항</a></li>
-      <li><a href="" title="자주하는 질문">자주하는 질문</a></li>
+    <ul class="line_tab">
+      <li><a href="#none" title="공지사항">공지사항</a></li>
+      <li><a href="#none" title="자주하는 질문">자주하는 질문</a></li>
     </ul>
     <span class="tab_on"></span>
 
@@ -295,7 +287,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
       </li>
       <?php } ?>
     </ul>
-    <a href="./sub/evet/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
+    <a href="./sub/notice/notice.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 게시판 영역 끝  -->
 
