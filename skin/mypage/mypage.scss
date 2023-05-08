@@ -13,17 +13,113 @@
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
 }
 
+main {
+  @include onemobile();
+}
+
 .info_user {
   position: relative;
   background-color: var(--sub-color01);
   color:#fff;
-  padding: 30px 24px;
+  padding: 28px 24px;
   border-radius: 15px 15px 0px 0px;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  a {color: #fff;}
 }
 
 .list_menu {
   @include box(-15px);
-  padding: 20px 26px;
-  min-height: 300px;
+  padding: 20px 0;
+  nav > ul > li {
+    padding: 16px 26px;
+    border-bottom: 1px solid #ddd;
+    > a {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: var(--f-size02);
+      position: relative;
+      &::before {
+        content: '';
+        width:7px; height: 12px;
+        position: absolute;
+        right: 0;
+        background-image: url(../../images/mypage_arrow.png);
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+.box_profile {
+  height: 60px;
+  display: flex;
+  gap: 12px;
+  > li:nth-of-type(1) {
+    > img {height: 100%;}
+  }
+  > li:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > p {
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 22px;
+      > .emp {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.user_menu {
+  display: flex;
+  gap: 40px;
+  > li {
+    > a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 30px;
+      > img {
+        height: 100%;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.user_status {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  > li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 100px; height: 72px;
+    border-radius: 15px;
+    > a {
+      color: var(--sub-color01);
+      display: flex;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      gap: 8px;
+      height: 100%;
+      > span {
+        font-size: 0.875rem;
+      }
+      > strong {
+        font-size: var(--f-size02);
+        font-weight: 700;
+        color: var(--main-color);
+      }
+    }
+  }
 }
