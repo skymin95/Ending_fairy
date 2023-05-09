@@ -1,8 +1,6 @@
 <?php
 $title = "캐논 아카데미"; // 타이틀
 include_once('./common.php');
-empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
-
 ?>
 <main>
   <!-- 상단 슬라이드 -->
@@ -36,11 +34,85 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
   <!-- my 영역 -->
   <article id="m_my">
-    <h3>지금, 로그인하세요.</h3>
-    <div>
-      <a href="./sub/member/login.php" title="로그인페이지로 이동">로그인</a>
-      <a href="#none" title="아이디/비번 찾기">아이디/비번 찾기</a>
-    </div>
+    <?php
+      if(isset($_SESSION['mb_id'])){
+        $mb_id = $_SESSION['mb_id'];
+
+        $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
+        $result_member = mysqli_query($con, $sql_member);
+        $row_member = mysqli_fetch_array($result_member);
+
+        $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'";
+        $result_file = mysqli_query($con, $sql_file);
+        $row_file = mysqli_fetch_assoc($result_file);
+
+        if($row_member['mb_level'] < 9 || empty($row_member['mb_level'])){
+          echo "
+          <div class='member'>
+            <p>
+              개인회원
+              <a href='./sub/mypage/mypage.php' title=''>
+                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt=''>
+                마이페이지
+              </a>
+            </p>
+            <h3>".$row_member['mb_name']."(".$row_member['mb_nick'].")님</h3>
+            <div>
+              <a href='./sub/mypage/' title='회원정보관리'>
+                <img src='".$base_URL."images/mypage_modify.png' alt=''>
+                회원정보관리
+              </a>
+              <a href='./sub/member/logout.php' title='로그아웃'>
+                <img src='".$base_URL."images/mypage_logout.png' alt=''>
+                로그아웃
+              </a>
+            </div>
+            <ul>
+              <li><a href='' title=''>수강중인 강의<span>1</span></a></li>
+              <li><a href='' title=''>신청 &middot; 대기 강의<span>1</span></a></li>
+              <li><a href='' title=''>수강완료 강의<span>1</span></a></li>
+            </ul>
+            <a>더보기</a>
+          </div>
+          ";
+        }else{
+          echo "
+          <div class='admin'>
+            <p>
+            ".($row_member['mb_level'] == '10'?"관리자":"강사")."
+              <a href='./sub/mypage/mypage.php' title=''>
+                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt=''>
+                마이페이지
+              </a>
+            </p>
+            <h3>".$row_member['mb_name']."(".$row_member['mb_nick'].")님</h3>
+            <div>
+              <a href='./adm/index.php' title='관리자페이지'>
+                <img src='".$base_URL."images/mypage_work.png' alt=''>
+                관리자페이지
+              </a>
+              <a href='./sub/member/logout.php' title='로그아웃'>
+                <img src='".$base_URL."images/mypage_logout.png' alt=''>
+                로그아웃
+              </a>
+            </div>
+          </div>
+          ";
+        }
+      }else{
+        echo "
+        <div class='logout'>
+          <h3>지금, 로그인하세요.</h3>
+          <div>
+            <a href='./sub/member/login.php' title='로그인페이지로 이동'>로그인</a>
+            <a href='#none' title='아이디/비번 찾기'>아이디/비번 찾기</a>
+          </div>
+        </div>
+        ";
+      }
+    ?>
+    
+
   </article>
   <!-- my 영역 끝 -->
 
@@ -56,8 +128,8 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <!-- 온라인 영역 -->
     <div class="tab_con online">
-      <label for="on_b" class="on">입문자용 인기강좌</label>
-      <label for="on_e">전문가용 인기강좌</label>
+      <label for="on_b" class="on">입문자용 인기강좌</label><!--
+    --><label for="on_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
       <input type="radio" id="on_b" name="tab" checked>
@@ -134,8 +206,8 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <!-- 오프라인 영역 -->
     <div class="tab_con offline">
-      <label for="off_b" class="on">입문자용 인기강좌</label>
-      <label for="off_e">전문가용 인기강좌</label>
+      <label for="off_b" class="on">입문자용 인기강좌</label><!--
+    --><label for="off_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
       <input type="radio" id="off_b" name="tab2" checked>
@@ -270,7 +342,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <ul class="board_con">
       <?php
-      $sql_board = "select * from board_notice order by notice_id desc;";
+      $sql_board = "select * from board_notice order by notice_id desc limit 5;";
       $result_board = mysqli_query($con, $sql_board);
       // 데이터 출력
       while($data = mysqli_fetch_array($result_board)){

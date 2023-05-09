@@ -136,18 +136,50 @@
   @include onemobile;
   padding: 0 20px;
   background: #F4F4F5;
-  height: 117px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 1;
-  h3{
-    font-size: 17px;
+  .logout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0 47px 0;
+    h3{
+      font-size: 17px;
+    }
+    div a{
+      margin-left: 13px;
+      font-size: 15px;
+      color: #DE0010;
+    }
   }
-  div a{
-    margin-left: 13px;
-    font-size: 15px;
-    color: #DE0010;
+  .member{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 24px 0 52px 0;
+    p{
+      font-size: 14px;
+      color: #DE0010;
+      a{
+        float: right;
+        font-size: 16px;
+        img{
+          width: 30px;
+          vertical-align: middle;
+        }
+      }
+    }
+    h3{
+      font-size: 20px;
+    }
+    ul{
+      display: flex;
+      gap: 8px;
+      li{
+        background: #fff;
+        border-radius: 20px;
+      }
+    }
   }
 }
 // my영역 끝
@@ -170,7 +202,7 @@
     label{
       @include onemobile;
       display: inline-block;
-      margin: 0 8px 24px 0;
+      margin: 0 0 24px 8px;
       padding: 7px 15px;
       background: #EFF1F3;
       color: #5A6265;

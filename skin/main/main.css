@@ -61,19 +61,51 @@
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   padding: 0 20px;
   background: #F4F4F5;
-  height: 117px;
+  z-index: 1;
+}
+#m_my .logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  padding: 36px 0 47px 0;
 }
-#m_my h3 {
+#m_my .logout h3 {
   font-size: 17px;
 }
-#m_my div a {
+#m_my .logout div a {
   margin-left: 13px;
   font-size: 15px;
   color: #DE0010;
+}
+#m_my .member {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  padding: 24px 0 52px 0;
+}
+#m_my .member p {
+  font-size: 14px;
+  color: #DE0010;
+}
+#m_my .member p a {
+  float: right;
+  font-size: 16px;
+}
+#m_my .member p a img {
+  width: 30px;
+  vertical-align: middle;
+}
+#m_my .member h3 {
+  font-size: 20px;
+}
+#m_my .member ul {
+  display: flex;
+  gap: 8px;
+}
+#m_my .member ul li {
+  background: #fff;
+  border-radius: 20px;
 }
 
 #m_academy {
@@ -119,7 +151,7 @@
 #m_academy .tab_con label {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   display: inline-block;
-  margin: 0 8px 24px 0;
+  margin: 0 0 24px 8px;
   padding: 7px 15px;
   background: #EFF1F3;
   color: #5A6265;
