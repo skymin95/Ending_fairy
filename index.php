@@ -56,12 +56,11 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <!-- 온라인 영역 -->
     <div class="tab_con online">
-      <ul class="bg_tab">
-        <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
-        <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
-      </ul>
+      <label for="on_b" class="on">입문자용 인기강좌</label>
+      <label for="on_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
+      <input type="radio" id="on_b" name="tab" checked>
       <div class="con_list beginner swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -99,6 +98,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
       </div><!-- 입문자용 -->
       
       <!-- 전문가용 -->
+      <input type="radio" id="on_e" name="tab">
       <div class="con_list expert swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -134,12 +134,11 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
 
     <!-- 오프라인 영역 -->
     <div class="tab_con offline">
-      <ul class="bg_tab">
-        <li><a href="" title="입문자용 인기강좌">입문자용 인기강좌</a></li>
-        <li><a href="" title="전문가용 인기강좌">전문가용 인기강좌</a></li>
-      </ul>
+      <label for="off_b" class="on">입문자용 인기강좌</label>
+      <label for="off_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
+      <input type="radio" id="off_b" name="tab2" checked>
       <div class="con_list beginner swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -171,6 +170,7 @@ empty($_SESSION['mb_id']) || $mb_id = $_SESSION['mb_id']."님 환영합니다.";
       </div><!-- 입문자용 -->
       
       <!-- 전문가용 -->
+      <input type="radio" id="off_e" name="tab2">
       <div class="con_list expert swiper">
         <ul class="swiper-wrapper">
         <?php
