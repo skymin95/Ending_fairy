@@ -6,13 +6,13 @@
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
 		percent: 85,
-		// duration: 3000,
+		duration: 3000
 		},
 		{
 		backgroundColor: '#ccc',
 		progressColor: '#DE0010',
 		percent: 75,
-
+			duration: 3000
 		},
 		{
 		backgroundColor: '#ccc',
@@ -40,31 +40,31 @@
 		// 신청대기
 		{
 		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
+		progressColor: '#ccc',
 		percent: 'D-day',
 		// duration: 10000
 		},
 		{
 		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
+		progressColor: '#ccc',
 		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
+		progressColor: '#ccc',
 		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
+		progressColor: '#ccc',
 		percent: 'D-day',
 
 		},
 		{
 		backgroundColor: '#ccc',
-		progressColor: '#DE0010',
+		progressColor: '#ccc',
 		percent: 'D-day',
 
 		},
