@@ -81,6 +81,7 @@ function showContent(num){
 showContent(0);
 
 function showContent02(num){
+  console.log(num);
   tab_con02.forEach(function(item){
     item.style.display='none';
   });
@@ -120,7 +121,7 @@ tab_menu01.forEach(function(item,idx){
   item.addEventListener('click', function(e){
     e.preventDefault();
     showContent(idx);
-    showContent02(idx);
+    showContent02(idx+2);
     titleColor(idx);
     titleColor02(idx);
     moveHighlight(idx);
@@ -129,6 +130,7 @@ tab_menu01.forEach(function(item,idx){
 
 tab_menu02.forEach(function(item,idx){
   item.addEventListener('click', function(e){
+    console.log(idx);//1
     e.preventDefault();
     showContent02(idx);
     titleColor02(idx);
