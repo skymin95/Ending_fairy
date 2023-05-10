@@ -25,7 +25,6 @@ footer{padding-bottom: 25px;}
   width: 300px;
   margin: 0 auto;
   text-align: left;
-  font-size: 18px;
 }
 #member_form label{
   display: inline-block;
@@ -36,7 +35,7 @@ footer{padding-bottom: 25px;}
   height: 45px;
   margin-bottom: 20px;
   border: none;
-  border-bottom: 1px solid var(--bg-color03);
+  border-bottom: 1px solid #ccc;
 }
 #member_form input:focus{
   outline: none;

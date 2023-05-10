@@ -11,7 +11,7 @@ include_once('../common.php');
       </a>
     </h1>
     <article class="register">
-      <h2>회원가입</h2>
+      <h2 class="a_title">회원가입</h2>
       <form action="register_insert.php" name="register" id="member_form" method="post">
         <label for="mb_id" class="id">아이디</label>
         <input type="text" name="mb_id" id="mb_id" required>

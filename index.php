@@ -367,17 +367,6 @@ include_once('./common.php');
   </article>
   <!-- 게시판 영역 끝  -->
 
-  
-  <!-- 사이드 버튼 영역 -->
-  <aside id="side_btn">
-    <a href="#none" title="챗봇">
-      <i class="fas fa-headphones"></i>
-    </a>
-    <button type="button" class="t_btn">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-  </aside>
-  <!-- 사이드 버튼 끝 -->
 </main>
 <?php
 include_once('./footer.php');
