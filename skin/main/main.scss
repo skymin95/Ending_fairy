@@ -15,7 +15,7 @@
 
 @mixin tab{
   @include onemobile;
-  padding-bottom: 24px;
+  padding-bottom: 27px;
   display: flex;
   gap: 20px;
   text-align: center;
@@ -45,6 +45,42 @@
   color: #38373C;
   font-size: 18px;
   text-indent: 10px;
+}
+
+@mixin my{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 0 52px 0;
+  p:first-child{
+    font-size: 14px;
+    color: #DE0010;
+    a{
+      float: right;
+      font-size: 16px;
+      img{
+        width: 30px;
+        margin-right: 4px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+    }
+  }
+  h3{
+    font-size: 20px;
+  }
+  .mypage{
+    a{
+      margin-right: 40px;
+    }
+    img{
+      margin-right: 4px;
+      padding: 8px;
+      border-radius: 50%;
+      background: #fff;
+      vertical-align: middle;
+    }
+  }
 }
 
 @mixin more($top,$right){
@@ -86,12 +122,12 @@
   }
   .swiper-slide span{
     position: absolute;
-    top: 40%;
+    top: 35%;
     right: 10%;
     text-align: right;
-    font-size: 4.5vw;
+    font-size: 6vw;
     font-weight: bold;
-    line-height: 6vw;
+    line-height: 6.5vw;
     color: #fff;
     z-index: 9;
     small{
@@ -146,43 +182,13 @@ main{overflow: hidden;}
       font-size: 17px;
     }
     div a{
-      margin-left: 13px;
+      margin-left: 12px;
       font-size: 15px;
       color: #DE0010;
     }
   }
   .member{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 24px 0 52px 0;
-    p:first-child{
-      font-size: 14px;
-      color: #DE0010;
-      a{
-        float: right;
-        font-size: 16px;
-        img{
-          width: 30px;
-          vertical-align: middle;
-        }
-      }
-    }
-    h3{
-      font-size: 20px;
-    }
-    .mypage{
-      a{
-        margin-right: 40px;
-      }
-      img{
-        margin-right: 4px;
-        padding: 8px;
-        border-radius: 50%;
-        background: #fff;
-        vertical-align: middle;
-      }
-    }
+    @include my;
     ul{
       width: 300%;
       display: flex;
@@ -217,14 +223,18 @@ main{overflow: hidden;}
       width: 90px;
       margin: 0 auto;
       padding: 10px;
+      font-size: 14px;
       text-align: center;
       border: 1px solid #D1D1D1;
       border-radius: 20px;
       i.fas{
-        font-size: 12px;
+        font-size: 10px;
         margin-left: 4px;
       }
     }
+  }
+  .admin{
+    @include my;
   }
 }
 // my영역 끝
@@ -254,9 +264,13 @@ main{overflow: hidden;}
       font-size: 14px;
       border-radius: 20px;
       cursor: pointer;
+      transition: .1s;
     }
-    input[type=radio]:checked + .con_list{display: block;}
-    .on{
+    #on_b:checked ~ .beginner{display: block;}
+    #on_e:checked ~ .expert{display: block;}
+    #off_b:checked ~ .beginner{display: block;}
+    #off_e:checked ~ .expert{display: block;}
+    input[type=radio]:checked + label{
       background: #38373C;
       color: #fff;
     }
@@ -271,9 +285,9 @@ main{overflow: hidden;}
           @include img;
         }
         p:first-of-type{
+          margin: 12px 0 8px 0;
           font-size: 16px;
           font-weight: bold;
-          line-height: 32px;
           text-indent: 10px;
         }
         p{
@@ -290,7 +304,7 @@ main{overflow: hidden;}
         .tab_tag{
           span{
             display: inline-block;
-            margin: 5px;
+            margin: 8px 4px;
             padding: 0 15px;
             font-size: 12px;
             line-height: 18px;
@@ -441,11 +455,13 @@ main{overflow: hidden;}
     background: #DE0010;
     color: #fff;
     font-size: 10px;
+    line-height: 58px;
     border-radius: 50%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.1));
     i.fa-headphones{
       display: block;
-      padding: 10px 0 5px 0;
-      font-size: 20px;
+      font-size: 24px;
+      line-height: 58px;
     }
   }
   .t_btn{
@@ -455,6 +471,7 @@ main{overflow: hidden;}
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.1));
     i.fa-arrow-up{
       color: #fff;
       font-size: 26px;

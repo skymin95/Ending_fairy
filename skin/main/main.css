@@ -8,12 +8,12 @@
 }
 #m_slide .swiper-slide span {
   position: absolute;
-  top: 40%;
+  top: 35%;
   right: 10%;
   text-align: right;
-  font-size: 4.5vw;
+  font-size: 6vw;
   font-weight: bold;
-  line-height: 6vw;
+  line-height: 6.5vw;
   color: #fff;
   z-index: 9;
 }
@@ -77,7 +77,7 @@ main {
   font-size: 17px;
 }
 #m_my .logout div a {
-  margin-left: 13px;
+  margin-left: 12px;
   font-size: 15px;
   color: #DE0010;
 }
@@ -97,6 +97,8 @@ main {
 }
 #m_my .member p:first-child a img {
   width: 30px;
+  margin-right: 4px;
+  border-radius: 50%;
   vertical-align: middle;
 }
 #m_my .member h3 {
@@ -146,13 +148,47 @@ main {
   width: 90px;
   margin: 0 auto;
   padding: 10px;
+  font-size: 14px;
   text-align: center;
   border: 1px solid #D1D1D1;
   border-radius: 20px;
 }
 #m_my .member > a i.fas {
-  font-size: 12px;
+  font-size: 10px;
   margin-left: 4px;
+}
+#m_my .admin {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 0 52px 0;
+}
+#m_my .admin p:first-child {
+  font-size: 14px;
+  color: #DE0010;
+}
+#m_my .admin p:first-child a {
+  float: right;
+  font-size: 16px;
+}
+#m_my .admin p:first-child a img {
+  width: 30px;
+  margin-right: 4px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+#m_my .admin h3 {
+  font-size: 20px;
+}
+#m_my .admin .mypage a {
+  margin-right: 40px;
+}
+#m_my .admin .mypage img {
+  margin-right: 4px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #fff;
+  vertical-align: middle;
 }
 
 #m_academy {
@@ -171,7 +207,7 @@ main {
 }
 #m_academy .line_tab {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  padding-bottom: 24px;
+  padding-bottom: 27px;
   display: flex;
   gap: 20px;
   text-align: center;
@@ -205,11 +241,21 @@ main {
   font-size: 14px;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.1s;
 }
-#m_academy .tab_con input[type=radio]:checked + .con_list {
+#m_academy .tab_con #on_b:checked ~ .beginner {
   display: block;
 }
-#m_academy .tab_con .on {
+#m_academy .tab_con #on_e:checked ~ .expert {
+  display: block;
+}
+#m_academy .tab_con #off_b:checked ~ .beginner {
+  display: block;
+}
+#m_academy .tab_con #off_e:checked ~ .expert {
+  display: block;
+}
+#m_academy .tab_con input[type=radio]:checked + label {
   background: #38373C;
   color: #fff;
 }
@@ -225,9 +271,9 @@ main {
   border-radius: 15px;
 }
 #m_academy .tab_con .con_list li p:first-of-type {
+  margin: 12px 0 8px 0;
   font-size: 16px;
   font-weight: bold;
-  line-height: 32px;
   text-indent: 10px;
 }
 #m_academy .tab_con .con_list li p {
@@ -243,7 +289,7 @@ main {
 }
 #m_academy .tab_con .con_list li .tab_tag span {
   display: inline-block;
-  margin: 5px;
+  margin: 8px 4px;
   padding: 0 15px;
   font-size: 12px;
   line-height: 18px;
@@ -383,7 +429,7 @@ main {
 }
 #board .line_tab {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  padding-bottom: 24px;
+  padding-bottom: 27px;
   display: flex;
   gap: 20px;
   text-align: center;
@@ -460,12 +506,14 @@ main {
   background: #DE0010;
   color: #fff;
   font-size: 10px;
+  line-height: 58px;
   border-radius: 50%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.1));
 }
 #side_btn a i.fa-headphones {
   display: block;
-  padding: 10px 0 5px 0;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 58px;
 }
 #side_btn .t_btn {
   width: 58px;
@@ -474,6 +522,7 @@ main {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.1));
 }
 #side_btn .t_btn i.fa-arrow-up {
   color: #fff;

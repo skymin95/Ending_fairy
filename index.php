@@ -46,7 +46,7 @@ include_once('./common.php');
         $result_file = mysqli_query($con, $sql_file);
         $row_file = mysqli_fetch_assoc($result_file);
 
-        if($row_member['mb_level'] < 9 || empty($row_member['mb_level'])){
+        if($row_member['mb_level'] < 9 || empty($row_member['mb_level'])){ // 일반회원
           echo "
           <div class='member'>
             <p>
@@ -56,7 +56,7 @@ include_once('./common.php');
                 마이페이지
               </a>
             </p>
-            <h3>".$row_member['mb_name']."(".$row_member['mb_nick'].")님</h3>
+            <h3>".$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")."님</h3>
             <div class='mypage'>
               <a href='./sub/mypage/mypage.php' title='회원정보관리'>
                 <img src='".$base_URL."images/mypage_modify.png' alt=''>
@@ -78,7 +78,7 @@ include_once('./common.php');
             <a href='./sub/mypage/course_status.php'>더보기<i class='fas fa-play'></i></a>
           </div>
           ";
-        }else{
+        }else{ // 관리자
           echo "
           <div class='admin'>
             <p>
@@ -88,8 +88,8 @@ include_once('./common.php');
                 마이페이지
               </a>
             </p>
-            <h3>".$row_member['mb_name']."(".$row_member['mb_nick'].")님</h3>
-            <div>
+            <h3>".$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")."님</h3>
+            <div class='mypage'>
               <a href='./adm/index.php' title='관리자페이지'>
                 <img src='".$base_URL."images/mypage_work.png' alt=''>
                 관리자페이지
@@ -102,20 +102,18 @@ include_once('./common.php');
           </div>
           ";
         }
-      }else{
+      }else{ // 비로그인
         echo "
         <div class='logout'>
           <h3>지금, 로그인하세요.</h3>
           <div>
             <a href='./sub/member/login.php' title='로그인페이지로 이동'>로그인</a>
-            <a href='#none' title='아이디/비번 찾기'>아이디/비번 찾기</a>
+            <a href='./sub/member/register.php' title='회원가입'>회원가입</a>
           </div>
         </div>
         ";
       }
     ?>
-    
-
   </article>
   <!-- my 영역 끝 -->
 
@@ -131,11 +129,12 @@ include_once('./common.php');
 
     <!-- 온라인 영역 -->
     <div class="tab_con online">
-      <label for="on_b" class="on">입문자용 인기강좌</label><!--
-    --><label for="on_e">전문가용 인기강좌</label>
+      <input type="radio" id="on_b" name="tab" checked>
+      <label for="on_b">입문자용 인기강좌</label>
+      <input type="radio" id="on_e" name="tab">
+      <label for="on_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
-      <input type="radio" id="on_b" name="tab" checked>
       <div class="con_list beginner swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -154,7 +153,7 @@ include_once('./common.php');
             $eday = ceil($date_dif / (60*60*24));
           ?>
           <li class="swiper-slide">
-            <a href="" title="<?=$data['course_title']?>">
+            <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
@@ -173,7 +172,6 @@ include_once('./common.php');
       </div><!-- 입문자용 -->
       
       <!-- 전문가용 -->
-      <input type="radio" id="on_e" name="tab">
       <div class="con_list expert swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -187,7 +185,7 @@ include_once('./common.php');
             $eday = ceil($date_dif / (60*60*24));
           ?>
           <li class="swiper-slide">
-            <a href="" title="<?=$data['course_title']?>">
+            <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
@@ -209,11 +207,12 @@ include_once('./common.php');
 
     <!-- 오프라인 영역 -->
     <div class="tab_con offline">
-      <label for="off_b" class="on">입문자용 인기강좌</label><!--
-    --><label for="off_e">전문가용 인기강좌</label>
+      <input type="radio" id="off_b" name="tab2" checked>
+      <label for="off_b" class="on">입문자용 인기강좌</label>
+      <input type="radio" id="off_e" name="tab2">
+      <label for="off_e">전문가용 인기강좌</label>
 
       <!-- 입문자용 -->
-      <input type="radio" id="off_b" name="tab2" checked>
       <div class="con_list beginner swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -226,7 +225,7 @@ include_once('./common.php');
             $eday = ceil($date_dif / (60*60*24));
           ?>
           <li class="swiper-slide">
-            <a href="" title="<?=$data['course_title']?>">
+            <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
@@ -245,7 +244,6 @@ include_once('./common.php');
       </div><!-- 입문자용 -->
       
       <!-- 전문가용 -->
-      <input type="radio" id="off_e" name="tab2">
       <div class="con_list expert swiper">
         <ul class="swiper-wrapper">
         <?php
@@ -259,7 +257,7 @@ include_once('./common.php');
             $eday = ceil($date_dif / (60*60*24));
           ?>
           <li class="swiper-slide">
-            <a href="" title="<?=$data['course_title']?>">
+            <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
               <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
@@ -294,16 +292,19 @@ include_once('./common.php');
           $result_member = mysqli_query($con, $sql_member);
           $row_member = mysqli_fetch_array($result_member);
 
-          $sql_course = "SELECT course_title, course_cate FROM course WHERE course_id = '".$data['course_id']."'";
+          $sql_course = "SELECT * FROM course WHERE course_id = '".$data['course_id']."'";
           $result_course = mysqli_query($con, $sql_course);
           $row_course = mysqli_fetch_array($result_course);
 
           $name = preg_replace('/(.{1})(.*?)$/u', '$1**', $row_member['mb_name']);
         ?>
       <li class="swiper-slide">
-        <a href="./sub/academy_view.php?<?=$data['course_id']?>" title="">
+        <a href="./sub/academy_view.php?<?=$data['course_id']?>" title="<?=$row_course['course_title']?>">
           <p><?=$name?></p>
-          <div class="star"><?=$data['review_star']?></div>
+          <div class="star">
+            <img src="./images/star_f.png" alt="별점">
+            <!-- <?=$data['review_star']?> -->
+          </div>
           <p>[<?=$row_course['course_cate']?>] <?=$row_course['course_title']?></p>
           <p><?=$data['review_title']?></p>
         </a>
@@ -320,16 +321,16 @@ include_once('./common.php');
     <h2>EVENT</h2>
     <p>캐논아카데미의 다양한 이벤트를 만나보세요.</p>
     <div>
-      <a href="" title="">
-        <img src="./images/event01.jpg" alt="">
+      <a href="#none" title="이벤트배너">
+        <img src="./images/event01.jpg" alt="이벤트배너">
       </a>
     </div>
     <div>
-      <a href="" title="">
-        <img src="./images/event02.jpg" alt="">
+      <a href="#none" title="이벤트배너">
+        <img src="./images/event02.jpg" alt="이벤트배너">
       </a>
     </div>
-    <a href="./sub/evet/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
+    <a href="./sub/event/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 이벤트 영역 끝 -->
 
@@ -345,7 +346,7 @@ include_once('./common.php');
 
     <ul class="board_con">
       <?php
-      $sql_board = "select * from board_notice order by notice_id desc limit 5;";
+      $sql_board = "select * from board_notice order by notice_id desc limit 4;";
       $result_board = mysqli_query($con, $sql_board);
       // 데이터 출력
       while($data = mysqli_fetch_array($result_board)){
@@ -354,7 +355,7 @@ include_once('./common.php');
         $row_member = mysqli_fetch_array($result_member);
       ?>
       <li>
-        <a href="" title="">
+        <a href="./sub/notice/notice.php?board_id=<?=$data['notice_id']?>" title="<?=$data['notice_title']?>">
           <p><?=$data['notice_title']?></p>
           <span><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?> /</span>
           <span><?=date_format(date_create($data['notice_wdate']), "Y-m-d")?></span>
@@ -369,9 +370,8 @@ include_once('./common.php');
   
   <!-- 사이드 버튼 영역 -->
   <aside id="side_btn">
-    <a href="" title="">
+    <a href="#none" title="챗봇">
       <i class="fas fa-headphones"></i>
-      실시간 상담
     </a>
     <button type="button" class="t_btn">
       <i class="fas fa-arrow-up"></i>

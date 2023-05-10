@@ -74,8 +74,45 @@ $(document).ready(function(){
       return false;
     }
 
+    if(!$('#check1').val()){
+      alert('필수 약관에 동의하지 않았습니다.');
+      $('#check1').focus();
+      return false;
+    }
+
     // 위 입력양식을 검사를 통과하면 아래 폼내용 전송
     $('#member_form').submit();
 
   };
+
+  // 체크박스 전체 선택
+  $('.terms').on('click', '#all', function () {
+    var checked = $(this).is(':checked');
+
+    if(checked){
+      $(this).parents('.terms').find('input').prop('checked', true);
+    } else {
+      $(this).parents('.terms').find('input').prop('checked', false);
+    }
+  });
+
+  // 체크박스 개별 선택
+  $('.terms').on('click', '.check', function() {
+    var checked = $(this).is(':checked');
+
+    if (!checked) {
+      $('#all').prop('checked', false);
+    }
+  });
+
+  // 체크박스 개별 선택
+  $('.terms').on('click', '.check', function() {
+    var is_checked = true;
+    
+    $('.terms .check').each(function(){
+        is_checked = is_checked && $(this).is(':checked');
+    });
+    
+    $('#all').prop('checked', is_checked);
+  });
 });
