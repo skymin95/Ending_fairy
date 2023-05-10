@@ -1,0 +1,52 @@
+@import '../layout';
+
+// 강의 서식
+
+#course_list{
+  padding: 0 20px;
+  .line_tab{
+    @include tab;
+    margin-top: 12px;
+    gap: 0;
+    justify-content: space-between;
+  }
+  .tab_on{
+    @include tab_on(104px, 93px);
+  }
+  .list{
+    h2{display: none;}
+    ul{
+      li{
+        img{
+          @include img;
+        }
+        .tab_tag{
+          span{
+            display: inline-block;
+            margin: 8px 4px;
+            padding: 0 15px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #38373C;
+            border: 1px solid #38373C;
+            border-radius: 20px;
+          }
+          :first-child{
+            color: #DE0010;
+            border: 1px solid #DE0010;
+          }
+        }
+        p:first-of-type{
+          color: #5A5A5C;
+          font-size: 12px;
+        }
+        p:nth-of-type(2){
+          
+        }
+      }
+    }
+  }
+}
+#course_list::before{
+  @include tab_active(91px);
+}

@@ -8,19 +8,19 @@ include_once('./common.php');
     <h2>메인 슬라이드</h2>
     <ul class="swiper-wrapper">
       <li class="swiper-slide">
-        <a href="" title="">
+        <a href="#none" title="">
           <span><small>한폭의 그림같은 풍경 담기</small><br>풍경 사진 첫걸음</span>
           <img src="./images/main_banner01.jpg" alt="">
         </a>
       </li>
       <li class="swiper-slide">
-        <a href="" title="">
+        <a href="#none" title="">
           <span><small>한폭의 그림같은 풍경 담기2</small><br>풍경 사진 첫걸음2</span>
           <img src="./images/main_banner02.jpg" alt="">
         </a>
       </li>
       <li class="swiper-slide">
-        <a href="" title="">
+        <a href="#none" title="">
           <span><small>한폭의 그림같은 풍경 담기3</small><br>풍경 사진 첫걸음3</span>
           <img src="./images/main_banner03.jpg" alt="">
         </a>
@@ -122,8 +122,8 @@ include_once('./common.php');
   <article id="m_academy">
     <h2>강의탭</h2>
     <ul class="line_tab">
-      <li><a href="" title="온라인 강의">온라인 강의</a></li>
-      <li><a href="" title="오프라인 강의">오프라인 강의</a></li>
+      <li><a href="#none" title="온라인 강의">온라인 강의</a></li>
+      <li><a href="#none" title="오프라인 강의">오프라인 강의</a></li>
     </ul>
     <span class="tab_on"></span>
 
