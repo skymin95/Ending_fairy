@@ -10,7 +10,7 @@ include_once('../common.php');
       </a>
     </h1>
     <article class="login">
-      <h2>로그인</h2>
+      <h2 class="a_title">로그인</h2>
       <form name="로그인" method="post" action="login_db.php" id="member_form">
         <label for="id">아이디</label>
         <input type="text" name="id" id="id">
