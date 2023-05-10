@@ -27,9 +27,15 @@ $(function(){
       }
   });
 
+  // 마이페이지 강의
+  const swiper02 = new Swiper('#m_my .swiper', {
+    autoplay: false,
+    slidesPerView: 3,
+    // spaceBetween : 8,
+  });
 
   // 강의 슬라이드
-  const swiper02 = new Swiper('.con_list.swiper', {
+  const swiper03 = new Swiper('.con_list.swiper', {
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
@@ -43,7 +49,7 @@ $(function(){
 
 
   // 수강평 슬라이드
-  const swiper03 = new Swiper('#reveiw.swiper', {
+  const swiper04 = new Swiper('#reveiw.swiper', {
     slidesPerView: 2,
     spaceBetween: 20,
     autoplay: {

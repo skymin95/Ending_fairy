@@ -57,8 +57,8 @@ include_once('./common.php');
               </a>
             </p>
             <h3>".$row_member['mb_name']."(".$row_member['mb_nick'].")님</h3>
-            <div>
-              <a href='./sub/mypage/' title='회원정보관리'>
+            <div class='mypage'>
+              <a href='./sub/mypage/mypage.php' title='회원정보관리'>
                 <img src='".$base_URL."images/mypage_modify.png' alt=''>
                 회원정보관리
               </a>
@@ -67,12 +67,15 @@ include_once('./common.php');
                 로그아웃
               </a>
             </div>
-            <ul>
-              <li><a href='' title=''>수강중인 강의<span>1</span></a></li>
-              <li><a href='' title=''>신청 &middot; 대기 강의<span>1</span></a></li>
-              <li><a href='' title=''>수강완료 강의<span>1</span></a></li>
-            </ul>
-            <a>더보기</a>
+            <div>
+              <ul>
+                <li><a href='' title=''>수강중인 강의<span>1</span></a></li>
+                <li><a href='' title=''>신청 &middot; 대기 강의<span>1</span></a></li>
+                <li><a href='' title=''>수강완료 강의<span>1</span></a></li>
+              </ul>
+            </div>
+            <p>풍경 사진 첫걸음</p>
+            <a href='./sub/mypage/course_status.php'>더보기<i class='fas fa-play'></i></a>
           </div>
           ";
         }else{
@@ -158,9 +161,9 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 : <?=$eday?>일</p>
-              <p>교육시간 : <?=$data['course_edu_time']?></p>
-              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
+              <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>
@@ -191,9 +194,9 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 : <?=$eday?>일</p>
-              <p>교육시간 : <?=$data['course_edu_time']?></p>
-              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
+              <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>
@@ -230,9 +233,9 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 <?=$eday?>일</p>
-              <p>교육시간 <?=$data['course_edu_time']?></p>
-              <p>교육비 <?=number_format($data['course_price'])?>원</p>
+              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
+              <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>
@@ -263,9 +266,9 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p>교육기간 : <?=$eday?>일</p>
-              <p>교육시간 : <?=$data['course_edu_time']?></p>
-              <p>교육비 : <?=number_format($data['course_price'])?>원</p>
+              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
+              <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
           </li>
           <?php } ?>

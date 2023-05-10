@@ -162,7 +162,7 @@ header > .bottom > ul > li > a.active::before {
 
 footer {
   width: 100%;
-  padding: 23px 25px 110px 23px;
+  padding: 25px 25px 110px 25px;
   background: #F4F4F5;
 }
 footer address {

@@ -2,6 +2,9 @@
 body{
   background: var(--sub-color01);
 }
+header{display: none;}
+footer{padding-bottom: 25px;}
+
 .member h1{
   margin: 100px 0;
   text-align: center;

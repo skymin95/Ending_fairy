@@ -49,6 +49,10 @@
   cursor: pointer;
 }
 
+main {
+  overflow: hidden;
+}
+
 #m_my {
   position: relative;
   top: -16px;
@@ -80,32 +84,75 @@
 #m_my .member {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 20px;
   padding: 24px 0 52px 0;
 }
-#m_my .member p {
+#m_my .member p:first-child {
   font-size: 14px;
   color: #DE0010;
 }
-#m_my .member p a {
+#m_my .member p:first-child a {
   float: right;
   font-size: 16px;
 }
-#m_my .member p a img {
+#m_my .member p:first-child a img {
   width: 30px;
   vertical-align: middle;
 }
 #m_my .member h3 {
   font-size: 20px;
 }
+#m_my .member .mypage a {
+  margin-right: 40px;
+}
+#m_my .member .mypage img {
+  margin-right: 4px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #fff;
+  vertical-align: middle;
+}
 #m_my .member ul {
+  width: 300%;
   display: flex;
   gap: 8px;
 }
 #m_my .member ul li {
   background: #fff;
   border-radius: 20px;
+}
+#m_my .member ul li a {
+  display: inline-block;
+  padding: 10px;
+}
+#m_my .member ul li a span {
+  margin-left: 4px;
+  padding: 1px 5px;
+  background: #DE0010;
+  color: #fff;
+  border-radius: 50%;
+}
+#m_my .member ul li:first-child {
+  background: #DE0010;
+}
+#m_my .member ul li:first-child a {
+  color: #fff;
+}
+#m_my .member ul li:first-child a span {
+  background: #fff;
+  color: #333;
+}
+#m_my .member > a {
+  width: 90px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #D1D1D1;
+  border-radius: 20px;
+}
+#m_my .member > a i.fas {
+  font-size: 12px;
+  margin-left: 4px;
 }
 
 #m_academy {
@@ -173,17 +220,28 @@
   line-height: 22px;
   display: none;
 }
-#m_academy .tab_con .con_list img {
+#m_academy .tab_con .con_list li img {
   width: 100%;
   border-radius: 15px;
 }
-#m_academy .tab_con .con_list p:first-of-type {
+#m_academy .tab_con .con_list li p:first-of-type {
   font-size: 16px;
   font-weight: bold;
   line-height: 32px;
   text-indent: 10px;
 }
-#m_academy .tab_con .con_list .tab_tag span {
+#m_academy .tab_con .con_list li p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#m_academy .tab_con .con_list li p span {
+  display: inline-block;
+  width: 60px;
+  font-size: 12px;
+  color: #5A5A5C;
+}
+#m_academy .tab_con .con_list li .tab_tag span {
   display: inline-block;
   margin: 5px;
   padding: 0 15px;
@@ -193,7 +251,7 @@
   border: 1px solid #38373C;
   border-radius: 20px;
 }
-#m_academy .tab_con .con_list .tab_tag :first-child {
+#m_academy .tab_con .con_list li .tab_tag :first-child {
   color: #DE0010;
   border: 1px solid #DE0010;
 }
