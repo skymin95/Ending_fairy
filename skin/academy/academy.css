@@ -102,7 +102,7 @@
 }
 #detail .c_info {
   position: relative;
-  top: -27px;
+  top: -30px;
   width: 100%;
   margin: 0 auto;
   padding: 36px 20px 24px 20px;
@@ -110,6 +110,7 @@
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
   padding-top: 20px;
+  font-size: 14px;
 }
 #detail .c_info .tag span {
   display: inline-block;
@@ -124,6 +125,43 @@
 #detail .c_info .tag :first-child {
   color: var(--main-color);
   border: 1px solid var(--main-color);
+}
+#detail .c_info p:first-of-type {
+  margin: 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+#detail .c_info p {
+  margin-bottom: 8px;
+}
+#detail .c_info p span {
+  display: inline-block;
+  width: 65px;
+  color: #5A5A5C;
+}
+#detail .c_info .c_btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+#detail .c_info .c_btn a {
+  display: inline-block;
+  width: 124px;
+  height: 32px;
+  margin: 0 10px;
+  font-size: 16px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 15px;
+}
+#detail .c_info .c_btn .pre {
+  background: #5A5A5C;
+}
+#detail .c_info .c_btn .cart {
+  background: var(--main-color);
+}
+#detail .c_info .c_btn .cart i.fas {
+  margin-right: 4px;
 }
 #detail .c_detail {
   position: relative;
@@ -152,7 +190,7 @@
   position: absolute;
   width: 83px;
   height: 3px;
-  top: 68px;
+  top: 69px;
   left: 20px;
   bottom: 0;
   background: #DE0010;
@@ -161,16 +199,32 @@
 }
 #detail .c_detail .tab_con:not(.review) img {
   width: 100%;
-  border-radius: 15px;
 }
 #detail .c_detail .review > p {
   font-size: 14px;
+  margin-bottom: 20px;
 }
 #detail .c_detail .review > p span {
   color: var(--main-color);
   font-weight: bold;
 }
-#detail .detail::before {
+#detail .c_detail .review ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+}
+#detail .c_detail .review ul li p {
+  font-size: 14px;
+  color: #767676;
+}
+#detail .c_detail .review ul li p:nth-of-type(2) {
+  color: #333;
+}
+#detail .c_detail::before {
   content: "";
   display: block;
   position: absolute;
