@@ -1,0 +1,31 @@
+@charset "utf-8";
+@mixin onemobile{
+  font-family: 'ONE-Mobile-Regular', sans-serif, arial;
+}
+
+@mixin box($top){
+  position: relative;
+  top: $top;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.update_member {
+  @include box(-15px);
+  padding: 60px 20px 0;
+  table {
+    > tbody {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      > tr {
+        display: grid;
+        grid-template-columns: 110px auto;
+        height: 22px;
+      }
+    }
+  }
+}

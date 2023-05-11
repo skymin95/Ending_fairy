@@ -1,0 +1,20 @@
+.update_member {
+  position: relative;
+  top: -15px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+  padding: 60px 20px 0;
+}
+.update_member table > tbody {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.update_member table > tbody > tr {
+  display: grid;
+  grid-template-columns: 110px auto;
+  height: 22px;
+}/*# sourceMappingURL=update_member.css.map */
