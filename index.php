@@ -122,8 +122,8 @@ include_once('./common.php');
   <article id="m_academy">
     <h2>강의탭</h2>
     <ul class="line_tab">
-      <li><a href="#none" title="온라인 강의">온라인 강의</a></li>
-      <li><a href="#none" title="오프라인 강의">오프라인 강의</a></li>
+      <li>온라인 강의</li>
+      <li>오프라인 강의</li>
     </ul>
     <span class="tab_on"></span>
 
@@ -339,8 +339,8 @@ include_once('./common.php');
   <article id="board">
     <h2>게시판 영역</h2>
     <ul class="line_tab">
-      <li><a href="#none" title="공지사항">공지사항</a></li>
-      <li><a href="#none" title="자주하는 질문">자주하는 질문</a></li>
+      <li>공지사항</li>
+      <li>자주하는 질문</li>
     </ul>
     <span class="tab_on"></span>
 

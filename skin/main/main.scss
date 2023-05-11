@@ -1,4 +1,4 @@
-
+@import '../layout';
 // 메인 서식
 
 // 상단 슬라이드 시작
@@ -17,7 +17,7 @@
     font-size: 6vw;
     font-weight: bold;
     line-height: 6.5vw;
-    color: #fff;
+    color: var(--f-color01);
     z-index: 9;
     small{
       font-size: 3.5vw;
@@ -34,12 +34,12 @@
   .swiper-pagination-bullet{
     width: 60px;
     height: 5px;
-    background: #fff;
+    background: var(--bg-color01);
     border-radius: 5px;
     opacity: .6;
   }
   .swiper-pagination-bullet-active{
-    background: #DE0010;
+    background: var(--main-color);
     opacity: 1;
   }
   .fas{
@@ -48,7 +48,7 @@
     bottom: 36px;
     font-size: 14px;
     z-index: 999;
-    color: #fff;
+    color: var(--f-color01);
     cursor: pointer;
   }
 }
@@ -73,7 +73,7 @@ main{overflow: hidden;}
     div a{
       margin-left: 12px;
       font-size: 15px;
-      color: #DE0010;
+      color: var(--main-color);
     }
   }
   .member{
@@ -83,7 +83,7 @@ main{overflow: hidden;}
       display: flex;
       gap: 8px;
       li{
-        background: #fff;
+        background: var(--f-color01);
         border-radius: 20px;
         a{
           display: inline-block;
@@ -91,19 +91,19 @@ main{overflow: hidden;}
           span{
             margin-left: 4px;
             padding: 1px 5px;
-            background: #DE0010;
-            color: #fff;
+            background: var(--main-color);
+            color: var(--f-color01);
             border-radius: 50%;
           }
         }
       }
       li:first-child{
-        background: #DE0010;
+        background: var(--main-color);
         a{
-          color: #fff;
+          color: var(--f-color01);
           span{
-            background: #fff;
-            color: #333;
+            background: var(--bg-color01);
+            color: var(--f-color03);
           }
         }
       }
@@ -160,8 +160,8 @@ main{overflow: hidden;}
     #off_b:checked ~ .beginner{display: block;}
     #off_e:checked ~ .expert{display: block;}
     input[type=radio]:checked + label{
-      background: #38373C;
-      color: #fff;
+      background: var(--sub-color01);
+      color: var(--f-color01);
     }
     .con_list{
       width: 100%;
@@ -191,26 +191,13 @@ main{overflow: hidden;}
           }
         }
         .tab_tag{
-          span{
-            display: inline-block;
-            margin: 8px 4px;
-            padding: 0 15px;
-            font-size: 12px;
-            line-height: 18px;
-            color: #38373C;
-            border: 1px solid #38373C;
-            border-radius: 20px;
-          }
-          :first-child{
-            color: #DE0010;
-            border: 1px solid #DE0010;
-          }
+          @include tag(8px 4px);
         }
       }
       .swiper-button-prev, .swiper-button-next{
         width: 35px;
         height: 50px;
-        color: #fff;
+        color: var(--f-color01);
         top: 30%;
       }
       .swiper-button-prev{left: 0;}
@@ -246,7 +233,7 @@ main{overflow: hidden;}
       text-indent: -5px;
     }
     .star{
-      color: #DE0010;
+      color: var(--main-color);
     }
   }
   .swiper-pagination{
@@ -255,12 +242,12 @@ main{overflow: hidden;}
   .swiper-pagination-bullet{
     width: 10px;
     height: 10px;
-    background: #fff;
-    border: 1px solid #DE0010;
+    background: var(--bg-color01);
+    border: 1px solid var(--main-color);
     opacity: 1;
   }
   .swiper-pagination-bullet-active{
-    background: #DE0010;
+    background: var(--main-color);
   }
 }
 // 수강평 영역 끝
@@ -299,6 +286,9 @@ main{overflow: hidden;}
   }
   .line_tab{
     @include tab;
+    li:first-child{
+      color: var(--main-color) !important;
+    }
   }
   .tab_on{
     @include tab_on(87px, 64px);
@@ -324,6 +314,6 @@ main{overflow: hidden;}
   }
 }
 #board::before{
-  @include tab_active;
+  @include tab_active(67px);
 }
 // 게시판 영역 끝

@@ -14,7 +14,7 @@
   font-size: 6vw;
   font-weight: bold;
   line-height: 6.5vw;
-  color: #fff;
+  color: var(--f-color01);
   z-index: 9;
 }
 #m_slide .swiper-slide span small {
@@ -31,12 +31,12 @@
 #m_slide .swiper-pagination-bullet {
   width: 60px;
   height: 5px;
-  background: #fff;
+  background: var(--bg-color01);
   border-radius: 5px;
   opacity: 0.6;
 }
 #m_slide .swiper-pagination-bullet-active {
-  background: #DE0010;
+  background: var(--main-color);
   opacity: 1;
 }
 #m_slide .fas {
@@ -45,7 +45,7 @@
   bottom: 36px;
   font-size: 14px;
   z-index: 999;
-  color: #fff;
+  color: var(--f-color01);
   cursor: pointer;
 }
 
@@ -79,7 +79,7 @@ main {
 #m_my .logout div a {
   margin-left: 12px;
   font-size: 15px;
-  color: #DE0010;
+  color: var(--main-color);
 }
 #m_my .member {
   display: flex;
@@ -120,7 +120,7 @@ main {
   gap: 8px;
 }
 #m_my .member ul li {
-  background: #fff;
+  background: var(--f-color01);
   border-radius: 20px;
 }
 #m_my .member ul li a {
@@ -130,19 +130,19 @@ main {
 #m_my .member ul li a span {
   margin-left: 4px;
   padding: 1px 5px;
-  background: #DE0010;
-  color: #fff;
+  background: var(--main-color);
+  color: var(--f-color01);
   border-radius: 50%;
 }
 #m_my .member ul li:first-child {
-  background: #DE0010;
+  background: var(--main-color);
 }
 #m_my .member ul li:first-child a {
-  color: #fff;
+  color: var(--f-color01);
 }
 #m_my .member ul li:first-child a span {
-  background: #fff;
-  color: #333;
+  background: var(--bg-color01);
+  color: var(--f-color03);
 }
 #m_my .member > a {
   width: 90px;
@@ -214,10 +214,8 @@ main {
 }
 #m_academy .line_tab li {
   padding: 0 10px 8px 10px;
-}
-#m_academy .line_tab a {
-  color: #5A5A5C;
   font-size: 18px;
+  color: #5A5A5C;
   transition: 0.3s;
 }
 #m_academy .tab_on {
@@ -256,8 +254,8 @@ main {
   display: block;
 }
 #m_academy .tab_con input[type=radio]:checked + label {
-  background: #38373C;
-  color: #fff;
+  background: var(--sub-color01);
+  color: var(--f-color01);
 }
 #m_academy .tab_con .con_list {
   width: 100%;
@@ -293,18 +291,18 @@ main {
   padding: 0 15px;
   font-size: 12px;
   line-height: 18px;
-  color: #38373C;
-  border: 1px solid #38373C;
+  color: var(--sub-color01);
+  border: 1px solid var(--sub-color01);
   border-radius: 20px;
 }
 #m_academy .tab_con .con_list li .tab_tag :first-child {
-  color: #DE0010;
-  border: 1px solid #DE0010;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
 }
 #m_academy .tab_con .con_list .swiper-button-prev, #m_academy .tab_con .con_list .swiper-button-next {
   width: 35px;
   height: 50px;
-  color: #fff;
+  color: var(--f-color01);
   top: 30%;
 }
 #m_academy .tab_con .con_list .swiper-button-prev {
@@ -358,7 +356,7 @@ main {
   text-indent: -5px;
 }
 #reveiw li .star {
-  color: #DE0010;
+  color: var(--main-color);
 }
 #reveiw .swiper-pagination {
   bottom: 20px;
@@ -366,12 +364,12 @@ main {
 #reveiw .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background: #fff;
-  border: 1px solid #DE0010;
+  background: var(--bg-color01);
+  border: 1px solid var(--main-color);
   opacity: 1;
 }
 #reveiw .swiper-pagination-bullet-active {
-  background: #DE0010;
+  background: var(--main-color);
 }
 
 #event {
@@ -436,11 +434,12 @@ main {
 }
 #board .line_tab li {
   padding: 0 10px 8px 10px;
-}
-#board .line_tab a {
-  color: #5A5A5C;
   font-size: 18px;
+  color: #5A5A5C;
   transition: 0.3s;
+}
+#board .line_tab li:first-child {
+  color: var(--main-color) !important;
 }
 #board .tab_on {
   position: absolute;
