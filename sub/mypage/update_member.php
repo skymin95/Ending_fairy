@@ -35,7 +35,7 @@ $row_member = mysqli_fetch_array($result_member);
           <th><label for="mb_nick">닉네임</label></th>
           <td>
             <input type="text" name="mb_nick" id="mb_nick">
-            
+            <button type="button"><img src="<?=$base_URL?>images/overlap_check.svg" alt="overlapCheck">중복확인</button><span id="overlapCheck"></span>
           </td>
         </tr>
         <tr>
@@ -48,7 +48,7 @@ $row_member = mysqli_fetch_array($result_member);
         </tr>
         <tr>
           <th><label for="tel1">휴대폰 번호</label></th>
-          <td>
+          <td class="tel">
             <input type="text" name="tel1" id="tel1"> -
             <input type="text" name="tel2" id="tel2"> -
             <input type="text" name="tel3" id="tel3">

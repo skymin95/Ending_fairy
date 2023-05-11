@@ -16,15 +16,48 @@
 .update_member {
   @include box(-15px);
   padding: 60px 20px 0;
+  font-family: 'Noto Sans KR', sans-serif, arial;
   table {
+    $th_width: 110px;
+    $tr_height: 28px;
     > tbody {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: repeat($tr_height, auto);
       row-gap: 20px;
       > tr {
         display: grid;
-        grid-template-columns: 110px auto;
-        height: 22px;
+        grid-template-columns: $th_width calc(100% - $th_width);
+        > th {
+          text-align: left;
+          line-height: $tr_height;
+        }
+        > td {
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 12px;
+          &.tel {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+          }
+          > input[type=text], > input[type=password] {
+            width: 100%; height: $tr_height;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding-left: 8px
+          }
+          > #mb_nick + button {
+            @include onemobile();
+            width: 84px; height: 23px;
+            background-color: #fff;
+            border: 1px solid var(--sub-color01);
+            border-radius: 10px;
+            font-size: 14px;
+            > img {
+              margin-right: 2px;
+            }
+          }
+        }
       }
     }
   }
