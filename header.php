@@ -62,6 +62,118 @@
             <span></span>
             <span></span>
           </label>
+          <div id="m_sitemap" class="hidden">
+        <input type="radio" name="m_sitemap" id="m_intro" class="hidden" checked>
+        <input type="radio" name="m_sitemap" id="m_class" class="hidden">
+        <input type="radio" name="m_sitemap" id="m_commu" class="hidden">
+        <input type="radio" name="m_sitemap" id="m_service" class="hidden">
+        <input type="radio" name="m_sitemap" id="m_event" class="hidden">
+        <ul class="m_gnb">
+          <li>
+            <label for="m_intro">
+              아카데미 소개
+            </label>
+          </li>
+          <li>
+            <label for="m_class">
+              강의
+            </label>
+          </li>
+          <li>
+            <label for="m_commu">
+              <a href="#none" title="커뮤니티">
+                커뮤니티
+              </a>
+            </label>
+          </li>
+          <li>
+            <label for="m_service">
+              고객센터
+            </label>
+          </li>
+          <li>
+            <label for="m_event">
+              이벤트
+            </label>
+          </li>
+        </ul>
+        <div class="m_lnb_wrap">
+          <div class="m_lnb m_intro hidden">
+            <ul>
+              <li>
+                <a href="#" title="경영진">
+                  아카데미소개
+                </a>
+              </li>
+              <li>
+                <a href="#" title="경영진">
+                  기업출강 
+                </a>
+              </li>
+              <li>
+                <a href="#" title="하나네트워크">
+                  강사진
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="m_lnb m_class hidden">
+            <ul>
+              <li>
+                <a href="#none" title="온라인 강의">
+                  온라인 강의
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="오프라인 강의">
+                  오프라인 강의
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="커리큘럼">
+                  커리큘럼
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="m_lnb m_service hidden">
+            <ul>
+              <li>
+                <a href="#none" title="공지사항">
+                  공지사항
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="자주하는 질문">
+                  자주하는 질문
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="1:1문의">
+                  1:1문의
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="m_lnb m_event hidden">
+            <ul>
+              <li>
+                <a href="#none" title="진행중인 이벤트">
+                  진행중인 이벤트
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="마감된 이벤트">
+                  마감된 이벤트
+                </a>
+              </li>
+              <li>
+                <a href="#none" title="당첨자 발표">
+                  당첨자 발표
+                </a>
+              </li>
+            </ul>
+          </div>          
         </div>
       </li>
     </ul>
