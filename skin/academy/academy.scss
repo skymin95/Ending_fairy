@@ -1,7 +1,6 @@
 @import '../layout';
 
-// 강의 서식
-
+// 강의 목록 서식
 #course_list{
   padding: 0 20px;
   .line_tab{
@@ -13,35 +12,33 @@
   .tab_on{
     @include tab_on(104px, 93px);
   }
-  .list{
-    h2{display: none;}
+  .tab_con{
     ul{
       li{
+        margin-bottom: 20px;
         img{
           @include img;
         }
         .tab_tag{
-          span{
-            display: inline-block;
-            margin: 8px 4px;
-            padding: 0 15px;
-            font-size: 12px;
-            line-height: 18px;
-            color: #38373C;
-            border: 1px solid #38373C;
-            border-radius: 20px;
-          }
-          :first-child{
-            color: #DE0010;
-            border: 1px solid #DE0010;
-          }
+          @include tag(8px 8px 8px 0);
+        }
+        p{
+          font-size: 12px;
         }
         p:first-of-type{
           color: #5A5A5C;
-          font-size: 12px;
         }
         p:nth-of-type(2){
-          
+          margin: 8px 0;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        p:last-of-type{
+          margin-top: 8px;
+          color: var(--main-color);
+          font-size: 18px;
+          font-weight: bold;
+          text-align: right;
         }
       }
     }
@@ -49,4 +46,62 @@
 }
 #course_list::before{
   @include tab_active(91px);
+}
+
+// 강의 상세 서식
+#detail{
+  h2{
+    height: 70px;
+    background: var(--sub-color01);
+    border-radius: 15px 15px 0px 0px;
+    a{
+      @include onemobile;
+      display: inline-block;
+      margin: 16px 0 0 20px;
+      font-size: 18px;
+      color: var(--f-color01);
+      i.fas{
+        margin-right: 12px;
+      }
+    }
+  }
+  > img{
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+    position: relative;
+    top: -18px;
+  }
+  .c_info{
+    @include box(-27px);
+    padding-top: 20px;
+    .tag{
+      @include tag(0 8px 0 0);
+    }
+  }
+  .c_detail{
+    @include box(-27px);
+    .line_tab{
+      @include tab;
+    }
+    .tab_on{
+      @include tab_on(83px, 68px);
+    }
+    .tab_con:not(.review){
+      img{
+        @include img;
+      }
+    }
+    .review{
+      > p{
+        font-size: 14px;
+        span{
+          color: var(--main-color);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .detail::before{
+    @include tab_active(67px);
+  }
 }

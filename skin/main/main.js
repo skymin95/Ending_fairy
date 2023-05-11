@@ -67,41 +67,30 @@ $(function(){
 
 
 // 탭메뉴 컨텐츠
-const course_tab = document.querySelectorAll('#m_academy .line_tab > li');
-const course_t = document.querySelectorAll('#m_academy .line_tab > li a');
-const tab_con01 = document.querySelectorAll('#m_academy > .tab_con');
-const tab_on = document.querySelector('#m_academy .tab_on');
-const board_tab = document.querySelectorAll('#board .line_tab > li');
-const board_t = document.querySelectorAll('#board .line_tab > li a');
+const m_tab = document.querySelectorAll('#m_academy .line_tab > li');
+const t_on = document.querySelector('#m_academy .tab_on');
+const m_con = document.querySelectorAll('#m_academy > .tab_con');
 
 // showContent 함수
 function showContent(num){
-  tab_con01.forEach(function(item){
+  m_con.forEach(function(item){
     item.style.display='none';
   });
-  tab_con01[num].style.display='block';
+  m_con[num].style.display='block';
 }
 showContent(0);
 
 // titleColor 함수
 function titleColor(num){
-  course_t.forEach(function(item){
+  m_tab.forEach(function(item){
     item.style.color='#5A5A5C';
   });
-  course_t[num].style.color='#DE0010';
+  m_tab[num].style.color='#DE0010';
 }
 titleColor(0);
 
-function titleColor02(num){
-  board_t.forEach(function(item){
-    item.style.color='#5A5A5C';
-  });
-  board_t[num].style.color='#DE0010';
-}
-titleColor02(0);
-
 // 메뉴 클릭 이벤트
-course_tab.forEach(function(item,idx){
+m_tab.forEach(function(item,idx){
   item.addEventListener('click', function(e){
     e.preventDefault();
     showContent(idx);
@@ -112,9 +101,9 @@ course_tab.forEach(function(item,idx){
 
 // on 이동함수
 function moveHighlight(num){
-  let newLeft = course_tab[num].offsetLeft;
-  let newWidth = course_tab[num].offsetWidth;
-  tab_on.style.left = newLeft + 'px';
-  tab_on.style.width = newWidth + 'px';
+  let newLeft = m_tab[num].offsetLeft;
+  let newWidth = m_tab[num].offsetWidth;
+  t_on.style.left = newLeft + 'px';
+  t_on.style.width = newWidth + 'px';
 }
 // 탭메뉴 끝
