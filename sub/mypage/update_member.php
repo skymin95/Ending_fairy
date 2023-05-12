@@ -19,16 +19,17 @@ $row_member = mysqli_fetch_array($result_member);
 </article>
 <article class="update_member">
   <h3 class="hidden">회원정보 수정 폼</h3>
+  <span class="explanation">표시는 필수입력 사항입니다.</span>
   <form action="update_member_action.php" method="post">
     <table>
       <caption class="hidden">회원정보 수정 폼</caption>
       <tbody>
         <tr>
-          <th>이름</th>
-          <td><?=$row_member['mb_name']?></td>
+          <th class="required"><label for="mb_name">이름</label></th>
+          <td id="mb_name"><?=$row_member['mb_name']?></td>
         </tr>
         <tr>
-          <th>아이디</th>
+          <th class="required">아이디</th>
           <td><?=$row_member['mb_id']?></td>
         </tr>
         <tr>
@@ -39,11 +40,11 @@ $row_member = mysqli_fetch_array($result_member);
           </td>
         </tr>
         <tr>
-          <th><label for="mb_password">비밀번호</label></th>
+          <th class="required"><label for="mb_password">비밀번호</label></th>
           <td><input type="password" name="mb_password" id="mb_password"></td>
         </tr>
         <tr>
-          <th><label for="mb_password_chk">비밀번호 확인</label></th>
+          <th class="required"><label for="mb_password_chk">비밀번호 확인</label></th>
           <td><input type="password" name="mb_password_chk" id="mb_password_chk"></td>
         </tr>
         <tr>
@@ -55,15 +56,19 @@ $row_member = mysqli_fetch_array($result_member);
           </td>
         </tr>
         <tr>
-          <th><label for="mb_birth">생년월일</label></th>
+          <th class="required"><label for="mb_birth">생년월일</label></th>
           <td><input type="date" name="mb_birth" id="mb_birth"></td>
         </tr>
         <tr>
-          <th><label for="mb_email">이메일</label></th>
-          <td><input type="email" name="mb_email" id="mb_email"></td>
+          <th class="required"><label for="mb_email">이메일</label></th>
+          <td>
+            <input type="email" name="mb_email" id="mb_email">
+            <input type="checkbox" name="mb_sns" id="mb_sns"><label for="mb_sns">이메일 수신 동의</label>
+          </td>
         </tr>
       </tbody>
     </table>
+    <button type="submit" class="update_submit">수정</button>
   </form>
 </article>
 <?php

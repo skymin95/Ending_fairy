@@ -34,13 +34,13 @@ if(isset($_SESSION['mb_id'])){
     </ul>
     <ul class="user_menu">
       <li>
-        <a href="#none">
+        <a href="<?=$base_URL?>sub/mypage/update_member.php">
           <img src="<?=$base_URL?>images/mypage_edit.png" alt="회원정보수정">
           회원정보수정
         </a>
       </li>
       <li>
-        <a href="#none">
+        <a href="<?=$base_URL?>sub/member/logout.php">
           <img src="<?=$base_URL?>images/mypage_lock.png" alt="로그아웃">
           로그아웃
         </a>
@@ -54,7 +54,7 @@ if(isset($_SESSION['mb_id'])){
         $result_status_cnt = mysqli_query($con, $sql_status_cnt);
         $row_status_cnt = mysqli_fetch_assoc($result_status_cnt);
         ?>
-        <a href="<?=$base_URL?>sub/mypage/update_member.php" title="내 강의실">
+        <a href="<?=$base_URL?>sub/mypage/course_status.php" title="내 강의실">
           <span>내 강의실</span>
           <strong><?=$row_status_cnt['cnt']?></strong>
         </a>
