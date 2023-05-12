@@ -1,4 +1,4 @@
-.faq_view_box {
+.faq_write_box {
   position: relative;
   top: -15px;
   width: 100%;
@@ -8,4 +8,4 @@
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
   padding: 60px 20px 0;
   font-family: "Noto Sans KR", sans-serif, arial;
-}/*# sourceMappingURL=faq.css.map */
+}/*# sourceMappingURL=faq_write.css.map */

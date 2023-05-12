@@ -1,0 +1,20 @@
+@charset "utf-8";
+@mixin onemobile{
+  font-family: 'ONE-Mobile-Regular', sans-serif, arial;
+}
+
+@mixin box($top){
+  position: relative;
+  top: $top;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faq_write_box {
+  @include box(-15px);
+  padding: 60px 20px 0;
+  font-family: 'Noto Sans KR', sans-serif, arial;
+}
