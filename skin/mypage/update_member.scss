@@ -1,22 +1,24 @@
 @charset "utf-8";
-@mixin onemobile{
-  font-family: 'ONE-Mobile-Regular', sans-serif, arial;
-}
 
-@mixin box($top){
-  position: relative;
-  top: $top;
-  width: 100%;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 15px 15px 0px 0px;
-  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
-}
+@import url(../layout.scss);
 
 .update_member {
   @include box(-15px);
   padding: 60px 20px 0;
   font-family: 'Noto Sans KR', sans-serif, arial;
+  > .explanation {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: var(--f-size01);
+    &::before {
+      content: '';
+      position: absolute;
+      left: -8px; top: calc(var(--f-size01) / 2 - 2px);
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background-color: var(--main-color);
+    }
+  }
   table {
     $th_width: 110px;
     $tr_height: 28px;
@@ -24,27 +26,50 @@
       display: grid;
       grid-template-rows: repeat($tr_height, auto);
       row-gap: 20px;
+      font-size: 0.875rem;
       > tr {
         display: grid;
         grid-template-columns: $th_width calc(100% - $th_width);
         > th {
+          position: relative;
           text-align: left;
           line-height: $tr_height;
+          &.required label {
+            position: relative;
+            &::before {
+              content: '';
+              position: absolute;
+              top:50%; right: -8px;
+              transform: translateY(-50%);
+              width: 4px; height: 4px;
+              border-radius: 50%;
+              background-color: var(--main-color);
+            }
+          }
         }
         > td {
           display: flex;
           flex-wrap: wrap;
+          align-items: center;
           row-gap: 12px;
           &.tel {
             display: flex;
             flex-wrap: nowrap;
+            gap: 8px;
             align-items: center;
+            > input[type=text] {
+              text-align: center;
+              padding: 0;
+              &:first-child {
+                width: 80%;
+              }
+            }
           }
-          > input[type=text], > input[type=password] {
+          > input[type=text], > input[type=password], > input[type=date], > input[type=email] {
             width: 100%; height: $tr_height;
             border-radius: 10px;
             border: 1px solid #ccc;
-            padding-left: 8px
+            padding: 0 8px;
           }
           > #mb_nick + button {
             @include onemobile();
@@ -57,8 +82,29 @@
               margin-right: 2px;
             }
           }
-        }
-      }
-    }
-  }
-}
+          > #mb_sns {
+            width: 23px; height: 23px;
+            border-radius: 5px;
+            margin: 0;
+            accent-color: var(--main-color);
+            margin-right: 10px;
+          }
+        } // td end
+      } // tr end
+    } // tbody end
+  } // table end
+} // .update_member end
+
+.update_submit {
+  @include onemobile();
+  width: 136px; height: 36px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  justify-content: center; align-items: center;
+  margin: 40px auto;
+  border: none;
+  font-size: var(--f-size02);
+  background-color: var(--main-color);
+} // update_submit
