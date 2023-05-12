@@ -43,14 +43,11 @@
   if($title ==  "마이페이지 > 공지사항 상세페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";
   }
-  if($title ==  "마이페이지 > 공지사항 상세페이지"){
-    echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";
-  }
   if($title ==  "마이페이지 > 1:1문의 상세페이지"){
-    echo "<link rel='stylesheet' href='".$base_skin_URL."faq/faq.css' type='text/css'>";
+    echo "<link rel='stylesheet' href='".$base_skin_URL."question/question.css' type='text/css'>";
   }
   if($title ==   "마이페이지 > 1:1문의 글쓰기"){
-    echo "<link rel='stylesheet' href='".$base_skin_URL."faq/faq_write.css' type='text/css'>";
+    echo "<link rel='stylesheet' href='".$base_skin_URL."question/question_write.css' type='text/css'>";
   }
 
   ?>

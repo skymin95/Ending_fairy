@@ -6,10 +6,10 @@ include_once('../common.php');
   <h2>공지사항</h2>
   <ul>
       <?php
-      $sql_board = "select * from board_notice order by notice_id desc limit 8;";
-      $result_board = mysqli_query($con, $sql_board);
+      $sql_notice = "select * from board_notice order by notice_id desc limit 8;";
+      $result_notice= mysqli_query($con, $sql_notice);
       // 데이터 출력
-      while($data = mysqli_fetch_array($result_board)){
+      while($data = mysqli_fetch_array($result_notice)){
         $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
         $result_member = mysqli_query($con, $sql_member);
         $row_member = mysqli_fetch_array($result_member);
