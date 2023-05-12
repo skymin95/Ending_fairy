@@ -61,11 +61,31 @@ $eday = ceil($date_dif / (60*60*24));
 
       <section class="tab_con">
         <h3 class="hidden">강사</h3>
-        <p><?=$data['course_teacher']?></p>
+        <p>강사명 : <?=$data['course_teacher']?></p>
       </section>
 
-      <section class="tab_con">
+      <section class="tab_con index">
         <h3 class="hidden">목차</h3>
+        <dl>
+        <?php
+          $sql_chapter = "SELECT * FROM course_index WHERE course_id = $id AND class IS NULL";
+          $result_chapter = mysqli_query($con, $sql_chapter);
+          $class_index = 0;
+          while($row_chapter = mysqli_fetch_assoc($result_chapter)) {
+        ?>
+          <dt><span>Chapter <?=$row_chapter['chapter_id']?>.</span><?=$row_chapter['chapter']?></dt>
+        <?php
+            $sql_class = "SELECT * FROM course_index WHERE course_id = $id AND class IS NOT NULL AND chapter = ".$row_chapter['chapter_id']."";
+            $result_class = mysqli_query($con, $sql_class);
+            while($row_class = mysqli_fetch_assoc($result_class)) {
+            $class_index++;
+        ?>
+          <dd><span><?=$class_index?>차시</span><?=$row_class['class']?></dd>
+        <?php
+            }
+          }
+        ?>
+        </dl>
       </section>
 
       <section class="tab_con review">

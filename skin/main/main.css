@@ -217,6 +217,7 @@ main {
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;
+  cursor: pointer;
 }
 #m_academy .tab_on {
   position: absolute;
@@ -437,6 +438,7 @@ main {
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;
+  cursor: pointer;
 }
 #board .line_tab li:first-child {
   color: var(--main-color) !important;

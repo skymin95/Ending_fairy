@@ -16,6 +16,7 @@
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;
+  cursor: pointer;
 }
 #course_list .tab_on {
   position: absolute;
@@ -126,11 +127,6 @@
   color: var(--main-color);
   border: 1px solid var(--main-color);
 }
-#detail .c_info p:first-of-type {
-  margin: 12px 0;
-  font-size: 16px;
-  font-weight: bold;
-}
 #detail .c_info p {
   margin-bottom: 8px;
 }
@@ -138,6 +134,15 @@
   display: inline-block;
   width: 65px;
   color: #5A5A5C;
+}
+#detail .c_info p:first-of-type {
+  margin: 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+#detail .c_info p:nth-of-type(2) {
+  margin-bottom: 12px;
 }
 #detail .c_info .c_btn {
   width: 100%;
@@ -185,6 +190,7 @@
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;
+  cursor: pointer;
 }
 #detail .c_detail .tab_on {
   position: absolute;
@@ -199,6 +205,31 @@
 }
 #detail .c_detail .tab_con:not(.review) img {
   width: 100%;
+}
+#detail .c_detail .index {
+  padding: 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+}
+#detail .c_detail .index dl {
+  font-size: 14px;
+}
+#detail .c_detail .index dl span {
+  margin-right: 8px;
+  color: #4C4C4C;
+  font-weight: normal;
+}
+#detail .c_detail .index dl dt {
+  padding: 12px;
+  text-align: center;
+  background: #F4F4F5;
+}
+#detail .c_detail .index dl dd {
+  padding: 20px 0;
+  font-weight: bold;
+}
+#detail .c_detail .index dl dd {
+  border-bottom: 1px solid #ccc;
 }
 #detail .c_detail .review > p {
   font-size: 14px;

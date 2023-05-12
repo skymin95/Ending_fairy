@@ -39,3 +39,5 @@ function moveHighlight(num){
   t_on.style.width = newWidth + 'px';
 }
 // 탭메뉴 끝
+
+// 더보기
