@@ -49,6 +49,9 @@
   if($title ==  "마이페이지 > 공지사항 상세페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";
   }
+  if($title ==  "마이페이지 > 1:1문의"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."question/question.css' type='text/css'>";
+  }
   if($title ==  "마이페이지 > 1:1문의 상세페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."question/question.css' type='text/css'>";
   }

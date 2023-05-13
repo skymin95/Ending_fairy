@@ -3,9 +3,11 @@ $title = "마이페이지 > 1:1문의"; // 타이틀
 include_once('../common.php');
 ?>
 <main>
-  <h2>1:1문의</h2>
-    <a href="question_write.php">작성하기</a>
-    <ul>
+  <form name="question" id="question_form" method="post" action="">
+  <article id="question_wrap">
+    <h2>1:1문의</h2>
+    <a href="question_write.php" class="question_write">문의하기</a>
+    <ul class="question_ul">
       <?php
         $sql_question = "select * from board_question order by question_id desc limit 8";
         $result_question = mysqli_query($con, $sql_question);
@@ -20,13 +22,26 @@ include_once('../common.php');
           $row_parent = mysqli_num_rows($result_parent);
         ?>
           <ul>
-            <li><a href="question_view.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a></li>
             <li>
-              <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?>
-              /<?= date_format(date_create($data['question_wdate']), "Y-m-d") ?>
+              <h3>
+                <a href="question_view.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a>
+              </h3>
+              <span>  <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?>/</span>
+              <span><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></span>
             </li>
-
           </ul>
           <?php } ?>
     </ul>
+    <div class="s_wrap">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
+            <option value="">검색옵션</option>
+            <option value="notice_title" <?=$category=="notice_title" ? "selected" : ""?>>제목</option>
+            <option value="notice_content" <?=$category=="notice_content" ? "selected" : ""?>>내용</option>
+          </select>
+          <input type="text" name="search" placeholder="SEARCH">
+          <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </article>
+  </form>
 </main>
