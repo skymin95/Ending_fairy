@@ -281,7 +281,7 @@ include_once('./common.php');
 
 
   <!-- 수걍평 영역 -->
-  <article id="reveiw" class="swiper">
+  <article id="review" class="swiper">
     <h2>BEST 수강평</h2>
     <ul class="swiper-wrapper">
       <?php
