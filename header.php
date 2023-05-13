@@ -43,6 +43,9 @@
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
   }
+  if($title ==  "마이페이지 > 공지사항"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";
+  }
   if($title ==  "마이페이지 > 공지사항 상세페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";
   }

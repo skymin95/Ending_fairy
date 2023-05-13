@@ -16,13 +16,15 @@ $data = mysqli_fetch_array($result);
   공지사항
   </a>
 </h2>
-
+<!-- 작성자 정보 -->
 <!-- 컨텐츠 -->
-<article class="notice_view_box">
-<h3><?=$data['notice_title']?></h3>
-<!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
-<p><?=$data['notice_content']?></p>
+<div id="notice_view_wrap">
+  <article id="notice_view_box">
+    <h3><?=$data['notice_title']?></h3>
+    <!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
+    <p><?=$data['notice_content']?></p>
+</div>
+    <a href="notice.php" class="notice_link">목록으로</a>
 </article>
-<a href="notice.php">목록으로</a>
 
 </main>
