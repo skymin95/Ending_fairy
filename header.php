@@ -29,6 +29,9 @@
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/register.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."member/register.js' defer></script>";
   }
+  if($title == "캐논아카데미 소개"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."info/info.css' type='text/css'>";
+  }
   if($title == "마이페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/mypage.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."mypage/mypage.js' defer></script>";
