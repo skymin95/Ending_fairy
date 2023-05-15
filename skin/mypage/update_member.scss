@@ -97,14 +97,7 @@
 
 .update_submit {
   @include onemobile();
-  width: 136px; height: 36px;
-  border-radius: 20px;
-  color: #fff;
-  font-weight: 700;
-  display: flex;
-  justify-content: center; align-items: center;
+  @include btn('red', 'large');
+  display: block;
   margin: 40px auto;
-  border: none;
-  font-size: var(--f-size02);
-  background-color: var(--main-color);
 } // update_submit

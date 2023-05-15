@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+@import "../layout";
+
 @mixin onemobile{
   font-family: 'ONE-Mobile-Regular', sans-serif, arial;
 }
@@ -15,4 +18,104 @@
 
 .list_tab {
   @include box(-15px);
+  padding: 20px;
+  
+  &::before{
+    @include tab_active(50px);
+  }
+  .line_tab{
+    @include tab;
+    padding-bottom: 6px;
+  }
+  .tab_on{
+    @include tab_on(97px, 48px);
+  }
+}
+
+.tab_con {
+  > p:first-of-type {
+    @include onemobile();
+    font-size: 0.875rem;
+    padding: 20px 0;
+    > .emp {
+      color: var(--main-color);
+      font-weight: 700;
+    }
+  }
+}
+
+/* 프로그래스 바 */
+.progress-bar {
+  position: relative;
+  left: 158px;
+  bottom: 88px;
+  $circle-size: 84px;
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 0 $circle-size $circle-size 0;
+  overflow: hidden;
+  .wrap-sub {
+    .left-sub, .right-sub {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: $circle-size;
+      height: calc($circle-size / 2);
+      border-radius: $circle-size $circle-size 0 0;
+      box-sizing: border-box;
+      transform-origin: center;
+      z-index: 1; 
+      &.left-sub {
+        border-top: calc($circle-size / 2) solid #D9D9D9;
+        transform: rotate(-90deg) translateY(-50%) translateX(-25%);
+      }
+      &.right-sub {
+        border-top: calc($circle-size / 2) solid var(--main-color);
+        transform: rotate(90deg) translateY(-50%) translateX(25%);
+      }
+    }
+  }
+  div {
+    position: absolute;
+    height: $circle-size;
+    width: $circle-size;
+    border-radius: 50%;
+    span {
+      position: absolute;
+      font-size: 20px;
+      line-height: calc($circle-size * 0.8);
+      color: var(--main-color);
+      height: calc($circle-size * 0.8);
+      width: calc($circle-size * 0.8);
+      left: calc($circle-size * 0.1);
+      top: calc($circle-size * 0.1);
+      text-align: center;
+      border-radius: 50%;
+      background-color: white;
+      font-family: 'Montserrat';
+      z-index: 1;
+    }
+  } // div end
+  .background {
+    overflow: hidden;
+  }
+  .rotate {
+    clip: rect(0 calc($circle-size / 2) $circle-size 0);
+  }
+  .left {
+    clip: rect(0 calc($circle-size / 2) $circle-size 0);
+    opacity: 1;
+  }
+  .right {
+    clip: rect(0 calc($circle-size / 2) $circle-size 0);
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+} // .progress-bar end
+
+// 강의실 강의 리스트
+.tab_con {
+  border-radius: 15px;
+  padding: 24px 16px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
 }

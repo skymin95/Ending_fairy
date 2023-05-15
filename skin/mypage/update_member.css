@@ -104,16 +104,14 @@
 
 .update_submit {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  width: 136px;
-  height: 36px;
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
   border-radius: 20px;
-  color: #fff;
+  border: 0;
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px auto;
-  border: none;
-  font-size: var(--f-size02);
   background-color: var(--main-color);
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 9px 53px;
+  display: block;
+  margin: 40px auto;
 }/*# sourceMappingURL=update_member.css.map */
