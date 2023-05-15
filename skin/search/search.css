@@ -1,0 +1,19 @@
+header {
+  display: none;
+}
+
+#search {
+  padding: 80px 20px 0 20px;
+}
+#search h2 {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  font-size: 24px;
+}
+#search .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#search .close i.fas {
+  font-size: 20px;
+}/*# sourceMappingURL=search.css.map */

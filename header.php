@@ -42,7 +42,7 @@
   if($title == "마이페이지 > 내 강의실"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_status.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."mypage/course_status.js' defer></script>";
-  } else if($title || "강의, 강의 상세"){
+  } else if($title == "강의" || $title == "강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
   }
@@ -63,6 +63,9 @@
   }
   if($title ==   "마이페이지 > 커뮤니티"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
+  }
+  if($title == "검색"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
   }
 
   ?>
@@ -288,7 +291,7 @@
   <nav class="bottom" style="--data-seq:<?=$seq?>;">
     <ul>
       <li>
-        <a href="#search" title="검색하기" <?=$seq!=0?:"class=active"?>>
+        <a href="<?=$base_URL?>sub/search/search.php" title="검색하기" <?=$seq!=0?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_search<?=$seq!=0?"":"_active"?>.png" alt="search">
           <span>검색</span>
         </a>

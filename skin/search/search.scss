@@ -1,0 +1,19 @@
+@import '../layout';
+
+// 검색 서식
+header{display: none;}
+#search{
+  padding: 80px 20px 0 20px;
+  h2{
+    @include onemobile;
+    font-size: 24px;
+  }
+  .close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    i.fas{
+      font-size: 20px;
+    }
+  }
+}
