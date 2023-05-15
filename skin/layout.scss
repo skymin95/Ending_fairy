@@ -1,6 +1,9 @@
 @mixin onemobile{
   font-family: 'ONE-Mobile-Regular', sans-serif, arial;
 }
+@mixin montserrat{
+  font-family: 'Montserrat', sans-serif, arial;
+}
 
 @mixin box($top){
   position: relative;
@@ -152,3 +155,77 @@
 //     제목
 //   </a>
 // </h2>
+
+//버튼 서식
+//사용예시
+// .test01 {
+//   @include btn('red', 'large');
+// }
+// .test02 {
+//   @include btn('before', 'medium');
+// }
+// .test03 {
+//   @include btn('cancle', 'small');
+// }
+// .test04 {
+//   @include btn('stroke gray', 'extra small');
+// }
+// .test05 {
+//   @include btn('stroke red', 'mini');
+// }
+// .test06 {
+//   @include btn('stroke red', 'mini', 'montserrat');
+// }
+@mixin btn($type, $size, $font:'onemobile') {
+  @if ($font == 'montserrat') {
+    @include montserrat();
+  } @else {
+    @include onemobile();
+  }
+  
+  //버튼 공통 서식
+  border-radius: 20px;
+  border: 0;
+  
+  //색상 관련
+  @if ($type == 'red') {
+    background-color: var(--main-color);
+    color: var(--f-color01);
+  } @else if ($type == 'before') {
+    background-color: #767676;
+    color: var(--f-color01);
+  } @else if ($type == 'cancle') {
+    background-color: #5A5A5C;
+    color: var(--f-color01);
+  } @else if ($type == 'stroke gray') {
+    background-color: var(--bg-color01);
+    border: 1px solid var(--sub-color01);
+    color: var(--sub-color01);
+  } @else if ($type == 'stroke red') {
+    background-color: var(--bg-color01);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+  } @else if ($type == 'white red') {
+    background-color: var(--bg-color01);
+    border: 1px solid #E6E6E6;
+    color: var(--main-color);
+  } 
+
+  //크기 관련
+  @if ($size == 'large') {
+    font-size: var(--f-size02);
+    padding: 9px 53px;
+  } @else if($size == 'medium') {
+    font-size: var(--f-size02);
+    padding: 7px 22px;
+  } @else if($size == 'small') {
+    font-size: var(--f-size02);
+    padding: 5px 16px;
+  } @else if($size == 'extra small') {
+    font-size: var(--f-size01);
+    padding: 4px 8px;
+  } @else if($size == 'mini') {
+    font-size: 0.5rem;
+    padding: 4px 8px;
+  }
+}
