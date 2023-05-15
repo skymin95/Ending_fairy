@@ -173,11 +173,11 @@
           </label>
         </li>
         <li>
-          <a href="#none" title="커뮤니티">
-            <label for="m_commu">
+          <!-- a태그 범위 수정부탁드립니다 -민석 -->
+          <label for="m_commu">
+            <a href="<?=$base_URL?>sub/community/community.php" title="커뮤니티">
               커뮤니티
-            </label>
-          </a>
+            </a>
           </label>
         </li>
         <li>
@@ -233,7 +233,7 @@
         <div class="m_lnb m_service hidden">
           <ul>
             <li>
-              <a href="#none" title="공지사항">
+              <a href="<?=$base_URL?>sub/notice/notice.php"title="공지사항">
                 공지사항
               </a>
             </li>
@@ -243,7 +243,7 @@
               </a>
             </li>
             <li>
-              <a href="#none" title="1:1문의">
+              <a href="<?=$base_URL?>sub/question/question.php"title="1:1문의">
                 1:1문의
               </a>
             </li>
