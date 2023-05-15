@@ -5,6 +5,7 @@ include_once('../common.php');
 <main>
   <article id="notice_wrap">
   <h2>공지사항</h2>
+  <div class="notice_box">
   <ul class="notice_ul">
     <form name="notice" id="notice_form" method="post" action="">
       <?php
@@ -25,6 +26,7 @@ include_once('../common.php');
       </li>
       <?php } ?>
     </ul>
+    </div>
     <!-- 검색박스 -->
     <div class="s_wrap">
           <label for="category">검색옵션</label>

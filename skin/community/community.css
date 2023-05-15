@@ -1,0 +1,121 @@
+#community_wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+#community_wrap h2 {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  font-size: 18px;
+  color: #DE0010;
+  height: 27px;
+  display: inline-block;
+  width: 100%;
+  padding-left: 28px;
+  padding-bottom: 8px;
+  margin: 31px 0 0 0;
+}
+#community_wrap h2::after {
+  content: "";
+  display: block;
+  width: 83px;
+  height: 3px;
+  background: #DE0010;
+  margin-top: 8px;
+  margin-left: -9px;
+  border-radius: 5px;
+}
+
+#community_wrap::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 112px;
+  left: 0;
+  background: #EFF1F3;
+}
+
+.community_write_btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.community_write {
+  display: inline-block;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: ONE Mobile;
+  border: 1px solid #E6E6E6;
+  border-radius: 20px;
+  color: #DE0010;
+  line-height: 30px;
+}
+
+.community_all_box {
+  padding: 0px 20px 0 20px;
+}
+.community_all_box .community_ul {
+  margin-top: 20px;
+  width: 100%;
+  min-height: 375px;
+  border: 1px solid #ccc;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+}
+.community_all_box .community_ul .community_user_info {
+  display: flex;
+  height: 30px;
+  margin-bottom: 16px;
+}
+.community_all_box .community_ul .community_user_info .com_user_img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 24px;
+}
+.community_all_box .community_ul .community_user_info .name_day {
+  margin-left: 16px;
+}
+.community_all_box .community_ul .community_user_info .name_day p {
+  font-size: 14px;
+}
+.community_all_box .community_ul .community_user_info .name_day span {
+  font-size: 12px;
+  color: #767676;
+}
+.community_all_box .community_ul .community_img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+.community_all_box .community_ul .com_content_box {
+  padding: 12px 0 12px 12px;
+}
+.community_all_box .community_ul .com_content_box h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.community_all_box .community_ul .com_content_box .community_content {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  word-break: break-word;
+}
+.community_all_box .community_ul .heart_btn {
+  display: flex;
+  margin-top: 16px;
+}
+.community_all_box .community_ul .heart_btn img {
+  width: 28px;
+  height: 28px;
+}
+.community_all_box .community_ul .heart_btn span {
+  display: inline-block;
+  margin: 0px 4px 0px 4px;
+  line-height: 27px;
+}/*# sourceMappingURL=community.css.map */

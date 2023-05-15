@@ -466,4 +466,8 @@ footer address dl dt {
 
 #m_commu:checked ~ .m_gnb > li:nth-child(3) a {
   color: var(--main-color);
+}
+
+.m_community_link {
+  display: block;
 }/*# sourceMappingURL=common.css.map */

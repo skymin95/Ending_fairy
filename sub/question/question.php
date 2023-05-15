@@ -6,7 +6,12 @@ include_once('../common.php');
   <form name="question" id="question_form" method="post" action="">
   <article id="question_wrap">
     <h2>1:1문의</h2>
-    <a href="question_write.php" class="question_write">문의하기</a>
+    <div class="question_box">
+    <ul class="question_write_btn">
+      <li>
+        <a href="question_write.php" class="question_write test02">문의하기</a>
+      </li>
+    </ul>
     <ul class="question_ul">
       <?php
         $sql_question = "select * from board_question order by question_id desc limit 8";
@@ -26,12 +31,13 @@ include_once('../common.php');
               <h3>
                 <a href="question_view.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a>
               </h3>
-              <span>  <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?>/</span>
+              <span>  <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?> /</span>
               <span><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></span>
             </li>
           </ul>
           <?php } ?>
     </ul>
+    </div>
     <div class="s_wrap">
           <label for="category">검색옵션</label>
           <select name="category" id="category">

@@ -41,8 +41,8 @@
   }
   if($title == "마이페이지 > 내 강의실"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_status.css' type='text/css'>";
-  }
-  if($title || "강의, 강의 상세"){
+    echo "<script src='".$base_skin_URL."mypage/course_status.js' defer></script>";
+  } else if($title || "강의, 강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
   }
@@ -60,6 +60,9 @@
   }
   if($title ==   "마이페이지 > 1:1문의 글쓰기"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."question/question_write.css' type='text/css'>";
+  }
+  if($title ==   "마이페이지 > 커뮤니티"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
   }
 
   ?>
@@ -173,11 +176,11 @@
           </label>
         </li>
         <li>
-          <a href="#none" title="커뮤니티">
-            <label for="m_commu">
+          <!-- a태그 범위 수정부탁드립니다 -민석 -->
+          <label for="m_commu">
+            <a href="<?=$base_URL?>sub/community/community.php" title="커뮤니티" class="m_community_link">
               커뮤니티
-            </label>
-          </a>
+            </a>
           </label>
         </li>
         <li>
@@ -233,7 +236,7 @@
         <div class="m_lnb m_service hidden">
           <ul>
             <li>
-              <a href="#none" title="공지사항">
+              <a href="<?=$base_URL?>sub/notice/notice.php"title="공지사항">
                 공지사항
               </a>
             </li>
@@ -243,7 +246,7 @@
               </a>
             </li>
             <li>
-              <a href="#none" title="1:1문의">
+              <a href="<?=$base_URL?>sub/question/question.php"title="1:1문의">
                 1:1문의
               </a>
             </li>
