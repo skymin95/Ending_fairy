@@ -175,7 +175,7 @@
         <li>
           <!-- a태그 범위 수정부탁드립니다 -민석 -->
           <label for="m_commu">
-            <a href="<?=$base_URL?>sub/community/community.php" title="커뮤니티">
+            <a href="<?=$base_URL?>sub/community/community.php" title="커뮤니티" class="m_community_link">
               커뮤니티
             </a>
           </label>
