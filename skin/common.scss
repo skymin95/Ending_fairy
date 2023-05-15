@@ -270,7 +270,10 @@ footer{
   display: flex;
 }
 #m_gnb:checked ~ #m_header_wrap{
+  position:fixed;
+  display: block;
   background: #fff;
+  z-index: 999;
 }
 #m_gnb:checked ~ #m_header_wrap > h1 > a{
   background: url(/images/logo.png) no-repeat;
@@ -294,7 +297,7 @@ footer{
 
 /* 사이트맵 서식 */
 #m_sitemap{
-  position:absolute;
+  // position:fixed;
   z-index: 5000;
   top:52px;
   left:0px;
@@ -302,7 +305,7 @@ footer{
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   background: #fff;
-  font-family: 'Hana2.0';
+  @include onemobile; 
 }
 .m_gnb{
   width:40%;
@@ -354,14 +357,9 @@ footer{
 #m_service:checked ~ .m_gnb li:nth-child(4),
 #m_event:checked ~ .m_gnb li:last-child{
   background: #fff;
+  color:var(--main-color);
 }
 
-.t_more{
-  position:absolute;
-  top:30px;
-  right:20px;
-  align-items: center;
-}
-.t_more i.fa-angle-right{
-  margin-left:5px;
+#m_commu:checked ~ .m_gnb >li:nth-child(3) a{
+  color: var(--main-color);
 }
