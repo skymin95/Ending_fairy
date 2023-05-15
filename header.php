@@ -90,8 +90,72 @@
       </li>
     </ul>
   </nav>
-  <div id="m_header_wrap">
-    <div id="m_sitemap" class="hidden">
+  <div id="m_header_wrap" class="hidden">
+  <?php
+
+    if(!isset($_SESSION['mb_id'])){
+
+    
+  ?>
+    <article class="nav_user">
+      <h2 class="hidden">내비 유저정보</h2>
+      <ul class="nav_box">
+        <li>
+          <img src="<?=$base_URL?>images/icon_navi_member.svg" alt="기본프로필">
+        </li>
+        <li>
+          <p>로그인 후, 나의 정보를 확인하세요.</p>
+        </li>
+      </ul>
+      <ul class="nav_boxmenu">
+        <li>
+          <a href="#none">
+            로그인
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            회원가입
+          </a>
+        </li>
+      </ul>
+    </article>
+    <?php } else { 
+      $mb_id = $_SESSION['mb_id'];
+
+      $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
+      $result_member = mysqli_query($con, $sql_member);
+      $row_member = mysqli_fetch_array($result_member);      
+      ?>
+
+    <!-- //아래 -->
+    <article class="nav_user">
+      <h2 class="hidden">내비 유저정보</h2>
+      <ul class="nav_box">
+        <li>
+          <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png")?>" alt="userimg" class="profile_img">
+        </li>
+        <li>
+          <p><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?><span>님</span></p>
+        </li>
+      </ul>
+      <ul class="nav_user_menu">
+        <li>
+          <a href="#none">
+            <img src="<?=$base_URL?>images/mypage_lock.png " alt="로그아웃">
+            로그아웃
+          </a>
+        </li>
+        <li>
+          <a href="#none">
+            <img src="<?=$base_URL?>images/icon_navi_member.svg" alt="마이페이지">
+            마이페이지
+          </a>
+        </li>
+      </ul>
+    </article>
+    <?php } ?>        
+    <div id="m_sitemap">
       <input type="radio" name="m_sitemap" id="m_intro" class="hidden" checked>
       <input type="radio" name="m_sitemap" id="m_class" class="hidden">
       <input type="radio" name="m_sitemap" id="m_commu" class="hidden">
@@ -109,10 +173,11 @@
           </label>
         </li>
         <li>
-          <label for="m_commu">
-            <a href="#none" title="커뮤니티">
+          <a href="#none" title="커뮤니티">
+            <label for="m_commu">
               커뮤니티
-            </a>
+            </label>
+          </a>
           </label>
         </li>
         <li>
