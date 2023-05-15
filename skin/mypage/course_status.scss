@@ -26,9 +26,12 @@
   .line_tab{
     @include tab;
     padding-bottom: 6px;
+    > li {
+      font-size: var(--f-size02);
+    }
   }
   .tab_on{
-    @include tab_on(97px, 48px);
+    @include tab_on(88px, 48px);
   }
 }
 
@@ -46,9 +49,6 @@
 
 /* 프로그래스 바 */
 .progress-bar {
-  position: relative;
-  left: 158px;
-  bottom: 88px;
   $circle-size: 84px;
   width: $circle-size;
   height: $circle-size;
@@ -115,7 +115,50 @@
 
 // 강의실 강의 리스트
 .tab_con {
-  border-radius: 15px;
-  padding: 24px 16px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
-}
+  > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    > li{
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      min-height: 235px;
+      gap: 8px;
+      border-radius: 15px;
+      padding: 24px 16px;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
+      > p:first-of-type {
+        color: var(--main-color);
+        font-size: var(--f-size01);
+      }
+      > h4 {
+        color: var(--f-color03);
+        font-size: var(--f-size02);
+        font-weight: 600;
+      }
+      > dl {
+        display: grid;
+        grid-template-columns: repeat(2, 110px calc(100% - 110px));
+        padding-bottom: 4px;
+        font-size: 0.875rem;
+        > dt {
+          color: var(--f-color03);
+        }
+        > dd {
+          color: var(--f-color04);
+        }
+      } // dl end
+      > a {
+        @include btn('red', 'medium');
+        position: absolute;
+        bottom: 24px; left: 16px;
+      }
+      .progress-bar {
+        position: absolute;
+        bottom: 24px; right: 16px;
+      }
+    } // li end
+  } // ul end
+} // .tab_con end
