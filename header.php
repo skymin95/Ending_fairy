@@ -91,11 +91,7 @@
   <?php
 
     if(!isset($_SESSION['mb_id'])){
-      $mb_id = $_SESSION['mb_id'];
 
-      $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
-      $result_member = mysqli_query($con, $sql_member);
-      $row_member = mysqli_fetch_array($result_member);
     
   ?>
     <article class="nav_user">
@@ -121,9 +117,15 @@
         </li>
       </ul>
     </article>
-    <?php } else { ?>
+    <?php } else { 
+      $mb_id = $_SESSION['mb_id'];
 
-    //아래
+      $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
+      $result_member = mysqli_query($con, $sql_member);
+      $row_member = mysqli_fetch_array($result_member);      
+      ?>
+
+    <!-- //아래 -->
     <article class="nav_user">
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">
@@ -134,10 +136,10 @@
           <p><span class="emp"><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?></span>님</p>
         </li>
       </ul>
-      <ul class="user_menu">
+      <ul class="nav_user_menu">
         <li>
           <a href="#none">
-            <img src="<?=$base_URL?>images/mypage_lock.png" alt="로그아웃">
+            <img src="<?=$base_URL?>images/mypage_lock.png " alt="로그아웃">
             로그아웃
           </a>
         </li>
@@ -168,10 +170,11 @@
           </label>
         </li>
         <li>
-          <label for="m_commu">
-            <a href="#none" title="커뮤니티">
+          <a href="#none" title="커뮤니티">
+            <label for="m_commu">
               커뮤니티
-            </a>
+            </label>
+          </a>
           </label>
         </li>
         <li>

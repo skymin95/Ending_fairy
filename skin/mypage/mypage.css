@@ -78,7 +78,7 @@ main {
 .user_menu > li > a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   height: 30px;
 }
 .user_menu > li > a > img {

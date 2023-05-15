@@ -272,6 +272,7 @@ footer address dl dt {
   position: fixed;
   display: block;
   background: #fff;
+  width: 100%;
   z-index: 999;
 }
 
@@ -298,6 +299,76 @@ footer address dl dt {
   transform: scale(0);
 }
 
+/*내비게이션 상단 서식*/
+.nav_user {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  position: relative;
+  background-color: var(--sub-color01);
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px 15px 0px 0px;
+  min-height: 165px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nav_user a {
+  color: #fff;
+}
+
+.nav_box > li > img {
+  width: 52px;
+  height: 52px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.nav_box {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav_boxmenu {
+  display: flex;
+  -moz-column-gap: 18px;
+       column-gap: 18px;
+}
+
+.nav_box > li > p {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.nav_box > li > p > span {
+  font-size: var(--f-size02);
+  font-weight: 600;
+}
+
+.nav_user_menu {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_user_menu > li > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 30px;
+}
+.nav_user_menu > li > a > img {
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  background-color: #fff;
+}
+
+.nav_user_menu > li:last-of-type > a > img {
+  border: 3px solid #fff;
+}
+
 /* 사이트맵 서식 */
 #m_sitemap {
   z-index: 5000;
@@ -312,22 +383,24 @@ footer address dl dt {
 
 .m_gnb {
   width: 40%;
+  background-color: #f4f4f5;
 }
 
 .m_gnb > li {
   height: 50px;
   line-height: 50px;
-  background: #f8f8f8;
 }
 
 .m_gnb > li:nth-child(6) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.m_gnb > li > label {
+.m_gnb > li label {
   width: 100%;
   display: block;
   padding: 0px 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .m_lnb_wrap {
@@ -347,7 +420,6 @@ footer address dl dt {
   display: flex;
   align-items: center;
   padding: 0px 20px;
-  font-weight: bold;
   position: relative;
   transition: 0.5s;
 }
