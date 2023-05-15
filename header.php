@@ -133,7 +133,7 @@
           <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png")?>" alt="userimg" class="profile_img">
         </li>
         <li>
-          <p><span class="emp"><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?></span>님</p>
+          <p><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?><span>님</span></p>
         </li>
       </ul>
       <ul class="nav_user_menu">
