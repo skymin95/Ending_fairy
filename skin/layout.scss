@@ -171,12 +171,12 @@
 //   @include btn('stroke gray', 'extra small');
 // }
 // .test05 {
-//   @include btn('stroke red', 'mini');
+//   @include btn('stroke red', 'mini', 400);
 // }
 // .test06 {
-//   @include btn('stroke red', 'mini', 'montserrat');
+//   @include btn('stroke red', 'mini', 500, 'montserrat');
 // }
-@mixin btn($type, $size, $font:'onemobile') {
+@mixin btn($type, $size, $weight:700, $font:'onemobile') {
   @if ($font == 'montserrat') {
     @include montserrat();
   } @else {
@@ -186,6 +186,7 @@
   //버튼 공통 서식
   border-radius: 20px;
   border: 0;
+  font-weight: $weight;
   
   //색상 관련
   @if ($type == 'red') {
