@@ -24,7 +24,7 @@ $data = mysqli_fetch_array($result);
     <!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
     <p><?=$data['notice_content']?></p>
 </div>
-    <a href="notice.php" class="notice_link">목록으로</a>
+    <a href="notice.php" title="목록으로"class="notice_link">목록으로</a>
 </article>
 
 </main>

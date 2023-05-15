@@ -6,7 +6,11 @@ include_once('../common.php');
   <form name="question" id="question_form" method="post" action="">
   <article id="question_wrap">
     <h2>1:1문의</h2>
-    <a href="question_write.php" class="question_write">문의하기</a>
+    <ul class="question_write_btn">
+      <li>
+        <a href="question_write.php" class="question_write">문의하기</a>
+      </li>
+    </ul>
     <ul class="question_ul">
       <?php
         $sql_question = "select * from board_question order by question_id desc limit 8";

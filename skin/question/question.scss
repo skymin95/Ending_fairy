@@ -38,9 +38,15 @@
     margin-left: -9px;
     border-radius: 5px;
 }
+// 문의하기 버튼
+.question_write_btn{
+  display: flex;
+  justify-content: end;
+  padding: 0 20px 0 20px;
+
+}
 .question_write{
   display: inline-block;
-  width: 100%;
   height: 32px;
   text-align: center;
   font-size: 16px;
@@ -62,6 +68,7 @@
   left: 0;
   background: #EFF1F3;
 }
+
 // 1:1문의 글 박스
 .question_ul{
   li{
@@ -146,4 +153,41 @@
   @include box(-15px);
   padding: 60px 20px 0;
   font-family: 'Noto Sans KR', sans-serif, arial;
+
+  h3{
+    // 일단 디자인에 없어서 
+    display: none;
+  }
+  .question_content_box{
+    margin-bottom: 20px;
+    padding: 12px 0px 24px 12px;
+    width: 100%;
+    min-height: 375px;
+    border: 1px solid #ccc;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+  }
+  .question_answer_box{
+    margin-bottom: 20px;
+    padding: 12px 0px 24px 12px;
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+  }
+}
+.question_link{
+  margin: 40px auto 0 auto;
+    display: block;
+    width: 135px;
+    height: 32px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: ONE Mobile;
+    border: 1px solid #E6E6E6;
+    border-radius: 20px;
+    color: #DE0010;
+    line-height: 30px;
 }

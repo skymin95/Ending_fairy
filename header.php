@@ -58,6 +58,9 @@
   if($title ==   "마이페이지 > 1:1문의 글쓰기"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."question/question_write.css' type='text/css'>";
   }
+  if($title ==   "마이페이지 > 커뮤니티"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
+  }
 
   ?>
 </head>
