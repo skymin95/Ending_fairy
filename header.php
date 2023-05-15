@@ -38,8 +38,8 @@
   }
   if($title == "마이페이지 > 내 강의실"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_status.css' type='text/css'>";
-  }
-  if($title || "강의, 강의 상세"){
+    echo "<script src='".$base_skin_URL."mypage/course_status.js' defer></script>";
+  } else if($title || "강의, 강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
   }
