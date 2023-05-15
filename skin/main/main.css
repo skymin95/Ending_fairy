@@ -213,7 +213,7 @@ main {
   text-align: center;
 }
 #m_academy .line_tab li {
-  padding: 0 10px 8px 10px;
+  padding: 0 8px 8px;
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;
@@ -434,7 +434,7 @@ main {
   text-align: center;
 }
 #board .line_tab li {
-  padding: 0 10px 8px 10px;
+  padding: 0 8px 8px;
   font-size: 18px;
   color: #5A5A5C;
   transition: 0.3s;

@@ -19,12 +19,25 @@ $data = mysqli_fetch_array($result);
 <!-- 작성자 정보 -->
 <!-- 컨텐츠 -->
 <div id="notice_view_wrap">
+  <!-- 작성자 정보 -->
+  <ul class="notice_user_info">
+    <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="noti_user_img">
+    </li>
+    <li class="noti_name_day">
+    <p>뇽뇽</p>
+    <span>2023-05-08</span>
+    </li>
+  </ul>
+
   <article id="notice_view_box">
     <h3><?=$data['notice_title']?></h3>
     <!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
     <p><?=$data['notice_content']?></p>
 </div>
-    <a href="notice.php" title="목록으로"class="notice_link">목록으로</a>
+
+  <p class="notice_link">
+    <a href="notice.php" title="목록으로">목록으로</a>
+  </p>
 </article>
 
 </main>
