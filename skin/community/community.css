@@ -27,7 +27,7 @@
 .community_write_btn {
   display: flex;
   justify-content: end;
-  padding: 0 20px 0 20px;
+  padding: 20px 0 20px 0;
 }
 .community_write_btn .test02 {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;

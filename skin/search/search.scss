@@ -1,12 +1,60 @@
 @import '../layout';
 
 // 검색 서식
-header{display: none;}
+.top{display: none;}
 #search{
   padding: 80px 20px 0 20px;
   h2{
     @include onemobile;
-    font-size: 24px;
+    font-size: var(--f-size03);
+  }
+  #tag_search{
+    position: relative;
+    margin-bottom: 32px;
+    .on_off{
+      margin: 39px 0;
+      label{
+        @include btn('gray', 'medium');
+      }
+      input:checked + label{
+        @include btn('red', 'medium');
+      }
+    }
+    input[type=text]{
+      width: 100%;
+      height: 50px;
+      padding: 0 48px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type=text]:focus{
+      outline: none;
+    }
+    button{
+      position: absolute;
+      top: 108px;
+      right: 20px;
+      background: none;
+      border: none;
+      i.fa-search{
+        font-size: 20px;
+        color: var(--main-color);
+      }
+    }
+  }
+  .tag{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    li{
+      a{
+        display: inline-block;
+        padding: 11px 20px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+      }
+    }
   }
   .close{
     position: absolute;

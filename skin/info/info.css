@@ -54,6 +54,7 @@ h3 {
   width: 100%;
   line-height: 24px;
   word-break: keep-all;
+  display: none;
 }
 .info_intro > ul > li:last-of-type {
   font-size: 1rem;
@@ -79,11 +80,10 @@ h3 {
   justify-content: space-around;
 }
 .info_on_class > .class_order > li, .info_off_class > .class_order > li {
-  width: calc(0.2686567164 * (100vw - 40px));
+  width: 26.8656716418%;
 }
 .info_on_class > .class_order > li > img, .info_off_class > .class_order > li > img {
   width: 100%;
-  height: calc(0.2686567164 * (100vw - 40px) / 3 * 2);
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;

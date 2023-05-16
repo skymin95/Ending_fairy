@@ -1,4 +1,4 @@
-header {
+.top {
   display: none;
 }
 
@@ -7,7 +7,67 @@ header {
 }
 #search h2 {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  font-size: 24px;
+  font-size: var(--f-size03);
+}
+#search #tag_search {
+  position: relative;
+  margin-bottom: 32px;
+}
+#search #tag_search .on_off {
+  margin: 39px 0;
+}
+#search #tag_search .on_off label {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: #EFF1F3;
+  color: var(--f-color03);
+  font-size: var(--f-size02);
+  padding: 7px 22px;
+}
+#search #tag_search .on_off input:checked + label {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: var(--main-color);
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 7px 22px;
+}
+#search #tag_search input[type=text] {
+  width: 100%;
+  height: 50px;
+  padding: 0 48px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#search #tag_search input[type=text]:focus {
+  outline: none;
+}
+#search #tag_search button {
+  position: absolute;
+  top: 108px;
+  right: 20px;
+  background: none;
+  border: none;
+}
+#search #tag_search button i.fa-search {
+  font-size: 20px;
+  color: var(--main-color);
+}
+#search .tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#search .tag li a {
+  display: inline-block;
+  padding: 11px 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
 }
 #search .close {
   position: absolute;

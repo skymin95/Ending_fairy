@@ -299,7 +299,7 @@ include_once('./common.php');
           $name = preg_replace('/(.{1})(.*?)$/u', '$1**', $row_member['mb_name']);
         ?>
       <li class="swiper-slide">
-        <a href="./sub/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$row_course['course_title']?>">
+        <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$row_course['course_id']?>" title="<?=$row_course['course_title']?>">
           <p><?=$name?></p>
           <div class="star">
             <img src="./images/star_f.png" alt="별점">
@@ -355,7 +355,7 @@ include_once('./common.php');
         $row_member = mysqli_fetch_array($result_member);
       ?>
       <li>
-        <a href="./sub/notice/notice.php?board_id=<?=$data['notice_id']?>" title="<?=$data['notice_title']?>">
+        <a href="<?=$base_URL?>sub/notice/notice_view.php?board_id=<?=$data['notice_id']?>" title="<?=$data['notice_title']?>">
           <p><?=$data['notice_title']?></p>
           <span><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?> /</span>
           <span><?=date_format(date_create($data['notice_wdate']), "Y-m-d")?></span>
@@ -363,7 +363,7 @@ include_once('./common.php');
       </li>
       <?php } ?>
     </ul>
-    <a href="./sub/notice/notice.php" title="더보기">더보기<i class="fas fa-play"></i></a>
+    <a href="<?=$base_URL?>sub/notice/notice.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 게시판 영역 끝  -->
 

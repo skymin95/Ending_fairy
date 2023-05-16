@@ -6,13 +6,20 @@ include_once('../common.php');
   <!-- 검색 -->
   <div id="search">
     <h2>어떤 강의를<br>찾고 계신가요?</h2>
-    <form action="" name="" method="">
+    <form action="<?=$base_URL?>sub/academy/academy_list.php" method="get" id="tag_search">
       <fieldset>
-        <legend>태그 검색</legend>
-        <input type="text" placeholder="원하는 강의 태그를 검색해보세요.">
+        <legend class="hidden">태그 검색</legend>
+        <div class="on_off">
+          <input type="radio" id="on" name="cate" value="online" class="hidden" checked>
+          <label for="on">온라인 강의</label>
+          <input type="radio" id="off" name="cate" value="offline" class="hidden">
+          <label for="off">오프라인 강의</label>
+        </div>
+        <input type="text" name="search" placeholder="원하는 강의 태그를 검색해보세요.">
+        <button type="submit"><i class="fas fa-search"></i></button>
       </fieldset>
     </form>
-    <ul>
+    <ul class="tag">
       <li><a href="#none" title="">#입문자</a></li>
       <li><a href="#none" title="">#일상</a></li>
       <li><a href="#none" title="">#피크닉</a></li>

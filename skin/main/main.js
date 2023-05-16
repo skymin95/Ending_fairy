@@ -26,13 +26,7 @@ $(function(){
           sw = 0;
       }
   });
-
-  // 마이페이지 강의
-  const swiper02 = new Swiper('#m_my .swiper', {
-    autoplay: false,
-    slidesPerView: 3,
-    // spaceBetween : 8,
-  });
+  
 
   // 강의 슬라이드
   const swiper03 = new Swiper('.con_list.swiper', {

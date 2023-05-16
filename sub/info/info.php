@@ -97,7 +97,7 @@ include_once('../common.php');
     </article>
     <article class="info_location">
       <h3>언주 캐논플렉스 위치</h3>
-      <div id="map" style="width:100%;height:172px;" ></div>
+      <div id="map" style="width:100%;min-height:172px;" ></div>
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=558bbc07ac0f8dcc88ea99feaa2c0f7b"></script>
   <script>
     var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
