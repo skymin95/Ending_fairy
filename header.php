@@ -115,12 +115,12 @@
       </ul>
       <ul class="nav_boxmenu">
         <li>
-          <a href="#none">
+          <a href="<?=$base_URL?>sub/member/login.php">
             로그인
           </a>
         </li>
         <li>
-          <a href="#none">
+          <a href="<?=$base_URL?>sub/member/register.php">
             회원가입
           </a>
         </li>
@@ -131,15 +131,19 @@
 
       $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
       $result_member = mysqli_query($con, $sql_member);
-      $row_member = mysqli_fetch_array($result_member);      
-      ?>
+      $row_member = mysqli_fetch_array($result_member);
+      
+      $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'";
+      $result_file = mysqli_query($con, $sql_file);
+      $row_file = mysqli_fetch_assoc($result_file);
 
+      ?>
     <!-- //아래 -->
     <article class="nav_user">
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">
         <li>
-          <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png")?>" alt="userimg" class="profile_img">
+          <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg.png")?>" alt="userimg" class="profile_img">
         </li>
         <li>
           <p><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?><span>님</span></p>
@@ -147,13 +151,13 @@
       </ul>
       <ul class="nav_user_menu">
         <li>
-          <a href="#none">
+          <a href="<?=$base_URL?>sub/member/logout.php">
             <img src="<?=$base_URL?>images/mypage_lock.png " alt="로그아웃">
             로그아웃
           </a>
         </li>
         <li>
-          <a href="#none">
+          <a href="<?=$base_URL?>sub/mypage/mypage.php">
             <img src="<?=$base_URL?>images/icon_navi_member.svg" alt="마이페이지">
             마이페이지
           </a>
@@ -201,17 +205,17 @@
         <div class="m_lnb m_intro hidden">
           <ul>
             <li>
-              <a href="#" title="경영진">
+              <a href="<?=$base_URL?>sub/info/info.php" title="아카데미소개">
                 아카데미소개
               </a>
             </li>
             <li>
-              <a href="#" title="경영진">
+              <a href="#" title="기업출강">
                 기업출강
               </a>
             </li>
             <li>
-              <a href="#" title="하나네트워크">
+              <a href="#" title="강사진">
                 강사진
               </a>
             </li>
@@ -220,17 +224,17 @@
         <div class="m_lnb m_class hidden">
           <ul>
             <li>
-              <a href="#none" title="온라인 강의">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="온라인 강의">
                 온라인 강의
               </a>
             </li>
             <li>
-              <a href="#none" title="오프라인 강의">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="오프라인 강의">
                 오프라인 강의
               </a>
             </li>
             <li>
-              <a href="#none" title="커리큘럼">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="커리큘럼">
                 커리큘럼
               </a>
             </li>

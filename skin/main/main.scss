@@ -140,7 +140,7 @@ main{overflow: hidden;}
     @include tab;
   }
   .tab_on{
-    @include tab_on(108px, 64px);
+    @include tab_on(104px, 64px);
   }
   .tab_con{
     label{
@@ -175,7 +175,7 @@ main{overflow: hidden;}
         }
         p:first-of-type{
           margin: 12px 0 8px 0;
-          font-size: 16px;
+          font-size: var(--f-size02);
           font-weight: bold;
           text-indent: 10px;
         }
@@ -198,7 +198,7 @@ main{overflow: hidden;}
         width: 35px;
         height: 50px;
         color: var(--f-color01);
-        top: 30%;
+        top: 28%;
       }
       .swiper-button-prev{left: 0;}
       .swiper-button-next{right: 0;}
@@ -226,7 +226,7 @@ main{overflow: hidden;}
     padding: 10px;
     background: #F4F4F5;
     border-radius: 15px;
-    font-size: 12px;
+    font-size: var(--f-size01);
     line-height: 20px;
     p:nth-of-type(2){
       font-weight: bold;
@@ -291,13 +291,13 @@ main{overflow: hidden;}
     }
   }
   .tab_on{
-    @include tab_on(87px, 64px);
+    @include tab_on(84px, 64px);
   }
   .board_con{
     padding: 39px 11px 13px 11px;
     li{
       padding: 10px 0;
-      font-size: 12px;
+      font-size: var(--f-size01);
       line-height: 25px;
       border-bottom: 1px solid #D1D1D1;
       p{

@@ -42,14 +42,14 @@ $(function(){
     },
     loop: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     },
   });
 
 
   // 수강평 슬라이드
-  const swiper04 = new Swiper('#reveiw.swiper', {
+  const swiper04 = new Swiper('#review.swiper', {
     slidesPerView: 2,
     spaceBetween: 20,
     autoplay: {
