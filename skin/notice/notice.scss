@@ -17,7 +17,7 @@
 #notice_wrap{
     width: 100%;
     margin: 0 auto;
-    h2{
+    h2 > a{
       font-family: 'ONE-Mobile-Regular', sans-serif, arial;
       font-size: 18px;
       color: #DE0010;
@@ -30,7 +30,7 @@
       margin: 31px 0 0 0;
       // margin-bottom: 37px;
     }
-    h2::after{
+    h2>a::after{
       content: "";
       display: block;
       width: 83px;
