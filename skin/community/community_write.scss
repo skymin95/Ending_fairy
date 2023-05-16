@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import "../layout";
+@mixin onemobile{
+  font-family: 'ONE-Mobile-Regular', sans-serif, arial;
+}
+
+@mixin box($top){
+  position: relative;
+  top: $top;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+}
+.comm_write_box{
+  @include box(-15px);
+  padding: 60px 20px 0;
+  font-family: 'Noto Sans KR', sans-serif, arial;
+  padding: 24px 20px 28px 20px; 
+  .comm_write_input{
+    width: 100%;
+    height: 32px;
+    text-indent: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px;
+  }
+}
+
+.comm_write_btn{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  .comm_cancel > a{
+      display: block;
+      @include btn('cancle', 'large');
+      padding-top: 10px;
+  }
+  .comm_submit > input[type=submit]{
+    display: block;
+    @include btn('red', 'large');
+  }
+}

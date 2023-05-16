@@ -64,6 +64,12 @@
   if($title ==   "마이페이지 > 커뮤니티"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
   }
+  if($title ==   "마이페이지 > 커뮤니티 상세페이지"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
+  }
+  if($title ==   "마이페이지 > 커뮤니티 글쓰기"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."community/community_write.css' type='text/css'>";
+  }
   if($title == "검색"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
   }
