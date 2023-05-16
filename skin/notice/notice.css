@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0 auto;
 }
-#notice_wrap h2 {
+#notice_wrap h2 > a {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   font-size: 18px;
   color: #DE0010;
@@ -14,7 +14,7 @@
   padding-bottom: 8px;
   margin: 31px 0 0 0;
 }
-#notice_wrap h2::after {
+#notice_wrap h2 > a::after {
   content: "";
   display: block;
   width: 83px;
