@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="<?=$base_URL?>skin/base.css" type="text/css">
   <link rel="stylesheet" href="<?=$base_URL?>skin/common.css" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="<?=$base_URL?>skin/common.js" defer></script>
@@ -42,6 +44,9 @@
   if($title == "마이페이지 > 내 강의실"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_status.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."mypage/course_status.js' defer></script>";
+  } else if($title == "마이페이지 > 수강중인 강의"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_view.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/course_view.js' defer></script>";
   } else if($title == "강의" || $title == "강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
@@ -230,12 +235,12 @@
         <div class="m_lnb m_class hidden">
           <ul>
             <li>
-              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="온라인 강의">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php?cate=online" title="온라인 강의">
                 온라인 강의
               </a>
             </li>
             <li>
-              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="오프라인 강의">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php?cate=offline" title="오프라인 강의">
                 오프라인 강의
               </a>
             </li>

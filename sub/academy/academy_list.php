@@ -1,6 +1,7 @@
 <?php
 $title = "강의"; // 타이틀
 include_once('../common.php');
+$cate = (empty($_GET['cate']) ? '' : $_GET['cate']);
 ?>
 <main>
   <!-- 강의 목록 -->
@@ -8,8 +9,8 @@ include_once('../common.php');
   <article id="course_list" class="c_tab">
     <!-- 탭메뉴 -->
     <ul class="line_tab">
-      <li class="a_title">온라인 강의</li>
-      <li class="a_title">오프라인 강의</li>
+      <li class="a_title" data-cate="<?=$cate == 'online' ? $cate : ''?>">온라인 강의</li>
+      <li class="a_title" data-cate="<?=$cate == 'offline' ? $cate : ''?>">오프라인 강의</li>
       <li class="a_title">커리큘럼</li>
     </ul>
     <span class="tab_on"></span>
