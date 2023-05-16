@@ -299,7 +299,7 @@ include_once('./common.php');
           $name = preg_replace('/(.{1})(.*?)$/u', '$1**', $row_member['mb_name']);
         ?>
       <li class="swiper-slide">
-        <a href="./sub/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$row_course['course_title']?>">
+        <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$row_course['course_id']?>" title="<?=$row_course['course_title']?>">
           <p><?=$name?></p>
           <div class="star">
             <img src="./images/star_f.png" alt="별점">

@@ -33,6 +33,7 @@
   }
   if($title == "캐논아카데미 소개"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."info/info.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."info/info.js' defer></script>";
   }
   if($title == "마이페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/mypage.css' type='text/css'>";
@@ -107,7 +108,7 @@
       </li>
     </ul>
   </nav>
-  <div id="m_header_wrap" class="hidden">
+  <div id="m_header_wrap">
   <?php
 
     if(!isset($_SESSION['mb_id'])){
@@ -245,7 +246,7 @@
               </a>
             </li>
             <li>
-              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="커리큘럼">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php?cate=curriculum" title="커리큘럼">
                 커리큘럼
               </a>
             </li>
