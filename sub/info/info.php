@@ -97,16 +97,75 @@ include_once('../common.php');
     </article>
     <article class="info_location">
       <h3>언주 캐논플렉스 위치</h3>
-      <div>&nbsp;</div>
+      <div id="map" style="width:100%;height:172px;" ></div>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=558bbc07ac0f8dcc88ea99feaa2c0f7b"></script>
+  <script>
+    var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+    var options = { //지도를 생성할 때 필요한 기본 옵션
+	  center: new kakao.maps.LatLng(37.508129562791076, 127.0357317122251), //지도의 중심좌표.
+	  level: 3 //지도의 레벨(확대, 축소 정도)
+  };
+
+    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(37.508129562791076, 127.0357317122251); 
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+  </script>
       <dl>
         <dt>문의</dt>
         <dd>1533 - 3355</dd>
       </dl>
       <dl>
         <dt>주소</dt>
-        <dd>캐논아카데미 플렉스서울특별시 강남구 봉은사로 217 캐논플렉스 4층 (9호선 언주역 4번 출구)</dd>
+        <dd>서울특별시 강남구 봉은사로 217 캐논플렉스 4층 (9호선 언주역 4번 출구)</dd>
       </dl>
-
+    </article>
+    <article class="info_direction">
+      <h3>오시는 길</h3>
+      <dl>
+        <dt>
+          <img src="<?=$base_URL?>images/icon_car.png" alt="승용차아이콘">
+          <p>승용차</p>
+        </dt>
+        <dd>차병원사거리에서 논현로 방면으로 직진(약 150m), 논현로114길 방면으로 우회전(약 200m) 후 봉은사로33길 방면으로 우회전(약 100m )</dd>
+      </dl>
+      <dl>
+        <dt>
+          <img src="<?=$base_URL?>images/icon_parking.png" alt="주차아이콘">
+          <p>주차</p>
+        </dt>
+        <dd>유료주차 (주차장이 협소하오니 대중교통 이용  부탁 드립니다.)</dd>
+      </dl>
+      <dl>
+        <dt>
+          <img src="<?=$base_URL?>images/icon_subway.png" alt="지하철아이콘">
+          <p>지하철</p>
+        </dt>
+        <dd>9호선 언주역 4번 출구 도보 2분(약 100m)</dd>
+      </dl>
+      <dl>
+        <dt>
+          <img src="<?=$base_URL?>images/icon_bus.png" alt="버스아이콘">
+          <p>버스</p>
+        </dt>
+        <dd>
+          <span>언주역2, 3, 4, 5번출구.차병원사거리 / 차병원 / 국민은행논현동지점</span>
+          <ul>
+            <li>간선 : 147, 241, 242, 463, N850</li>
+            <li>지선 : 3412, 3422, 4211, 6411</li>
+            <li>직행 : 3600, 9600</li>
+          </ul>
+        </dd>
+      </dl>
+                      
     </article>
   </section>
 </main>

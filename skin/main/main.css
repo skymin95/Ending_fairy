@@ -221,7 +221,7 @@ main {
 }
 #m_academy .tab_on {
   position: absolute;
-  width: 108px;
+  width: 104px;
   height: 3px;
   top: 64px;
   left: 20px;
@@ -271,7 +271,7 @@ main {
 }
 #m_academy .tab_con .con_list li p:first-of-type {
   margin: 12px 0 8px 0;
-  font-size: 16px;
+  font-size: var(--f-size02);
   font-weight: bold;
   text-indent: 10px;
 }
@@ -304,7 +304,7 @@ main {
   width: 35px;
   height: 50px;
   color: var(--f-color01);
-  top: 30%;
+  top: 28%;
 }
 #m_academy .tab_con .con_list .swiper-button-prev {
   left: 0;
@@ -349,7 +349,7 @@ main {
   padding: 10px;
   background: #F4F4F5;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: var(--f-size01);
   line-height: 20px;
 }
 #review li p:nth-of-type(2) {
@@ -445,7 +445,7 @@ main {
 }
 #board .tab_on {
   position: absolute;
-  width: 87px;
+  width: 84px;
   height: 3px;
   top: 64px;
   left: 20px;
@@ -459,7 +459,7 @@ main {
 }
 #board .board_con li {
   padding: 10px 0;
-  font-size: 12px;
+  font-size: var(--f-size01);
   line-height: 25px;
   border-bottom: 1px solid #D1D1D1;
 }

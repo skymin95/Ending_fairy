@@ -198,6 +198,9 @@
   } @else if ($type == 'cancle') {
     background-color: #5A5A5C;
     color: var(--f-color01);
+  } @else if ($type == 'gray') {
+    background-color: #EFF1F3;
+    color: var(--f-color03);
   } @else if ($type == 'stroke gray') {
     background-color: var(--bg-color01);
     border: 1px solid var(--sub-color01);
@@ -210,7 +213,7 @@
     background-color: var(--bg-color01);
     border: 1px solid #E6E6E6;
     color: var(--main-color);
-  } 
+  }
 
   //크기 관련
   @if ($size == 'large') {

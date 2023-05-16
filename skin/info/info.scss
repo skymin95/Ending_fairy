@@ -78,10 +78,11 @@ h3{
     justify-content: space-around;
     
     >li{
-      width: calc(90 / 335 * 100%);
+      $li-width: calc(90 / 335 * (100vw - 40px));
+      width: $li-width;
       >img{
         width: 100%;
-        height: 60px;
+        height: calc($li-width / 3 * 2);
         object-fit: cover;
         border-radius: 5px;
       }
@@ -126,12 +127,13 @@ h3{
   >ul{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 24px 16px;
     >li{
       width: calc(156 / 335 * 100%);
       >img{
         width: 100%;
-        height: 131px;
+        // height: 131px;
         object-fit: cover;
         border-radius: 10px;
       }
@@ -145,23 +147,91 @@ h3{
     }
   }
 }
-//강의실 위치 서식
+// 강의실 위치 서식
 .info_location{
   padding: 40px 0px;
   >h3{
     padding-bottom: 36px;
   }
-  >div{
-    width: 100%;
-    height: 172px;
-    background-color: #f0f;
+  // >div{
+  //   width: 100%;
+  //   height: 172px;
+  //   background-color: #f0f;
+  // }
+  >dl:first-of-type{
+    padding: 28px 0px 12px 0px;
   }
-  dl{
-    padding-top: 24px;
-  }
-     
+  >dl{
+    position: relative;
+    display: flex;
+    column-gap: 40px;
+    font-size: 0.875rem;
+  
+    >dt{
+      color: var(--f-color04);
+      width: 26px;
+      flex-shrink: 0;
+    }
+    >dd{
+      flex-grow:1;
+      line-height: 17px;
+    }
+  }   
 }
 
+//오시는 길 서식
+.info_direction{
+  >h3{
+    padding-bottom:36px;
+  }
+  >dl{
+    position: relative;
+    display: flex;
+    column-gap: 30px;
+    padding-bottom:40px;
+    font-size: 0.875rem;
 
+    >dt{
+      width: 36px;
+      flex-shrink: 0;
+      >img{
+        width:100%;
+      }
+      >p{
+        padding-top: 8px;
+        color: var(--f-color04);
+        font-size: 0.625rem; //10px
+        text-align: center;
+      }
+    }
+    dd{
+      flex-grow: 1;
+      line-height: 17px;
+      >ul {
+        padding-top: 4px;
+        >li{
+        padding-top: 8px;
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+
+
+        &::before{
+        content: '';
+        display: inline-block;
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background-color: var(--f-color03);
+      }
+    }
+    }
+  }
+   
+}
+>dl:last-of-type{
+  padding-bottom: 0px;
+}
+
+}
 
 

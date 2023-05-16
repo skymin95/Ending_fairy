@@ -52,7 +52,7 @@ include_once('./common.php');
             <p>
               개인회원
               <a href='./sub/mypage/mypage.php' title=''>
-                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt=''>
+                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt='userimg'>
                 마이페이지
               </a>
             </p>

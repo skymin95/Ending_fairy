@@ -141,7 +141,8 @@ header > .bottom > ul > li > a > img {
      object-fit: contain;
 }
 header > .bottom > ul > li > a > span {
-  font-size: var(--f-size02);
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 header > .bottom > ul > li > a.active > img {
   position: fixed;
@@ -329,6 +330,7 @@ footer address dl dt {
   height: 52px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }
 .nav_box > li > p {
   font-size: var(--f-size02);
