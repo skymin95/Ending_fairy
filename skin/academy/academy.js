@@ -29,6 +29,12 @@ tab.forEach(function(item,idx){
     titleColor(idx);
     moveHighlight(idx);
   });
+  //온라인 오프라인 링크 구별
+  if(item.dataset.cate == 'online' || item.dataset.cate == 'offline') {
+    showContent(idx);
+    titleColor(idx);
+    moveHighlight(idx);    
+  }
 });
 
 // on 이동함수
