@@ -245,7 +245,7 @@
               </a>
             </li>
             <li>
-              <a href="<?=$base_URL?>sub/academy/academy_list.php" title="커리큘럼">
+              <a href="<?=$base_URL?>sub/academy/academy_list.php?cate=curriculum" title="커리큘럼">
                 커리큘럼
               </a>
             </li>
