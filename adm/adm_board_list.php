@@ -72,6 +72,7 @@ switch($cate) {
               $result_member = mysqli_query($con, $sql_member);
               $row_member = mysqli_fetch_array($result_member);
             ?>
+            
           <tr>
             <td><?=++$number?></td>
             <td><a href="adm_board_view.php?board_id=<?=$data['notice_id']?>&cate=<?=$cate?>"><?=$data['notice_title']?></a></td>
