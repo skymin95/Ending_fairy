@@ -20,7 +20,7 @@
 }
 #course_list .tab_on {
   position: absolute;
-  width: 104px;
+  width: 100px;
   height: 3px;
   top: 93px;
   left: 20px;
@@ -28,6 +28,16 @@
   background: #DE0010;
   border-radius: 5px;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#course_list .tab_con > p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+#course_list .tab_con > p span {
+  font-weight: bold;
+}
+#course_list .tab_con > p span:last-child {
+  color: var(--main-color);
 }
 #course_list .tab_con ul li {
   margin-bottom: 20px;
@@ -51,14 +61,14 @@
   border: 1px solid var(--main-color);
 }
 #course_list .tab_con ul li p {
-  font-size: 12px;
+  font-size: var(--f-size01);
 }
 #course_list .tab_con ul li p:first-of-type {
   color: #5A5A5C;
 }
 #course_list .tab_con ul li p:nth-of-type(2) {
   margin: 8px 0;
-  font-size: 16px;
+  font-size: var(--f-size02);
   font-weight: bold;
 }
 #course_list .tab_con ul li p:last-of-type {
@@ -137,7 +147,7 @@
 }
 #detail .c_info p:first-of-type {
   margin: 12px 0;
-  font-size: 16px;
+  font-size: var(--f-size02);
   font-weight: bold;
   line-height: 20px;
 }
@@ -154,7 +164,7 @@
   width: 124px;
   height: 32px;
   margin: 0 10px;
-  font-size: 16px;
+  font-size: var(--f-size02);
   line-height: 30px;
   color: #fff;
   border-radius: 15px;
@@ -223,6 +233,7 @@
   padding: 12px;
   text-align: center;
   background: #F4F4F5;
+  transform: translateY(-1px);
 }
 #detail .c_detail .index dl dd {
   padding: 20px 0;
