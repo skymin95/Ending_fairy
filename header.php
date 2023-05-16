@@ -284,6 +284,9 @@
   <?php
     $seq = 2; // 0 ~ 4 순서로 검색, 내 강의실, 홈, 장바구니, 마이페이지
     switch($title) {
+      case "검색":
+        $seq = 0;
+        break;
       case "캐논 아카데미":
         $seq = 2;
         break;
@@ -303,7 +306,7 @@
       <li>
         <a href="#academy" title="내 강의실" <?=$seq!=1?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_academy<?=$seq!=1?"":"_active"?>.png" alt="academy">
-          <span>내 강의실</span>
+          <span>내강의실</span>
         </a>
       </li>
       <li>
