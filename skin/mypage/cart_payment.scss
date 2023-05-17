@@ -1,0 +1,212 @@
+@charset "utf-8";
+@import "../layout";
+
+.payment_wrap {
+  @include box(-15px);
+  padding: 20px;
+  input[type=checkbox] {
+    width: 23px; height: 23px;
+    border-radius: 5px;
+    margin: 0;
+    accent-color: var(--main-color);
+  }
+  > article {
+    > h3 {
+      @include onemobile();
+      margin-bottom: 20px;
+      font-size: var(--f-size02);
+      color: var(--sub-color01);
+    }
+    > div {
+      padding: 24px 16px;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px -1px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+    &.payment_course_info_wrap {
+      .course_info {
+        //dt 크기 좌우여백 마이너스
+        $course_dt_width: calc((120 / (375 - 40 - 32)) * 100%);
+        display: grid;
+        grid-template-columns: $course_dt_width auto;
+        column-gap: 16px;
+        row-gap: 4px;
+        border-bottom: 1px solid var(--st-color01);
+        margin-bottom: 24px;
+        .course_image {
+          width: 100%;
+          object-fit: cover;
+          border-radius: 15px;
+          margin-bottom: 12px;
+        }
+        .course_title {
+          > p {
+            font-size: var(--f-size01);
+            color: var(--main-color);
+            padding-bottom: 4px;
+          }
+          > h4 {
+            font-size: var(--f-size02);
+            color: var(--f-color03);
+            font-weight: 600;
+          }
+        }
+        > dl {
+          font-size: 0.875rem;
+          grid-column: 1 / span 2;
+          display: flex;
+          > dt {
+            color: var(--f-color04);
+            width: $course_dt_width;
+          }
+          > dd {
+            color: var(--f-color03);
+            font-weight: 500;
+          }
+        }
+      } // .course_info end
+    } // &.payment_course_info_wrap end
+    &.payment_price_wrap {
+      @include onemobile();
+      > div {
+        font-size: 0.875rem;
+        > h4 {
+          color:#25282B;
+          margin-bottom: 20px;
+        }
+        > select[name=coupon] {
+          font-family: "Noto Sans KR";
+          -o-appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          padding: 0 12px;
+          width: 100%;
+          height: 28px;
+          border-radius: 10px;
+          border: 1px solid var(--st-color01);
+          margin-bottom: 16px;
+          background: url('../../images/option_arrow.png') calc(100% - 12px) center no-repeat;
+        }
+        > dl {
+          &:nth-of-type(1) {
+            margin-bottom: 6px;
+            color: var(--f-color02);
+          }
+          &:nth-of-type(2) {
+            margin-bottom: 8px;
+            color: var(--main-color);
+          }
+          &:nth-of-type(3) {
+            color: var(--f-color02);            
+          }
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    &.payment_user_wrap {
+      > div > ul {
+        @include onemobile();
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        font-size: 0.875rem;
+        font-weight: 300;
+      }
+    }
+    &.payment_price_info_wrap {
+      > div {
+        .payment_price {
+          display: flex;
+          justify-content: space-between; align-items: center;
+          padding-bottom: 24px;
+          margin-bottom: 24px;
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            left: -16px; bottom: 0;
+            width: calc(100% + 32px);
+            height: 1px;
+            background-color: var(--st-color01);
+          }
+          > dt {
+            @include onemobile();
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: var(--f-color02);
+          }
+          > dd {
+            font-weight: 700;
+            font-size: var(--f-size01);
+            color: var(--main-color);
+          }
+        } // .payment_price end
+        > .payment_tool_wrap {
+          > p:first-child {
+            @include onemobile();
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: var(--f-color02);
+          }
+          > ul {
+            display: grid;
+            grid-template-columns: 16px auto;
+            grid-auto-rows: 16px;
+            row-gap: 24px;
+            column-gap: 8px;
+            padding: 24px 0;
+            > li {
+              display: flex;
+              align-items: center;
+              > input[type=radio], input[type=radio]:checked {
+                appearance: none;
+              }
+              > input[type=radio] {
+                display: block;
+                width: 100%; height: 100%;
+                margin: 0;
+                background-color: #eee;
+                border-radius: 50%;
+                &:checked {
+                  border: 4px solid var(--main-color);
+                }
+              }
+              > label {
+                @include onemobile();
+                font-weight: 300;
+                font-size: 0.875rem;
+                color: var(--f-color02);
+              }
+            }
+          }
+          > .agree_text {
+            font-size: var(--f-size01);
+            line-height: 16px;
+            margin-bottom: 12px;
+          }
+          > label[for=agree] {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: var(--f-size01);
+            margin-bottom: 36px;
+          }
+          > .payment_btns {
+            display: flex;
+            justify-content: space-between;
+            > button {
+              &:first-of-type {
+                @include btn('cancle', 'small');
+              }
+              &:last-of-type {
+                @include btn('red', 'small');
+              }
+            }
+          } // payment_btns end
+        } // .payment_tool_wrap end
+      } // div end
+    } // &.payment_price_info_wrap end
+  } // article end
+} // .payment_wrap end
