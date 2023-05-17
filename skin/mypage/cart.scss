@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+@import "../layout";
+
+.cart_list_form {
+  @include box(-15px);
+  padding: 20px;
+  #cart_delete_all {
+    font-size: 0.875rem;
+  }
+  .delete_wrap {
+    display: flex;
+    justify-content: space-between; align-items: center;
+    padding-bottom: 20px;
+    > label[for=check] {
+      display: flex;
+      gap: 10px;
+      font-size: 0.875rem;
+      align-items: center;
+    }
+  }
+  input[type=checkbox] {
+    width: 23px; height: 23px;
+    border-radius: 5px;
+    margin: 0;
+    accent-color: var(--main-color);
+  }
+  //장바구니 리스트
+  //값이 없는 경우
+  .no_data {
+    min-height: 300px;
+    display: flex;
+    justify-content: center; align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    display: none;
+    > p {
+      font-size: 0.875rem;
+      color: var(--f-color04);
+    }
+    > a {
+      @include btn('white red', 'large');
+    }
+  }
+  .list_data_wrap {
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    margin-bottom: 32px;
+    > .list_data {
+      $data_height: 80;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center; align-items: center;
+      column-gap: 12px;
+      &:not(:first-of-type){
+        border-top: 1px solid var(--st-color01);
+      }
+      > img {
+        width: calc($data_height / 375 * 100vw);
+        height: calc($data_height / 375 * 100vw);
+        object-fit: cover;
+      }
+      > div:first-of-type {
+        width: calc(164 / 375 * 100vw);
+        font-size: var(--f-size02);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+        > span:first-of-type {
+          font-size: 0.875rem;
+        }
+        > .course_title {
+          color: var(--f-color03);
+        }
+        > .course_price {
+          color: var(--main-color);
+        }
+      }
+      > a:last-of-type {
+        line-height: #{$data_height}px;
+        font-size: var(--f-size01);
+      }
+    } // .list_data end
+  } // .list_data_wrap end
+  .total_price {
+    display: flex;
+    justify-content: space-between; align-items: center;
+    margin-bottom: 30px;
+    > span:first-of-type {
+      font-size: 0.875rem;
+    }
+    > span:last-of-type {
+      font-size: var(--f-size02);
+      font-weight: 600;
+    }
+  } // .total_price end
+  .cart_submit {
+    @include onemobile();
+    position: relative;
+    left: -20px;
+    width: 100vw; height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border: none;
+    background-color: var(--main-color);
+    font-size: var(--f-size02);
+    font-weight: 700;
+    color: var(--f-color01);
+  } // .cart_submit end
+}// .cart_list_form end

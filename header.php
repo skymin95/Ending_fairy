@@ -43,6 +43,10 @@
   if($title == "마이페이지 > 회원정보 수정"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/update_member.css' type='text/css'>";
   }
+  if($title == "장바구니 > 결제하기"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/cart_payment.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/cart_payment.js' defer></script>";
+  }
   if($title == "마이페이지 > 내 강의실"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_status.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."mypage/course_status.js' defer></script>";
@@ -53,6 +57,10 @@
   } else if($title == "강의" || $title == "강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";
+  }
+  if($title == "마이페이지 > 쿠폰관리"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/my_coupon.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/my_coupon.js' defer></script>";
   }
   if($title ==  "마이페이지 > 공지사항"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."notice/notice.css' type='text/css'>";

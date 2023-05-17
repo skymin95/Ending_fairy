@@ -2,10 +2,7 @@
 $title = "장바구니"; // 타이틀
 include_once('../common.php');
 
-$mb_id = $_SESSION['mb_id'];
-$id = $_GET['course_id'];
-
-$query = "SELECT * FROM course WHERE course_id = '$id'";
+$query = "SELECT * FROM course";
 $result = mysqli_query($con, $query);
 function getYoutubeThumb($url) {
   if($url) {
@@ -25,29 +22,51 @@ $data = mysqli_fetch_assoc($result);
         장바구니
       </a>
     </h2>
+  </article>
 
-    <article>
-      <form action="" name="">
-        <input type="checkbox" id="check">
-        <label for="check">전체선택</label>
-        <button type="button" name="delete" onClick="">선택삭제</button>
+  <article class="cart_list_form">
+    <form action="cart_delete.php" name="cart_delete" method="post">
+      <div class="delete_wrap">
+        <label for="check">
+          <input type="checkbox" id="check">
+          전체선택
+        </label>
+        <a href="#none" title="선택삭제" id="cart_delete_all">선택삭제</a>
+      </div>
 
-        <ul>
-          <li>
-            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
-            <div>
-              <span><?=$data['course_ask_sdate']?> ~ <?=$data['course_ask_edate']?></span>
-              <p><?=$data['course_title']?></p>
-              <p><?=number_format($data['course_price'])?>원</p>
-            </div>
-            <button type="button" name="delete" onClick="">삭제</button>
-          </li>
-        </ul>
+      <div class="no_data">
+        <p>장바구니에 담긴 강의가 없습니다.</p>
+        <a href="<?=$base_URL?>sub/academy/academy_list.php?cate=online" title="강의목록 가기">강의목록 가기</a>
+      </div>
+      <ul class="list_data_wrap">
+        <li class="list_data">
+          <input type="checkbox">
+          <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+          <div>
+            <span><?=date_format(date_create($data['course_edu_sdate']), "Y.m.d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y.m.d")?></span>
+            <p class="course_title"><?=$data['course_title']?></p>
+            <p class="course_price"><?=number_format($data['course_price'])?>원</p>
+          </div>
+          <a href="#none" title="삭제" class="cart_delete">삭제</a>
+        </li>
+        <li class="list_data">
+          <input type="checkbox">
+          <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+          <div>
+            <span><?=date_format(date_create($data['course_edu_sdate']), "Y.m.d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y.m.d")?></span>
+            <p class="course_title"><?=$data['course_title']?></p>
+            <p class="course_price"><?=number_format($data['course_price'])?>원</p>
+          </div>
+          <a href="#none" title="삭제" class="cart_delete">삭제</a>
+        </li>
+      </ul>
 
-        <p>총 결제 금액<span>123,400원</span></p>
-        <button type="submit">결제하기</button>
-      </form>
-    </article>
+      <p class="total_price">
+        <span>총 결제 금액</span>
+        <span>123,400원</span>
+      </p>
+      <button type="submit" class="cart_submit">123,400원 결제하기</button>
+    </form>
   </article>
 
 
