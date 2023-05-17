@@ -34,7 +34,7 @@ function getYoutubeThumb($url) {
           $eday = ceil($date_dif / (60*60*24));
         ?>
         <li>
-          <a href="<?=$base_URL?>/sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
+          <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
             <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
             <div class="tab_tag">
               <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
@@ -62,7 +62,7 @@ function getYoutubeThumb($url) {
           $eday = ceil($date_dif / (60*60*24));
         ?>
         <li>
-          <a href="<?=$base_URL?>/sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
+          <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
             <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
             <div class="tab_tag">
               <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>

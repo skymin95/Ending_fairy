@@ -57,6 +57,16 @@ $(function(){
   },
   });
 
+  // 수강평 별점
+  let review = $('#review .star p').text();
+  let star = $('#review .star img');
+
+  console.log(star);
+
+  if(review=5){
+    star.css('width', '15px');
+  }
+
 });
 
 

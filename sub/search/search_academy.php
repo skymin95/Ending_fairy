@@ -30,8 +30,8 @@ function getYoutubeThumb($url) {
         $result = mysqli_query($con, $sql);
         $all = mysqli_num_rows($result);
       ?>
-      <p class="<?=(empty($search) ? 'hidden' : '')?>"><span>'<?=$search?>'</span>의 검색 결과 <span><?=$all?></span>건</p>
-      <a href="<?=$base_URL?>/sub/academy/academy_list.php?cate=온라인" title="전체보기">전체보기</a>
+      <p class="<?=(empty($search) ? 'hidden' : '')?>"><span>'<?=$search?>'</span>의 검색 결과 <span><?=$all?></span>건<a href="<?=$base_URL?>/sub/academy/academy_list.php?cate=online" title="전체보기">전체보기</a></p>
+
       <ul>
       <?php
         while($data = mysqli_fetch_array($result)){
@@ -63,7 +63,8 @@ function getYoutubeThumb($url) {
         $result = mysqli_query($con, $sql);
         $all = mysqli_num_rows($result);
       ?>
-      <p class="<?=(empty($_GET['search']) ? 'hidden' : '')?>"><span>'<?=$search?>'</span>의 검색 결과 <span><?=$all?></span>건</p>
+      <p class="<?=(empty($search) ? 'hidden' : '')?>"><span>'<?=$search?>'</span>의 검색 결과 <span><?=$all?></span>건<a href="<?=$base_URL?>/sub/academy/academy_list.php?cate=offline" title="전체보기">전체보기</a></p>
+
       <ul>
       <?php
         while($data = mysqli_fetch_array($result)){

@@ -15,13 +15,13 @@ include_once('./common.php');
       </li>
       <li class="swiper-slide">
         <a href="#none" title="">
-          <span><small>한폭의 그림같은 풍경 담기2</small><br>풍경 사진 첫걸음2</span>
+          <span><small>하루 한 컷으로 만드는 특별한 일상</small><br>매일 사진 한장</span>
           <img src="./images/main_banner02.jpg" alt="">
         </a>
       </li>
       <li class="swiper-slide">
         <a href="#none" title="">
-          <span><small>한폭의 그림같은 풍경 담기3</small><br>풍경 사진 첫걸음3</span>
+          <span><small>화려한 조명이 나를 감싸네</small><br>도심 랜드마크 촬영 노하우</span>
           <img src="./images/main_banner03.jpg" alt="">
         </a>
       </li>
@@ -51,18 +51,18 @@ include_once('./common.php');
           <div class='member'>
             <p>
               개인회원
-              <a href='./sub/mypage/mypage.php' title=''>
-                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt='userimg'>
+              <a href='".$base_URL."sub/mypage/mypage.php' title=''>
+                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png'")."' alt='userimg'>
                 마이페이지
               </a>
             </p>
             <h3>".$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")."님</h3>
             <div class='mypage'>
-              <a href='./sub/mypage/mypage.php' title='회원정보관리'>
+              <a href='".$base_URL."sub/mypage/mypage.php' title='회원정보관리'>
                 <img src='".$base_URL."images/mypage_modify.png' alt=''>
                 회원정보관리
               </a>
-              <a href='./sub/member/logout.php' title='로그아웃'>
+              <a href='".$base_URL."sub/member/logout.php' title='로그아웃'>
                 <img src='".$base_URL."images/mypage_logout.png' alt=''>
                 로그아웃
               </a>
@@ -75,7 +75,7 @@ include_once('./common.php');
               </ul>
             </div>
             <p>풍경 사진 첫걸음</p>
-            <a href='./sub/mypage/course_status.php'>더보기<i class='fas fa-play'></i></a>
+            <a href='".$base_URL."sub/mypage/course_status.php'>더보기<i class='fas fa-play'></i></a>
           </div>
           ";
         }else{ // 관리자
@@ -83,18 +83,18 @@ include_once('./common.php');
           <div class='admin'>
             <p>
             ".($row_member['mb_level'] == '10'?"관리자":"강사")."
-              <a href='./sub/mypage/mypage.php' title=''>
-                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/default_profile.png'")."' alt=''>
+              <a href='".$base_URL."sub/mypage/mypage.php' title=''>
+                <img src='".(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png'")."' alt=''>
                 마이페이지
               </a>
             </p>
             <h3>".$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")."님</h3>
             <div class='mypage'>
-              <a href='./adm/index.php' title='관리자페이지'>
+              <a href='".$base_URL."adm/index.php' title='관리자페이지'>
                 <img src='".$base_URL."images/mypage_work.png' alt=''>
                 관리자페이지
               </a>
-              <a href='./sub/member/logout.php' title='로그아웃'>
+              <a href='".$base_URL."sub/member/logout.php' title='로그아웃'>
                 <img src='".$base_URL."images/mypage_logout.png' alt=''>
                 로그아웃
               </a>
@@ -107,8 +107,8 @@ include_once('./common.php');
         <div class='logout'>
           <h3>지금, 로그인하세요.</h3>
           <div>
-            <a href='./sub/member/login.php' title='로그인페이지로 이동'>로그인</a>
-            <a href='./sub/member/register.php' title='회원가입'>회원가입</a>
+            <a href='".$base_URL."sub/member/login.php' title='로그인페이지로 이동'>로그인</a>
+            <a href='".$base_URL."sub/member/register.php' title='회원가입'>회원가입</a>
           </div>
         </div>
         ";
@@ -303,7 +303,7 @@ include_once('./common.php');
           <p><?=$name?></p>
           <div class="star">
             <img src="./images/star_f.png" alt="별점">
-            <!-- <?=$data['review_star']?> -->
+            <p><?=$data['review_star']?></p>
           </div>
           <p>[<?=$row_course['course_cate']?>] <?=$row_course['course_title']?></p>
           <p><?=$data['review_title']?></p>

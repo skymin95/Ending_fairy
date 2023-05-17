@@ -48,3 +48,17 @@ function moveHighlight(num){
 // 탭메뉴 끝
 
 // 더보기
+let more = document.querySelector('#detail .more');
+let intro = document.querySelector('#detail .con');
+let con_h = intro.offsetHeight;
+console.log(con_h);
+
+if(con_h>400){
+  intro.style.height='400px';
+  more.style.display='block';
+}
+
+more.addEventListener('click', function(){
+  more.style.display='none';
+  intro.style.height='100%';
+});

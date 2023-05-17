@@ -64,10 +64,12 @@ $eday = ceil($date_dif / (60*60*24));
       </ul>
       <span class="tab_on"></span>
       
-      <section class="tab_con">
+      <section class="tab_con intro">
         <h3 class="hidden">과정소개</h3>
-        <img src="../../images/<?=$data['fileID']?>" alt="과정소개">
-        <!-- <button type="button">더보기<i class="fa-solid fa-sort-down"></i></button> -->
+        <div class="con">
+          <img src="../../images/<?=$data['fileID']?>" alt="과정소개">
+        </div>
+        <button type="button" class="more">더보기<i class="fa-solid fa-sort-down"></i></button>
       </section>
 
       <section class="tab_con">
