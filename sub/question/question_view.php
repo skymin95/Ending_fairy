@@ -12,9 +12,6 @@ $sql_question_parent= "SELECT * FROM board_question WHERE question_parent_id  = 
 $result_parent = mysqli_query($con, $sql_question_parent);
 $data_parent = mysqli_fetch_array($result_parent);
 
-$sql_member_board= "SELECT * FROM member WHERE mb_no = ".$data['mb_no']." ";
-$result_member_board = mysqli_query($con, $sql_member_board);
-$row_member_board = mysqli_fetch_array($result_member_board);
 
 ?>
 <main>
@@ -32,14 +29,13 @@ $row_member_board = mysqli_fetch_array($result_member_board);
     <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="q_user_img">
     </li>
     <li class="q_name_day">
-    <p><?= ($row_member_board['mb_nick'] == '' ? $row_member_board['mb_name'] : $row_member_board['mb_nick'])?></p>
-    <span><?=date_format(date_create($data['question_wdate']), "Y-m-d")?></span>
+    <p>뇽뇽</p>
+    <span>2023-05-08</span>
     </li>
   </ul>
 
-<h3><?=$data['question_title']?></h3>
+<h3><?=$data['question_title']?>1</h3>
 <div class="question_content_box">
-<p><?=$data['question_title']?></p>
 <p><?=$data['question_content']?></p>
 </div>
 
@@ -53,10 +49,9 @@ $row_member_board = mysqli_fetch_array($result_member_board);
   <a href="question.php" title="목록으로">목록으로</a>
 </p>
 
-medium
-
-
-
 </article>
 
 </main>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
+?>

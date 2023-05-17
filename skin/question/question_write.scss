@@ -28,12 +28,11 @@
     outline: none;
     margin-bottom: 20px;
   }
-  h3{display: none;}
 }
 .q_write_btn{
   display: flex;
   justify-content: space-between;
-  margin: 40px 0 102px 0;
+  margin-top: 40px;
   .q_cancel > a{
       display: block;
       @include btn('cancle', 'large');

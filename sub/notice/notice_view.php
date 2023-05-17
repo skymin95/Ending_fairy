@@ -40,11 +40,13 @@ $row_member_board = mysqli_fetch_array($result_member_board);
     <h3><?=$data['notice_title']?></h3>
     <!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
     <p><?=$data['notice_content']?></p>
-</div>
-
+  </article>
+  
   <p class="notice_link">
     <a href="notice.php" title="목록으로">목록으로</a>
   </p>
-</article>
-
+</div>
 </main>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
+?>

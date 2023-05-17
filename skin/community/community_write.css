@@ -23,7 +23,7 @@
 .comm_write_btn {
   display: flex;
   justify-content: space-between;
-  margin: 40px 0 102px 0;
+  margin-top: 40px;
 }
 .comm_write_btn .comm_cancel > a {
   display: block;

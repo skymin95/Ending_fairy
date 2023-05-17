@@ -23,7 +23,7 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 15px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
 }
 .course_wrap .course_info .course_title > p {
   font-size: var(--f-size01);

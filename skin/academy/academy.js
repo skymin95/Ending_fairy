@@ -29,7 +29,8 @@ tab.forEach(function(item,idx){
     titleColor(idx);
     moveHighlight(idx);
   });
-  //온라인 오프라인 링크 구별
+
+  // 온라인 오프라인 링크 구별
   if(item.dataset.cate == 'online' || item.dataset.cate == 'offline' || item.dataset.cate == 'curriculum') {
     showContent(idx);
     titleColor(idx);
