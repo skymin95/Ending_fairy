@@ -16,9 +16,8 @@ switch($cate) {
 }
 ?>
 <main>
-  <form name="question" id="question_form" method="post" action="">
   <article id="question_wrap">
-    <h2>
+  <h2>
       <a href="question.php">1:1문의</a>
     </h2>
     <div class="question_box">
@@ -28,7 +27,7 @@ switch($cate) {
       </li>
     </ul>
     <ul class="question_ul">
-    <form name="question" id="question_form" method="get" action="question.php">
+  <form name="question" id="question_form" method="get" action="question.php">
   <?php
       $sql_question = "select * from board_question ".($category != '' ? "WHERE $category LIKE '%$search%' " : "")." order by question_id desc;";
       $result_question= mysqli_query($con, $sql_question);
@@ -54,7 +53,7 @@ switch($cate) {
         $sql = "select * from board_question ".($category != '' ? "WHERE $category LIKE '%$search%' " : "")." order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
         $result_question = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
         $number = 0 + ($start);
-
+     
         // 데이터 출력
         while($data = mysqli_fetch_array( $result_question)){
           $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
@@ -64,7 +63,8 @@ switch($cate) {
           $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = ".$data['question_id']."";
           $result_parent = mysqli_query($con, $sql_parent);
           $row_parent = mysqli_num_rows($result_parent);
-        ?>
+      ?>
+
           <ul>
             <li>
               <h3>
@@ -77,44 +77,43 @@ switch($cate) {
           <?php } ?>
     </ul>
     </div>
+   <!-- 검색박스 -->
+   <div class="s_wrap">
+          <label for="category">검색옵션</label>
+          <select name="category" id="category">
+            <option value="">검색옵션</option>
+            <option value="question_title" <?=$category=="question_title" ? "selected" : ""?>>제목</option>
+            <option value="question_content" <?=$category=="question_content" ? "selected" : ""?>>내용</option>
+          </select>
+          <input type="text" name="search" placeholder="SEARCH" value="<?=$search?>">
+          <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
 
-    <!-- 검색박스 -->
-      <div class="s_wrap">
-        <label for="category">검색옵션</label>
-        <select name="category" id="category">
-          <option value="">검색옵션</option>
-          <option value="question_title" <?=$category=="question_title" ? "selected" : ""?>>제목</option>
-          <option value="question_content" <?=$category=="question_content" ? "selected" : ""?>>내용</option>
-        </select>
-        <input type="text" name="search" placeholder="SEARCH" value="<?=$search?>">
-        <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
-
-      <div class="pagination">
-        <ul class="pagination">
-        <?php
-          if($page <= 1){
-        ?>
-          <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
-          <?php } else{ ?>
-          <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
-          <?php }?>
-
+        <div class="pagination">
+          <ul class="pagination">
           <?php
-          for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
+            if($page <= 1){
           ?>
-          <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
-          <?php }?>
-          
-          <?php
-          if($page >= $total_page){
-          ?>
-          <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
-          <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
-          <?php }?>
-        </ul>
-      </div>
+            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <?php } else{ ?>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <?php }?>
+
+            <?php
+            for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
+            ?>
+            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+            <?php }?>
+            
+            <?php
+            if($page >= $total_page){
+            ?>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php } else{ ?>
+              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+            <?php }?>
+          </ul>
+        </div>
     </article>
   </form>
 </main>
