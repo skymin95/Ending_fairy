@@ -1,6 +1,10 @@
 @import '../layout';
 // 메인 서식
 
+footer{
+  @include footer(-26px);
+}
+
 // 상단 슬라이드 시작
 #m_slide{
   position: relative;
@@ -281,6 +285,10 @@ main{overflow: hidden;}
 // 게시판 영역 시작
 #board{
   @include box(-26px);
+  padding: 36px 20px 60px 20px;
+  &::before{
+    @include tab_active(67px);
+  }
   h2{
     display: none;
   }
@@ -312,8 +320,5 @@ main{overflow: hidden;}
   > a{
     @include more(97px,17px);
   }
-}
-#board::before{
-  @include tab_active(67px);
 }
 // 게시판 영역 끝

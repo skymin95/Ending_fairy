@@ -78,8 +78,54 @@ function getYoutubeThumb($url) {
     </section>
 
     <section class="tab_con curriculum">
+    <article class="curri_order">
+       <h3>추천 수강 순서</h3>
+       <ul>
+        <li>
+          <div class="order_box">
+            <img src="<?=$base_URL?>images/class7.jpg" alt="제품 사용법 강의사진">
+            <p>제품 사용법</p>
+          </div>
+          <div class="arrow">
+            <img src="<?=$base_URL?>images/double_down_arrow..svg" alt="이중 아래방향 화살표">
+          </div>
+        </li>
+        <li>
+          <div class="order_box">
+            <img src="<?=$base_URL?>images/class8.jpg" alt="사진 클래스 강의사진">
+            <p>사진 클래스</p>
+          </div>
+          <div class="arrow">
+            <img src="<?=$base_URL?>images/double_down_arrow..svg" alt="이중 아래방향 화살표">
+          </div>
+        </li>
+        <li>
+          <div class="order_box">
+            <img src="<?=$base_URL?>images/class9.jpg" alt="영상 클래스 강의사진">
+            <p>영상 클래스</p>
+          </div>
+        </li>
+      </ul>
+    </article>
+    <article class="curri_recommend">
+      <h3>추천 커리큘럼</h3>
+      <dl>
+        <dt>초급자</dt>
+        <dd><span class="on_mini">온</span>EOS R6 사용법</dd>
+        <dd><span class="on_mini">온</span>여행 사진 첫걸음</dd>
+        <dd><span class="on_mini">온</span>왕초보를 위한 프리미어 프로</dd>
 
-    </section>
+        <dt>중급자</dt>
+        <dd><span class="on_mini">온</span>PowerShot G7 X Mark III 사용법</dd>
+        <dd><span class="on_mini">온</span>인물 사진 첫걸음</dd>
+        <dd><span class="on_mini">온</span>초보 탈출! 영상의 기초</dd>
+
+        <dt>전문가</dt>
+        <dd><span class="off_mini">오</span>봄꽃 사진 촬영 실습 -유채꽃-</dd>
+        <dd><span class="off_mini">오</span>풍경 사진 마스터 -파노라마-</dd>
+      </dl>
+    </article>
+  </section>
   </article>
 </main>
 <?php

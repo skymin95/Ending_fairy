@@ -1,4 +1,12 @@
-@import '../layout';
+@import '../layout.scss';
+
+h3{
+  @include onemobile();
+  font-weight: bold;
+}
+ol,ul,li{
+  list-style: none;
+}
 
 // 강의 목록 서식
 #course_list{
@@ -12,7 +20,7 @@
   .tab_on{
     @include tab_on(100px, 93px);
   }
-  .tab_con{
+  .tab_con:not(.curriculum){
     > p{
       margin-bottom: 20px;
       font-size: 14px;
@@ -202,3 +210,142 @@
     @include tab_active(67px);
   }
 }
+
+//커리큘럼 서식
+ .curriculum{
+  padding-bottom: 48px;
+  @include onemobile;
+  > .curri_order{
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ccc;
+    >h3{
+      padding-bottom: 24px;
+    }
+    >ul{
+      display: flex;
+      flex-direction: column;
+      >li{
+        width: 100%;
+        >.order_box{
+          position: relative;
+
+          >img{
+            width: 100%;
+            height: 16vw;
+            object-fit: cover;
+            border-radius: 15px;
+            filter : brightness(50%);
+          }
+          >p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--f-color01);
+            font-size: 0.875rem;
+          }
+        }
+        >.arrow{
+              width: 4vw;
+              padding: 16px 0px;
+              margin: 0 auto;
+            >img{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  //추천 커리큘럼 서식
+  .curri_recommend{
+    width: 100%;
+    >h3{
+      padding: 24px 0px 48px 0px;
+    }
+    >dl{
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      z-index: -1;
+
+      &::before{
+        content: '';
+        display: block;
+        width: 2px;
+        height: 900px;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        background: #ccc;
+      }
+      >dt{
+        position: relative;
+        left: 50%; transform: translateX(-71px);
+        font-size: 1.125rem;
+        text-align: right;
+        color: var(--main-color);
+        display: inline-block;
+        padding-top: 80px;
+        &::after{
+          display: inline-block;
+          content : '';
+          width: 18px;
+          height: 18px;
+          background-color: var(--main-color);
+          border-radius: 50%;
+          z-index: 1;
+          transform: translate(13px, 5px);
+
+        }
+      }
+      >dt:first-of-type{
+        padding-top: 0px;
+      }
+      >dd{
+        position: relative;
+        font-size: 0.875rem;
+        padding-top: 60px;
+        padding-left: 54px;
+        left: 50%;
+        width: 160px;
+        word-break: keep-all;
+        line-height: 17px;
+        &::before{
+          display: inline-block;
+          content : '';
+          width: 14px;
+          height: 14px;
+          background-color: var(--f-color01);
+          border: 2px solid var(--f-color04);
+          border-radius: 50%;
+          z-index: 1;
+          position: absolute;
+          left: -8px;
+          top: 60px;
+        }
+          .on_mini{
+          font-size: var(--f-size01);
+          position: absolute;
+          left: 24px;
+          padding:2px 4px;
+          color: var(--f-color01);
+          background-color: var(--main-color);
+          margin-right: 8px;
+        }
+          .off_mini{
+          font-size: var(--f-size01);
+          position: absolute;
+          left: 24px;
+          padding:2px 4px;
+          color: var(--f-color01);
+          background-color: var(--sub-color01);
+          margin-right: 8px;
+        }
+
+      }
+    }
+  }
+
+
