@@ -1,0 +1,79 @@
+.coupon_wrap {
+  position: relative;
+  top: -15px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 20px 24px 20px;
+  background: #fff;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
+  padding: 24px 16px;
+}
+.coupon_wrap > .coupon_add_wrap {
+  padding-bottom: 24px;
+  text-align: center;
+  border-bottom: 1px solid #EFF1F3;
+  margin-bottom: 20px;
+}
+.coupon_wrap > .coupon_add_wrap > button {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: var(--main-color);
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 9px 53px;
+}
+.coupon_wrap > .coupon_list_wrap > p:first-of-type {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  margin-bottom: 20px;
+}
+.coupon_wrap > .coupon_list_wrap > p:first-of-type > .emp {
+  color: var(--main-color);
+  font-weight: 700;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li {
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px -1px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px 16px;
+  margin-bottom: 20px;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li > .d_day {
+  font-family: "Montserrat", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 500;
+  background-color: var(--bg-color01);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  font-size: var(--f-size01);
+  padding: 4px 8px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li > .coupon_cate {
+  font-size: var(--f-size01);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li > h5 {
+  font-size: var(--f-size02);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li > .coupon_price {
+  font-size: var(--f-size03);
+  text-align: center;
+  color: var(--main-color);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.coupon_wrap > .coupon_list_wrap > ul > li > .coupon_edate {
+  font-size: var(--f-size01);
+  color: var(--f-color04);
+}/*# sourceMappingURL=my_coupon.css.map */
