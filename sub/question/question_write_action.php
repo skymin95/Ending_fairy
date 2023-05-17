@@ -61,7 +61,7 @@ if($row_parent != '0'){
 
 echo "
 <script>
-  alert('문 완료되었습니다.');
+  alert('문의 글이 작성되었습니다.');
   location.replace('question.php');
 </script>";
 ?>

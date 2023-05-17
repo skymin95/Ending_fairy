@@ -53,10 +53,7 @@ switch($cate) {
         $sql = "select * from board_question ".($category != '' ? "WHERE $category LIKE '%$search%' " : "")." order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
         $result_question = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
         $number = 0 + ($start);
-      ?>
-      <?php
-        $sql_question = "select * from board_question order by question_id desc limit 8";
-        $result_question = mysqli_query($con, $sql_question);
+     
         // 데이터 출력
         while($data = mysqli_fetch_array( $result_question)){
           $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
@@ -66,7 +63,8 @@ switch($cate) {
           $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = ".$data['question_id']."";
           $result_parent = mysqli_query($con, $sql_parent);
           $row_parent = mysqli_num_rows($result_parent);
-        ?>
+      ?>
+
           <ul>
             <li>
               <h3>
