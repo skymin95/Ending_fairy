@@ -34,8 +34,9 @@ $data_parent = mysqli_fetch_array($result_parent);
     </li>
   </ul>
 
-<h3><?=$data['question_title']?>1</h3>
+<h3><?=$data['question_title']?></h3>
 <div class="question_content_box">
+<p><?=$data['question_title']?></p>
 <p><?=$data['question_content']?></p>
 </div>
 

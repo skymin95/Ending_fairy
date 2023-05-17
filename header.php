@@ -79,6 +79,7 @@
   }
   if($title == "검색"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."search/search.js' defer></script>";
   }
 
   ?>

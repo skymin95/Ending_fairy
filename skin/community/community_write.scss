@@ -32,7 +32,7 @@
 .comm_write_btn{
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin: 40px 0 102px 0;
   .comm_cancel > a{
       display: block;
       @include btn('cancle', 'large');

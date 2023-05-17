@@ -19,11 +19,14 @@
   outline: none;
   margin-bottom: 20px;
 }
+.question_write_box h3 {
+  display: none;
+}
 
 .q_write_btn {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin: 40px 0 102px 0;
 }
 .q_write_btn .q_cancel > a {
   display: block;
