@@ -24,7 +24,14 @@ $eday = ceil($date_dif / (60*60*24));
 <main>
   <!-- 강의 상세 -->
   <article id="detail" class="course">
-    <h2><a href="javascript:window.history.back();" title="뒤로가기"><i class="fas fa-chevron-left"></i>상세보기</a></h2>
+    <article>
+      <h2 class="sub_title_prev">
+        <a href="javascript:window.history.back();" title="돌아가기">
+          <img src="<?=$base_URL?>images/arrow_title_prev.svg" alt="prev">
+          상세보기
+        </a>
+      </h2>
+    </article>
 
     <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
 
@@ -39,10 +46,13 @@ $eday = ceil($date_dif / (60*60*24));
       <p><span>교육기간</span> <?=$eday?>일</p>
       <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
       <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
-      <div class="c_btn">
-        <a href="<?=$data['course_link']?>" title="미리보기" class="pre" target='_blank'>미리보기</a>
-        <a href="cart_insert.php" title="장바구니" class="cart"><i class="fas fa-shopping-bag"></i>장바구니</a>
-      </div>
+
+      <form name="데이터입력" method="get" action="<?=$base_URL?>sub/academy/cart_insert.php?code=<?=$data['course_id']?>">
+        <div class="c_btn">
+          <a href="<?=$data['course_link']?>" title="미리보기" class="pre" target='_blank'>미리보기</a>
+          <button type="submit" name="cart" class="cart"><i class="fas fa-shopping-bag"></i>장바구니</button>
+        </div>
+      </form>
     </section>
 
     <section class="c_detail c_tab">
@@ -57,6 +67,7 @@ $eday = ceil($date_dif / (60*60*24));
       <section class="tab_con">
         <h3 class="hidden">과정소개</h3>
         <img src="../../images/<?=$data['fileID']?>" alt="과정소개">
+        <!-- <button type="button">더보기<i class="fa-solid fa-sort-down"></i></button> -->
       </section>
 
       <section class="tab_con">
@@ -123,5 +134,5 @@ $eday = ceil($date_dif / (60*60*24));
 
 </main>
 <?php
-include_once('../../footer.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
 ?>

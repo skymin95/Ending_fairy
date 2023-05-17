@@ -4,6 +4,10 @@
   font-family: 'ONE-Mobile-Regular', sans-serif, arial;
 }
 
+footer{
+  @include footer(-15px);
+}
+
 .hidden {display: none;}
 
 h3{
