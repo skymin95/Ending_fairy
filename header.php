@@ -77,6 +77,9 @@
   if($title ==   "마이페이지 > 커뮤니티 글쓰기"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."community/community_write.css' type='text/css'>";
   }
+  if($title ==   "장바구니"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/cart.css' type='text/css'>";
+  }
   if($title == "검색"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."search/search.js' defer></script>";
@@ -304,6 +307,9 @@
       case "캐논 아카데미":
         $seq = 2;
         break;
+      case "장바구니":
+        $seq = 3;
+        break;
       case "마이페이지":
         $seq = 4;
         break;
@@ -330,7 +336,7 @@
         </a>
       </li>
       <li>
-        <a href="#cart" title="장바구니" <?=$seq!=3?:"class=active"?>>
+        <a href="<?=$base_URL?>sub/mypage/cart.php" title="장바구니" <?=$seq!=3?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_cart<?=$seq!=3?"":"_active"?>.png" alt="cart">
           <span>장바구니</span>
         </a>
