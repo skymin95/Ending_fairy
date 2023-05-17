@@ -14,8 +14,8 @@ footer {
 }
 #m_slide .swiper-slide span {
   position: absolute;
-  top: 35%;
-  right: 10%;
+  top: 36%;
+  right: 8%;
   text-align: right;
   font-size: 6vw;
   font-weight: bold;
@@ -361,6 +361,9 @@ main {
 #review li p:nth-of-type(2) {
   font-weight: bold;
   text-indent: -5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #review li .star {
   color: var(--main-color);
