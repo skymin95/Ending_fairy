@@ -7,12 +7,7 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 $category = empty($_GET['category']) ? '' : $_GET['category']; // 현재 카테고리
 $search = empty($_GET['search']) ? '' : $_GET['search']; // 검색어
 
-switch($cate) {
-  case '1': $cate_name = '공지사항'; $cate_table = 'notice'; break;
-  case '2': $cate_name = '이벤트'; $cate_table = 'event'; break;
-  case '3': $cate_name = '커뮤니티'; $cate_table = 'community'; break;
-  default: $cate_name = '공지사항';  break;
-}
+
 ?>
 <main>
   <article id="notice_wrap">

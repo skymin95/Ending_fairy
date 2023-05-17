@@ -4,10 +4,17 @@ include_once('../common.php');
 $id = (empty($_GET['board_id']) ? '' : $_GET['board_id']);
 $id = mysqli_real_escape_string($con, $id);
 
+
 $sql_notice= "SELECT * FROM board_notice WHERE notice_id = '".$id."' ";
 $result = mysqli_query($con, $sql_notice);
 $data = mysqli_fetch_array($result);
+
+$sql_member_board= "SELECT * FROM member WHERE mb_no = ".$data['mb_no']." ";
+$result_member_board = mysqli_query($con, $sql_member_board);
+$row_member_board = mysqli_fetch_array($result_member_board);
+
 ?>
+
 <main>
 <!-- 상단  -->
 <h2 class="sub_title_prev">
@@ -24,8 +31,8 @@ $data = mysqli_fetch_array($result);
     <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="noti_user_img">
     </li>
     <li class="noti_name_day">
-    <p>뇽뇽</p>
-    <span>2023-05-08</span>
+    <p><?= ($row_member_board['mb_nick'] == '' ? $row_member_board['mb_name'] : $row_member_board['mb_nick'])?> </p>
+    <span><?=date_format(date_create($data['notice_wdate']), "Y-m-d")?></span>
     </li>
   </ul>
 
