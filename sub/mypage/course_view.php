@@ -57,7 +57,19 @@ include_once('../common.php');
         <h5>chapter 1. 풍경사진 첫걸음 Intro</h5>
         <ul>
           <li>1차시 <span class="emp">풍경사진 첫걸음 Intro</span></li>
-          <li></li>
+          <li class="status_data_wrap">
+            <dl>
+              <dt>수강율</dt>
+              <dd class="status">
+                <span class="status_percent">50%</span>
+                <div id="lineBox1" class="line_box" data-percent="50"></div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>학습시간</dt>
+              <dd>31분 / 35분 (최근 학습일 00.00.00)</dd>
+            </dl>
+          </li>
           <li>
             <a href="#none" title="수강하기">수강하기</a>
           </li>
@@ -67,14 +79,38 @@ include_once('../common.php');
         <h5>chapter 2. 카메라 바로 알기</h5>
         <ul>
           <li>2차시 <span class="emp">카메라 바로 알기</span></li>
-          <li></li>
+          <li class="status_data_wrap">
+            <dl>
+              <dt>수강율</dt>
+              <dd class="status">
+                <span class="status_percent">60%</span>
+                <div id="lineBox2" class="line_box" data-percent="60"></div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>학습시간</dt>
+              <dd>31분 / 35분 (최근 학습일 00.00.00)</dd>
+            </dl>
+          </li>
           <li>
             <a href="#none" title="수강하기">수강하기</a>
           </li>
         </ul>
         <ul>
           <li>3차시 <span class="emp">렌즈의 이해</span></li>
-          <li></li>
+          <li class="status_data_wrap">
+            <dl>
+              <dt>수강율</dt>
+              <dd class="status">
+                <span class="status_percent">80%</span>
+                <div id="lineBox3" class="line_box" data-percent="80"></div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>학습시간</dt>
+              <dd>31분 / 35분 (최근 학습일 00.00.00)</dd>
+            </dl>
+          </li>
           <li>
             <a href="#none" title="수강하기">수강하기</a>
           </li>
