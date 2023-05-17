@@ -64,15 +64,8 @@ background: #EFF1F3;
 // 커뮤니티 내용
 .community_all_box{
   padding: 24px 20px 28px 20px;
-.community_ul{
-  margin-top: 20px;
-  width: 100%;
-  min-height: 375px;
-  border: 1px solid #fff;
-  border-radius: 15px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
 
-  //아이콘,닉네임,날짜
+//아이콘,닉네임,날짜
 .community_user_info{
   display: flex;
   height: 30px;
@@ -84,9 +77,10 @@ background: #EFF1F3;
     border-radius: 24px;
   }
   .name_day{
-    margin-left: 16px;
+    margin: 2px 0 0 16px;
     p{
       font-size: 14px;
+      margin-bottom: 4px;
     }
     span{
       font-size: 12px;
@@ -95,7 +89,12 @@ background: #EFF1F3;
     
   }
 }
-// 이미지
+.community_ul{
+  margin-top: 8px;
+  width: 100%;
+  min-height: 375px;
+  border: 1px solid #fff;
+// 자랑 이미지
 .community_img{
   width: 100%;
   object-fit: cover;
@@ -104,34 +103,56 @@ background: #EFF1F3;
 // 사진 아래내용
 .com_content_box{
   padding: 12px 0 12px 12px; 
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 15px 15px ;
   h3{
     font-size: 16px;
     margin-bottom: 8px;
   }
-  .community_content{
-    // width: 415px;
-    font-size: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    word-break: break-word;
+  > a {
+    $contentWidth: calc(247/ 375 * 100vw);
+    position: relative;
+    &::before{
+      content: "더보기";
+      display: block;
+      color: #767676;
+      font-size: 14px;
+      position: absolute;
+      left: $contentWidth;
+      bottom: 0;
+      line-height: 19px;
+    }
+    .community_content{
+      width: $contentWidth;
+      line-height: 19px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: keep-all;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; // 원하는 라인수
+      -webkit-box-orient: vertical;
     }
   }
-  // 좋아요,댓글버튼
-  .heart_btn{
-    display: flex;
-    margin-top: 16px;
-    img{
-      width: 28px;
-      height: 28px;
-    }
-    span{
-      display: inline-block;
-      margin: 0px 4px 0px 4px;
-      line-height: 27px;
+    // 좋아요,댓글버튼
+    .heart_btn{
+      display: flex;
+      margin-top: 16px;
+      li{
+        display: flex;
+      }
+      img{
+        width: 28px;
+        height: 28px;
+      }
+      span{
+        display: inline-block;
+        line-height: 26px;
+        margin: 0 28px 0 4px
+      }
     }
   }
-  }
+}
 }
 
 
