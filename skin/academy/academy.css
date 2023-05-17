@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 h3 {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   font-weight: bold;
@@ -5,6 +6,12 @@ h3 {
 
 ol, ul, li {
   list-style: none;
+=======
+footer {
+  position: relative;
+  top: -30px;
+  padding: 25px 25px 100px 25px;
+>>>>>>> Stashed changes
 }
 
 #course_list {
@@ -12,7 +19,7 @@ ol, ul, li {
 }
 #course_list .line_tab {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  padding-bottom: 27px;
+  padding-bottom: 29px;
   display: flex;
   gap: 20px;
   text-align: center;
@@ -99,30 +106,32 @@ ol, ul, li {
   background: #EFF1F3;
 }
 
-#detail h2 {
-  height: 70px;
-  background: var(--sub-color01);
-  border-radius: 15px 15px 0px 0px;
-}
-#detail h2 a {
+#detail .sub_title_prev {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  display: inline-block;
-  margin: 16px 0 0 20px;
-  font-size: 18px;
-  color: var(--f-color01);
+  width: 100%;
+  height: 65px;
+  border-radius: 15px 15px 0 0;
+  background-color: var(--sub-color01);
+  padding-left: 20px;
 }
-#detail h2 a i.fas {
-  margin-right: 12px;
+#detail .sub_title_prev > a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  height: 50px;
+  color: var(--f-color01);
+  font-size: 1.125rem;
 }
 #detail > img {
   width: 100%;
   border-radius: 15px 15px 0px 0px;
   position: relative;
-  top: -18px;
+  top: -15px;
 }
 #detail .c_info {
   position: relative;
-  top: -30px;
+  top: -32px;
   width: 100%;
   margin: 0 auto;
   padding: 36px 20px 24px 20px;
@@ -164,32 +173,39 @@ ol, ul, li {
   margin-bottom: 12px;
 }
 #detail .c_info .c_btn {
-  width: 100%;
   text-align: center;
   margin-top: 20px;
 }
-#detail .c_info .c_btn a {
+#detail .c_info .c_btn .pre {
   display: inline-block;
   width: 124px;
-  height: 32px;
-  margin: 0 10px;
+  margin-right: 10px;
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: "400";
+  background-color: #5A5A5C;
+  color: var(--f-color01);
   font-size: var(--f-size02);
-  line-height: 30px;
-  color: #fff;
-  border-radius: 15px;
-}
-#detail .c_info .c_btn .pre {
-  background: #5A5A5C;
+  padding: 7px 22px;
 }
 #detail .c_info .c_btn .cart {
-  background: var(--main-color);
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: "400";
+  background-color: var(--main-color);
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 7px 22px;
+  width: 124px;
 }
 #detail .c_info .c_btn .cart i.fas {
   margin-right: 4px;
 }
 #detail .c_detail {
   position: relative;
-  top: -27px;
+  top: -30px;
   width: 100%;
   margin: 0 auto;
   padding: 36px 20px 24px 20px;
@@ -197,9 +213,19 @@ ol, ul, li {
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
 }
+#detail .c_detail::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 67px;
+  left: 0;
+  background: #EFF1F3;
+}
 #detail .c_detail .line_tab {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  padding-bottom: 27px;
+  padding-bottom: 29px;
   display: flex;
   gap: 20px;
   text-align: center;
@@ -274,6 +300,7 @@ ol, ul, li {
 }
 #detail .c_detail .review ul li p:nth-of-type(2) {
   color: #333;
+<<<<<<< Updated upstream
 }
 #detail .c_detail::before {
   content: "";
@@ -418,4 +445,6 @@ ol, ul, li {
   color: var(--f-color01);
   background-color: var(--sub-color01);
   margin-right: 8px;
+=======
+>>>>>>> Stashed changes
 }/*# sourceMappingURL=academy.css.map */
