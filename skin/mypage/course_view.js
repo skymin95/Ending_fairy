@@ -54,6 +54,27 @@
       }
 		});
 	}
+
+	//직선 프로그레스바
+	let bar = [];
+	$('.line_box').each(function(i, v){
+		bar[i] = new ProgressBar.Line(v, {
+			strokeWidth: 4,
+			easing: 'easeInOut', //이징 속성
+			duration: 1, //시간
+			color: '#DE0010',
+			trailColor: '#D9D9D9', //가이드 선
+			trailWidth: 8, //가이드 두께
+			svgStyle: {  //
+				width: '220px',
+				height: '8px',
+				strokeLinecap: 'round'
+			}
+		});
+		bar[i].animate(v.dataset.percent / 100); // 0.0(0%)~1.0(100%)//진행도 
+		v.parentNode.querySelector('.status_percent').style.left = v.dataset.percent + '%';
+	});
+
 })(jQuery);
 
 $(".progress-bar").loading();
