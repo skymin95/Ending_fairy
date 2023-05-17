@@ -18,7 +18,7 @@
 
 .course_wrap {
   @include box(-15px);
-  padding: 24px 20px;
+  padding: 24px 20px 0;
   .course_info {
     //dt 크기
     $course_dt_width: calc((120 / 335) * 100%);
@@ -175,6 +175,7 @@
     padding-bottom: 20px;
   }
   > ul {
+    font-size: 0.875rem;
     > li {
       > h5 {
         line-height: 28px;
@@ -183,6 +184,53 @@
         background-color: #F4F4F5;
         margin-bottom: 20px;
       }
-    }
-  }
-}
+      > ul > li {
+        margin-bottom: 20px;
+        .emp {
+          font-weight: 700;
+        }
+        &.status_data_wrap {
+          text-align: center;
+          dl {
+            display: inline-flex;
+            font-size: var(--f-size01);
+            align-items: center;
+            margin: 0 auto;
+            &:first-of-type {margin-bottom: 4px;}
+            dt {
+              color: #767676;
+              min-width: 54px;
+              text-align: left;
+            }
+            dd {
+              min-width: 220px;
+              text-align: left;
+              position: relative;
+              &.status {
+                .status_percent {
+                  position: absolute;
+                  left: 0; top: -100%;
+                  transform: translateX(-50%);
+                  color: var(--main-color);
+                }
+                .line_box {
+                  > svg {
+                    border-radius: 4px;
+                  }
+                }// .line_box end
+              }
+            } // dd end
+          } // dl end
+        } // &.status_data_wrap end
+        &:last-of-type {
+          text-align: center;
+          > a {
+            @include btn('red', 'small');
+            display: inline-block;
+            margin: 0 auto 4px;
+          }
+        }
+      } // ul > li end
+    } // li end
+  } // ul end
+} // .course_list end
