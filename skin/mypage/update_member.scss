@@ -2,6 +2,10 @@
 
 @import "../layout";
 
+footer{
+  @include footer(-15px);
+}
+
 .update_member {
   @include box(-15px);
   padding: 60px 20px 0;

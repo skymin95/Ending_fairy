@@ -134,8 +134,8 @@
 @mixin footer($top){
   position: relative;
   top: $top;
+  padding: 25px 25px 100px 25px;
 }
-
 
 //이전버튼이 있는 타이틀 페이지
 @mixin sub_title_prev() {
