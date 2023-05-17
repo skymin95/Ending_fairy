@@ -17,7 +17,7 @@
 #question_wrap{
   width: 100%;
   margin: 0 auto;
-  h2{
+  h2 > a{
     font-family: 'ONE-Mobile-Regular', sans-serif, arial;
   font-size: 18px;
   font-weight: 400;
@@ -30,7 +30,7 @@
   // font-weight: bold;
   margin: 31px 0 0 0;
   }
-  h2::after{
+  h2 > a::after{
     content: "";
     display: block;
     width: 83px;
@@ -44,7 +44,7 @@
 .question_write_btn{
   display: flex;
   justify-content: end;
-  padding: 0 20px 0 20px;
+  padding:  20px 0 20px 0;
 }
 .test02{
   @include btn('red', 'small');
@@ -85,45 +85,11 @@
   }
 }
 
-// 검색
-.s_wrap{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-}
-.s_wrap label{
-  display: none;
-}
-.s_wrap select{
-  width: 25%;
-  height: 28px;
-  text-indent: 10px;
-  border-radius: 40px;
-  border: 1px solid #ddd;
-  color: #333;
-}
-.s_wrap input{
-  width: 43%;
-  height: 28px;
-  border-radius: 40px;
-  border: 1px solid #ddd;
-  text-indent: 10px;
-}
-.s_wrap input:focus{
-  outline: none;
-}
-.s_wrap .s_btn{
-  position: absolute;
-  // width: 100%;
-  top: 5px;
-  right: 80px;
-  color: #DE0010;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+
+
+
+
+
 
 
 
@@ -195,4 +161,93 @@
   }
 }
 
-// 
+// 검색
+.s_wrap{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin:12px 0 20px 0
+}
+.s_wrap label{
+  display: none;
+}
+.s_wrap select{
+  width: 25%;
+  height: 28px;
+  text-indent: 10px;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+.s_wrap input{
+  width: 43%;
+  height: 28px;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  text-indent: 10px;
+}
+.s_wrap input:focus{
+  outline: none;
+}
+.s_wrap .s_btn{
+  position: absolute;
+  // width: 100%;
+  top: 5px;
+  right: 80px;
+  color: #DE0010;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+
+/* 페이지내이션 */
+.pagination{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-family: 'Montserrat', sans-serif, arial;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.pagination a{
+  text-align: center;
+  font-size: 16px;
+  color: rgba(34, 34, 34, 0.4);
+  transition: .5s;
+}
+.pagination a:hover, .pagination li.p_on a{
+  color: #DE0010;
+}
+.pagination ul li a{position: relative;}
+.pagination ul li a:after{
+	transform: scaleX(0);
+	transform-origin: top right;
+	content: " ";
+	display: block;
+	position: absolute;
+  top: 22px;
+  left: -3px;
+	height: 2px;
+	background: var(--black);
+	transition: transform 300ms ease-in-out;
+}
+.pagination li a:hover::after, .pagination li.p_on a::after{
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  position: absolute;
+  top: 22px;
+  left: -3px;
+  background: #DE0010;
+  transform: scaleX(1);
+	transform-origin: top left;
+}
+
+
