@@ -6,8 +6,8 @@ $(function(){
       delay: 3000,
       disableOnInteraction: false,
     },
+    spaceBetween: 10,
     loop: true,
-
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -34,6 +34,7 @@ $(function(){
       delay: 5000,
       disableOnInteraction: false,
     },
+    spaceBetween: 20,
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',

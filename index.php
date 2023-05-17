@@ -150,11 +150,11 @@ include_once('./common.php');
             $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
             $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
             $date_dif = abs(strtotime($sdate)-strtotime($edate));
-            $eday = ceil($date_dif / (60*60*24));
+            $eday = ceil($date_dif / (60*60*24)+1);
           ?>
           <li class="swiper-slide">
             <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
               <div class="tab_tag">
@@ -182,11 +182,11 @@ include_once('./common.php');
             $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
             $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
             $date_dif = abs(strtotime($sdate)-strtotime($edate));
-            $eday = ceil($date_dif / (60*60*24));
+            $eday = ceil($date_dif / (60*60*24)+1);
           ?>
           <li class="swiper-slide">
             <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
               <div class="tab_tag">
@@ -222,11 +222,11 @@ include_once('./common.php');
             $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
             $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
             $date_dif = abs(strtotime($sdate)-strtotime($edate));
-            $eday = ceil($date_dif / (60*60*24));
+            $eday = ceil($date_dif / (60*60*24)+1);
           ?>
           <li class="swiper-slide">
             <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
               <div class="tab_tag">
@@ -254,11 +254,11 @@ include_once('./common.php');
             $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
             $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
             $date_dif = abs(strtotime($sdate)-strtotime($edate));
-            $eday = ceil($date_dif / (60*60*24));
+            $eday = ceil($date_dif / (60*60*24)+1);
           ?>
           <li class="swiper-slide">
             <a href="./sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+              <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
               <p><?=$data['course_title']?></p>
               <p><?=$data['course_content']?></p>
               <div class="tab_tag">

@@ -8,10 +8,15 @@ $id = mysqli_real_escape_string($con, $id);
 $sql_notice= "SELECT * FROM board_notice WHERE notice_id = '".$id."' ";
 $result = mysqli_query($con, $sql_notice);
 $data = mysqli_fetch_array($result);
+$content = nl2br($data['notice_content']); // 줄바꿈 처리
 
 $sql_member_board= "SELECT * FROM member WHERE mb_no = ".$data['mb_no']." ";
 $result_member_board = mysqli_query($con, $sql_member_board);
 $row_member_board = mysqli_fetch_array($result_member_board);
+
+$sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
+$result_file = mysqli_query($con, $sql_file);
+$row_file = mysqli_fetch_assoc($result_file);
 
 ?>
 
@@ -39,7 +44,10 @@ $row_member_board = mysqli_fetch_array($result_member_board);
   <article id="notice_view_box">
     <h3><?=$data['notice_title']?></h3>
     <!-- <img src="<?=$base_URL?>images/logo_admin.png" alt="로고"> -->
-    <p><?=$data['notice_content']?></p>
+    <p><?=$content?></p>
+    <div class="con <?=empty($data['fileID']) ? 'hidden' : ''?>">
+      <img src="<?=$base_URL?>upload/<?=$row_file['nameSave']?>" alt="이미지">
+    </div>
   </article>
   
   <p class="notice_link">

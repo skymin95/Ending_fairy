@@ -133,7 +133,7 @@
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">
         <li>
-          <img src="<?=$base_URL?>images/icon_navi_member.svg" alt="기본프로필">
+          <img src="<?=$base_URL?>images/userimg_mypage.png" alt="기본프로필">
         </li>
         <li>
           <p>로그인 후, 나의 정보를 확인하세요.</p>
@@ -169,7 +169,7 @@
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">
         <li>
-          <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg.png")?>" alt="userimg" class="profile_img">
+          <img src="<?=(empty($row_member['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png")?>" alt="userimg" class="profile_img">
         </li>
         <li>
           <p><?=$row_member['mb_name']."".(empty($row_member['mb_nick']) == ''?"(".$row_member['mb_nick'].")":"")?><span>님</span></p>

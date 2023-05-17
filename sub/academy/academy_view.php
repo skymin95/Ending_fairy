@@ -33,7 +33,7 @@ $eday = ceil($date_dif / (60*60*24));
       </h2>
     </article>
 
-    <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+    <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
 
     <section class="c_info">
       <h2 class="hidden">강의 상세</h2>
@@ -42,7 +42,7 @@ $eday = ceil($date_dif / (60*60*24));
       </div>
       <p><?=$data['course_title']?></p>
       <p><?=$data['course_content']?></p>
-      <p><span>신청기간</span> <?=$data['course_ask_sdate']?> ~ <?=$data['course_ask_edate']?></p>
+      <p><span>신청기간</span> <?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?></p>
       <p><span>교육기간</span> <?=$eday?>일</p>
       <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
       <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
@@ -66,8 +66,8 @@ $eday = ceil($date_dif / (60*60*24));
       
       <section class="tab_con intro">
         <h3 class="hidden">과정소개</h3>
-        <div class="con">
-          <img src="../../images/<?=$data['fileID']?>" alt="과정소개">
+        <div class="con <?=empty($data['fileID']) ? 'hidden' : ''?>">
+          <img src="<?=$base_URL?>images/<?=$data['fileID']?>" alt="과정소개">
         </div>
         <button type="button" class="more">더보기<i class="fa-solid fa-sort-down"></i></button>
       </section>
@@ -121,7 +121,7 @@ $eday = ceil($date_dif / (60*60*24));
           <li>
             <p><?=$name?></p>
             <div class="star">
-              <img src="../../images/star_f.png" alt="별점">
+              <img src="<?=$base_URL?>images/star_f.png" alt="별점">
               <!-- <?=$data['review_star']?> -->
             </div>
             <p><?=$data['review_title']?></p>
