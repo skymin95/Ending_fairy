@@ -63,7 +63,7 @@ $row_member = mysqli_fetch_array($result_member);
 
         <dt>사용 횟수</dt>
         <dd class="w-30">
-          <input type="text" name="coupon_count" value="<?=$data['coupon_count']?>" required>
+          <input type="text" name="coupon_count" value="<?=$data['coupon_count']?>" placeholder="0 또는 숫자 입력 (0일시 무제한)" required>
         </dd>
 
         <dt>쿠폰 사용기한</dt>

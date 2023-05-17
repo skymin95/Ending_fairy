@@ -36,14 +36,14 @@
       > .coupon_cate {
         font-size: var(--f-size01);
         text-align: center;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
       > h5 {
         font-size: var(--f-size02);
         text-align: center;
         font-size: 0.875rem;
         font-weight: 700;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
       }
       > .coupon_price {
         font-size: var(--f-size03);
@@ -60,3 +60,87 @@
     }
   }
 }
+
+// 쿠폰등록 모달
+#couponModal {
+  top: calc(50% - (350px / 2)); left: 50%;
+  width: 100%; max-width: 345px;
+  height: 350px;
+  padding: 40px 20px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 15px;
+  z-index: 9999;
+  &::backdrop {
+    background-color: rgba(0,0,0,0.7);
+  }
+  #modal_close_btn {
+    width: 20px; height: 20px;
+    position: absolute;
+    top: 20px; right: 20px;
+    cursor: pointer;
+    > span {
+      $span-height: 2px;
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: 100%; height: $span-height;
+      background-color: var(--bg-color02);
+      &:first-of-type {
+        top: calc(50% - ($span-height / 2));
+        transform: rotate(45deg);
+      }
+      &:last-of-type {
+        bottom: calc(50% - ($span-height / 2));
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  > form {
+    > h4 {
+      @include onemobile();
+      font-size: var(--f-size03);
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    > input#coupon_code {
+      width: 100%; height: 36px;
+      border: 1px solid var(--st-color01);
+      padding: 0 16px;
+      border-radius: 10px;
+      font-weight: 400;
+      font-size: var(--f-size02);
+      margin-bottom: 24px;
+    } // input#coupon_code end
+    > button[type=submit] {
+      @include btn('before', 'large');
+      display: block;
+      margin: 0 auto 36px;
+      &.on {
+        @include btn('red', 'large');
+      } // &.on end
+    } // button[type=submit] end
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      > li {
+        $circle-size: 4px;
+        font-size: var(--f-size01);
+        color: var(--f-color04);
+        padding-left: $circle-size + 8px;
+        position: relative;
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0; top: calc(50% - ($circle-size / 2));
+          width: $circle-size; height: $circle-size;
+          background-color: var(--main-color);
+          border-radius: 50%;
+        }
+      }
+    } // > ul end
+  } // form end
+} // #couponModal end

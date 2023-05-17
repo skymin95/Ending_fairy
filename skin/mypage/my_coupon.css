@@ -57,14 +57,14 @@
 .coupon_wrap > .coupon_list_wrap > ul > li > .coupon_cate {
   font-size: var(--f-size01);
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .coupon_wrap > .coupon_list_wrap > ul > li > h5 {
   font-size: var(--f-size02);
   text-align: center;
   font-size: 0.875rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .coupon_wrap > .coupon_list_wrap > ul > li > .coupon_price {
   font-size: var(--f-size03);
@@ -76,4 +76,105 @@
 .coupon_wrap > .coupon_list_wrap > ul > li > .coupon_edate {
   font-size: var(--f-size01);
   color: var(--f-color04);
+}
+
+#couponModal {
+  top: calc(50% - 175px);
+  left: 50%;
+  width: 100%;
+  max-width: 345px;
+  height: 350px;
+  padding: 40px 20px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 15px;
+  z-index: 9999;
+}
+#couponModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#couponModal #modal_close_btn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+#couponModal #modal_close_btn > span {
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--bg-color02);
+}
+#couponModal #modal_close_btn > span:first-of-type {
+  top: calc(50% - 1px);
+  transform: rotate(45deg);
+}
+#couponModal #modal_close_btn > span:last-of-type {
+  bottom: calc(50% - 1px);
+  transform: rotate(-45deg);
+}
+#couponModal > form > h4 {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  font-size: var(--f-size03);
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+#couponModal > form > input#coupon_code {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--st-color01);
+  padding: 0 16px;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: var(--f-size02);
+  margin-bottom: 24px;
+}
+#couponModal > form > button[type=submit] {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: #767676;
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 9px 53px;
+  display: block;
+  margin: 0 auto 36px;
+}
+#couponModal > form > button[type=submit].on {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: var(--main-color);
+  color: var(--f-color01);
+  font-size: var(--f-size02);
+  padding: 9px 53px;
+}
+#couponModal > form > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#couponModal > form > ul > li {
+  font-size: var(--f-size01);
+  color: var(--f-color04);
+  padding-left: 12px;
+  position: relative;
+}
+#couponModal > form > ul > li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 2px);
+  width: 4px;
+  height: 4px;
+  background-color: var(--main-color);
+  border-radius: 50%;
 }/*# sourceMappingURL=my_coupon.css.map */
