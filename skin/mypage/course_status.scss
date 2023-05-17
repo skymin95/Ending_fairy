@@ -16,12 +16,16 @@
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
 }
 
+footer{
+  @include footer(-15px);
+}
+
 .list_tab {
   @include box(-15px);
-  padding: 20px;
+  padding: 20px 20px 56px 20px;
   
   &::before{
-    @include tab_active(50px);
+    @include tab_active(47px);
   }
   .line_tab{
     @include tab;

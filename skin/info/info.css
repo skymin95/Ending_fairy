@@ -1,3 +1,9 @@
+footer {
+  position: relative;
+  top: -15px;
+  padding: 25px 25px 100px 25px;
+}
+
 .hidden {
   display: none;
 }
