@@ -1,7 +1,25 @@
 <?php
 $title = "마이페이지 > 커뮤니티 상세페이지"; // 타이틀
 include_once('../common.php');
+
+$id = (empty($_GET['community_id']) ? '' : $_GET['community_id']);
+$id = mysqli_real_escape_string($con, $id);
+
+$sql_community= "SELECT * FROM board_community WHERE community_id  = '".$id."' ";
+$result = mysqli_query($con, $sql_community);
+$data = mysqli_fetch_array($result);
+
+$sql_community_parent= "SELECT * FROM board_community WHERE community_parent_id  = '".$id."' ";
+$result_parent = mysqli_query($con, $sql_community_parent);
+$data_parent = mysqli_fetch_array($result_parent);
+
+$sql_question_parent= "SELECT * FROM board_community WHERE community_parent_id  = '".$id."' " ;
+$result_parent = mysqli_query($con, $sql_question_parent);
+$data_parent = mysqli_fetch_array($result_parent);
+
 ?>
+
+<main>
 
 <h2 class="sub_title_prev">
   <a href="community.php" title="돌아가기">
@@ -103,3 +121,7 @@ include_once('../common.php');
     </ul>
   </div>
 </article>
+</main>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
+?>

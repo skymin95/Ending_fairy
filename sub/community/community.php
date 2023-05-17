@@ -1,6 +1,22 @@
 <?php
 $title = "마이페이지 > 커뮤니티"; // 타이틀
 include_once('../common.php');
+$mb_id = $_SESSION['mb_id']; // 회원명
+
+$id = (empty($_GET['community_id']) ? '' : $_GET['board_id']);
+$id = mysqli_real_escape_string($con, $id);
+
+// $sql_community= "SELECT * FROM board_community";
+// $result = mysqli_query($con, $sql_community);
+
+$sql = "select * from board_community order by community_id desc;";
+$result = mysqli_query($con, $sql);
+
+$sql_question_parent= "SELECT * FROM board_community WHERE community_parent_id  = '".$id."' " ;
+$result_parent = mysqli_query($con, $sql_question_parent);
+$data_parent = mysqli_fetch_array($result_parent);
+
+
 ?>
 
 <main>
@@ -16,14 +32,31 @@ include_once('../common.php');
       </ul>
 
       <!-- 아이콘,닉네임,날짜 -->
+      <?php
+      // 데이터 출력
+        while($data = mysqli_fetch_array($result)){
+        $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick, mb_1 FROM member WHERE mb_no = '".$data['mb_no']."'";
+        $result_member = mysqli_query($con, $sql_member);
+        $row_member = mysqli_fetch_array($result_member);
+      ?>
       <ul class="community_user_info">
-        <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+        <li>
+          <?php if(empty($row_member['mb_1'])) {?>
+            <img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <?php } else {
+            $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'" ;
+            $result_file = mysqli_query($con, $sql_file);
+            $row_file = mysqli_fetch_assoc($result_file);
+          ?>
+          <img src="<?=$base_URL.'upload/'.$row_file['nameSave']?>" alt="userimg" class="com_user_img">
+          <?php } ?>
         </li>
         <li class="name_day">
-          <p>뇽뇽</p>
-          <span>2023-05-17</span>
-        <!-- <p><?= ($row_member_board['mb_nick'] == '' ? $row_member_board['mb_name'] : $row_member_board['mb_nick'])?></p>
-        <span><?=date_format(date_create($data['community_wdate']), "Y-m-d")?></span> -->
+          <p><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?> 
+          </p>
+          <span>
+            <?=date_format(date_create($data['community_wdate']), "Y-m-d")?>
+          </span>
         </li>
       </ul>
 
@@ -39,10 +72,9 @@ include_once('../common.php');
         <!-- 하단 내용 li -->
         <li class="com_content_box">
           <a href="community_view.php" title="상세페이지이동">
-            <h3>친구랑 인생샷 건진 날</h3>
+            <h3><?=$data['community_title']?></h3>
               <p class="community_content">
-                오늘 친구랑 올림픽공원에서 촬영했어요.
-                날씨가 너무 좋아서 사진 색감이 잘 뽑히더라구요DSLR로 찍으니까 감성이 더해져서 인생샷을 건질 수 있었어요. 여러분들은 오늘 어떤 하루를 보내셨나요?
+                <a href="community_view.php"><?=$data['community_content']?></a>
               </p>
               <!-- <span class="more_btn">더보기</span> -->
           </a>
@@ -59,74 +91,11 @@ include_once('../common.php');
           </ul>
         </li>
       </ul>
+      <?php } ?>
 
-      <!-- 2번 -->
-      <ul class="community_ul"> 
-        <!-- 상단이미지 li -->
-        <li>
-          <a href="community_view.php" title="상세페이지이동">
-            <img src="http://localhost/Ending_fairy/images/community.png" alt="userimg" class="community_img">
-          </a>
-        </li>
 
-        <!-- 하단 내용 li -->
-        <li class="com_content_box">
-          <a href="community_view.php" title="상세페이지이동">
-            <h3>친구랑 인생샷 건진 날</h3>
-              <p class="community_content">
-                오늘 친구랑 올림픽공원에서 촬영했어요.
-                날씨가 너무 좋아서 사진 색감이 잘 뽑히더라구요DSLR로 찍으니까 감성이 더해져서 인생샷을 건질 수 있었어요. 여러분들은 오늘 어떤 하루를 보내셨나요?
-              </p>
-              <!-- <span class="more_btn">더보기</span> -->
-          </a>
-          <!-- 좋아요,댓글 버튼 -->
-          <ul class="heart_btn">
-            <li>
-              <img src="http://localhost/Ending_fairy/images/heart.png" alt="userimg">
-              <span>898</span>
-              <img src="http://localhost/Ending_fairy/images/댓글.png" alt="userimg">
-              <span>24</span>
-            </li>
-          </ul>
-        </li>
 
-     
-
-      </ul>
-
-      <!-- 3번 -->
-      <ul class="community_ul"> 
-        <!-- 상단이미지 li -->
-        <li>
-          <a href="community_view.php" title="상세페이지이동">
-            <img src="http://localhost/Ending_fairy/images/community.png" alt="userimg" class="community_img">
-          </a>
-        </li>
-
-        <!-- 하단 내용 li -->
-        <li class="com_content_box">
-          <a href="community_view.php" title="상세페이지이동">
-            <h3>친구랑 인생샷 건진 날</h3>
-              <p class="community_content">
-                오늘 친구랑 올림픽공원에서 촬영했어요.
-                날씨가 너무 좋아서 사진 색감이 잘 뽑히더라구요DSLR로 찍으니까 감성이 더해져서 인생샷을 건질 수 있었어요. 여러분들은 오늘 어떤 하루를 보내셨나요?
-              </p>
-              <!-- <span class="more_btn">더보기</span> -->
-          </a>
-          <!-- 좋아요,댓글 버튼 -->
-          <ul class="heart_btn">
-            <li>
-              <img src="http://localhost/Ending_fairy/images/heart.png" alt="userimg">
-              <span>898</span>
-              <img src="http://localhost/Ending_fairy/images/댓글.png" alt="userimg">
-              <span>24</span>
-            </li>
-          </ul>
-        </li>
-
-     
-
-      </ul>
+      
     </div>
   </article>
 </main>

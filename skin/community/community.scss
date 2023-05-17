@@ -92,7 +92,8 @@ background: #EFF1F3;
 .community_ul{
   margin-top: 8px;
   width: 100%;
-  min-height: 375px;
+  // min-height: 375px;
+  margin-bottom: 24px;
   border: 1px solid #fff;
 // 자랑 이미지
 .community_img{
@@ -174,9 +175,11 @@ background: #EFF1F3;
     border-radius: 24px;
   }
   .name_day{
-    margin-left: 16px;
+    margin: 2px 0 0 16px;
     p{
       font-size: 14px;
+      margin-bottom: 4px;
+      font-weight: 600;
     }
     span{
       font-size: 12px;
@@ -205,16 +208,21 @@ background: #EFF1F3;
     }
   }
   p{
-    margin: 4px 12px 24px;
+    margin: 12px 12px 24px;
+    line-height: 19px;
   }
 }
 .comm_answer{
-  padding: 40px 20px 24px 20px;
+  padding: 40px 0px 24px 0px;
   // 임시 높이
   .answer_num{
     padding-bottom: 13px;
     border-bottom: 1px solid #DDDDDD;
     margin-bottom: 12px;
+    font-size: 14px;
+    span{
+      color: #DE0010;
+    }
   }
   .answer_box1{
     width: 100%;
@@ -242,6 +250,7 @@ background: #EFF1F3;
   }
 }
 .answer_ans_wrap{
+  padding-left: 5px;
   .user_ans{
     display: flex;
     margin-top: 12px;
@@ -264,6 +273,7 @@ background: #EFF1F3;
     display: block;
     margin-left: 29px;
     line-height: 19px;
+    font-size: 14px;
   }
   span{
     margin-left: 29px;

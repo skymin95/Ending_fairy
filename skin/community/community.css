@@ -80,7 +80,7 @@
 .community_all_box .community_ul {
   margin-top: 8px;
   width: 100%;
-  min-height: 375px;
+  margin-bottom: 24px;
   border: 1px solid #fff;
 }
 .community_all_box .community_ul .community_img {
@@ -163,10 +163,12 @@
   border-radius: 24px;
 }
 .comm_view_box .community_user_info .name_day {
-  margin-left: 16px;
+  margin: 2px 0 0 16px;
 }
 .comm_view_box .community_user_info .name_day p {
   font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 600;
 }
 .comm_view_box .community_user_info .name_day span {
   font-size: 12px;
@@ -194,15 +196,20 @@
      object-fit: cover;
 }
 .comm_view_box .community_view_ul p {
-  margin: 4px 12px 24px;
+  margin: 12px 12px 24px;
+  line-height: 19px;
 }
 .comm_view_box .comm_answer {
-  padding: 40px 20px 24px 20px;
+  padding: 40px 0px 24px 0px;
 }
 .comm_view_box .comm_answer .answer_num {
   padding-bottom: 13px;
   border-bottom: 1px solid #DDDDDD;
   margin-bottom: 12px;
+  font-size: 14px;
+}
+.comm_view_box .comm_answer .answer_num span {
+  color: #DE0010;
 }
 .comm_view_box .comm_answer .answer_box1 {
   width: 100%;
@@ -242,6 +249,9 @@
   font-size: var(--f-size02);
   padding: 5px 16px;
 }
+.comm_view_box .answer_ans_wrap {
+  padding-left: 5px;
+}
 .comm_view_box .answer_ans_wrap .user_ans {
   display: flex;
   margin-top: 12px;
@@ -262,6 +272,7 @@
   display: block;
   margin-left: 29px;
   line-height: 19px;
+  font-size: 14px;
 }
 .comm_view_box .answer_ans_wrap span {
   margin-left: 29px;
