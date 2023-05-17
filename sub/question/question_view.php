@@ -49,10 +49,9 @@ $data_parent = mysqli_fetch_array($result_parent);
   <a href="question.php" title="목록으로">목록으로</a>
 </p>
 
-medium
-
-
-
 </article>
 
 </main>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
+?>

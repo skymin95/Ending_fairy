@@ -134,5 +134,5 @@ $eday = ceil($date_dif / (60*60*24));
 
 </main>
 <?php
-include_once('../../footer.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
 ?>

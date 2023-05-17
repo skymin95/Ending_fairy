@@ -1,16 +1,11 @@
 @import '../layout.scss';
 
-h3{
-  @include onemobile();
-  font-weight: bold;
-}
-ol,ul,li{
-  list-style: none;
-}
-
 // 강의 목록 서식
 #course_list{
   padding: 0 20px;
+  &::before{
+    @include tab_active(91px);
+  }
   .line_tab{
     @include tab;
     margin-top: 12px;
@@ -21,6 +16,7 @@ ol,ul,li{
     @include tab_on(100px, 93px);
   }
   .tab_con:not(.curriculum){
+    padding-bottom: 48px;
     > p{
       margin-bottom: 20px;
       font-size: 14px;
@@ -62,35 +58,20 @@ ol,ul,li{
     }
   }
 }
-#course_list::before{
-  @include tab_active(91px);
-}
 
 // 강의 상세 서식
 #detail{
-  h2{
-    height: 70px;
-    background: var(--sub-color01);
-    border-radius: 15px 15px 0px 0px;
-    a{
-      @include onemobile;
-      display: inline-block;
-      margin: 16px 0 0 20px;
-      font-size: 18px;
-      color: var(--f-color01);
-      i.fas{
-        margin-right: 12px;
-      }
-    }
+  .sub_title_prev{
+    @include sub_title_prev();
   }
   > img{
     width: 100%;
     border-radius: 15px 15px 0px 0px;
     position: relative;
-    top: -18px;
+    top: -15px;
   }
   .c_info{
-    @include box(-30px);
+    @include box(-32px);
     padding-top: 20px;
     font-size: 14px;
     .tag{
@@ -114,24 +95,17 @@ ol,ul,li{
       margin-bottom: 12px;
     }
     .c_btn{
-      width: 100%;
       text-align: center;
       margin-top: 20px;
-      a{
+      .pre{
         display: inline-block;
         width: 124px;
-        height: 32px;
-        margin: 0 10px;
-        font-size: var(--f-size02);
-        line-height: 30px;
-        color: #fff;
-        border-radius: 15px;
-      }
-      .pre{
-        background: #5A5A5C;
+        margin-right: 10px;
+        @include btn('cancle', 'medium', '400');
       }
       .cart{
-        background: var(--main-color);
+        @include btn('red', 'medium', '400');
+        width: 124px;
         i.fas{
           margin-right: 4px;
         }
@@ -139,9 +113,14 @@ ol,ul,li{
     }
   }
   .c_detail{
-    @include box(-27px);
+    @include box(-30px);
+    &::before{
+      @include tab_active(67px);
+    }
     .line_tab{
       @include tab;
+      gap: 0;
+      justify-content: space-between;
     }
     .tab_on{
       @include tab_on(83px, 69px);
@@ -206,15 +185,17 @@ ol,ul,li{
       }
     }
   }
-  .c_detail::before{
-    @include tab_active(67px);
-  }
 }
+// 강의 상세 끝
+
 
 //커리큘럼 서식
  .curriculum{
   padding-bottom: 48px;
   @include onemobile;
+  h3{
+    font-weight: bold;
+  }
   > .curri_order{
     padding-bottom: 24px;
     border-bottom: 1px solid #ccc;
@@ -347,5 +328,3 @@ ol,ul,li{
       }
     }
   }
-
-

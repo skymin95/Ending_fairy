@@ -472,7 +472,7 @@ main {
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #board .board_con {
-  padding: 39px 11px 13px 11px;
+  padding: 39px 8px 0 8px;
 }
 #board .board_con li {
   padding: 10px 0;

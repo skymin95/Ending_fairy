@@ -1,3 +1,13 @@
+<<<<<<< Updated upstream
+=======
+@charset "UTF-8";
+footer {
+  position: relative;
+  top: -15px;
+  padding: 25px 25px 100px 25px;
+}
+
+>>>>>>> Stashed changes
 #question_wrap {
   width: 100%;
   margin: 0 auto;
@@ -187,6 +197,6 @@
   color: var(--main-color);
   font-size: var(--f-size02);
   padding: 7px 22px;
-  margin: 0 auto 94px;
+  margin-bottom: 56px;
   display: inline-block;
 }/*# sourceMappingURL=question.css.map */
