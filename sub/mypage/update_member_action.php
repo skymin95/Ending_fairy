@@ -2,7 +2,7 @@
 
 include_once('../common.php');
 
-$mb_no = $_POST['mb_no']??'';
+$mb_no = $row_member['mb_no']??'';
 $mb_id = $_POST['mb_id']??'';
 $mb_password = $_POST['mb_password']??'';
 $mb_name = $_POST['mb_name']??'';
@@ -43,24 +43,20 @@ if(isset($_FILES['fileDoc']) && $_FILES['fileDoc']['name'] != "") {
 }
 
 $sql_update = "UPDATE member
-SET mb_id = '$mb_id', 
-".(empty($mb_password) ? "" : "mb_password = '".password_hash($mb_password, PASSWORD_DEFAULT)."', ")."
-mb_name = '$mb_name', 
+SET ".(empty($mb_password) ? "" : "mb_password = '".password_hash($mb_password, PASSWORD_DEFAULT)."', ")."
 mb_nick = '$mb_nick', 
 mb_email = '$mb_email', 
 mb_sns = '$mb_sns', 
-mb_level = '$mb_level', 
-mb_birth = '$mb_birth',
-mb_1 = '$file_id'
+mb_birth = '$mb_birth'
+".($file_id != "" ? ", mb_1 = '$file_id'" : "")."
 WHERE mb_no = $mb_no
 ";
-
 mysqli_query($con, $sql_update);
 
 echo "
 <script>
   alert('수정이 완료되었습니다.');
-  location.replace('adm_member_list.php');
+  location.replace('update_member.php');
 </script>";
 
 

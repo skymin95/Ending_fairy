@@ -86,8 +86,8 @@ if(isset($_FILES['fileDoc']) && $_FILES['fileDoc']['name'] != "") {
         course_edu_edate = '$course_edu_edate', 
         course_tag = '$course_tag', 
         course_link = '$course_link', 
-        mb_no = '$mb_no',
-        course_img = '$file_id'
+        mb_no = '$mb_no'
+        ".($file_id != "" ? ", course_img = '$file_id'" : "")."
     WHERE course_id = '$id' ";
     $result_course = mysqli_query($con, $sql_course);
 

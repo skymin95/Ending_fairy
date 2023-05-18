@@ -35,7 +35,7 @@ if(strpos($str, '-')){
   <article class="update_member">
     <h3 class="hidden">회원정보 수정 폼</h3>
     <span class="explanation">표시는 필수입력 사항입니다.</span>
-    <form action="update_member_action.php" method="post">
+    <form action="update_member_action.php" method="post" enctype="multipart/form-data">
       <table>
         <caption class="hidden">회원정보 수정 폼</caption>
         <tbody>
