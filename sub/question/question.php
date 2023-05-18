@@ -2,7 +2,6 @@
 $title = "마이페이지 > 1:1문의"; // 타이틀
 include_once('../common.php');
 
-$mb_id = $_SESSION['mb_id']; // 회원명
 $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 $category = empty($_GET['category']) ? '' : $_GET['category']; // 현재 카테고리
@@ -14,6 +13,9 @@ switch($cate) {
   case '3': $cate_name = '커뮤니티'; $cate_table = 'community'; break;
   default: $cate_name = '공지사항';  break;
 }
+
+$sql = "select * from board_question where question_parent_id like '0%' ".($category != '' ? "AND $category LIKE '%$search%' " : "")." order by question_id desc";
+$result = mysqli_query($con, $sql);
 ?>
 <main>
   <article id="question_wrap">
@@ -29,41 +31,38 @@ switch($cate) {
     <ul class="question_ul">
   <form name="question" id="question_form" method="get" action="question.php">
   <?php
-      $sql_question = "select * from board_question ".($category != '' ? "WHERE $category LIKE '%$search%' " : "")." order by question_id desc;";
-      $result_question= mysqli_query($con, $sql_question);
+      // 페이지내이션
+      $num = mysqli_num_rows($result);
+      $list_num = 5; /* paging : 한 페이지 당 데이터 개수 */
+      $page_num = 5; /* paging : 한 블럭 당 페이지 수 */
+      // $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
+      $total_page = ceil($num / $list_num); /* paging : 전체 페이지 수 = 전체 데이터 / 페이지당 데이터 개수, ceil : 올림값 */
+      $total_block = ceil($total_page / $page_num); /* paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수 */
+      $now_block = ceil($page / $page_num); /* paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수 */
+      $s_pageNum = ($now_block - 1) * $page_num + 1; /* paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭번호 - 1) * 블럭당 페이지 수 + 1 */
+      if($s_pageNum <= 0){ // 데이터가 0개인 경우
+        $s_pageNum = 1;
+      };
+      $e_pageNum = $now_block * $page_num; /* paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수 */
+      if($e_pageNum > $total_page){ // 마지막 번호가 전체 페이지 수를 넘지 않도록
+        $e_pageNum = $total_page;
+      };
+      $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
 
-        // 페이지내이션
-        $num = mysqli_num_rows($result_question);
-        $list_num = 8; /* paging : 한 페이지 당 데이터 개수 */
-        $page_num = 5; /* paging : 한 블럭 당 페이지 수 */
-        // $page = isset($_GET["page"])? $_GET["page"] : 1; /* paging : 현재 페이지 */
-        $total_page = ceil($num / $list_num); /* paging : 전체 페이지 수 = 전체 데이터 / 페이지당 데이터 개수, ceil : 올림값 */
-        $total_block = ceil($total_page / $page_num); /* paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수 */
-        $now_block = ceil($page / $page_num); /* paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수 */
-        $s_pageNum = ($now_block - 1) * $page_num + 1; /* paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭번호 - 1) * 블럭당 페이지 수 + 1 */
-        if($s_pageNum <= 0){ // 데이터가 0개인 경우
-          $s_pageNum = 1;
-        };
-        $e_pageNum = $now_block * $page_num; /* paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수 */
-        if($e_pageNum > $total_page){ // 마지막 번호가 전체 페이지 수를 넘지 않도록
-          $e_pageNum = $total_page;
-        };
-        $start = ($page - 1) * $list_num; /* paging : 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 데이터 수 */
+      $sql = "$sql limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
+      $result_question = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
+      $number = 0 + ($start);
+    
+      // 데이터 출력
+      while($data = mysqli_fetch_array($result_question)){
+        $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
+        $result_member = mysqli_query($con, $sql_member);
+        $row_member = mysqli_fetch_array($result_member);
 
-        $sql = "select * from board_question ".($category != '' ? "WHERE $category LIKE '%$search%' " : "")." order by question_id desc limit $start, $list_num"; /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
-        $result_question = mysqli_query($con, $sql); /* paging : 쿼리 전송 */
-        $number = 0 + ($start);
-     
-        // 데이터 출력
-        while($data = mysqli_fetch_array( $result_question)){
-          $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
-          $result_member = mysqli_query($con, $sql_member);
-          $row_member = mysqli_fetch_array($result_member);
-
-          $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = ".$data['question_id']."";
-          $result_parent = mysqli_query($con, $sql_parent);
-          $row_parent = mysqli_num_rows($result_parent);
-      ?>
+        $sql_parent = "SELECT * FROM `board_question` AS a INNER JOIN (SELECT question_parent_id FROM `board_question` WHERE question_parent_id IS NOT NULL) AS b ON b.question_parent_id = a.question_id WHERE question_id = ".$data['question_id']."";
+        $result_parent = mysqli_query($con, $sql_parent);
+        $row_parent = mysqli_num_rows($result_parent);
+    ?>
 
           <ul>
             <li>

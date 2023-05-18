@@ -15,6 +15,10 @@ $data_parent = mysqli_fetch_array($result_parent);
 $sql_member_board= "SELECT * FROM member WHERE mb_no = ".$data['mb_no']." ";
 $result_member_board = mysqli_query($con, $sql_member_board);
 $row_member_board = mysqli_fetch_array($result_member_board);
+
+$sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member_board['mb_1']."'";
+$result_file = mysqli_query($con, $sql_file);
+$row_file = mysqli_fetch_assoc($result_file);
 ?>
 <main>
 
@@ -28,7 +32,7 @@ $row_member_board = mysqli_fetch_array($result_member_board);
 <!-- 문의 내용 -->
 <article class="question_view_box">
 <ul class="q_user_info">
-    <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="q_user_img">
+    <li><img src="<?=(empty($row_member_board['mb_1']) == ''?"".$base_URL."upload/".$row_file['nameSave']."":"".$base_URL."images/userimg_mypage.png")?>" alt="userimg" class="q_user_img">
     </li>
     <li class="q_name_day">
     <p><?= ($row_member_board['mb_nick'] == '' ? $row_member_board['mb_name'] : $row_member_board['mb_nick'])?></p>
