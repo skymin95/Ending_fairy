@@ -3,7 +3,7 @@ $title = "마이페이지 > 커뮤니티"; // 타이틀
 include_once('../common.php');
 $mb_id = $_SESSION['mb_id']; // 회원명
 
-$id = (empty($_GET['community_id']) ? '' : $_GET['board_id']);
+$id = (empty($_GET['community_id']) ? '' : $_GET['community_id']);
 $id = mysqli_real_escape_string($con, $id);
 
 // $sql_community= "SELECT * FROM board_community";
@@ -12,8 +12,8 @@ $id = mysqli_real_escape_string($con, $id);
 $sql = "select * from board_community order by community_id desc;";
 $result = mysqli_query($con, $sql);
 
-$sql_question_parent= "SELECT * FROM board_community WHERE community_parent_id  = '".$id."' " ;
-$result_parent = mysqli_query($con, $sql_question_parent);
+$sql_community_parent= "SELECT * FROM board_community WHERE community_parent_id  = '".$id."' " ;
+$result_parent = mysqli_query($con, $sql_community_parent);
 $data_parent = mysqli_fetch_array($result_parent);
 
 
@@ -71,12 +71,14 @@ $data_parent = mysqli_fetch_array($result_parent);
 
         <!-- 하단 내용 li -->
         <li class="com_content_box">
-          <a href="community_view.php" title="상세페이지이동">
-            <h3><?=$data['community_title']?></h3>
-              <p class="community_content">
-                <a href="community_view.php"><?=$data['community_content']?></a>
-              </p>
-              <!-- <span class="more_btn">더보기</span> -->
+          <a href="community_view.php?community_id=<?=$data['community_id']?>" title="상세페이지이동">
+            <h3>
+              <?=$data['community_title']?>
+            </h3>
+            <p class="community_content">
+              <?=$data['community_content']?>
+            </p>
+  
           </a>
           <!-- 좋아요,댓글 버튼 -->
           <ul class="heart_btn">
