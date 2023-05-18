@@ -82,6 +82,7 @@
   }
   if($title ==   "마이페이지 > 커뮤니티 상세페이지"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."community/community.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."community/community.js' defer></script>";
   }
   if($title ==   "마이페이지 > 커뮤니티 글쓰기"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."community/community_write.css' type='text/css'>";

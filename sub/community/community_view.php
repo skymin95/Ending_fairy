@@ -15,9 +15,6 @@ $result_parent = mysqli_query($con, $sql_community_parent);
 $data_parent = mysqli_fetch_array($result_parent);
 
 
-// $sql_member_board= "SELECT * FROM member WHERE mb_no = ".$data['mb_no']." ";
-// $result_member_board = mysqli_query($con, $sql_member_board);
-// $row_member_board = mysqli_fetch_array($result_member_board);
 ?>
 
 <main>
@@ -69,10 +66,10 @@ $data_parent = mysqli_fetch_array($result_parent);
   <ul class="community_view_ul">
     <h3><?=$data['community_title']?></h3>
     <li>
-    <img src="http://localhost/Ending_fairy/images/커뮤상세1.png" alt="커뮤상세1">
+    <!-- <img src="http://localhost/Ending_fairy/images/커뮤상세1.png" alt="커뮤상세1"> -->
     </li>
     <li>
-    <img src="http://localhost/Ending_fairy/images/커뮤상세2.png" alt="커뮤상세2">
+    <!-- <img src="http://localhost/Ending_fairy/images/커뮤상세2.png" alt="커뮤상세2"> -->
     </li>
       <p>
       <?=$data['community_content']?>
@@ -80,72 +77,97 @@ $data_parent = mysqli_fetch_array($result_parent);
   </ul>
 
 
-  
-  <div class="comm_answer">
-    <p class="answer_num">댓글 <span>5</span>개</p>
-    <input type="textarea" placeholder="댓글을 남겨보세요!" class="answer_box1">
-    <!-- 댓글 버튼서식 -->
-    <ul class= "comm_answer_btn">
-      <li class="comm_an_cancel">
-        <a href="community.php" title="취소버튼">취소</a>
-      </li>
-      <li class="comm_an_submit">
-        <input type="submit" value="등록">
-      </li>
-    </ul>
+  <form name="community_answer" id="community_a_form" method="post" action="community_answer_action.php">
+    <input type="hidden" value="<?php echo $id ?>" name="answer_name">
+    <!-- 댓글박스 -->
+    <div class="comm_answer">
+      <p class="answer_num">댓글 <span>5</span>개</p>
+      <input type="text" name="community_answer_title" placeholder="댓글을 남겨보세요!" class="answer_box1">
 
-    <ul class="answer_ans_wrap">
-      <!-- 댓글 -->
-      <li class="user_ans">
-      <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
-        <p>강*영</p>
-      </li>
-      <li>
-        <span class="ans_title">헐 대박 완전 인생샷!!
-          저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
-        </span>
-        <div class="answer_ans">
-          <span>3분전</span> <a href="#">답글쓰기</a>
-        </div>
-      </li>
-      <!-- 댓글에 댓글 -->
-      <li class="ans_ans">
-        <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
-        <p>강*영1</p>
-      </li>
-      <li class="ans_ans1">
-        <span class="ans_title">헐 대박 완전 인생샷!!
-          저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
-        </span>
-        <div class="answer_ans">
-          <span>3분전</span> <a href="#" title="답글쓰기">답글쓰기</a> <a href="#" title="삭제하기" class="ans_delete">삭제하기</a>
-        </div>
-      </li>
-        
-        <!-- 댓글 -->
+      <!-- 댓글 버튼서식 -->
+      <ul class= "comm_answer_btn">
+        <li class="comm_an_cancel">
+          <a href="community.php" title="취소버튼">취소</a>
+        </li>
+        <li class="comm_an_submit">
+          <input type="submit" value="등록">
+        </li>
+      </ul>
+
+      <!-- 대댓글 -->
+      <ul class="answer_ans_wrap">
         <li class="user_ans">
-      <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
-        <p>김*석</p>
-      </li>
-      <li>
-        <span class="ans_title">헐 대박 완전 인생샷!!
-          저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
-        </span>
-        <div class="answer_ans">
-          <span>3분전</span> <a href="#">답글쓰기</a>
-        </div>
-      </li>
-    </ul>
-    <input type="textarea" placeholder="댓글을 남겨보세요!" class="answer_box1">
-    <ul class= "comm_answer_btn">
-      <li class="comm_an_cancel">
-        <a href="community.php" title="취소버튼">취소</a>
-      </li>
-      <li class="comm_an_submit">
-        <input type="submit" value="등록">
-      </li>
-    </ul>
-  </div>
+          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <p>강*영</p>
+        </li>
+
+        <li>
+          <span class="ans_title">헐 대박 완전 인생샷!!
+            저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
+          </span>
+          <div class="answer_ans">
+            <span>3분전</span> 
+            <!-- <label for="ans_btn"></label> -->
+            <input type="button" value="답글쓰기" onclick="addInput();" id="ans_btn"/>
+          </div>
+        </li>
+        
+        <div id="comm_answer"></div>
+            
+          <!-- 댓글 버튼서식 -->
+          <ul class= "comm_answer_btn">
+            <li class="comm_an_cancel">
+              <input type="button" value="취소" onclick="deleteInput();"/>
+            </li>
+            <li class="comm_an_submit">
+              <input type="submit" value="등록">
+            </li>
+          </ul>
+
+
+        <!-- 댓글에 댓글 -->
+        <!-- <li class="ans_ans">
+          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <p>강*영1</p>
+        </li>
+
+        <li class="ans_ans1">
+          <span class="ans_title">헐 대박 완전 인생샷!!
+            저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
+          </span>
+          <div class="answer_ans">
+            <span>3분전</span> <a href="#" title="답글쓰기">답글쓰기</a> <a href="#" title="삭제하기" class="ans_delete">삭제하기</a>
+          </div>
+        </li> -->
+
+        <!-- 댓글 -->
+        <!-- <li class="user_ans">
+          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+            <p>김*석</p>
+        </li>
+
+        <li>
+          <span class="ans_title">헐 대박 완전 인생샷!!
+            저도 거기 가고싶네요 ㅎㅎ 시간 될 때 가야겠어요~~!
+          </span>
+          <div class="answer_ans">
+            <span>3분전</span> <a href="#">답글쓰기</a>
+          </div>
+        </li> -->
+      </ul>
+      
+      <!-- <input type="textarea" placeholder="댓글을 남겨보세요!" class="answer_box1">
+      <ul class= "comm_answer_btn">
+        <li class="comm_an_cancel">
+          <a href="community.php" title="취소버튼">취소</a>
+        </li>
+        <li class="comm_an_submit">
+          <input type="submit" value="등록">
+        </li>
+      </ul>
+      -->
+    </div>
+  </form>
 </article>
 </main>
 <?php

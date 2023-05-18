@@ -128,6 +128,9 @@ footer {
   border-radius: 15px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
 }
+.question_view_box .question_content_box p {
+  margin-bottom: 12px;
+}
 .question_view_box .question_answer_box {
   margin-bottom: 40px;
   padding: 12px 0px 24px 12px;
@@ -136,6 +139,9 @@ footer {
   border: 1px solid #fff;
   border-radius: 15px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px -1px 4px rgba(0, 0, 0, 0.05);
+}
+.question_view_box .question_answer_box p {
+  margin-bottom: 12px;
 }
 
 .question_link {
