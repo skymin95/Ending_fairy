@@ -151,10 +151,9 @@
 // 수강평 별점
 @mixin star{
   position: relative;
-  .star_f{
+  height: 13px;
+  img{
     position: absolute;
-    top: 2px;
-    color: var(--main-color);
   }
   .star1{ // 1점
     clip: rect(0, 15px, 13px, 0);

@@ -29,8 +29,10 @@ header {
     }
     .answer {
       position: relative;
-      > img {
-        height: 22px;
+      a{
+        img {
+          height: 22px;
+        }
       }
       &::after{
         $alertSize:13px; // 알림 크기 변수
@@ -125,6 +127,8 @@ header {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       place-items: center;
       z-index: 5001;
+      transform: translateZ(5001);
+      -webkit-transform: translate3d(0,0,5001);
       > li > a {
         display: flex;
         flex-wrap: wrap;
@@ -338,8 +342,12 @@ footer{
 // 로그인 전 내비게이션 상단 서식
 .nav_boxmenu{
   display:flex;
-  // justify-content: space-between;
-  column-gap: 16px;
+  justify-content: space-between;
+  a{
+    width: 43vw;
+    height: 36px;
+    text-align: center;
+  }
   >li:first-of-type{
     >a{
       @include btn('red', 'large');
@@ -350,7 +358,6 @@ footer{
     >a{
       @include btn('white red', 'large');
       display: inline-block;
-
     }
   }
 }
@@ -455,4 +462,34 @@ footer{
 .m_community_link{
   width: 100%;
   display: block;
+}
+
+
+// 준비중 페이지
+#empty{
+  @include onemobile;
+  width: 100%;
+  height: calc(100vh - 55px);
+  background: var(--sub-color01);
+  h1{
+    text-align: center;
+    padding: 40px 0;
+  }
+  div{
+    height: calc(100vh - 55px - 140px);
+    background: var(--bg-color01);
+    border-radius: 100px 0 0 0 ;
+    text-align: center;
+    img{
+      width: 280px;
+    }
+    h2{
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 40px;
+    }
+    p{
+      font-size: var(--f-size02);
+    }
+  }
 }

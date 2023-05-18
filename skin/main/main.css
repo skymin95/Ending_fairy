@@ -120,33 +120,41 @@ main {
   background: #fff;
   vertical-align: middle;
 }
-#m_my .member ul {
-  width: 300%;
+#m_my .member .m_course {
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#m_my .member .m_course::-webkit-scrollbar {
+  display: none;
+}
+#m_my .member .m_course ul {
+  width: 443px;
   display: flex;
   gap: 8px;
 }
-#m_my .member ul li {
+#m_my .member .m_course ul li {
   background: var(--f-color01);
   border-radius: 20px;
 }
-#m_my .member ul li a {
+#m_my .member .m_course ul li a {
   display: inline-block;
   padding: 10px;
 }
-#m_my .member ul li a span {
+#m_my .member .m_course ul li a span {
   margin-left: 4px;
   padding: 1px 5px;
   background: var(--main-color);
   color: var(--f-color01);
   border-radius: 50%;
 }
-#m_my .member ul li:first-child {
+#m_my .member .m_course ul li:first-child {
   background: var(--main-color);
 }
-#m_my .member ul li:first-child a {
+#m_my .member .m_course ul li:first-child a {
   color: var(--f-color01);
 }
-#m_my .member ul li:first-child a span {
+#m_my .member .m_course ul li:first-child a span {
   background: var(--bg-color01);
   color: var(--f-color03);
 }
@@ -374,18 +382,16 @@ main {
 }
 #review li p:nth-of-type(2) {
   font-weight: bold;
-  text-indent: -5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 #review li .star {
   position: relative;
+  height: 13px;
 }
-#review li .star .star_f {
+#review li .star img {
   position: absolute;
-  top: 2px;
-  color: var(--main-color);
 }
 #review li .star .star1 {
   clip: rect(0, 15px, 13px, 0);
