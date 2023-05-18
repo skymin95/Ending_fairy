@@ -6,7 +6,7 @@ $page = empty($_GET['page']) ? 1 : $_GET['page']; // 현재페이지
 $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
 $category = empty($_GET['category']) ? 1 : $_GET['category']; // 현재 카테고리
 
-$sql = 'select * from board_question where question_parent_id is null order by question_id desc';
+$sql = "select * from board_question where question_parent_id like '0%' order by question_id desc";
 $result = mysqli_query($con, $sql);
 
 //답변이 달려있지 않은 질문 조회

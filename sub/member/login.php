@@ -23,14 +23,14 @@ include_once('../common.php');
         <button type="submit" class="m_btn">로그인</button>
         <p>
           <a href="register.php" title="회원가입 하러가기">회원가입</a>
-          <a href="" title="">아이디 찾기</a>
-          <a href="" title="">비밀번호 찾기</a>
+          <a href="#none" title="">아이디 찾기</a>
+          <a href="#none" title="">비밀번호 찾기</a>
         </p>
         <ul class="log_sns">
-          <li><a href="" title="구글로 로그인"><img src="<?=$base_URL?>images/log_icon01.png" alt="구글로 로그인"></a></li>
-          <li><a href="" title="페이스북으로 로그인"><img src="<?=$base_URL?>images/log_icon02.png" alt="페이스북으로 로그인"></a></li>
-          <li><a href="" title="네이버로 로그인"><img src="<?=$base_URL?>images/log_icon03.png" alt="네이버로 로그인"></a></li>
-          <li><a href="" title="카카오로 로그인"><img src="<?=$base_URL?>images/log_icon04.png" alt="카카오로 로그인"></a></li>
+          <li><a href="#none" title="구글로 로그인"><img src="<?=$base_URL?>images/log_icon01.png" alt="구글로 로그인"></a></li>
+          <li><a href="#none" title="페이스북으로 로그인"><img src="<?=$base_URL?>images/log_icon02.png" alt="페이스북으로 로그인"></a></li>
+          <li><a href="#none" title="네이버로 로그인"><img src="<?=$base_URL?>images/log_icon03.png" alt="네이버로 로그인"></a></li>
+          <li><a href="#none" title="카카오로 로그인"><img src="<?=$base_URL?>images/log_icon04.png" alt="카카오로 로그인"></a></li>
         </ul>
       </form>
     </article>

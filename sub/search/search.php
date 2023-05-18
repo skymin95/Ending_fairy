@@ -26,6 +26,6 @@ include_once('../common.php');
       <li><a href="#none" title="야경사진">#야경사진</a></li>
       <li><a href="#none" title="전문가">#전문가</a></li>
     </ul>
-    <a href="javascript:window.history.back();" title="닫기" class="close"><i class="fas fa-x"></i></a>
+    <a href="javascript:window.history.back();" title="닫기" class="close"><i class="fas fa-xmark"></i></a>
   </div>
 </main>

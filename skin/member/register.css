@@ -29,6 +29,7 @@ footer{padding-bottom: 25px;}
 #member_form label{
   display: inline-block;
   width: 300px;
+  margin-bottom: 8px;
 }
 #member_form input:not(input[type="checkbox"]){
   width: 300px;
@@ -81,11 +82,11 @@ input[type="checkbox"]:checked{
   width: 300px;
   height: 50px;
   margin: 10px 0;
-  font-size: var(--f-size01);
+  font-size: var(--f-size02);
   border-radius: 50px;
   border: none;
   background: #5A5A5C;
-  color: var(--bg-color01);
+  color: var(--f-color01);
   cursor: pointer;
 }
 #save_frm{

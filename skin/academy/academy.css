@@ -349,11 +349,10 @@ footer {
 }
 #detail .c_detail .review ul li .star {
   position: relative;
+  height: 13px;
 }
-#detail .c_detail .review ul li .star .star_f {
+#detail .c_detail .review ul li .star img {
   position: absolute;
-  top: 2px;
-  color: var(--main-color);
 }
 #detail .c_detail .review ul li .star .star1 {
   clip: rect(0, 15px, 13px, 0);

@@ -15,6 +15,11 @@ function getYoutubeThumb($url) {
 }
 $data = mysqli_fetch_assoc($result);
 
+if(!empty($data['course_img'])){
+  $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
+  $result_file = mysqli_query($con, $sql_file);
+  $row_file = mysqli_fetch_assoc($result_file);
+}
 $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
 $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
 $date_dif = abs(strtotime($sdate)-strtotime($edate));
@@ -33,7 +38,7 @@ $eday = ceil($date_dif / (60*60*24));
       </h2>
     </article>
 
-    <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+    <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."upload/".$row_file['nameSave']?>" alt="<?=$data['course_title']?>">
 
     <section class="c_info">
       <h2 class="hidden">강의 상세</h2>

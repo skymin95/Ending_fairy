@@ -46,6 +46,7 @@
   // 수강평 슬라이드
   const swiper04 = new Swiper('#review.swiper', {
     slidesPerView: 2,
+    slidesPerGroup: 2,
     spaceBetween: 20,
     autoplay: {
       delay: 3000,

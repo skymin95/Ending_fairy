@@ -19,6 +19,7 @@ $data = mysqli_fetch_assoc($result);
     'course_ask_edate' => '',
     'course_edu_sdate' => '',
     'course_edu_edate' => '',
+    'course_content' => '',
     'course_tag' => '',
     'course_link' => ''
   );
@@ -41,7 +42,7 @@ $row_member = mysqli_fetch_array($result_member);
       <dl>
         <dt>강의명</dt>
         <dd>
-          <input type="text" name="course_title" value="<?=$data['course_title']?>"  class="txe" required >
+          <input type="text" name="course_title" value="<?=$data['course_title']?>" class="txe" required >
         </dd>
 
         <dt>강의 분류</dt>
@@ -54,39 +55,44 @@ $row_member = mysqli_fetch_array($result_member);
 
         <dt>교육 시간</dt>
         <dd class="w-30">
-          <input type="text" name="course_edu_time" value="<?=$data['course_edu_time']?>"  class="txe" required >
+          <input type="text" name="course_edu_time" value="<?=$data['course_edu_time']?>" class="txe" required >
         </dd>
 
         <dt>강의 가격</dt>
         <dd class="w-30">
-          <input type="text" name="course_price" value="<?=$data['course_price']?>"  class="txe" required >
+          <input type="text" name="course_price" value="<?=$data['course_price']?>" class="txe" required >
         </dd>
 
         <dt>담당 강사</dt>
         <dd class="w-30">
-          <input type="text" name="course_teacher" value="<?=$data['course_teacher']?>"  class="txe" required >
+          <input type="text" name="course_teacher" value="<?=$data['course_teacher']?>" class="txe" required >
         </dd>
 
         <dt>신청 기간</dt>
         <dd>
-          <input type="date" name="course_ask_sdate" value="<?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?>"  class="txe" required > ~ <input type="date" name="course_ask_edate" value="<?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?>"  class="txe" required >
+          <input type="date" name="course_ask_sdate" value="<?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?>"  class="txe" required > ~ <input type="date" name="course_ask_edate" value="<?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?>" class="txe" required >
         </dd>
 
         <dt>교육 기간</dt>
         <dd>
-          <input type="date" name="course_edu_sdate" value="<?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?>"  class="txe" required > ~ <input type="date" name="course_edu_edate" value="<?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?>"  class="txe" required >
+          <input type="date" name="course_edu_sdate" value="<?=date_format(date_create($data['course_edu_sdate']), "Y-m-d")?>"  class="txe" required > ~ <input type="date" name="course_edu_edate" value="<?=date_format(date_create($data['course_edu_edate']), "Y-m-d")?>" class="txe" required >
         </dd>
 
         <dt>강의 태그</dt>
         <dd>
-          <input type="text" name="course_tag" value="<?=$data['course_tag']?>"  class="txe" required >
+          <input type="text" name="course_tag" value="<?=$data['course_tag']?>" class="txe" required >
+        </dd>
+
+        <dt>강의 설명</dt>
+        <dd>
+          <input type="text" name="course_content" value="<?=$data['course_content']?>" class="txe" required >
         </dd>
 
         <dt>미리보기 링크</dt>
         <dd>
-          <input type="text" name="course_link" value="<?=$data['course_link']?>"  class="txe" required >
+          <input type="text" name="course_link" value="<?=$data['course_link']?>" class="txe" required >
         </dd>
-        <dt>이미지 삽입</dt>
+        <dt>강의 썸네일</dt>
         <dd>
           <div class="course_img">
             <?php if(empty($data['course_img'])) {?>

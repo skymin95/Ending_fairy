@@ -64,11 +64,11 @@ footer{padding-bottom: 25px;}
   width: 300px;
   height: 50px;
   margin: 10px 0;
-  font-size: var(--f-size01);
+  font-size: var(--f-size02);
   border-radius: 50px;
   border: none;
   background: var(--main-color);
-  color: var(--bg-color01);
+  color: var(--f-color01);
   cursor: pointer;
 }
 .login p{

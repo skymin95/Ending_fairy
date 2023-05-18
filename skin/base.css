@@ -57,3 +57,11 @@ header nav ul li:first-child a{
 input[type=text], input[type=date], select {
   font-size: 14px;
 }
+input[type=text], input[type="password"]{
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+input:checked[type="checkbox"]{
+  background-color: #fff;
+  -webkit-appearance: checkbox;
+}

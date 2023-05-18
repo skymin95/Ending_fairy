@@ -18,6 +18,7 @@
   $course_ask_edate = $_POST['course_ask_edate'];
   $course_edu_sdate = $_POST['course_edu_sdate'];
   $course_edu_edate = $_POST['course_edu_edate'];
+  $course_content = $_POST['course_content'];
   $course_tag = $_POST['course_tag'];
   $course_link = $_POST['course_link'];
 
@@ -52,8 +53,8 @@ if(isset($_FILES['fileDoc']) && $_FILES['fileDoc']['name'] != "") {
 }
 
   if($id == ''){
-    $sql_course = "INSERT INTO course(course_title, course_cate, course_edu_time, course_price, course_teacher, course_ask_sdate, course_ask_edate, course_edu_sdate, course_edu_edate, course_tag, course_link, mb_no, course_img)
-    VALUES('$course_title' ,'$course_cate' ,'$course_edu_time' ,'$course_price' ,'$course_teacher' ,'$course_ask_sdate' ,'$course_ask_edate' ,'$course_edu_sdate' ,'$course_edu_edate' ,'$course_tag' ,'$course_link' , '$mb_no', '$file_id')";
+    $sql_course = "INSERT INTO course(course_title, course_cate, course_edu_time, course_price, course_teacher, course_ask_sdate, course_ask_edate, course_edu_sdate, course_edu_edate, course_content, course_tag, course_link, mb_no, course_img)
+    VALUES('$course_title' ,'$course_cate' ,'$course_edu_time' ,'$course_price' ,'$course_teacher' ,'$course_ask_sdate' ,'$course_ask_edate' ,'$course_edu_sdate' ,'$course_edu_edate', '$course_content', '$course_tag' ,'$course_link' , '$mb_no', '$file_id')";
     $result_course = mysqli_query($con, $sql_course);
 
     if($result_course) {
@@ -84,6 +85,7 @@ if(isset($_FILES['fileDoc']) && $_FILES['fileDoc']['name'] != "") {
         course_ask_edate = '$course_ask_edate', 
         course_edu_sdate = '$course_edu_sdate', 
         course_edu_edate = '$course_edu_edate', 
+        course_content = '$course_content', 
         course_tag = '$course_tag', 
         course_link = '$course_link', 
         mb_no = '$mb_no'

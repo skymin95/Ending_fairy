@@ -35,6 +35,11 @@ function getYoutubeThumb($url) {
       <ul>
       <?php
         while($data = mysqli_fetch_array($result)){
+          if(!empty($data['course_img'])){
+            $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
+            $result_file = mysqli_query($con, $sql_file);
+            $row_file = mysqli_fetch_assoc($result_file);
+          }
           $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
           $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
           $date_dif = abs(strtotime($sdate)-strtotime($edate));
@@ -42,7 +47,7 @@ function getYoutubeThumb($url) {
         ?>
         <li>
           <a href="<?=$base_URL?>/sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."upload/".$row_file['nameSave']?>" alt="<?=$data['course_title']?>">
             <div class="tab_tag">
               <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
             </div>
@@ -68,6 +73,11 @@ function getYoutubeThumb($url) {
       <ul>
       <?php
         while($data = mysqli_fetch_array($result)){
+          if(!empty($data['course_img'])){
+            $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
+            $result_file = mysqli_query($con, $sql_file);
+            $row_file = mysqli_fetch_assoc($result_file);
+          }
           $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
           $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
           $date_dif = abs(strtotime($sdate)-strtotime($edate));
@@ -75,7 +85,7 @@ function getYoutubeThumb($url) {
         ?>
         <li>
           <a href="<?=$base_URL?>/sub/academy/academy_view.php?course_id=<?=$data['course_id']?>" title="<?=$data['course_title']?>">
-            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."upload/".$row_file['nameSave']?>" alt="<?=$data['course_title']?>">
             <div class="tab_tag">
               <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
             </div>
