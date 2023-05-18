@@ -39,9 +39,9 @@ $data_parent = mysqli_fetch_array($result_parent);
         $row_member = mysqli_fetch_array($result_member);
       ?>
   <ul class="community_user_info">
-  <li>
-  <?php if(empty($row_member['mb_1'])) {?>
-            <img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="com_user_img">
+    <li>
+      <?php if(empty($row_member['mb_1'])) {?>
+            <img src="<?=$base_URL?>images/userimg_mypage.png" al t="userimg" class="com_user_img">
           <?php } else {
             $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'" ;
             $result_file = mysqli_query($con, $sql_file);
@@ -49,14 +49,19 @@ $data_parent = mysqli_fetch_array($result_parent);
           ?>
           <img src="<?=$base_URL.'upload/'.$row_file['nameSave']?>" alt="userimg" class="com_user_img">
           <?php } ?>
-        </li>
-        <li class="name_day">
+    </li>
+
+    <li class="name_day">
           <p><?= ($row_member['mb_nick'] == '' ? $row_member['mb_name'] : $row_member['mb_nick'])?> 
           </p>
           <span>
             <?=date_format(date_create($data['community_wdate']), "Y-m-d")?>
           </span>
-  </li>
+    </li>
+
+    <li class="heart_info">
+      <img src="http://localhost/Ending_fairy/images/heart.png" alt="userimg">
+    </li>
   </ul>
 
 

@@ -101,3 +101,6 @@ $data_parent = mysqli_fetch_array($result_parent);
     </div>
   </article>
 </main>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/Ending_fairy/footer.php');
+?>
