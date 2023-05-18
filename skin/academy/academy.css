@@ -318,6 +318,26 @@
 #detail .c_detail .review ul li p:nth-of-type(2) {
   color: #333;
 }
+#detail .c_detail .review ul li .star {
+  position: relative;
+}
+#detail .c_detail .review ul li .star .star_f {
+  position: absolute;
+  top: 2px;
+  color: var(--main-color);
+}
+#detail .c_detail .review ul li .star .star1 {
+  clip: rect(0, 15px, 13px, 0);
+}
+#detail .c_detail .review ul li .star .star2 {
+  clip: rect(0, 30px, 13px, 0);
+}
+#detail .c_detail .review ul li .star .star3 {
+  clip: rect(0, 45px, 13px, 0);
+}
+#detail .c_detail .review ul li .star .star4 {
+  clip: rect(0, 60px, 13px, 0);
+}
 
 .curriculum {
   padding-bottom: 48px;

@@ -53,23 +53,21 @@ $(function(){
     },
     loop: true,
     pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+      el: '.swiper-pagination',
+      clickable: true,
+    },
   });
-
-  // 수강평 별점
-  let review = $('#review .star p').text();
-  let star = $('#review .star .start_f');
-
-  console.log(star);
-
-  if(review=5){
-    star.css('width', '75px');
-  }
 
 });
 
+// 수강평 별점
+let review = document.querySelectorAll('#review .star p');
+let star_img = document.querySelectorAll('#review .star .star_f');
+
+for(i=0;i<review.length;i++){
+  star = review[i].innerText;
+  star_img[i].classList.add('star'+star);
+}
 
 // 탭메뉴 컨텐츠
 const m_tab = document.querySelectorAll('#m_academy .line_tab > li');

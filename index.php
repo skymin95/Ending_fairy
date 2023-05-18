@@ -285,7 +285,7 @@ include_once('./common.php');
     <h2>BEST 수강평</h2>
     <ul class="swiper-wrapper">
       <?php
-        $sql = "select * from course_review where review_star = '5'";
+        $sql = "select * from course_review";
         $result = mysqli_query($con, $sql);
         while($data = mysqli_fetch_array($result)){
           $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";

@@ -62,3 +62,12 @@ more.addEventListener('click', function(){
   more.style.display='none';
   intro.style.height='100%';
 });
+
+// 수강평 별점
+let review = document.querySelectorAll('.review .star p');
+let star_img = document.querySelectorAll('.review .star .star_f');
+
+for(i=0;i<review.length;i++){
+  star = review[i].innerText;
+  star_img[i].classList.add('star'+star);
+}
