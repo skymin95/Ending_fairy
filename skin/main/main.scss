@@ -140,6 +140,9 @@ main{overflow: hidden;}
   h2, input[type=radio]{
     display: none;
   }
+  img{
+    display: block;
+  }
   .line_tab{
     @include tab;
   }
@@ -177,12 +180,6 @@ main{overflow: hidden;}
         img{
           @include img;
         }
-        p:first-of-type{
-          margin: 12px 0 8px 0;
-          font-size: var(--f-size02);
-          font-weight: bold;
-          text-indent: 10px;
-        }
         p{
           white-space: nowrap;
           overflow: hidden;
@@ -194,8 +191,21 @@ main{overflow: hidden;}
             color: #5A5A5C;
           }
         }
+        p:first-of-type{
+          margin: 12px 0 8px 0;
+          font-size: var(--f-size02);
+          font-weight: bold;
+          text-indent: 10px;
+        }
         .tab_tag{
-          @include tag(8px 4px);
+          margin: 8px 0;
+          span{
+            @include btn('stroke gray', 'extra small');
+            margin: 0 4px;
+          }
+          span:first-child{
+            @include btn('stroke red', 'extra small');
+          }
         }
       }
       .swiper-button-prev, .swiper-button-next{

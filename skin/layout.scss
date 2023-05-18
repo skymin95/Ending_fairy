@@ -113,23 +113,6 @@
   transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@mixin tag($margin){
-  span{
-    display: inline-block;
-    margin: $margin;
-    padding: 0 15px;
-    font-size: 12px;
-    line-height: 18px;
-    color: var(--sub-color01);
-    border: 1px solid var(--sub-color01);
-    border-radius: 20px;
-  }
-  :first-child{
-    color: var(--main-color);
-    border: 1px solid var(--main-color);
-  }
-}
-
 
 // 박스 올리는거 때문에 밑에 공백 생겨서 푸터 땡김
 @mixin footer($top){
