@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="<?=$base_URL?>skin/prefixfree.min.js" defer></script>
   <script src="<?=$base_URL?>skin/common.js" defer></script>
 
   <?php
@@ -112,8 +113,16 @@
         </h1>
       </li>
       <li class="top-right">
-        <div class="answer" data-cnt="4">
-          <img src="<?=$base_URL?>images/header_bell.png" alt="bell">
+        <?php
+          // 답변 달린 질문 조회
+          $sql_answer = 'SELECT COUNT(*) FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id';
+          $result_answer = mysqli_query($con, $sql_answer);
+          $row_answer = mysqli_fetch_row($result_answer);
+        ?>
+        <div class="answer" data-cnt="<?=$row_answer[0]?>">
+          <a href="<?=$base_URL?>sub//question/question.php" title="1대1문의 바로가기">
+            <img src="<?=$base_URL?>images/header_bell.png" alt="bell">
+          </a>
         </div>
         <div class="menu">
           <label for="m_gnb">
@@ -272,7 +281,7 @@
         <div class="m_lnb m_service hidden">
           <ul>
             <li>
-              <a href="<?=$base_URL?>sub/notice/notice.php"title="공지사항">
+              <a href="<?=$base_URL?>sub/notice/notice.php" title="공지사항">
                 공지사항
               </a>
             </li>
@@ -282,7 +291,7 @@
               </a>
             </li>
             <li>
-              <a href="<?=$base_URL?>sub/question/question.php"title="1:1문의">
+              <a href="<?=$base_URL?>sub/question/question.php" title="1:1문의">
                 1:1문의
               </a>
             </li>

@@ -67,11 +67,11 @@ include_once('./common.php');
                 로그아웃
               </a>
             </div>
-            <div>
+            <div class='m_course'>
               <ul>
-                <li><a href='' title=''>수강중인 강의<span>1</span></a></li>
-                <li><a href='' title=''>신청 &middot; 대기 강의<span>1</span></a></li>
-                <li><a href='' title=''>수강완료 강의<span>1</span></a></li>
+                <li><a href='".$base_URL."sub/mypage/course_status.php' title=''>수강중인 강의<span>1</span></a></li>
+                <li><a href='".$base_URL."sub/mypage/course_status.php' title=''>신청 &middot; 대기 강의<span>1</span></a></li>
+                <li><a href='".$base_URL."sub/mypage/course_status.php' title=''>수강완료 강의<span>1</span></a></li>
               </ul>
             </div>
             <p>풍경 사진 첫걸음</p>
@@ -143,7 +143,7 @@ include_once('./common.php');
           function getYoutubeThumb($url) {
             if($url)  {
               preg_match_all('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $matchs);
-              return "https://img.youtube.com/vi/" .$matchs[7][0]."/mqdefault.jpg";
+              return "https://img.youtube.com/vi/" .$matchs[7][0]."/maxresdefault.jpg";
             }
           }
           while($data = mysqli_fetch_array($result)){
@@ -300,7 +300,7 @@ include_once('./common.php');
         ?>
       <li class="swiper-slide">
         <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$row_course['course_id']?>" title="<?=$row_course['course_title']?>">
-          <p><?=$name?></p>
+          <p>[<?=($row_course['course_cate'] = '온라인' ? '사진클래스' : '실습')?>] <?=$name?></p>
           <div class="star">
             <img src="./images/star_f.png" alt="별점" class="star_f">
             <img src="./images/star_b.png" alt="별점">
@@ -331,7 +331,7 @@ include_once('./common.php');
         <img src="./images/event02.jpg" alt="이벤트배너">
       </a>
     </div>
-    <a href="./sub/event/event.php" title="더보기">더보기<i class="fas fa-play"></i></a>
+    <a href="<?=$base_URL?>empty.php" title="더보기">더보기<i class="fas fa-play"></i></a>
   </article>
   <!-- 이벤트 영역 끝 -->
 
