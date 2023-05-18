@@ -88,6 +88,7 @@
   }
   if($title ==   "장바구니"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/cart.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/cart.js' defer></script>";
   }
   if($title == "검색"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
