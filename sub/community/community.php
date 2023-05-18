@@ -75,9 +75,9 @@ $data_parent = mysqli_fetch_array($result_parent);
             <h3>
               <?=$data['community_title']?>
             </h3>
-            <p class="community_content">
+            <div class="community_content">
               <?=$data['community_content']?>
-            </p>
+            </div>
   
           </a>
           <!-- 좋아요,댓글 버튼 -->
