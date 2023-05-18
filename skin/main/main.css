@@ -366,6 +366,13 @@ main {
   text-overflow: ellipsis;
 }
 #review li .star {
+  position: relative;
+  width: 60px;
+  overflow: hidden;
+}
+#review li .star .star_f {
+  position: absolute;
+  top: 2px;
   color: var(--main-color);
 }
 #review .swiper-pagination {

@@ -67,7 +67,7 @@ function getYoutubeThumb($url) {
             <div class="tab_tag">
               <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
             </div>
-            <p><?=$sdate?> - <?=$edate?>(<?=$eday?>일)</p>
+            <p>교육기간 <?=$sdate?> - <?=$edate?>(<?=$eday?>일)</p>
             <p><?=$data['course_title']?></p>
             <p><?=$data['course_content']?></p>
             <p><?=number_format($data['course_price'])?>원</p>

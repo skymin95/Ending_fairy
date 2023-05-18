@@ -240,7 +240,14 @@ main{overflow: hidden;}
       text-overflow: ellipsis;
     }
     .star{
-      color: var(--main-color);
+      position: relative;
+      width: 60px;
+      overflow: hidden;
+      .star_f{
+        position: absolute;
+        top: 2px;
+        color: var(--main-color);
+      }
     }
   }
   .swiper-pagination{
