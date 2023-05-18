@@ -83,7 +83,7 @@ input[type="checkbox"]:checked{
   margin: 10px 0;
   border-radius: 50px;
   border: none;
-  background: #D1D1D1;
+  background: #5A5A5C;
   color: var(--bg-color01);
   cursor: pointer;
 }

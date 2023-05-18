@@ -27,6 +27,7 @@
   }
   if($title == "로그인"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/login.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."member/login.js' defer></script>";
   }
   if($title == "회원가입"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/register.css' type='text/css'>";
