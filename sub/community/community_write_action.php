@@ -55,7 +55,7 @@ if($row_parent != '0'){
   $sql = "UPDATE board_community SET community_content = '$content', fileID = '$file_id' WHERE community_parent_id = '$id'";
   $result = mysqli_query($con, $sql);
 } else {
-  $sql = "INSERT INTO board_community(community_title,community_parent_id, community_content, community_wdate, mb_no, fileID) VALUES('$community_title','$id', '$content', now(), '$mb_no', '$file_id')";
+  $sql = "INSERT INTO board_community(community_title, community_content, community_wdate, mb_no, fileID) VALUES('$community_title', '$content', now(), '$mb_no', '$file_id')";
   mysqli_query($con, $sql);
 }
 

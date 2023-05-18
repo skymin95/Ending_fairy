@@ -55,7 +55,7 @@ if($row_parent != '0'){
   $sql = "UPDATE board_question SET question_content = '$content', fileID = '$file_id' WHERE question_parent_id = '$id'";
   $result = mysqli_query($con, $sql);
 } else {
-  $sql = "INSERT INTO board_question(question_title,question_parent_id, question_content, question_wdate, mb_no, fileID) VALUES('$question_title','$id', '$content', now(), '$mb_no', '$file_id')";
+  $sql = "INSERT INTO board_question(question_title,question_parent_id, question_content, question_wdate, mb_no, fileID) VALUES('$question_title', 0, '$content', now(), '$mb_no', '$file_id')";
   mysqli_query($con, $sql);
 }
 
