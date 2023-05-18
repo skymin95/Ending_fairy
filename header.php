@@ -123,12 +123,12 @@
     </ul>
   </nav>
   <div id="m_header_wrap">
-  <?php
+    <?php
 
-    if(!isset($_SESSION['mb_id'])){
+      if(!isset($_SESSION['mb_id'])){
 
-    
-  ?>
+      
+    ?>
     <article class="nav_user">
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">

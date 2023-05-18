@@ -1,13 +1,13 @@
 <footer>
   <!-- 사이드 버튼 영역 -->
-  <aside id="side_btn">
+  <div id="side_btn">
     <a href="#none" title="챗봇">
       <i class="fas fa-headphones"></i>
     </a>
     <button type="button" class="t_btn">
       <i class="fas fa-arrow-up"></i>
     </button>
-  </aside>
+  </div>
   <!-- 사이드 버튼 끝 -->
   <address>
     <dl>
