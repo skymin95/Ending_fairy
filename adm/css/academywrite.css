@@ -88,3 +88,26 @@ button.delete {
 .list_lndex .class > div:last-of-type::before {
   
 }
+
+.course_img #output {
+  width: 320px; height: 200px;
+  padding-top: 20px;
+  object-fit: cover;
+}
+.course_img #inputTag {
+  display: none;
+}
+.course_img label {
+  width: 117px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 31px;
+  background: #EFEFEF;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-indent: 22px;
+  cursor: pointer;
+}
