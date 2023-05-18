@@ -316,6 +316,7 @@ footer {
 #detail .c_detail .index dl dt {
   padding: 12px;
   text-align: center;
+  line-height: 22px;
   background: #F4F4F5;
   transform: translateY(-1px);
 }

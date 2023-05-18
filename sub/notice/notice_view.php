@@ -34,7 +34,7 @@ $row_file = mysqli_fetch_assoc($result_file);
 <div id="notice_view_wrap">
   <!-- 작성자 정보 -->
   <ul class="notice_user_info">
-    <li><img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="noti_user_img">
+    <li><img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="noti_user_img">
     </li>
     <li class="noti_name_day">
     <p><?= ($row_member_board['mb_nick'] == '' ? $row_member_board['mb_name'] : $row_member_board['mb_nick'])?> </p>
