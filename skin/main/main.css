@@ -49,7 +49,7 @@ footer {
   position: absolute;
   right: 18vw;
   bottom: 36px;
-  font-size: 14px;
+  font-size: var(--f-size02);
   z-index: 999;
   color: var(--f-color01);
   cursor: pointer;
@@ -208,6 +208,16 @@ main {
   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.05);
   z-index: 2;
 }
+#m_academy::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 67px;
+  left: 0;
+  background: #EFF1F3;
+}
 #m_academy h2, #m_academy input[type=radio] {
   display: none;
 }
@@ -286,7 +296,7 @@ main {
 #m_academy .tab_con .con_list li p span {
   display: inline-block;
   width: 60px;
-  font-size: 12px;
+  font-size: var(--f-size02);
   color: #5A5A5C;
 }
 #m_academy .tab_con .con_list li p:first-of-type {
@@ -335,17 +345,6 @@ main {
 }
 #m_academy .tab_con .con_list .swiper-button-prev::after, #m_academy .tab_con .con_list .swiper-button-next::after {
   font-size: 20px;
-}
-
-#m_academy::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  top: 67px;
-  left: 0;
-  background: #EFF1F3;
 }
 
 #review {

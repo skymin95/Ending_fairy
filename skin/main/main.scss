@@ -50,7 +50,7 @@ footer{
     position: absolute;
     right: 18vw;
     bottom: 36px;
-    font-size: 14px;
+    font-size: var(--f-size02);
     z-index: 999;
     color: var(--f-color01);
     cursor: pointer;
@@ -137,6 +137,9 @@ main{overflow: hidden;}
 #m_academy{
   @include box(-27px);
   z-index: 2;
+  &::before{
+    @include tab_active(67px);
+  }
   h2, input[type=radio]{
     display: none;
   }
@@ -187,7 +190,7 @@ main{overflow: hidden;}
           span{
             display: inline-block;
             width: 60px;
-            font-size: 12px;
+            font-size: var(--f-size02);
             color: #5A5A5C;
           }
         }
@@ -221,9 +224,6 @@ main{overflow: hidden;}
       }
     }
   }
-}
-#m_academy::before{
-  @include tab_active(67px);
 }
 // 강의 영역 끝
 
