@@ -232,7 +232,7 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육기간</span> <?=$sdate?> - <?=$edate?>(<?=$eday?>일)</p>
               <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
               <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
@@ -264,7 +264,7 @@ include_once('./common.php');
               <div class="tab_tag">
                 <span><?=str_replace(",", "</span><span>", $data['course_tag'])?></span>
               </div>
-              <p><span>교육기간</span> <?=$eday?>일</p>
+              <p><span>교육기간</span> <?=$sdate?> - <?=$edate?>(<?=$eday?>일)</p>
               <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
               <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
             </a>
