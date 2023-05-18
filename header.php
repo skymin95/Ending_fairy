@@ -43,6 +43,7 @@
   }
   if($title == "마이페이지 > 회원정보 수정"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/update_member.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/mypage.js' defer></script>";
   }
   if($title == "장바구니 > 결제하기"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/cart_payment.css' type='text/css'>";

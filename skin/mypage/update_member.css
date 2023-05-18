@@ -120,4 +120,58 @@ footer {
   padding: 9px 53px;
   display: block;
   margin: 40px auto;
+}
+
+#profile_box {
+  display: flex;
+  width: 118px;
+  align-items: center;
+}
+#profile_box > img {
+  width: 122px;
+  height: 122px;
+  display: block;
+  text-align: center;
+  margin: 0px auto;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#profile_box input[type=date] {
+  display: block;
+  width: 135px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+#profile_box #inputTag {
+  width: 76px;
+  font-size: 14px;
+  text-align: center;
+  background: #5A5A5C;
+  border: none;
+  color: #fff;
+  display: block;
+  margin: 6px auto;
+  display: none;
+}
+#profile_box .member_file_btn {
+  width: 117px;
+  height: 30px;
+  font-size: 16px;
+  /* text-align: center; */
+  line-height: 31px;
+  background: #EFEFEF;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  text-indent: 22px;
+  cursor: pointer;
+}
+#profile_box label span {
+  display: inline;
+  color: #DE0010;
 }/*# sourceMappingURL=update_member.css.map */

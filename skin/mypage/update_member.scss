@@ -105,3 +105,58 @@ footer{
   display: block;
   margin: 40px auto;
 } // update_submit
+
+// 민석
+#profile_box{
+  display: flex;
+  width: 118px;
+  align-items: center;
+  >img{
+    width: 122px;
+  height: 122px;
+  display: block;
+  text-align: center;
+  margin: 0px auto;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+input[type=date]{
+  display: block;
+  width: 135px;
+  height: 31px;
+  border: 1px solid #CCCCCC;
+  border-radius: 10px;
+  // margin-top: 16px;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+#inputTag{
+  width: 76px;
+  font-size: 14px;
+  text-align: center;
+  background: #5A5A5C;
+  border: none;
+  color: #fff;
+  display: block;
+  margin: 6px auto;
+  display : none;
+}
+.member_file_btn{
+  width: 117px;
+  height: 30px;
+  font-size: 16px;
+  /* text-align: center; */
+  line-height: 31px;
+  background: #EFEFEF;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  text-indent: 22px;
+  cursor: pointer;
+}
+label span{
+  display: inline;
+  color: #DE0010;
+}
+}
