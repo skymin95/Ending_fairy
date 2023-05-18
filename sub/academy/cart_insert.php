@@ -1,7 +1,7 @@
 <?php
 include_once('../common.php');
 
-$sql_cart_info = "SELECT * FROM cart WHERE mb_no =".$row_member['mb_no'];
+$sql_cart_info = "SELECT * FROM cart WHERE mb_no =".$row_member['mb_no']." AND course_id = ".$_GET['code']." ";
 $result_cart_info = mysqli_query($con, $sql_cart_info);
 $num_cart_info = mysqli_num_rows($result_cart_info);
 if($num_cart_info > 0) {

@@ -280,7 +280,6 @@ footer address dl dt {
 }
 
 #m_gnb:checked ~ #m_header_wrap {
-  position: fixed;
   background: #fff;
   width: 100%;
   right: 0;
@@ -402,6 +401,7 @@ footer address dl dt {
 
 /* 사이트맵 서식 */
 #m_sitemap {
+  display: flex;
   z-index: 5000;
   top: 52px;
   left: 0px;

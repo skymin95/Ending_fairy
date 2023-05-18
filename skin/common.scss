@@ -269,7 +269,6 @@ footer{
   transition:0.5s;
 }
 #m_gnb:checked ~ #m_header_wrap{
-  position:fixed;
   background: #fff;
   width: 100%;
   right: 0;
@@ -377,6 +376,7 @@ footer{
 /* 사이트맵 서식 */
 #m_sitemap{
   // position:fixed;
+  display: flex;
   z-index: 5000;
   top:52px;
   left:0px;
@@ -424,6 +424,7 @@ footer{
   position:relative;
   transition: 0.5s;
 }
+
 #m_intro:checked ~ .m_lnb_wrap .m_intro,
 #m_class:checked ~ .m_lnb_wrap .m_class,
 #m_service:checked ~ .m_lnb_wrap .m_service,

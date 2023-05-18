@@ -42,7 +42,7 @@ $eday = ceil($date_dif / (60*60*24));
       </div>
       <p><?=$data['course_title']?></p>
       <p><?=$data['course_content']?></p>
-      <p><span>신청기간</span> <?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?> ~ <?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?></p>
+      <p><span>신청기간</span> <?=date_format(date_create($data['course_ask_sdate']), "Y-m-d")?> - <?=date_format(date_create($data['course_ask_edate']), "Y-m-d")?></p>
       <p><span>교육기간</span> <?=$sdate?> - <?=$edate?>(<?=$eday?>일)</p>
       <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
       <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
@@ -122,8 +122,9 @@ $eday = ceil($date_dif / (60*60*24));
           <li>
             <p><?=$name?></p>
             <div class="star">
-              <img src="<?=$base_URL?>images/star_f.png" alt="별점">
-              <!-- <?=$data['review_star']?> -->
+             <img src="<?=$base_URL?>images/star_f.png" alt="별점" class="star_f">
+             <img src="<?=$base_URL?>images/star_b.png" alt="별점">
+             <p class="hidden"><?=$data['review_star']?></p>
             </div>
             <p><?=$data['review_title']?></p>
             <p><?=$data['review_content']?></p>

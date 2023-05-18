@@ -74,9 +74,8 @@ $(document).ready(function(){
       return false;
     }
 
-    if(!$('#check1').val()){
+    if(!$('#check1').is(':checked') || !$('#check2').is(':checked') || !$('#check3').is(':checked')){
       alert('필수 약관에 동의하지 않았습니다.');
-      $('#check1').focus();
       return false;
     }
 

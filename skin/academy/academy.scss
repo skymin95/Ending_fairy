@@ -212,6 +212,9 @@
           p:nth-of-type(2){
             color: #333;
           }
+          .star{
+            @include star;
+          }
         }
       }
     }

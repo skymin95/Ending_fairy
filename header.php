@@ -27,6 +27,7 @@
   }
   if($title == "로그인"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/login.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."member/login.js' defer></script>";
   }
   if($title == "회원가입"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/register.css' type='text/css'>";
@@ -89,6 +90,7 @@
   }
   if($title ==   "장바구니"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/cart.css' type='text/css'>";
+    echo "<script src='".$base_skin_URL."mypage/cart.js' defer></script>";
   }
   if($title == "검색"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."search/search.css' type='text/css'>";
@@ -124,12 +126,12 @@
     </ul>
   </nav>
   <div id="m_header_wrap">
-  <?php
+    <?php
 
-    if(!isset($_SESSION['mb_id'])){
+      if(!isset($_SESSION['mb_id'])){
 
-    
-  ?>
+      
+    ?>
     <article class="nav_user">
       <h2 class="hidden">내비 유저정보</h2>
       <ul class="nav_box">

@@ -285,7 +285,7 @@ include_once('./common.php');
     <h2>BEST 수강평</h2>
     <ul class="swiper-wrapper">
       <?php
-        $sql = "select * from course_review where review_star = '5'";
+        $sql = "select * from course_review";
         $result = mysqli_query($con, $sql);
         while($data = mysqli_fetch_array($result)){
           $sql_member = "SELECT mb_no, mb_id, mb_name, mb_nick FROM member WHERE mb_no = '".$data['mb_no']."'";
@@ -302,8 +302,9 @@ include_once('./common.php');
         <a href="<?=$base_URL?>sub/academy/academy_view.php?course_id=<?=$row_course['course_id']?>" title="<?=$row_course['course_title']?>">
           <p><?=$name?></p>
           <div class="star">
-            <img src="./images/star_f.png" alt="별점">
-            <p><?=$data['review_star']?></p>
+            <img src="./images/star_f.png" alt="별점" class="star_f">
+            <img src="./images/star_b.png" alt="별점">
+            <p class="hidden"><?=$data['review_star']?></p>
           </div>
           <p>[<?=$row_course['course_cate']?>] <?=$row_course['course_title']?></p>
           <p><?=$data['review_title']?></p>

@@ -130,12 +130,14 @@
   }
 }
 
+
 // 박스 올리는거 때문에 밑에 공백 생겨서 푸터 땡김
 @mixin footer($top){
   position: relative;
   top: $top;
   padding: 25px 25px 100px 25px;
 }
+
 
 //이전버튼이 있는 타이틀 페이지
 @mixin sub_title_prev() {
@@ -161,6 +163,45 @@
 //     제목
 //   </a>
 // </h2>
+
+
+// 수강평 별점
+@mixin star{
+  position: relative;
+  .star_f{
+    position: absolute;
+    top: 2px;
+    color: var(--main-color);
+  }
+  .star1{ // 1점
+    clip: rect(0, 15px, 13px, 0);
+  }
+  .star2{ // 2점
+    clip: rect(0, 30px, 13px, 0);
+  }
+  .star3{ // 3점
+    clip: rect(0, 45px, 13px, 0);
+  }
+  .star4{ // 4점
+    clip: rect(0, 60px, 13px, 0);
+  }
+}
+// 1. 입력서식
+// <div class="star">
+//  <img src="./images/star_f.png" alt="별점" class="star_f">
+//  <img src="./images/star_b.png" alt="별점">
+//  <p class="hidden"><?=$data['review_star']?></p>
+// </div>
+
+// 2. js코드
+// let review = document.querySelectorAll('#review .star p');
+// let star_img = document.querySelectorAll('#review .star .star_f');
+
+// for(i=0;i<review.length;i++){
+//   star = review[i].innerText;
+//   star_img[i].classList.add('star'+star);
+// }
+
 
 //버튼 서식
 //사용예시
