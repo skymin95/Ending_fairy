@@ -1,6 +1,18 @@
 <?php
 $title = "마이페이지 > 수강중인 강의"; // 타이틀
 include_once('../common.php');
+
+$course_id = $_GET['course_id'];
+
+$sql_course = "SELECT * FROM course WHERE course_id = $course_id";
+$result_course = mysqli_query($con, $sql_course);
+$row_course = mysqli_fetch_assoc($result_course);
+
+$nowdate = date("Y-m-d", strtotime("+1 day"));
+$sdate = date_format(date_create($row_course['course_edu_sdate']), "Y-m-d");
+$edate = date_format(date_create($row_course['course_edu_edate']), "Y-m-d");
+$date_dif = abs(strtotime($nowdate)-strtotime($edate));
+$eday = ceil($date_dif / (60*60*24));
 ?>
 <main>
   <article>
@@ -17,24 +29,24 @@ include_once('../common.php');
       <h3 class="hidden">강의 정보</h3>
       <img src="<?=$base_URL?>images/class6.png" alt="풍경 사진 첫걸음" class="course_image">
       <div class="course_title">
-        <p>온라인 강의</p>
-        <h4>풍경 사진 첫걸음</h4>
+        <p><?=$row_course['course_cate']?> 강의</p>
+        <h4><?=$row_course['course_title']?></h4>
       </div>
       <dl>
         <dt>교육기간</dt>
-        <dd>2023.05.01 ~ 2023.08.24</dd>
+        <dd><?=date_format(date_create($sdate), "Y.m.d")?> ~ <?=date_format(date_create($edate), "Y.m.d")?></dd>
       </dl>
       <dl>
         <dt>남은 수강 기간</dt>
-        <dd>73일</dd>
+        <dd><?=$eday?>일</dd>
       </dl>
       <dl>
         <dt>교육시간</dt>
-        <dd>87분</dd>
+        <dd><?=$row_course['course_edu_time']?></dd>
       </dl>
       <dl>
         <dt>강사</dt>
-        <dd>강병영</dd>
+        <dd><?=$row_course['course_teacher']?></dd>
       </dl>
       <div class="btn_list">
         <button type="button">처음부터 학습하기</button>

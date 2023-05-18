@@ -9,8 +9,8 @@ $(function(){
       $('.sale_price').text(new Intl.NumberFormat().format(sale.substr(-0, sale.length-1))+sale.substr(-1));
       if(sale.substr(-1) == '%') {
         let saleVal = Number(sale.substr(-0, sale.length-1));
-        paymentPrice = oriVal * (saleVal / 100);
-        $('.total_price').text(new Intl.NumberFormat().format(oriVal * (saleVal / 100))+'원');
+        paymentPrice = oriVal * ((100 - saleVal) / 100);
+        $('.total_price').text(new Intl.NumberFormat().format(oriVal * ((100 - saleVal) / 100))+'원');
       } else if(sale.substr(-1) == '원') {
         let saleVal = Number(sale.substr(-0, sale.length-1));
         paymentPrice = oriVal - saleVal;

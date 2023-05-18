@@ -49,7 +49,7 @@ if(isset($_SESSION['mb_id'])){
       <li>
         <?php
         //내 강의실
-        $sql_status_cnt = "SELECT COUNT(*) AS cnt FROM course_status WHERE mb_no = ".$row_member['mb_no'];
+        $sql_status_cnt = "SELECT COUNT(*) AS cnt FROM course_status WHERE mb_no = ".$row_member['mb_no']." AND index_id IS NULL";
         $result_status_cnt = mysqli_query($con, $sql_status_cnt);
         $row_status_cnt = mysqli_fetch_assoc($result_status_cnt);
         ?>

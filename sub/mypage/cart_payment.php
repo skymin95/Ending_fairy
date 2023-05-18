@@ -125,11 +125,11 @@ $total_price = 0; //총 가격
           <div class="payment_tool_wrap">
             <p>결제수단 선택</p>
             <ul>
-              <li><input type="radio" name="payment_option" id="card" checked></li>
+              <li><input type="radio" name="payment_option" id="card" checked value="card"></li>
               <li><label for="card">신용카드</label></li>
-              <li><input type="radio" name="payment_option" id="transfer"></li>
+              <li><input type="radio" name="payment_option" id="transfer" value="transfer"></li>
               <li><label for="transfer">계좌이체</label></li>
-              <li><input type="radio" name="payment_option" id="deposit"></li>
+              <li><input type="radio" name="payment_option" id="deposit" value="deposit"></li>
               <li><label for="deposit">무통장입금</label></li>
             </ul>
             <p class="agree_text">상품 이용 및 환불 시 [이용안내],[환불규정],[혜택안내] 및 [이용약관]에 명시된 규정에 따릅니다.</p>

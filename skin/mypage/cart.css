@@ -112,8 +112,7 @@
 }
 .cart_list_form .cart_submit {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
-  position: relative;
-  left: -20px;
+  margin-left: -20px;
   width: 100vw;
   height: 45px;
   line-height: 45px;

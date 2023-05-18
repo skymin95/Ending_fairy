@@ -56,10 +56,11 @@ function moveHighlight(num){
 		$(this).each(function (index) {
 			var $target  = $(this);
 
+			console.log($target);
 			var opts = {
 			backgroundColor: $target.data('color') ? $target.data('color').split(',')[0] : DEFAULTS[index].backgroundColor,
 			progressColor: $target.data('color') ? $target.data('color').split(',')[1] : DEFAULTS[index].progressColor,
-			percent: $target.data('percent') ? $target.data('percent') : DEFAULTS[index].percent,
+			percent: $target.data('percent') ? $target.data('percent') : 0,
 			text: $target.data('text') ? $target.data('text') : '',
 			// duration: $target.data('duration') ? $target.data('duration') : DEFAULTS[index].duration
 			};

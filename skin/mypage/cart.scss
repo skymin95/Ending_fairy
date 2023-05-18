@@ -96,8 +96,7 @@
   } // .total_price end
   .cart_submit {
     @include onemobile();
-    position: relative;
-    left: -20px;
+    margin-left: -20px;
     width: 100vw; height: 45px;
     line-height: 45px;
     text-align: center;
