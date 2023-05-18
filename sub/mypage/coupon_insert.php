@@ -15,20 +15,37 @@ echo $str_nowtime.'<br>';
 echo $str_sdate.'<br>';
 echo $str_edate;
 
-if($str_nowtime > $str_sdate && $str_nowtime < $str_edate) {
-  $sql_coupon_insert = "INSERT INTO coupon_status(coupon_status, coupon_no, coupon_wdate, mb_no) VALUES (0, ".$row_coupon_info['coupon_no'].", now(), ".$row_member['mb_no'].")";
-  $query_coupon_insert = mysqli_query($con, $sql_coupon_insert);
-  echo "<script>
-    alert('입력되었습니다.');
-    history.back();
-  </script>";
+if(!empty($row_coupon_info)){
+  $sql_coupon = "SELECT * FROM coupon_status WHERE coupon_no = ".$row_coupon_info['coupon_no'];
+  $result_coupon = mysqli_query($con, $sql_coupon);
+  $num_coupon = mysqli_num_rows($result_coupon);
+
+  if($num_coupon > 0){
+    echo "<script>
+      alert('이미 등록되어있는 쿠폰입니다.');
+      history.back();
+    </script>";
+  } else {
+    if($str_nowtime > $str_sdate && $str_nowtime < $str_edate) {
+      $sql_coupon_insert = "INSERT INTO coupon_status(coupon_status, coupon_no, coupon_wdate, mb_no) VALUES (0, ".$row_coupon_info['coupon_no'].", now(), ".$row_member['mb_no'].")";
+      $query_coupon_insert = mysqli_query($con, $sql_coupon_insert);
+      echo "<script>
+        alert('입력되었습니다.');
+        history.back();
+      </script>";
+    } else {
+      echo "<script>
+        alert('해당 쿠폰은 입력 가능한 기간이 아닙니다.');
+        history.back();
+      </script>";
+    }
+  }
 } else {
   echo "<script>
-    alert('해당 쿠폰은 입력 가능한 기간이 아닙니다.');
+    alert('존재하지 않는 쿠폰입니다.');
     history.back();
   </script>";
 }
-
 
 
 ?>

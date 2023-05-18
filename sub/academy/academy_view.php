@@ -47,7 +47,8 @@ $eday = ceil($date_dif / (60*60*24));
       <p><span>교육시간</span> <?=$data['course_edu_time']?></p>
       <p><span>교육비</span> <?=number_format($data['course_price'])?>원</p>
 
-      <form name="데이터입력" method="get" action="<?=$base_URL?>sub/academy/cart_insert.php?code=<?=$data['course_id']?>">
+      <form name="데이터입력" method="get" action="<?=$base_URL?>sub/academy/cart_insert.php">
+      <input type="hidden" name="code" value="<?=$data['course_id']?>">
         <div class="c_btn">
           <a href="<?=$data['course_link']?>" title="미리보기" class="pre" target='_blank'>미리보기</a>
           <button type="submit" name="cart" class="cart"><i class="fas fa-shopping-bag"></i>장바구니</button>
