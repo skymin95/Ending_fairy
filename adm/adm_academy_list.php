@@ -75,14 +75,14 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
               }
           }
             while($data = mysqli_fetch_array($result)){
-              if(!empty($data['fileID'])){
-                $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
+              if(!empty($data['course_img'])){
+                $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
                 $result_file = mysqli_query($con, $sql_file);
                 $row_file = mysqli_fetch_assoc($result_file);
               }
           ?>
           <tr>
-            <td><img src="<?=empty($data['fileID']) ? getYoutubeThumb($data['course_link']) : $base_URL.'upload/'.$row_file['nameSave']?>" alt="<?=$data['course_title']?>"></td>
+            <td><img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : $base_URL.'upload/'.$row_file['nameSave']?>" alt="<?=$data['course_title']?>"></td>
             <td><?=$data['course_title']?></td>
             <td><?=$data['course_cate']?></td>
             <td><?=$data['course_edu_time']?></td>
@@ -205,14 +205,14 @@ $cate = empty($_GET['cate']) ? 1 : $_GET['cate']; // 현재 카테고리
             $number = 0 + ($start);
             
             while($data = mysqli_fetch_array($result)){
-              if(!empty($data['fileID'])){
-                $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
+              if(!empty($data['course_img'])){
+                $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
                 $result_file = mysqli_query($con, $sql_file);
                 $row_file = mysqli_fetch_assoc($result_file);
               }
           ?>
           <tr>
-            <td><img src="<?=empty($data['fileID']) ? getYoutubeThumb($data['course_link']) : $base_URL.'upload/'.$row_file['nameSave']?>" alt="<?=$data['course_title']?>"></td>
+            <td><img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : $base_URL.'upload/'.$row_file['nameSave']?>" alt="<?=$data['course_title']?>"></td>
             <td><?=$data['course_title']?></td>
             <td><?=$data['course_cate']?></td>
             <td><?=$data['course_edu_time']?></td>

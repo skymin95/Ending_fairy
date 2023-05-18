@@ -89,10 +89,10 @@ $row_member = mysqli_fetch_array($result_member);
         <dt>이미지 삽입</dt>
         <dd>
           <div class="course_img">
-            <?php if(empty($data['fileID'])) {?>
+            <?php if(empty($data['course_img'])) {?>
             <img id="output" src="<?=$base_URL?>images/default_img.png" alt="image"/>
             <?php } else {
-              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['fileID']."'";
+              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
               $result_file = mysqli_query($con, $sql_file);
               $row_file = mysqli_fetch_assoc($result_file);
             ?>
