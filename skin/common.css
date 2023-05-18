@@ -430,7 +430,6 @@ footer address dl dt {
 .m_gnb > li label {
   width: 100%;
   display: block;
-  padding: 0px 20px;
   font-weight: bold;
   text-align: center;
 }
@@ -482,5 +481,6 @@ footer address dl dt {
 }
 
 .m_community_link {
+  width: 100%;
   display: block;
 }/*# sourceMappingURL=common.css.map */

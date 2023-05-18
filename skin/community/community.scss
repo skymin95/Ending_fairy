@@ -110,6 +110,7 @@ background: #EFF1F3;
   h3{
     font-size: 16px;
     margin-bottom: 8px;
+    font-weight: 500;
   }
   > a {
     $contentWidth: calc(247/ 375 * 100vw);
@@ -149,7 +150,8 @@ background: #EFF1F3;
       span{
         display: inline-block;
         line-height: 26px;
-        margin: 0 28px 0 4px
+        margin: 0 28px 0 4px;
+        font-size: 14px
       }
     }
   }
@@ -186,6 +188,15 @@ background: #EFF1F3;
       color: #767676;
     }
   }
+  .heart_info {
+    position: absolute;
+    right: 32px;
+    top: 26px;
+    img{
+    width: 28px;
+    height:28px;
+  }
+}
 }
 .community_view_ul{
   margin-top: 20px;

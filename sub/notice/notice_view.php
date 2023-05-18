@@ -1,6 +1,7 @@
 <?php
 $title = "마이페이지 > 공지사항 상세페이지"; // 타이틀
 include_once('../common.php');
+
 $id = (empty($_GET['board_id']) ? '' : $_GET['board_id']);
 $id = mysqli_real_escape_string($con, $id);
 
