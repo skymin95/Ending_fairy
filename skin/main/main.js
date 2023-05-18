@@ -1,4 +1,4 @@
-$(function(){
+  $(function(){
 
   // 상단 슬라이드
   const swiper = new Swiper('#m_slide.swiper', {

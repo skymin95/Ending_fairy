@@ -35,7 +35,7 @@ $row_member = mysqli_fetch_array($result_member);
     <li><a href="adm_academy_list.php" class="a_title">목록으로 이동<i class="fa-solid fa-chevron-right"></i></a></li>
   </ul>
 
-  <form name="write" method="post" action="adm_academy_insert_action.php" id="formAcademy">
+  <form name="write" method="post" action="adm_academy_insert_action.php" id="formAcademy" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?=($id == '' ? '' : $id)?>">
     <div class="board_wrap">
       <dl>
@@ -85,6 +85,22 @@ $row_member = mysqli_fetch_array($result_member);
         <dt>미리보기 링크</dt>
         <dd>
           <input type="text" name="course_link" value="<?=$data['course_link']?>"  class="txe" required >
+        </dd>
+        <dt>이미지 삽입</dt>
+        <dd>
+          <div class="course_img">
+            <?php if(empty($data['course_img'])) {?>
+            <img id="output" src="<?=$base_URL?>images/default_img.png" alt="image"/>
+            <?php } else {
+              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
+              $result_file = mysqli_query($con, $sql_file);
+              $row_file = mysqli_fetch_assoc($result_file);
+            ?>
+            <img id="output" src="<?=$base_URL.'upload/'.$row_file['nameSave']?>" alt="image"/>
+            <?php } ?>
+            <input type="file" accept="image/*" onchange="loadFile(event)" id="inputTag" name="fileDoc"/>
+            <label htmlFor="inputTag" for="inputTag"><span>+</span> 파일추가</label>
+          </div>
         </dd>
 
         <dt>강의 구성</dt>

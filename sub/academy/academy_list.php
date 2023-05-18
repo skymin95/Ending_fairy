@@ -6,7 +6,7 @@ $cate = (empty($_GET['cate']) ? '' : $_GET['cate']); // 탭
 function getYoutubeThumb($url) {
   if($url) {
     preg_match_all('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $matchs);
-    return "https://img.youtube.com/vi/" .$matchs[7][0]."/mqdefault.jpg";
+    return "https://img.youtube.com/vi/" .$matchs[7][0]."/maxresdefault.jpg";
   }
 }
 ?>
