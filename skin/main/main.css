@@ -211,6 +211,9 @@ main {
 #m_academy h2, #m_academy input[type=radio] {
   display: none;
 }
+#m_academy img {
+  display: block;
+}
 #m_academy .line_tab {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   padding-bottom: 29px;
@@ -275,12 +278,6 @@ main {
   width: 100%;
   border-radius: 15px;
 }
-#m_academy .tab_con .con_list li p:first-of-type {
-  margin: 12px 0 8px 0;
-  font-size: var(--f-size02);
-  font-weight: bold;
-  text-indent: 10px;
-}
 #m_academy .tab_con .con_list li p {
   white-space: nowrap;
   overflow: hidden;
@@ -292,19 +289,37 @@ main {
   font-size: 12px;
   color: #5A5A5C;
 }
-#m_academy .tab_con .con_list li .tab_tag span {
-  display: inline-block;
-  margin: 8px 4px;
-  padding: 0 15px;
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--sub-color01);
-  border: 1px solid var(--sub-color01);
-  border-radius: 20px;
+#m_academy .tab_con .con_list li p:first-of-type {
+  margin: 12px 0 8px 0;
+  font-size: var(--f-size02);
+  font-weight: bold;
+  text-indent: 10px;
 }
-#m_academy .tab_con .con_list li .tab_tag :first-child {
-  color: var(--main-color);
+#m_academy .tab_con .con_list li .tab_tag {
+  margin: 8px 0;
+}
+#m_academy .tab_con .con_list li .tab_tag span {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: var(--bg-color01);
+  border: 1px solid var(--sub-color01);
+  color: var(--sub-color01);
+  font-size: var(--f-size01);
+  padding: 4px 8px;
+  margin: 0 4px;
+}
+#m_academy .tab_con .con_list li .tab_tag span:first-child {
+  font-family: "ONE-Mobile-Regular", sans-serif, arial;
+  border-radius: 20px;
+  border: 0;
+  font-weight: 700;
+  background-color: var(--bg-color01);
   border: 1px solid var(--main-color);
+  color: var(--main-color);
+  font-size: var(--f-size01);
+  padding: 4px 8px;
 }
 #m_academy .tab_con .con_list .swiper-button-prev, #m_academy .tab_con .con_list .swiper-button-next {
   width: 35px;
