@@ -64,55 +64,55 @@ $result = mysqli_query($con, $sql);
         $row_parent = mysqli_num_rows($result_parent);
     ?>
 
-          <ul>
-            <li>
-              <h3>
-                <a href="question_view.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a>
-              </h3>
-              <span>  <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?> /</span>
-              <span><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></span>
-            </li>
-          </ul>
-          <?php } ?>
-    </ul>
-    </div>
-   <!-- 검색박스 -->
-   <div class="s_wrap">
-          <label for="category">검색옵션</label>
-          <select name="category" id="category">
-            <option value="">검색옵션</option>
-            <option value="question_title" <?=$category=="question_title" ? "selected" : ""?>>제목</option>
-            <option value="question_content" <?=$category=="question_content" ? "selected" : ""?>>내용</option>
-          </select>
-          <input type="text" name="search" placeholder="SEARCH" value="<?=$search?>">
-          <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+        <ul>
+          <li>
+            <h3>
+              <a href="question_view.php?question_id=<?=$data['question_id']?>"><?=$data['question_title']?></a>
+            </h3>
+            <span>  <?= ($row_parent == '0' ? '답변대기중' : '답변완료')?> /</span>
+            <span><?= date_format(date_create($data['question_wdate']), "Y-m-d") ?></span>
+          </li>
+        </ul>
+        <?php } ?>
+      </ul>
+      </div>
+      <!-- 검색박스 -->
+      <div class="s_wrap">
+        <label for="category">검색옵션</label>
+        <select name="category" id="category">
+          <option value="">검색옵션</option>
+          <option value="question_title" <?=$category=="question_title" ? "selected" : ""?>>제목</option>
+          <option value="question_content" <?=$category=="question_content" ? "selected" : ""?>>내용</option>
+        </select>
+        <input type="text" name="search" placeholder="SEARCH" value="<?=$search?>">
+        <button type="submit" class="s_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
 
-        <div class="pagination">
-          <ul class="pagination">
+      <div class="pagination">
+        <ul class="pagination">
+        <?php
+          if($page <= 1){
+        ?>
+          <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+          <?php } else{ ?>
+          <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
+          <?php }?>
+
           <?php
-            if($page <= 1){
+          for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
           ?>
-            <li><a href="?cate=<?=$cate?>&page=1" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
-            <?php } else{ ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page-1); ?>" title="prev" class="prev"><i class="fa-solid fa-chevron-left"></i></a></li>
-            <?php }?>
-
-            <?php
-            for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++){
-            ?>
-            <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
-            <?php }?>
-            
-            <?php
-            if($page >= $total_page){
-            ?>
-            <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
-            <?php } else{ ?>
-              <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
-            <?php }?>
-          </ul>
-        </div>
+          <li <?=$page == $print_page ? ' class="p_on"' : ''?>><a href="?cate=<?=$cate?>&page=<?php echo $print_page; ?>" title=""><?php echo $print_page; ?></a></li>
+          <?php }?>
+          
+          <?php
+          if($page >= $total_page){
+          ?>
+          <li><a href="?cate=<?=$cate?>&page=<?php echo $total_page; ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+          <?php } else{ ?>
+            <li><a href="?cate=<?=$cate?>&page=<?php echo ($page+1); ?>" title="next" class="next"><i class="fa-solid fa-chevron-right"></i></a></li>
+          <?php }?>
+        </ul>
+      </div>
     </article>
   </form>
 </main>

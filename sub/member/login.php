@@ -11,7 +11,7 @@ include_once('../common.php');
     </h1>
     <article class="login">
       <h2 class="a_title">로그인</h2>
-      <form name="로그인" method="post" action="login_db.php" id="member_form">
+      <form name="로그인" method="post" action="login_check.php" id="member_form">
         <label for="id">아이디</label>
         <input type="text" name="id" id="id">
         <label for="pw">비밀번호</label>

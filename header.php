@@ -346,7 +346,7 @@
         </a>
       </li>
       <li>
-        <a href="#academy" title="내 강의실" <?=$seq!=1?:"class=active"?>>
+        <a href="<?=$base_URL?>sub/mypage/course_status.php" title="내 강의실" <?=$seq!=1?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_academy<?=$seq!=1?"":"_active"?>.png" alt="academy">
           <span>내강의실</span>
         </a>

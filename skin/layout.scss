@@ -247,7 +247,7 @@
   //크기 관련
   @if ($size == 'large') {
     font-size: var(--f-size02);
-    padding: 9px 53px;
+    padding: 9px 48px;
   } @else if($size == 'medium') {
     font-size: var(--f-size02);
     padding: 7px 22px;

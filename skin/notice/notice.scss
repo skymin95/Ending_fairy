@@ -186,7 +186,7 @@ footer{
   position: absolute;
   // width: 100%;
   top: 5px;
-  right: 80px;
+  right: 60px;
   color: #DE0010;
   background: none;
   border: none;
@@ -219,7 +219,7 @@ footer{
 	display: block;
 	position: absolute;
   top: 22px;
-  left: -3px;
+  left: -4px;
 	height: 2px;
 	background: var(--black);
 	transition: transform 300ms ease-in-out;
@@ -231,7 +231,7 @@ footer{
   height: 2px;
   position: absolute;
   top: 22px;
-  left: -3px;
+  left: -4px;
   background: #DE0010;
   transform: scaleX(1);
 	transform-origin: top left;

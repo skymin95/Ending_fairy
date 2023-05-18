@@ -40,7 +40,7 @@ header > .top .answer::after {
   line-height: 13px;
   text-align: center;
   font-size: 0.625rem;
-  background-color: #f00;
+  background-color: var(--main-color);
   color: #fff;
 }
 header > .top .top-right {
@@ -372,7 +372,7 @@ footer address dl dt {
   background-color: var(--main-color);
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 44px;
+  padding: 9px 48px;
   display: inline-block;
 }
 .nav_boxmenu > li:last-of-type > a {
@@ -384,8 +384,9 @@ footer address dl dt {
   border: 1px solid #E6E6E6;
   color: var(--main-color);
   font-size: var(--f-size02);
-  padding: 9px 44px;
+  padding: 9px 48px;
   display: inline-block;
+  border: none;
 }
 
 .nav_user_menu {

@@ -45,7 +45,7 @@ header {
         line-height: $alertSize;
         text-align: center;
         font-size: 0.625rem;
-        background-color: #f00;
+        background-color: var(--main-color);
         color: #fff;
       }
     }
@@ -358,6 +358,7 @@ footer{
     >a{
       @include btn('white red', 'large');
       display: inline-block;
+      border: none;
     }
   }
 }
