@@ -57,13 +57,13 @@ $total_price = 0; // 총 가격
           </li>
           <?php } ?>
           </ul>
-        <?php } ?>
 
       <p class="total_price">
         <span>총 결제 금액</span>
         <span><?=number_format($total_price)?>원</span>
       </p>
       <button type="submit" class="cart_submit" id="cart_submit_payment"><?=number_format($total_price)?>원 결제하기</button>
+      <?php } ?>
     </form>
   </article>
 
