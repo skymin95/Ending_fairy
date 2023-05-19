@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="shortcut icon" href="<?=$base_URL?>images/favicon.png" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="<?=$base_URL?>skin/prefixfree.min.js" defer></script>
   <script src="<?=$base_URL?>skin/common.js" defer></script>
 
@@ -25,6 +26,9 @@
     echo "<script src='".$base_skin_URL."main/main.js' defer></script>";
     echo "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'/>
     <script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>";
+  }
+  if($title == "인트로"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."intro.css' type='text/css'>";
   }
   if($title == "로그인"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."member/login.css' type='text/css'>";
@@ -326,6 +330,9 @@
       case "검색":
         $seq = 0;
         break;
+      case "내강의실":
+        $seq = 1;
+        break;
       case "캐논 아카데미":
         $seq = 2;
         break;
@@ -346,7 +353,7 @@
         </a>
       </li>
       <li>
-        <a href="<?=$base_URL?>sub/mypage/course_status.php" title="내 강의실" <?=$seq!=1?:"class=active"?>>
+        <a href="<?=$base_URL?>sub/mypage/course_status.php" title="내강의실" <?=$seq!=1?:"class=active"?>>
           <img src="<?=$base_URL?>images/nav_academy<?=$seq!=1?"":"_active"?>.png" alt="academy">
           <span>내강의실</span>
         </a>
