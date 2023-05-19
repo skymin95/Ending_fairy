@@ -89,6 +89,9 @@ input[type="checkbox"]:checked{
   color: var(--f-color01);
   cursor: pointer;
 }
+.m_btn >a {
+  color: var(--f-color01);
+}
 #save_frm{
   margin-top: 50px;
   background: var(--main-color);

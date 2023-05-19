@@ -120,9 +120,9 @@ function getYoutubeThumb($url) {
       <article class="curri_recommend">
         <h3>추천 커리큘럼</h3>
         <dl>
-          <dt>초급자</dt>
+          <dt>입문자</dt>
           <dd><span class="on_mini">온</span>EOS R6 사용법</dd>
-          <dd><span class="on_mini">온</span>여행 사진 첫걸음</dd>
+          <dd><span class="on_mini">온</span>초보 탈출! 사진의 기초 </dd>
           <dd><span class="on_mini">온</span>왕초보를 위한 프리미어 프로</dd>
 
           <dt>중급자</dt>
@@ -132,7 +132,7 @@ function getYoutubeThumb($url) {
 
           <dt>전문가</dt>
           <dd><span class="off_mini">오</span>봄꽃 사진 촬영 실습 -유채꽃-</dd>
-          <dd><span class="off_mini">오</span>풍경 사진 마스터 -파노라마-</dd>
+          <dd><span class="off_mini">오</span>자연 속 작은 세상의 아름다움, 접사 촬영 실습</dd>
         </dl>
       </article>
     </section>

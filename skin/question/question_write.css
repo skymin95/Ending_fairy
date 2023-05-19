@@ -37,7 +37,7 @@
   background-color: #5A5A5C;
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
   padding-top: 10px;
 }
 .q_write_btn .q_submit > input[type=submit] {
@@ -49,5 +49,5 @@
   background-color: var(--main-color);
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
 }/*# sourceMappingURL=question_write.css.map */

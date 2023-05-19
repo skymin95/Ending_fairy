@@ -67,7 +67,7 @@ include_once('../common.php');
         </div>
 
         <button type="submit" class="m_btn" id="save_frm">회원가입</button>
-        <button type="reset" class="m_btn">다시쓰기</button>
+        <button type="reset" class="m_btn"><a href="javascript:window.history.back();" title="취소하b기">취소하기</a></button>
       </form>
     </article>
   </section>

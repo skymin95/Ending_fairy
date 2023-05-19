@@ -372,7 +372,6 @@ footer {
 }
 
 .curriculum {
-  padding-bottom: 48px;
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
 }
 .curriculum h3 {
@@ -422,6 +421,7 @@ footer {
 }
 
 .curri_recommend {
+  padding-bottom: 78px;
   width: 100%;
 }
 .curri_recommend > h3 {
@@ -437,7 +437,7 @@ footer {
   content: "";
   display: block;
   width: 2px;
-  height: 900px;
+  height: 700px;
   position: absolute;
   top: 5px;
   left: 50%;
@@ -446,12 +446,12 @@ footer {
 .curri_recommend > dl > dt {
   position: relative;
   left: 50%;
-  transform: translateX(-71px);
+  transform: translateX(-70px);
   font-size: 1.125rem;
   text-align: right;
   color: var(--main-color);
   display: inline-block;
-  padding-top: 80px;
+  padding: 36px 0px 28px 0px;
 }
 .curri_recommend > dl > dt::after {
   display: inline-block;
@@ -469,7 +469,7 @@ footer {
 .curri_recommend > dl > dd {
   position: relative;
   font-size: 0.875rem;
-  padding-top: 60px;
+  padding-top: 36px;
   padding-left: 54px;
   left: 50%;
   width: 160px;
@@ -487,7 +487,7 @@ footer {
   z-index: 1;
   position: absolute;
   left: -8px;
-  top: 60px;
+  top: 36px;
 }
 .curri_recommend > dl > dd .on_mini {
   font-size: var(--f-size01);

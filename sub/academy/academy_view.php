@@ -80,7 +80,10 @@ $eday = ceil($date_dif / (60*60*24));
 
       <section class="tab_con">
         <h3 class="hidden">강사</h3>
-        <p>강사명 : <?=$data['course_teacher']?></p>
+        <div class="con <?=empty($data['fileID']) ? 'hidden' : ''?>">
+          <img src="<?=$base_URL?>images/<?=$data['fileID']?>" alt="과정소개">
+        </div>
+        <button type="button" class="more">더보기<i class="fa-solid fa-sort-down"></i></button>
       </section>
 
       <section class="tab_con index">

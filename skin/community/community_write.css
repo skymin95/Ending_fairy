@@ -34,7 +34,7 @@
   background-color: #5A5A5C;
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
   padding-top: 10px;
 }
 .comm_write_btn .comm_submit > input[type=submit] {
@@ -46,5 +46,5 @@
   background-color: var(--main-color);
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
 }/*# sourceMappingURL=community_write.css.map */
