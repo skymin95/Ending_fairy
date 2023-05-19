@@ -65,7 +65,7 @@
       justify-content: center;
       column-gap: 8px;
       padding: 12px 0 24px;
-      > button {
+      > a {
         @include onemobile();
         display: block;
         &:first-of-type {

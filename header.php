@@ -57,6 +57,8 @@
     echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_view.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."lib/progressbar.min.js'></script>";
     echo "<script src='".$base_skin_URL."mypage/course_view.js' defer></script>";
+  } else if($title == "마이페이지 > 수강중인 강의 > 강의"){
+    echo "<link rel='stylesheet' href='".$base_skin_URL."mypage/course_view_pop.css' type='text/css'>";
   } else if($title == "강의" || $title == "강의 상세"){
     echo "<link rel='stylesheet' href='".$base_skin_URL."academy/academy.css' type='text/css'>";
     echo "<script src='".$base_skin_URL."academy/academy.js' defer></script>";

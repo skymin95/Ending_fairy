@@ -2,6 +2,23 @@
 $title = "장바구니"; // 타이틀
 include_once('../common.php');
 
+if(isset($_SESSION['mb_id'])){
+  $mb_id = $_SESSION['mb_id'];
+
+  $sql_member = "SELECT * FROM member WHERE mb_id = '".$_SESSION['mb_id']."' ";
+  $result_member = mysqli_query($con, $sql_member);
+  $row_member = mysqli_fetch_array($result_member);
+
+  $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_member['mb_1']."'";
+  $result_file = mysqli_query($con, $sql_file);
+  $row_file = mysqli_fetch_assoc($result_file);
+} else {
+  echo '<script>
+    alert("로그인 후 이용하실 수 있습니다.");
+    location.href = "'.$base_URL.'";
+  </script>';
+}
+
 $query = "SELECT * FROM course INNER JOIN (SELECT * FROM cart WHERE mb_no = ".$row_member['mb_no'].") AS cart ON course.course_id = cart.course_id";
 $result = mysqli_query($con, $query);
 function getYoutubeThumb($url) {
@@ -44,10 +61,16 @@ $total_price = 0; // 총 가격
           <?php
           while($data = mysqli_fetch_assoc($result)) {
             $total_price += $data['course_price'];
+            
+            if(!empty($data['course_img'])){
+              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$data['course_img']."'";
+              $result_file = mysqli_query($con, $sql_file);
+              $row_file = mysqli_fetch_assoc($result_file);
+            }
           ?>
           <li class="list_data">
             <input type="checkbox" name="checked_list[]" class="check" value="<?=$data['cart_id']?>">
-            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "../images/".$data['course_img']?>" alt="<?=$data['course_title']?>">
+            <img src="<?=empty($data['course_img']) ? getYoutubeThumb($data['course_link']) : "".$base_URL."upload/".$row_file['nameSave']?>" alt="<?=$data['course_title']?>">
             <div>
               <span><?=date_format(date_create($data['course_edu_sdate']), "Y.m.d")?> ~ <?=date_format(date_create($data['course_edu_edate']), "Y.m.d")?></span>
               <p class="course_title"><?=$data['course_title']?></p>

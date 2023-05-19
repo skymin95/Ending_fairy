@@ -56,11 +56,11 @@
        column-gap: 8px;
   padding: 12px 0 24px;
 }
-.course_wrap .course_info > .btn_list > button {
+.course_wrap .course_info > .btn_list > a {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   display: block;
 }
-.course_wrap .course_info > .btn_list > button:first-of-type {
+.course_wrap .course_info > .btn_list > a:first-of-type {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   border-radius: 20px;
   border: 0;
@@ -71,7 +71,7 @@
   font-size: var(--f-size02);
   padding: 7px 22px;
 }
-.course_wrap .course_info > .btn_list > button:nth-of-type(2) {
+.course_wrap .course_info > .btn_list > a:nth-of-type(2) {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
   border-radius: 20px;
   border: 0;

@@ -1,6 +1,7 @@
 <?php
 $title = "마이페이지 > 내 강의실"; // 타이틀
 include_once('../common.php');
+$nowdate = '';
 ?>
 <main>
   <article>
@@ -53,6 +54,24 @@ include_once('../common.php');
           $result_course = mysqli_query($con, $sql_course);
           $row_course = mysqli_fetch_assoc($result_course);
 
+          $sql_index = "SELECT * FROM course_index WHERE course_id = ".$row_status['course_id']." AND class IS NOT NULL";
+          $result_index = mysqli_query($con, $sql_index);
+          $cnt_index = mysqli_num_rows($result_index);
+
+          if($cnt_index > 0) {
+            $sql_index_submit = "SELECT * FROM course_status AS stat INNER JOIN course_index AS idx ON stat.index_id = idx.index_id WHERE mb_no =".$row_member['mb_no']." AND idx.course_id = ".$row_status['course_id'];
+            $result_index_submit = mysqli_query($con, $sql_index_submit);
+            
+            $percentage = 0;
+            $cnt_index_submit = 0;
+
+            while($row_index_submit = mysqli_fetch_assoc($result_index_submit)) {
+              $percentage += $row_index_submit['status'];
+              if((int)$row_index_submit['status'] >= 80) $cnt_index_submit++;
+            }
+            $percentage = floor($percentage / $cnt_index);
+          }
+
           if($row_course['course_cate'] == '온라인') {
             if($row_status['status'] < 80) {
             $nowdate = date("Y-m-d", strtotime("+1 day"));
@@ -77,7 +96,7 @@ include_once('../common.php');
             <dd><?=$row_course['course_edu_time']?></dd>
           </dl>
           <a href="<?=$base_URL?>sub/mypage/course_view.php?course_id=<?=$row_course['course_id']?>">수강하기</a>
-          <div class="progress-bar" data-color="#D9D9D9,#DE0010" data-percent="<?=($row_status['status'] ? $row_status['status'] : 0)?>" data-text="수강율">
+          <div class="progress-bar" data-color="#D9D9D9,#DE0010" data-percent="<?=($cnt_index > 0 ? $percentage : 0)?>" data-text="수강율">
             <div class="wrap-sub">
               <div class="left-sub"></div>
               <div class="right-sub"></div>

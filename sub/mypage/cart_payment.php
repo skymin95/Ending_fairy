@@ -39,13 +39,19 @@ $total_price = 0; //총 가격
             $edate = date_format(date_create($row_course['course_edu_edate']), "Y-m-d");
             $date_dif = abs(strtotime($sdate)-strtotime($edate));
             $eday = ceil($date_dif / (60*60*24)+1);
+            
+            if(!empty($row_course['course_img'])){
+              $sql_file = "SELECT * FROM upload_file WHERE fileID = '".$row_course['course_img']."'";
+              $result_file = mysqli_query($con, $sql_file);
+              $row_file = mysqli_fetch_assoc($result_file);
+            }
 
             $total_price += $row_course['course_price'];
         ?>
         <div class="course_info">
           <input type="hidden" name="course_id[]" value="<?=$row_cart['course_id']?>">
           <h3 class="hidden">강의 정보</h3>
-          <img src="<?=empty($row_course['course_img']) ? getYoutubeThumb($row_course['course_link']) : "../images/".$row_course['course_img']?>" alt="<?=$row_course['course_title']?>" class="course_image">
+          <img src="<?=empty($row_course['course_img']) ? getYoutubeThumb($row_course['course_link']) : "".$base_URL."upload/".$row_file['nameSave']?>" alt="<?=$row_course['course_title']?>" class="course_image">
           <div class="course_title">
             <p><?=$row_course['course_cate']?> 강의</p>
             <h4><?=$row_course['course_title']?></h4>
