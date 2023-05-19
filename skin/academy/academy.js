@@ -48,19 +48,31 @@ function moveHighlight(num){
 // 탭메뉴 끝
 
 // 더보기
-let more = document.querySelector('#detail .more');
-let intro = document.querySelector('#detail .con');
-let con_h = intro.offsetHeight;
-console.log(con_h);
+let i_more = document.querySelector('.intro .more');
+let intro = document.querySelector('.intro .con');
+let t_more = document.querySelector('.teacher .more');
+let teacher = document.querySelector('.teacher .con');
+let i_con_h = intro.offsetHeight;
+let t_con_h = teacher.offsetHeight;
 
-if(con_h>400){
+if(i_con_h>400){
   intro.style.height='400px';
-  more.style.display='block';
+  i_more.style.display='block';
 }
 
-more.addEventListener('click', function(){
-  more.style.display='none';
+i_more.addEventListener('click', function(){
   intro.style.height='100%';
+  i_more.style.display='none';
+});
+
+if(t_con_h>400){
+  teacher.style.height='400px';
+  t_more.style.display='block';
+}
+
+t_more.addEventListener('click', function(){
+  teacher.style.height='100%';
+  t_more.style.display='none';
 });
 
 // 수강평 별점
