@@ -65,7 +65,7 @@ $data_parent = mysqli_fetch_array($result_parent);
         <!-- 상단이미지 li -->
         <li>
           <a href="community_view.php?community_id=<?=$data['community_id']?>" title="상세페이지이동">
-            <img src="http://localhost/Ending_fairy/images/community.png" alt="userimg" class="community_img" title="커뮤니티이미지1">
+            <img src="http://localhost/Ending_fairy/images/community_0<?=$data['community_id']?>.png" alt="userimg" class="community_img" title="커뮤니티이미지1">
           </a>
         </li>
 

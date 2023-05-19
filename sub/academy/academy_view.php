@@ -23,7 +23,7 @@ if(!empty($data['course_img'])){
 $sdate = date_format(date_create($data['course_edu_sdate']), "Y-m-d");
 $edate = date_format(date_create($data['course_edu_edate']), "Y-m-d");
 $date_dif = abs(strtotime($sdate)-strtotime($edate));
-$eday = ceil($date_dif / (60*60*24));
+$eday = ceil($date_dif / (60*60*24)+1);
 ?>
 
 <main>
@@ -78,10 +78,10 @@ $eday = ceil($date_dif / (60*60*24));
         <button type="button" class="more">더보기<i class="fa-solid fa-sort-down"></i></button>
       </section>
 
-      <section class="tab_con">
+      <section class="tab_con teacher">
         <h3 class="hidden">강사</h3>
-        <div class="con <?=empty($data['fileID']) ? 'hidden' : ''?>">
-          <img src="<?=$base_URL?>images/<?=$data['fileID']?>" alt="과정소개">
+        <div class="con <?=empty($data['course_teacher_img']) ? 'hidden' : ''?>">
+          <img src="<?=$base_URL?>images/<?=$data['course_teacher_img']?>" alt="강사소개">
         </div>
         <button type="button" class="more">더보기<i class="fa-solid fa-sort-down"></i></button>
       </section>

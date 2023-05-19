@@ -275,10 +275,10 @@ footer {
 #detail .c_detail .tab_con:not(.review) img {
   width: 100%;
 }
-#detail .c_detail .intro .con {
+#detail .c_detail .tab_con:not(.review) .con {
   overflow: hidden;
 }
-#detail .c_detail .intro .more {
+#detail .c_detail .tab_con:not(.review) .more {
   display: none;
   width: 100%;
   margin: 0 auto;
@@ -287,14 +287,14 @@ footer {
   line-height: 28px;
   color: var(--f-color03);
 }
-#detail .c_detail .intro .more::before {
+#detail .c_detail .tab_con:not(.review) .more::before {
   content: "";
   display: block;
   width: 100%;
   height: 2px;
   background: #EFF1F3;
 }
-#detail .c_detail .intro .more i {
+#detail .c_detail .tab_con:not(.review) .more i {
   line-height: 36px;
   vertical-align: bottom;
   font-size: var(--f-size02);
@@ -372,6 +372,7 @@ footer {
 }
 
 .curriculum {
+  padding-bottom: 48px;
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
 }
 .curriculum h3 {
@@ -421,7 +422,6 @@ footer {
 }
 
 .curri_recommend {
-  padding-bottom: 78px;
   width: 100%;
 }
 .curri_recommend > h3 {
@@ -437,7 +437,7 @@ footer {
   content: "";
   display: block;
   width: 2px;
-  height: 700px;
+  height: 900px;
   position: absolute;
   top: 5px;
   left: 50%;
@@ -446,12 +446,12 @@ footer {
 .curri_recommend > dl > dt {
   position: relative;
   left: 50%;
-  transform: translateX(-70px);
+  transform: translateX(-71px);
   font-size: 1.125rem;
   text-align: right;
   color: var(--main-color);
   display: inline-block;
-  padding: 36px 0px 28px 0px;
+  padding-top: 80px;
 }
 .curri_recommend > dl > dt::after {
   display: inline-block;
@@ -469,7 +469,7 @@ footer {
 .curri_recommend > dl > dd {
   position: relative;
   font-size: 0.875rem;
-  padding-top: 36px;
+  padding-top: 60px;
   padding-left: 54px;
   left: 50%;
   width: 160px;
@@ -487,7 +487,7 @@ footer {
   z-index: 1;
   position: absolute;
   left: -8px;
-  top: 36px;
+  top: 60px;
 }
 .curri_recommend > dl > dd .on_mini {
   font-size: var(--f-size01);
