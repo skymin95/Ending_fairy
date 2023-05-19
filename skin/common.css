@@ -95,7 +95,6 @@ header > .bottom {
   height: 80px;
   border-radius: 5px 5px 0 0;
   z-index: 5000;
-  overflow: hidden;
 }
 header > .bottom::before {
   content: "";
@@ -151,9 +150,11 @@ header > .bottom > ul > li > a > span {
   letter-spacing: 1px;
 }
 header > .bottom > ul > li > a.active > img {
+  width: 25px;
+  height: 22px;
   position: fixed;
   bottom: 61px;
-  left: calc(var(--data-seq) * 20% + 10% - 11px);
+  left: calc(var(--data-seq) * 20% + 10% - 12px);
 }
 header > .bottom > ul > li > a.active::before {
   content: "";
