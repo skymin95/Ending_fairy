@@ -23,7 +23,7 @@
   background-color: var(--main-color);
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
 }
 .coupon_wrap > .coupon_list_wrap > p:first-of-type {
   font-family: "ONE-Mobile-Regular", sans-serif, arial;
@@ -142,7 +142,7 @@
   background-color: #767676;
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
   display: block;
   margin: 0 auto 36px;
 }
@@ -154,7 +154,7 @@
   background-color: var(--main-color);
   color: var(--f-color01);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
 }
 #couponModal > form > ul {
   display: flex;

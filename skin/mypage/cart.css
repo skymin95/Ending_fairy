@@ -52,7 +52,7 @@
   border: 1px solid #E6E6E6;
   color: var(--main-color);
   font-size: var(--f-size02);
-  padding: 9px 53px;
+  padding: 9px 48px;
 }
 .cart_list_form .list_data_wrap {
   border-top: 2px solid var(--main-color);
