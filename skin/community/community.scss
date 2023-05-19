@@ -221,6 +221,10 @@ background: #EFF1F3;
   p{
     margin: 12px 12px 24px;
     line-height: 19px;
+    > img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 .comm_answer{

@@ -65,7 +65,12 @@ $data_parent = mysqli_fetch_array($result_parent);
         <!-- 상단이미지 li -->
         <li>
           <a href="community_view.php?community_id=<?=$data['community_id']?>" title="상세페이지이동">
-            <img src="http://localhost/Ending_fairy/images/community_0<?=$data['community_id']?>.png" alt="userimg" class="community_img" title="커뮤니티이미지1">
+          <?php
+          $matches = "";
+          $contents = $data['community_content'];
+          preg_match_all("/<img[^>]*title=[\"']?([^>\"']+)[\"']?[^>]*>/i", $contents, $matches);
+          ?>
+            <img src="<?=$base_URL."upload/".$matches[1][0]?>" alt="userimg" class="community_img" title="커뮤니티이미지1">
           </a>
         </li>
 
@@ -76,18 +81,18 @@ $data_parent = mysqli_fetch_array($result_parent);
               <?=$data['community_title']?>
             </h3>
             <div class="community_content">
-              <?=$data['community_content']?>
+              <?=$data['community_content'] = preg_replace("(\<(/?[^\>]+)\>)", "", $data['community_content']);?>
             </div>
   
           </a>
           <!-- 좋아요,댓글 버튼 -->
           <ul class="heart_btn">
             <li>
-              <img src="http://localhost/Ending_fairy/images/heart.png" alt="userimg">
+              <img src="<?=$base_URL?>images/heart.png" alt="userimg">
               <span>898</span>
             </li>
             <li>  
-              <img src="http://localhost/Ending_fairy/images/댓글.png" alt="userimg">
+              <img src="<?=$base_URL?>images/댓글.png" alt="userimg">
               <span>24</span>
             </li>
           </ul>

@@ -43,7 +43,7 @@ $row_file = mysqli_fetch_assoc($result_file);
 <h3><?=$data['question_title']?></h3>
 <div class="question_content_box">
 <p><?=$data['question_title']?></p>
-<p><?=$data['question_content']?></p>
+<p><?=str_replace("src=\"", "src=\"/Ending_fairy/upload/", str_replace("title=", "src=", preg_replace("/ src=(\"|\')?([^\"\']+)(\"|\')?/","",$data['question_content'])))?></p>
 </div>
 
 <div class="question_answer_box">

@@ -199,6 +199,11 @@
   margin: 12px 12px 24px;
   line-height: 19px;
 }
+.comm_view_box .community_view_ul p > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .comm_view_box .comm_answer {
   padding: 40px 0px 24px 0px;
 }

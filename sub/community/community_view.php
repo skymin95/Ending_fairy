@@ -57,7 +57,7 @@ $data_parent = mysqli_fetch_array($result_parent);
     </li>
 
     <li class="heart_info">
-      <img src="http://localhost/Ending_fairy/images/heart.png" alt="userimg">
+      <img src="<?=$base_URL?>images/heart.png" alt="userimg">
     </li>
   </ul>
 
@@ -66,13 +66,13 @@ $data_parent = mysqli_fetch_array($result_parent);
   <ul class="community_view_ul">
     <h3><?=$data['community_title']?></h3>
     <li>
-    <!-- <img src="http://localhost/Ending_fairy/images/커뮤상세1.png" alt="커뮤상세1"> -->
+    <!-- <img src="<?=$base_URL?>images/커뮤상세1.png" alt="커뮤상세1"> -->
     </li>
     <li>
-    <!-- <img src="http://localhost/Ending_fairy/images/커뮤상세2.png" alt="커뮤상세2"> -->
+    <!-- <img src="<?=$base_URL?>images/커뮤상세2.png" alt="커뮤상세2"> -->
     </li>
       <p>
-      <?=$data['community_content']?>
+      <p><?=str_replace("src=\"", "src=\"/Ending_fairy/upload/", str_replace("title=", "src=", preg_replace("/ src=(\"|\')?([^\"\']+)(\"|\')?/","",$data['community_content'])))?></p>
       </p>  
   </ul>
 
@@ -97,7 +97,7 @@ $data_parent = mysqli_fetch_array($result_parent);
       <!-- 대댓글 -->
       <ul class="answer_ans_wrap">
         <li class="user_ans">
-          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="com_user_img">
           <p>강*영</p>
         </li>
 
@@ -127,7 +127,7 @@ $data_parent = mysqli_fetch_array($result_parent);
 
         <!-- 댓글에 댓글 -->
         <!-- <li class="ans_ans">
-          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="com_user_img">
           <p>강*영1</p>
         </li>
 
@@ -142,7 +142,7 @@ $data_parent = mysqli_fetch_array($result_parent);
 
         <!-- 댓글 -->
         <!-- <li class="user_ans">
-          <img src="http://localhost/Ending_fairy/images/userimg_mypage.png" alt="userimg" class="com_user_img">
+          <img src="<?=$base_URL?>images/userimg_mypage.png" alt="userimg" class="com_user_img">
             <p>김*석</p>
         </li>
 
