@@ -95,7 +95,6 @@ header > .bottom {
   height: 80px;
   border-radius: 5px 5px 0 0;
   z-index: 5000;
-  overflow: hidden;
 }
 header > .bottom::before {
   content: "";
