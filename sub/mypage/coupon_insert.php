@@ -16,7 +16,7 @@ echo $str_sdate.'<br>';
 echo $str_edate;
 
 if(!empty($row_coupon_info)){
-  $sql_coupon = "SELECT * FROM coupon_status WHERE coupon_no = ".$row_coupon_info['coupon_no'];
+  $sql_coupon = "SELECT * FROM coupon_status WHERE coupon_no = ".$row_coupon_info['coupon_no']." AND mb_no = ".$row_member['mb_no'];
   $result_coupon = mysqli_query($con, $sql_coupon);
   $num_coupon = mysqli_num_rows($result_coupon);
 
