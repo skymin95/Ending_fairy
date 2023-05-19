@@ -328,22 +328,31 @@
   </div>
   <?php
     $seq = 2; // 0 ~ 4 순서로 검색, 내 강의실, 홈, 장바구니, 마이페이지
-    switch($title) {
-      case "검색":
-        $seq = 0;
-        break;
-      case "내강의실":
-        $seq = 1;
-        break;
-      case "캐논 아카데미":
-        $seq = 2;
-        break;
-      case "장바구니":
-        $seq = 3;
-        break;
-      case "마이페이지":
-        $seq = 4;
-        break;
+    // switch($title) {
+    //   case "검색":
+    //     $seq = 0;
+    //     break;
+    //   case "내강의실":
+    //     $seq = 1;
+    //     break;
+    //   case "캐논 아카데미":
+    //     $seq = 2;
+    //     break;
+    //   case "장바구니":
+    //     $seq = 3;
+    //     break;
+    //   case "마이페이지":
+    //     $seq = 4;
+    //     break;
+    // }
+    if(strpos($title, "검색") !== false) {
+      $seq = 0;
+    } else if (strpos($title, "내 강의실") !== false) {
+      $seq = 1;
+    } else if (strpos($title, "장바구니") !== false) {
+      $seq = 3;
+    } else if (strpos($title, "마이페이지") !== false) {
+      $seq = 4;
     }
   ?>
   <nav class="bottom" style="--data-seq:<?=$seq?>;">
