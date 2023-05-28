@@ -21,7 +21,7 @@ if($category==''){
             (SELECT question_parent_id 
               FROM board_question 
               WHERE question_parent_id IS NULL) AS b 
-          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL) AS question ON member.mb_no = question.mb_no
+          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id like '0%') AS question ON member.mb_no = question.mb_no
       WHERE member.mb_nick LIKE '%".$search."%' OR member.mb_name LIKE '%".$search."%'";
   $result = mysqli_query($con, $sql);
 
@@ -34,7 +34,7 @@ if($category==''){
             (SELECT question_parent_id 
               FROM board_question 
               WHERE question_parent_id IS NOT NULL) AS b 
-          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL) AS question ON member.mb_no = question.mb_no
+          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id like '0%') AS question ON member.mb_no = question.mb_no
       WHERE member.mb_nick LIKE '%".$search."%' OR member.mb_name LIKE '%".$search."%'";
 
   //답변이 달려있는 질문 조회
@@ -43,7 +43,7 @@ if($category==''){
   (SELECT mb_name, mb_nick, mb_no FROM member WHERE mb_name LIKE '%".$search."%' OR mb_nick LIKE '%".$search."%') AS member
   WHERE a.question_id = b.question_parent_id AND a.mb_no = member.mb_no";
 }else{
-  $sql = "SELECT * from board_question where question_parent_id is null AND $category like '%".$search."%' order by question_id desc";
+  $sql = "SELECT * from board_question where question_parent_id like '0%' AND $category like '%".$search."%' order by question_id desc";
   $result = mysqli_query($con, $sql);
   
   //답변이 달려있지 않은 질문 조회
@@ -55,7 +55,7 @@ if($category==''){
             (SELECT question_parent_id 
               FROM board_question 
               WHERE question_parent_id IS NOT NULL) AS b 
-          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL AND $category like '%".$search."%' order by question_id desc";
+          WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id like '0%' AND $category like '%".$search."%' order by question_id desc";
 
   //답변이 달려있는 질문 조회
   $sql_c = "SELECT * FROM board_question AS a, (SELECT question_parent_id FROM board_question WHERE question_parent_id IS NOT NULL) AS b WHERE a.question_id = b.question_parent_id AND $category like '%".$search."%' order by question_id desc";

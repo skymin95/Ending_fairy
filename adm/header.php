@@ -97,7 +97,7 @@
                   (SELECT question_parent_id 
                     FROM board_question 
                     WHERE question_parent_id IS NOT NULL) AS b 
-                WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL";
+                WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id like '0%'";
         $result_answer = mysqli_query($con, $sql_answer);
         $row_answer = mysqli_fetch_row($result_answer);
       ?>

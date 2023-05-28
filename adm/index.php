@@ -130,7 +130,7 @@ include_once('./common.php');
                       (SELECT question_parent_id 
                         FROM board_question 
                         WHERE question_parent_id IS NOT NULL) AS b 
-            WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id IS NULL
+            WHERE a.question_id = b.question_parent_id) AND origin.question_parent_id like '0%'
             ORDER BY question_id
             LIMIT 0, 4";
             $result_answer = mysqli_query($con, $sql_answer);
