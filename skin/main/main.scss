@@ -1,19 +1,21 @@
 @import '../layout';
 // 메인 서식
 
-footer{
+footer {
   @include footer(-26px);
 }
 
 // 상단 슬라이드 시작
-#m_slide{
+#m_slide {
   position: relative;
   width: 100%;
   max-height: 500px;
-  h2{
+
+  h2 {
     display: none;
   }
-  .swiper-slide span{
+
+  .swiper-slide span {
     position: absolute;
     top: 36%;
     right: 8%;
@@ -23,30 +25,36 @@ footer{
     line-height: 6.5vw;
     color: var(--f-color01);
     z-index: 9;
-    small{
+
+    small {
       font-size: 3.5vw;
     }
   }
-  img{
+
+  img {
     width: 100%;
     border-radius: 15px 15px 0px 0px;
     filter: brightness(0.7);
   }
-  .swiper-pagination{
+
+  .swiper-pagination {
     bottom: 40px;
   }
-  .swiper-pagination-bullet{
+
+  .swiper-pagination-bullet {
     width: 60px;
     height: 5px;
     background: var(--bg-color01);
     border-radius: 5px;
     opacity: .6;
   }
-  .swiper-pagination-bullet-active{
+
+  .swiper-pagination-bullet-active {
     background: var(--main-color);
     opacity: 1;
   }
-  .fas{
+
+  .fas {
     position: absolute;
     right: 18vw;
     bottom: 36px;
@@ -56,50 +64,64 @@ footer{
     cursor: pointer;
   }
 }
+
 // 상단 슬라이드 끝
 
-main{overflow: hidden;}
+main {
+  overflow: hidden;
+}
+
 // my영역 시작
-#m_my{
+#m_my {
   @include box(-16px);
   @include onemobile;
   padding: 0 20px;
   background: #F4F4F5;
   z-index: 1;
-  .logout{
+
+  .logout {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 36px 0 47px 0;
-    h3{
+
+    h3 {
       font-size: 17px;
     }
-    div a{
+
+    div a {
       margin-left: 12px;
       font-size: 15px;
       color: var(--main-color);
     }
   }
-  .member{
+
+  .member {
     @include my;
-    .m_course{
+
+    .m_course {
       overflow-x: scroll;
       -ms-overflow-style: none;
       scrollbar-width: none;
+
       &::-webkit-scrollbar {
         display: none;
       }
-      ul{
+
+      ul {
         width: 443px;
         display: flex;
         gap: 8px;
-        li{
+
+        li {
           background: var(--f-color01);
           border-radius: 20px;
-          a{
+
+          a {
             display: inline-block;
             padding: 10px;
-            span{
+
+            span {
               margin-left: 4px;
               padding: 1px 5px;
               background: var(--main-color);
@@ -108,11 +130,14 @@ main{overflow: hidden;}
             }
           }
         }
-        li:first-child{
+
+        li:first-child {
           background: var(--main-color);
-          a{
+
+          a {
             color: var(--f-color01);
-            span{
+
+            span {
               background: var(--bg-color01);
               color: var(--f-color03);
             }
@@ -120,7 +145,8 @@ main{overflow: hidden;}
         }
       }
     }
-    > a{
+
+    >a:last-of-type {
       width: 90px;
       margin: 0 auto;
       padding: 10px;
@@ -128,40 +154,50 @@ main{overflow: hidden;}
       text-align: center;
       border: 1px solid #D1D1D1;
       border-radius: 20px;
-      i.fas{
+
+      i.fas {
         font-size: 10px;
         margin-left: 4px;
       }
     }
   }
-  .admin{
+
+  .admin {
     @include my;
   }
 }
+
 // my영역 끝
 
 
 // 강의 영역 시작
-#m_academy{
+#m_academy {
   @include box(-27px);
   z-index: 2;
-  &::before{
+
+  &::before {
     @include tab_active(67px);
   }
-  h2, input[type=radio]{
+
+  h2,
+  input[type=radio] {
     display: none;
   }
-  img{
+
+  img {
     display: block;
   }
-  .line_tab{
+
+  .line_tab {
     @include tab;
   }
-  .tab_on{
+
+  .tab_on {
     @include tab_on(104px, 64px);
   }
-  .tab_con{
-    label{
+
+  .tab_con {
+    label {
       @include onemobile;
       display: inline-block;
       margin: 0 0 24px 8px;
@@ -173,162 +209,216 @@ main{overflow: hidden;}
       cursor: pointer;
       transition: .1s;
     }
-    #on_b:checked ~ .beginner{display: block;}
-    #on_e:checked ~ .expert{display: block;}
-    #off_b:checked ~ .beginner{display: block;}
-    #off_e:checked ~ .expert{display: block;}
-    input[type=radio]:checked + label{
+
+    #on_b:checked~.beginner {
+      display: block;
+    }
+
+    #on_e:checked~.expert {
+      display: block;
+    }
+
+    #off_b:checked~.beginner {
+      display: block;
+    }
+
+    #off_e:checked~.expert {
+      display: block;
+    }
+
+    input[type=radio]:checked+label {
       background: var(--sub-color01);
       color: var(--f-color01);
     }
-    .con_list{
+
+    .con_list {
       width: 100%;
       height: 100%;
       font-size: 14px;
       line-height: 22px;
       display: none;
-      li{
-        img{
+
+      li {
+        img {
           @include img;
         }
-        p{
+
+        p {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          span{
+
+          span {
             display: inline-block;
             width: 72px;
             font-size: var(--f-size02);
             color: #5A5A5C;
           }
         }
-        p:first-of-type{
+
+        p:first-of-type {
           margin: 12px 0 8px 0;
           font-size: var(--f-size02);
           font-weight: bold;
           text-indent: 10px;
         }
-        .tab_tag{
+
+        .tab_tag {
           margin: 8px 0;
-          span{
+
+          span {
             @include btn('stroke gray', 'extra small');
             margin: 0 4px;
           }
-          span:first-child{
+
+          span:first-child {
             @include btn('stroke red', 'extra small');
           }
         }
       }
-      .swiper-button-prev, .swiper-button-next{
+
+      .swiper-button-prev,
+      .swiper-button-next {
         width: 35px;
         height: 50px;
         color: var(--f-color01);
         top: 28%;
       }
-      .swiper-button-prev{left: 0;}
-      .swiper-button-next{right: 0;}
-      .swiper-button-prev::after, .swiper-button-next::after{
+
+      .swiper-button-prev {
+        left: 0;
+      }
+
+      .swiper-button-next {
+        right: 0;
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
         font-size: 20px;
       }
     }
   }
 }
+
 // 강의 영역 끝
 
 
 // 수강평 영역 시작
-#review{
+#review {
   @include box(-26px);
   padding-bottom: 52px;
   z-index: 3;
-  h2{
+
+  h2 {
     @include title(24px);
   }
-  li{
+
+  li {
     padding: 10px;
     background: #F4F4F5;
     border-radius: 15px;
     font-size: var(--f-size01);
     line-height: 20px;
-    p:nth-of-type(2){
+
+    p:nth-of-type(2) {
       font-weight: bold;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .star{
+
+    .star {
       @include star;
     }
   }
-  .swiper-pagination{
+
+  .swiper-pagination {
     bottom: 20px;
   }
-  .swiper-pagination-bullet{
+
+  .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
     background: var(--bg-color01);
     border: 1px solid var(--main-color);
     opacity: 1;
   }
-  .swiper-pagination-bullet-active{
+
+  .swiper-pagination-bullet-active {
     background: var(--main-color);
   }
 }
+
 // 수강평 영역 끝
 
 
 // 이벤트 영역 시작
-#event{
+#event {
   @include box(-28px);
   z-index: 4;
   font-size: 14px;
-  h2{
+
+  h2 {
     @include title(12px);
   }
-  p{
+
+  p {
     padding-bottom: 12px;
     text-indent: 10px;
   }
-  div:first-of-type{
+
+  div:first-of-type {
     margin-bottom: 12px;
   }
-  img{
+
+  img {
     @include img;
   }
-  > a{
-    @include more(37px,17px);
+
+  >a {
+    @include more(37px, 17px);
   }
 }
+
 // 이벤트 영역 끝
 
 
 // 게시판 영역 시작
-#board{
+#board {
   @include box(-26px);
   padding: 36px 20px 60px 20px;
-  &::before{
+
+  &::before {
     @include tab_active(67px);
   }
-  h2{
+
+  h2 {
     display: none;
   }
-  .line_tab{
+
+  .line_tab {
     @include tab;
-    li:first-child{
+
+    li:first-child {
       color: var(--main-color) !important;
     }
   }
-  .tab_on{
+
+  .tab_on {
     @include tab_on(84px, 64px);
   }
-  .board_con{
+
+  .board_con {
     padding: 39px 8px 0 8px;
-    li{
+
+    li {
       padding: 10px 0;
       font-size: var(--f-size01);
       line-height: 25px;
       border-bottom: 1px solid #D1D1D1;
-      p{
+
+      p {
         font-size: 14px;
         font-weight: 500;
         white-space: nowrap;
@@ -337,8 +427,10 @@ main{overflow: hidden;}
       }
     }
   }
-  > a{
-    @include more(97px,17px);
+
+  >a {
+    @include more(97px, 17px);
   }
 }
+
 // 게시판 영역 끝

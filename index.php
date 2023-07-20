@@ -46,14 +46,6 @@ include_once('./common.php');
         $result_file = mysqli_query($con, $sql_file);
         $row_file = mysqli_fetch_assoc($result_file);
 
-        $sql_status = "SELECT * FROM course_status WHERE mb_no = ".$row_member['mb_no']." AND index_id IS NULL";
-        $result_status = mysqli_query($con, $sql_status);
-        $row_status = mysqli_fetch_assoc($result_status);
-
-        $sql_course = "SELECT * FROM course WHERE course_id = ".$row_status['course_id']."";
-        $result_course = mysqli_query($con, $sql_course);
-        $row_course = mysqli_fetch_assoc($result_course);
-
         $sql_cnt_online = "SELECT COUNT(*) AS cnt FROM (SELECT * FROM course_status WHERE mb_no = ".$row_member['mb_no']." AND index_id IS NULL) AS a,
         (SELECT * FROM course) AS b WHERE a.course_id = b.course_id AND b.course_cate = '온라인' AND (a.status < 80 OR a.status IS NULL)";
         $result_cnt_online = mysqli_query($con, $sql_cnt_online);
@@ -68,6 +60,15 @@ include_once('./common.php');
         (SELECT * FROM course) AS b WHERE a.course_id = b.course_id AND b.course_cate = '온라인' AND a.status >= 80";
         $result_cnt_online_submit = mysqli_query($con, $sql_cnt_online_submit);
         $cnt_online_submit = mysqli_fetch_assoc($result_cnt_online_submit)['cnt'];
+
+        $sql_status = "SELECT * FROM course_status WHERE mb_no = ".$row_member['mb_no']." AND index_id IS NULL";
+        $result_status = mysqli_query($con, $sql_status);
+
+        while($row_status = mysqli_fetch_assoc($result_status)) {
+          $sql_course = "SELECT * FROM course WHERE course_id = ".$row_status['course_id']."";
+          $result_course = mysqli_query($con, $sql_course);
+          $row_course = mysqli_fetch_assoc($result_course);
+        }
 
         if($row_member['mb_level'] < 9 || empty($row_member['mb_level'])){ // 일반회원
           echo "
@@ -97,7 +98,7 @@ include_once('./common.php');
                 <li><a href='".$base_URL."sub/mypage/course_status.php' title=''>수강완료 강의<span>".$cnt_online_submit."</span></a></li>
               </ul>
             </div>
-            <p>".$row_course['course_title']."</p>
+            <a href='".$base_URL."sub/mypage/course_view.php?course_id=".$row_course['course_id']."'>".(empty($row_course['course_title']) ? '' : $row_course['course_title'])."</a>
             <a href='".$base_URL."sub/mypage/course_status.php'>더보기<i class='fas fa-play'></i></a>
           </div>
           ";
